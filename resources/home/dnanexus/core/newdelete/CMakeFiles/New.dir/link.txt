@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -O3 -g -DNDEBUG  -Wl,--no-undefined -shared -Wl,-soname,libNew.so -o ../../lib/libNew.so CMakeFiles/New.dir/src/MemCheck.cxx.o CMakeFiles/New.dir/src/NewDelete.cxx.o -Wl,-rpath,/home/dnanexus/lib: ../../lib/libCore.so 

@@ -1,0 +1,15 @@
+Library.vector<bool>:                       vector.dll vectorbool.dll
+Library.vector<char>:                       vector.dll vectorbool.dll
+Library.vector<short>:                      vector.dll vectorbool.dll
+Library.vector<long>:                       vector.dll vectorbool.dll
+Library.vector<unsigned-char>:              vector.dll vectorbool.dll
+Library.vector<unsigned-short>:             vector.dll vectorbool.dll
+Library.vector<unsigned-int>:               vector.dll vectorbool.dll
+Library.vector<unsigned-long>:              vector.dll vectorbool.dll
+Library.vector<float>:                      vector.dll vectorbool.dll
+Library.vector<double>:                     vector.dll vectorbool.dll
+Library.vector<char*>:                      vector.dll vectorbool.dll
+Library.vector<const-char*>:                vector.dll vectorbool.dll
+Library.vector<Long64_t>:                   vector.dll vectorbool.dll
+Library.vector<ULong64_t>:                  vector.dll vectorbool.dll
+Library.vector<void*>:                      vector.dll vectorbool.dll

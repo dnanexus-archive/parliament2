@@ -1,0 +1,5 @@
+
+      #define CLING_CXX_INCL "/usr/include/c++/4.8:/usr/include/x86_64-linux-gnu/c++/4.8:/usr/include/c++/4.8/backward"
+      #define CLING_CXX_RLTV "g++-4.8  -O3 -DNDEBUG"
+      #define CLING_INCLUDE_PATHS ""
+    

@@ -1,0 +1,2 @@
+Library.TMemStat:                           libMemStat.so libTree.so libGpad.so libGraf.so libHist.so libRIO.so
+Library.memstat@@TMemStatMng:               libMemStat.so libTree.so libGpad.so libGraf.so libHist.so libRIO.so

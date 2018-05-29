@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libclangASTMatchers.a  CMakeFiles/clangASTMatchers.dir/ASTMatchFinder.cpp.o CMakeFiles/clangASTMatchers.dir/ASTMatchersInternal.cpp.o
+/usr/bin/ranlib ../../../../lib/libclangASTMatchers.a

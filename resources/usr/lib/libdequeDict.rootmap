@@ -1,0 +1,6 @@
+Library.deque<int>:                         deque.dll
+Library.deque<long>:                        deque.dll
+Library.deque<float>:                       deque.dll
+Library.deque<double>:                      deque.dll
+Library.deque<void*>:                       deque.dll
+Library.deque<char*>:                       deque.dll

@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/core/scons_support.py

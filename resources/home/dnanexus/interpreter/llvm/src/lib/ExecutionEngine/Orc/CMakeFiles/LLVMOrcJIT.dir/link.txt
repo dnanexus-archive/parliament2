@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libLLVMOrcJIT.a  CMakeFiles/LLVMOrcJIT.dir/ExecutionUtils.cpp.o CMakeFiles/LLVMOrcJIT.dir/IndirectionUtils.cpp.o CMakeFiles/LLVMOrcJIT.dir/NullResolver.cpp.o CMakeFiles/LLVMOrcJIT.dir/OrcABISupport.cpp.o CMakeFiles/LLVMOrcJIT.dir/OrcCBindings.cpp.o CMakeFiles/LLVMOrcJIT.dir/OrcError.cpp.o CMakeFiles/LLVMOrcJIT.dir/OrcMCJITReplacement.cpp.o CMakeFiles/LLVMOrcJIT.dir/RPCUtils.cpp.o
+/usr/bin/ranlib ../../libLLVMOrcJIT.a

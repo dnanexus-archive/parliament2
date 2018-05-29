@@ -1,0 +1,5 @@
+Library.TPainter3dAlgorithms:               libHistPainter.so libGraf.so libHist.so libMatrix.so libMathCore.so libGpad.so
+Library.TGraph2DPainter:                    libHistPainter.so libGraf.so libHist.so libMatrix.so libMathCore.so libGpad.so
+Library.TGraphPainter:                      libHistPainter.so libGraf.so libHist.so libMatrix.so libMathCore.so libGpad.so
+Library.THistPainter:                       libHistPainter.so libGraf.so libHist.so libMatrix.so libMathCore.so libGpad.so
+Library.TPaletteAxis:                       libHistPainter.so libGraf.so libHist.so libMatrix.so libMathCore.so libGpad.so

@@ -1,0 +1,17 @@
+Library.TAttCanvas:                         libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TButton:                            libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TCanvas:                            libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TClassTree:                         libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TColorWheel:                        libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TControlBar:                        libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TControlBarButton:                  libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TDialogCanvas:                      libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TGroupButton:                       libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TInspectCanvas:                     libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TPad:                               libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TPaveClass:                         libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TSlider:                            libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TSliderBox:                         libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TView:                              libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TViewer3DPad:                       libGpad.so libGraf.so libHist.so libMathCore.so
+Library.TPadPainter:                        libGpad.so libGraf.so libHist.so libMathCore.so

@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/linalg/info.py

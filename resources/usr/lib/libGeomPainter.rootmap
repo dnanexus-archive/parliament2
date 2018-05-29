@@ -1,0 +1,4 @@
+Library.TGeoPainter:                        libGeomPainter.so libGeom.so libTree.so libGraf3d.so libHist.so libGpad.so libRIO.so libMathCore.so
+Library.TGeoChecker:                        libGeomPainter.so libGeom.so libTree.so libGraf3d.so libHist.so libGpad.so libRIO.so libMathCore.so
+Library.TGeoTrack:                          libGeomPainter.so libGeom.so libTree.so libGraf3d.so libHist.so libGpad.so libRIO.so libMathCore.so
+Library.TGeoOverlap:                        libGeomPainter.so libGeom.so libTree.so libGraf3d.so libHist.so libGpad.so libRIO.so libMathCore.so

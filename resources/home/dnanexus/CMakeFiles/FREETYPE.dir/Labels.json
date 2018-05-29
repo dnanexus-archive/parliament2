@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/dnanexus/CMakeFiles/FREETYPE"
+		},
+		{
+			"file" : "/home/dnanexus/CMakeFiles/FREETYPE.rule"
+		},
+		{
+			"file" : "/home/dnanexus/CMakeFiles/FREETYPE-complete.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-install.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-mkdir.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-download.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-update.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-patch.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-configure.rule"
+		},
+		{
+			"file" : "/home/dnanexus/FREETYPE-prefix/src/FREETYPE-stamp/FREETYPE-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"FREETYPE"
+		],
+		"name" : "FREETYPE"
+	}
+}

@@ -1,0 +1,6 @@
+Library.TXMLPlayer:                         libXMLIO.so libRIO.so
+Library.TXMLEngine:                         libXMLIO.so libRIO.so
+Library.TXMLSetup:                          libXMLIO.so libRIO.so
+Library.TXMLFile:                           libXMLIO.so libRIO.so
+Library.TBufferXML:                         libXMLIO.so libRIO.so
+Library.TKeyXML:                            libXMLIO.so libRIO.so

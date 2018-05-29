@@ -1,0 +1,24 @@
+{ decls }
+namespace std {  }
+
+[ libunordered_multimapDict.so ]
+# List of selected classes
+class unordered_multimap<char*,char*>
+class unordered_multimap<char*,double>
+class unordered_multimap<char*,int>
+class unordered_multimap<char*,long>
+class unordered_multimap<char*,void*>
+class unordered_multimap<double,char*>
+class unordered_multimap<double,double>
+class unordered_multimap<double,int>
+class unordered_multimap<double,long>
+class unordered_multimap<double,void*>
+class unordered_multimap<long,char*>
+class unordered_multimap<long,double>
+class unordered_multimap<long,int>
+class unordered_multimap<long,long>
+class unordered_multimap<long,void*>
+class unordered_multimap<string,double>
+class unordered_multimap<string,int>
+class unordered_multimap<string,long>
+class unordered_multimap<string,void*>

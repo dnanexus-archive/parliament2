@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/numpy/core/tests/test_scalarmath.py

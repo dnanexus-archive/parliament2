@@ -1,0 +1,7 @@
+Library.set<int>:                           set.dll
+Library.set<long>:                          set.dll
+Library.set<float>:                         set.dll
+Library.set<double>:                        set.dll
+Library.set<void*>:                         set.dll
+Library.set<char*>:                         set.dll
+Library.set<string>:                        set.dll

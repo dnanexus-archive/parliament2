@@ -1,0 +1,12 @@
+{ decls }
+namespace std {  }
+
+[ libunordered_setDict.so ]
+# List of selected classes
+class unordered_set<char*>
+class unordered_set<double>
+class unordered_set<float>
+class unordered_set<int>
+class unordered_set<long>
+class unordered_set<string>
+class unordered_set<void*>

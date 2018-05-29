@@ -1,0 +1,7 @@
+Library.multiset<int>:                      multiset.dll
+Library.multiset<long>:                     multiset.dll
+Library.multiset<float>:                    multiset.dll
+Library.multiset<double>:                   multiset.dll
+Library.multiset<void*>:                    multiset.dll
+Library.multiset<char*>:                    multiset.dll
+Library.multiset<string>:                   multiset.dll

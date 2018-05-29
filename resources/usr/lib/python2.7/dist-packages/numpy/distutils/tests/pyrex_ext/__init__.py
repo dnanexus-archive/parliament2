@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/numpy/distutils/tests/pyrex_ext/__init__.py

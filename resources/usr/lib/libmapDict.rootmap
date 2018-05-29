@@ -1,0 +1,11 @@
+Library.map<char*,int>:                     map.dll
+Library.map<char*,long>:                    map.dll
+Library.map<char*,float>:                   map.dll
+Library.map<char*,double>:                  map.dll
+Library.map<char*,void*>:                   map.dll
+Library.map<char*,char*>:                   map.dll
+Library.map<string,int>:                    map.dll
+Library.map<string,long>:                   map.dll
+Library.map<string,float>:                  map.dll
+Library.map<string,double>:                 map.dll
+Library.map<string,void*>:                  map.dll

@@ -1,0 +1,7 @@
+Library.list<int>:                          list.dll
+Library.list<long>:                         list.dll
+Library.list<float>:                        list.dll
+Library.list<double>:                       list.dll
+Library.list<void*>:                        list.dll
+Library.list<char*>:                        list.dll
+Library.list<string>:                       list.dll

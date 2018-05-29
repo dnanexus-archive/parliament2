@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/move_header_tmva_tmvagui"
+  "../../include/TMVA/BDT.h"
+  "../../include/TMVA/BDTControlPlots.h"
+  "../../include/TMVA/BDT_Reg.h"
+  "../../include/TMVA/BoostControlPlots.h"
+  "../../include/TMVA/CorrGui.h"
+  "../../include/TMVA/CorrGuiMultiClass.h"
+  "../../include/TMVA/MovieMaker.h"
+  "../../include/TMVA/PlotFoams.h"
+  "../../include/TMVA/TMVAGui.h"
+  "../../include/TMVA/TMVAMultiClassGui.h"
+  "../../include/TMVA/TMVARegGui.h"
+  "../../include/TMVA/annconvergencetest.h"
+  "../../include/TMVA/compareanapp.h"
+  "../../include/TMVA/correlations.h"
+  "../../include/TMVA/correlationsMultiClass.h"
+  "../../include/TMVA/correlationscatters.h"
+  "../../include/TMVA/correlationscattersMultiClass.h"
+  "../../include/TMVA/deviations.h"
+  "../../include/TMVA/efficiencies.h"
+  "../../include/TMVA/efficienciesMulticlass.h"
+  "../../include/TMVA/likelihoodrefs.h"
+  "../../include/TMVA/mvaeffs.h"
+  "../../include/TMVA/mvas.h"
+  "../../include/TMVA/mvasMulticlass.h"
+  "../../include/TMVA/mvaweights.h"
+  "../../include/TMVA/network.h"
+  "../../include/TMVA/paracoor.h"
+  "../../include/TMVA/probas.h"
+  "../../include/TMVA/regression_averagedevs.h"
+  "../../include/TMVA/rulevis.h"
+  "../../include/TMVA/rulevisCorr.h"
+  "../../include/TMVA/rulevisHists.h"
+  "../../include/TMVA/tmvaglob.h"
+  "../../include/TMVA/variables.h"
+  "../../include/TMVA/variablesMultiClass.h"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/move_header_tmva_tmvagui.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/oldnumeric/functions.py

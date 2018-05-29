@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/polynomial/__init__.py

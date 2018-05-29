@@ -1,0 +1,20 @@
+# This file is part of h5py, a Python interface to the HDF5 library.
+#
+# http://www.h5py.org
+#
+# Copyright 2008-2013 Andrew Collette and contributors
+#
+# License:  Standard 3-clause BSD; see "license.txt" for full license terms
+#           and contributor agreement.
+
+from __future__ import absolute_import
+
+from ._hl import filters
+from ._hl.base import is_hdf5, HLObject
+from ._hl.files import File
+from ._hl.group import Group, SoftLink, ExternalLink, HardLink
+from ._hl.dataset import Dataset
+from ._hl.datatype import Datatype
+from ._hl.attrs import AttributeManager
+
+

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../libLLVMBinaryFormat.a  CMakeFiles/LLVMBinaryFormat.dir/Dwarf.cpp.o CMakeFiles/LLVMBinaryFormat.dir/Magic.cpp.o
+/usr/bin/ranlib ../libLLVMBinaryFormat.a

@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/core/generate_numpy_api.py

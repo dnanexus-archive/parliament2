@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../../lib/libclangToolingCore.a  CMakeFiles/clangToolingCore.dir/Lookup.cpp.o CMakeFiles/clangToolingCore.dir/Replacement.cpp.o CMakeFiles/clangToolingCore.dir/QualTypeNames.cpp.o CMakeFiles/clangToolingCore.dir/Diagnostic.cpp.o
+/usr/bin/ranlib ../../../../../lib/libclangToolingCore.a

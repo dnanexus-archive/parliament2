@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/numpy/core/tests/test_iterator.py

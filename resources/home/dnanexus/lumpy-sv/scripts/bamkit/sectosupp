@@ -1,0 +1,3 @@
+#!/bin/bash
+
+awk '{ if ($0~"^@") { print; next } if (and($2,256)) $2=$2-256+2048; print }' OFS="\t"

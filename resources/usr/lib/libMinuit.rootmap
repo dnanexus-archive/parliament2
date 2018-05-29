@@ -1,0 +1,5 @@
+Library.TMinuit:                            libMinuit.so libGraf.so libHist.so libMatrix.so libMathCore.so
+Library.TFitter:                            libMinuit.so libGraf.so libHist.so libMatrix.so libMathCore.so
+Library.TLinearFitter:                      libMinuit.so libGraf.so libHist.so libMatrix.so libMathCore.so
+Library.TMinuitMinimizer:                   libMinuit.so libGraf.so libHist.so libMatrix.so libMathCore.so
+Library.TLinearMinimizer:                   libMinuit.so libGraf.so libHist.so libMatrix.so libMathCore.so

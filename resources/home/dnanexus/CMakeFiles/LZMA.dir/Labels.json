@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/dnanexus/CMakeFiles/LZMA"
+		},
+		{
+			"file" : "/home/dnanexus/CMakeFiles/LZMA.rule"
+		},
+		{
+			"file" : "/home/dnanexus/CMakeFiles/LZMA-complete.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-install.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-mkdir.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-download.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-update.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-patch.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-configure.rule"
+		},
+		{
+			"file" : "/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"LZMA"
+		],
+		"name" : "LZMA"
+	}
+}

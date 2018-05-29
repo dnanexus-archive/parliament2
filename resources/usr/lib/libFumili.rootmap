@@ -1,0 +1,2 @@
+Library.TFumili:                            libFumili.so libGraf.so libHist.so libMathCore.so
+Library.TFumiliMinimizer:                   libFumili.so libGraf.so libHist.so libMathCore.so

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../libLLVMXRay.a  CMakeFiles/LLVMXRay.dir/InstrumentationMap.cpp.o CMakeFiles/LLVMXRay.dir/Trace.cpp.o
+/usr/bin/ranlib ../libLLVMXRay.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../libLLVMX86Desc.a  CMakeFiles/LLVMX86Desc.dir/X86AsmBackend.cpp.o CMakeFiles/LLVMX86Desc.dir/X86MCTargetDesc.cpp.o CMakeFiles/LLVMX86Desc.dir/X86MCAsmInfo.cpp.o CMakeFiles/LLVMX86Desc.dir/X86MCCodeEmitter.cpp.o CMakeFiles/LLVMX86Desc.dir/X86MachObjectWriter.cpp.o CMakeFiles/LLVMX86Desc.dir/X86ELFObjectWriter.cpp.o CMakeFiles/LLVMX86Desc.dir/X86WinCOFFStreamer.cpp.o CMakeFiles/LLVMX86Desc.dir/X86WinCOFFObjectWriter.cpp.o
+/usr/bin/ranlib ../../../libLLVMX86Desc.a

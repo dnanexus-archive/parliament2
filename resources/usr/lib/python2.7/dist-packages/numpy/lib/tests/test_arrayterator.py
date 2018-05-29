@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/numpy/lib/tests/test_arrayterator.py

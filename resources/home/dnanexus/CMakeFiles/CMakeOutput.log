@@ -1,0 +1,2564 @@
+The system is: Linux - 4.4.0-116-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/dnanexus/CMakeFiles/3.11.0/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/dnanexus/CMakeFiles/3.11.0/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_01e79/fast"
+/usr/bin/make -f CMakeFiles/cmTC_01e79.dir/build.make CMakeFiles/cmTC_01e79.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01e79.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_01e79.dir/testCCompiler.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_01e79
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01e79.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_01e79.dir/testCCompiler.c.o  -o cmTC_01e79 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_430fd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_430fd.dir/build.make CMakeFiles/cmTC_430fd.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_430fd
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_430fd.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o  -o cmTC_430fd 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.4' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_430fd' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_430fd /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_430fd/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_430fd.dir/build.make CMakeFiles/cmTC_430fd.dir/build]
+  ignore line: [make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_430fd]
+  ignore line: [/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_430fd.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o  -o cmTC_430fd ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.4' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_430fd' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_430fd /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_430fd] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTC_430fd.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_596d9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_596d9.dir/build.make CMakeFiles/cmTC_596d9.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_596d9.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_596d9.dir/feature_tests.c.o   -c /home/dnanexus/CMakeFiles/feature_tests.c
+Linking C executable cmTC_596d9
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_596d9.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_596d9.dir/feature_tests.c.o  -o cmTC_596d9 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dd9ea/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dd9ea.dir/build.make CMakeFiles/cmTC_dd9ea.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd9ea.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_dd9ea.dir/feature_tests.c.o   -c /home/dnanexus/CMakeFiles/feature_tests.c
+Linking C executable cmTC_dd9ea
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd9ea.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_dd9ea.dir/feature_tests.c.o  -o cmTC_dd9ea 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_08920/fast"
+/usr/bin/make -f CMakeFiles/cmTC_08920.dir/build.make CMakeFiles/cmTC_08920.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_08920.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_08920.dir/feature_tests.c.o   -c /home/dnanexus/CMakeFiles/feature_tests.c
+Linking C executable cmTC_08920
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08920.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_08920.dir/feature_tests.c.o  -o cmTC_08920 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_169c0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_169c0.dir/build.make CMakeFiles/cmTC_169c0.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_169c0.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_169c0.dir/testCXXCompiler.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_169c0
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_169c0.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_169c0.dir/testCXXCompiler.cxx.o  -o cmTC_169c0 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_13d06/fast"
+/usr/bin/make -f CMakeFiles/cmTC_13d06.dir/build.make CMakeFiles/cmTC_13d06.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_13d06
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13d06.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_13d06 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.4' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_13d06' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_13d06 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_13d06/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_13d06.dir/build.make CMakeFiles/cmTC_13d06.dir/build]
+  ignore line: [make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_13d06]
+  ignore line: [/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13d06.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_13d06 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.4' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.4) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_13d06' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_13d06 /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/collect2] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_13d06] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..]
+    arg [CMakeFiles/cmTC_13d06.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8] ==> [/usr/lib/gcc/x86_64-linux-gnu/4.8]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/4.8/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/4.8;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1y] compiler features compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3b1a3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3b1a3.dir/build.make CMakeFiles/cmTC_3b1a3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3b1a3.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1y -o CMakeFiles/cmTC_3b1a3.dir/feature_tests.cxx.o -c /home/dnanexus/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_3b1a3
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b1a3.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_3b1a3.dir/feature_tests.cxx.o  -o cmTC_3b1a3 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7b06e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7b06e.dir/build.make CMakeFiles/cmTC_7b06e.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7b06e.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_7b06e.dir/feature_tests.cxx.o -c /home/dnanexus/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_7b06e
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b06e.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_7b06e.dir/feature_tests.cxx.o  -o cmTC_7b06e 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5b6b8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5b6b8.dir/build.make CMakeFiles/cmTC_5b6b8.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5b6b8.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_5b6b8.dir/feature_tests.cxx.o -c /home/dnanexus/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_5b6b8
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b6b8.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_5b6b8.dir/feature_tests.cxx.o  -o cmTC_5b6b8 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Performing C++ SOURCE FILE Test HAS_CXX11 succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_23ff4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_23ff4.dir/build.make CMakeFiles/cmTC_23ff4.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_23ff4.dir/src.cxx.o
+/usr/bin/c++    -DHAS_CXX11   -std=c++11 -o CMakeFiles/cmTC_23ff4.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_23ff4
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23ff4.dir/link.txt --verbose=1
+/usr/bin/c++   -DHAS_CXX11    CMakeFiles/cmTC_23ff4.dir/src.cxx.o  -o cmTC_23ff4 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fe3c2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fe3c2.dir/build.make CMakeFiles/cmTC_fe3c2.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fe3c2.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_fe3c2.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_fe3c2
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe3c2.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_fe3c2.dir/CheckIncludeFile.c.o  -o cmTC_fe3c2 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3a7c9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3a7c9.dir/build.make CMakeFiles/cmTC_3a7c9.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3a7c9.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3a7c9.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3a7c9
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3a7c9.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_3a7c9.dir/CheckFunctionExists.c.o  -o cmTC_3a7c9 -lpthread 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_94078/fast"
+/usr/bin/make -f CMakeFiles/cmTC_94078.dir/build.make CMakeFiles/cmTC_94078.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_94078.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_94078.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_94078
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94078.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -rdynamic  CMakeFiles/cmTC_94078.dir/CheckFunctionExists.c.o  -o cmTC_94078 /usr/lib/x86_64-linux-gnu/libX11.so 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f23e0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f23e0.dir/build.make CMakeFiles/cmTC_f23e0.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f23e0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_f23e0.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f23e0
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f23e0.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=gethostbyname   -rdynamic  CMakeFiles/cmTC_f23e0.dir/CheckFunctionExists.c.o  -o cmTC_f23e0 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_712bd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_712bd.dir/build.make CMakeFiles/cmTC_712bd.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_712bd.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_712bd.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_712bd
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_712bd.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=connect   -rdynamic  CMakeFiles/cmTC_712bd.dir/CheckFunctionExists.c.o  -o cmTC_712bd 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6b5bc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6b5bc.dir/build.make CMakeFiles/cmTC_6b5bc.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6b5bc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_6b5bc.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6b5bc
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b5bc.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=remove   -rdynamic  CMakeFiles/cmTC_6b5bc.dir/CheckFunctionExists.c.o  -o cmTC_6b5bc 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e8141/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e8141.dir/build.make CMakeFiles/cmTC_e8141.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e8141.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_e8141.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e8141
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8141.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=shmat   -rdynamic  CMakeFiles/cmTC_e8141.dir/CheckFunctionExists.c.o  -o cmTC_e8141 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test CXX_HAS_mno_rtm succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2b5e7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2b5e7.dir/build.make CMakeFiles/cmTC_2b5e7.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2b5e7.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DCXX_HAS_mno_rtm   -Werror -mno-rtm -o CMakeFiles/cmTC_2b5e7.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_2b5e7
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b5e7.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DCXX_HAS_mno_rtm   -rdynamic  CMakeFiles/cmTC_2b5e7.dir/src.cxx.o  -o cmTC_2b5e7 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if the function sgemm_ exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8b6c5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8b6c5.dir/build.make CMakeFiles/cmTC_8b6c5.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b6c5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_8b6c5.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8b6c5
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b6c5.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=sgemm_   -rdynamic  CMakeFiles/cmTC_8b6c5.dir/CheckFunctionExists.c.o  -o cmTC_8b6c5 /usr/lib/libblas.so 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test CXX_HAS_fvisibility_hidden succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_af75a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_af75a.dir/build.make CMakeFiles/cmTC_af75a.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_af75a.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DCXX_HAS_fvisibility_hidden   -Werror -fvisibility=hidden -o CMakeFiles/cmTC_af75a.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_af75a
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af75a.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DCXX_HAS_fvisibility_hidden   -rdynamic  CMakeFiles/cmTC_af75a.dir/src.cxx.o  -o cmTC_af75a 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if the include file dirent.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_17898/fast"
+/usr/bin/make -f CMakeFiles/cmTC_17898.dir/build.make CMakeFiles/cmTC_17898.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17898.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_17898.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_17898
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17898.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_17898.dir/CheckIncludeFile.c.o  -o cmTC_17898 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file dlfcn.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e1839/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e1839.dir/build.make CMakeFiles/cmTC_e1839.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1839.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_e1839.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e1839
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1839.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_e1839.dir/CheckIncludeFile.c.o  -o cmTC_e1839 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file errno.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a3ff5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a3ff5.dir/build.make CMakeFiles/cmTC_a3ff5.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a3ff5.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_a3ff5.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a3ff5
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3ff5.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_a3ff5.dir/CheckIncludeFile.c.o  -o cmTC_a3ff5 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file fcntl.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_86b0f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_86b0f.dir/build.make CMakeFiles/cmTC_86b0f.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86b0f.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_86b0f.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_86b0f
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86b0f.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_86b0f.dir/CheckIncludeFile.c.o  -o cmTC_86b0f -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bd13f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bd13f.dir/build.make CMakeFiles/cmTC_bd13f.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd13f.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_bd13f.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_bd13f
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd13f.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_bd13f.dir/CheckIncludeFile.c.o  -o cmTC_bd13f -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file link.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e2a7e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e2a7e.dir/build.make CMakeFiles/cmTC_e2a7e.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2a7e.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_e2a7e.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e2a7e
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e2a7e.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_e2a7e.dir/CheckIncludeFile.c.o  -o cmTC_e2a7e -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file malloc.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_89cab/fast"
+/usr/bin/make -f CMakeFiles/cmTC_89cab.dir/build.make CMakeFiles/cmTC_89cab.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_89cab.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_89cab.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_89cab
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89cab.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_89cab.dir/CheckIncludeFile.c.o  -o cmTC_89cab -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_af39d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_af39d.dir/build.make CMakeFiles/cmTC_af39d.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_af39d.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_af39d.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_af39d
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af39d.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_af39d.dir/CheckIncludeFile.c.o  -o cmTC_af39d -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file signal.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0ef47/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0ef47.dir/build.make CMakeFiles/cmTC_0ef47.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ef47.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_0ef47.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_0ef47
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ef47.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_0ef47.dir/CheckIncludeFile.c.o  -o cmTC_0ef47 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_51b1c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_51b1c.dir/build.make CMakeFiles/cmTC_51b1c.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_51b1c.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_51b1c.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_51b1c
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51b1c.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_51b1c.dir/CheckIncludeFile.c.o  -o cmTC_51b1c -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/dir.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_95dd3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_95dd3.dir/build.make CMakeFiles/cmTC_95dd3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_95dd3.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_95dd3.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_95dd3
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_95dd3.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_95dd3.dir/CheckIncludeFile.c.o  -o cmTC_95dd3 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/ioctl.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e3bf9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e3bf9.dir/build.make CMakeFiles/cmTC_e3bf9.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e3bf9.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_e3bf9.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e3bf9
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3bf9.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_e3bf9.dir/CheckIncludeFile.c.o  -o cmTC_e3bf9 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/mman.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c100d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c100d.dir/build.make CMakeFiles/cmTC_c100d.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c100d.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_c100d.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_c100d
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c100d.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_c100d.dir/CheckIncludeFile.c.o  -o cmTC_c100d -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/param.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0e618/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0e618.dir/build.make CMakeFiles/cmTC_0e618.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0e618.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_0e618.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_0e618
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e618.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_0e618.dir/CheckIncludeFile.c.o  -o cmTC_0e618 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/resource.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4c8d9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4c8d9.dir/build.make CMakeFiles/cmTC_4c8d9.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4c8d9.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_4c8d9.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_4c8d9
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c8d9.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_4c8d9.dir/CheckIncludeFile.c.o  -o cmTC_4c8d9 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/stat.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a34bb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a34bb.dir/build.make CMakeFiles/cmTC_a34bb.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a34bb.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_a34bb.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a34bb
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a34bb.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_a34bb.dir/CheckIncludeFile.c.o  -o cmTC_a34bb -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/time.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fda85/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fda85.dir/build.make CMakeFiles/cmTC_fda85.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fda85.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_fda85.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_fda85
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fda85.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_fda85.dir/CheckIncludeFile.c.o  -o cmTC_fda85 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ea915/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ea915.dir/build.make CMakeFiles/cmTC_ea915.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea915.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_ea915.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ea915
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea915.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_ea915.dir/CheckIncludeFile.c.o  -o cmTC_ea915 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/uio.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_12be8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_12be8.dir/build.make CMakeFiles/cmTC_12be8.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_12be8.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_12be8.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_12be8
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12be8.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_12be8.dir/CheckIncludeFile.c.o  -o cmTC_12be8 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file termios.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5d66e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5d66e.dir/build.make CMakeFiles/cmTC_5d66e.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5d66e.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_5d66e.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_5d66e
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d66e.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_5d66e.dir/CheckIncludeFile.c.o  -o cmTC_5d66e -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3709a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3709a.dir/build.make CMakeFiles/cmTC_3709a.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3709a.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_3709a.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_3709a
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3709a.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_3709a.dir/CheckIncludeFile.c.o  -o cmTC_3709a -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file zlib.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_af21a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_af21a.dir/build.make CMakeFiles/cmTC_af21a.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_af21a.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_af21a.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_af21a
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_af21a.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_af21a.dir/CheckIncludeFile.c.o  -o cmTC_af21a -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file fenv.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_61ca2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_61ca2.dir/build.make CMakeFiles/cmTC_61ca2.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_61ca2.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_61ca2.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_61ca2
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61ca2.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_61ca2.dir/CheckIncludeFile.c.o  -o cmTC_61ca2 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the FE_ALL_EXCEPT exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d5c8c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d5c8c.dir/build.make CMakeFiles/cmTC_d5c8c.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d5c8c.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_d5c8c.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d5c8c
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d5c8c.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_d5c8c.dir/CheckSymbolExists.c.o  -o cmTC_d5c8c -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fenv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef FE_ALL_EXCEPT
+  return ((int*)(&FE_ALL_EXCEPT))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the FE_INEXACT exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_590fe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_590fe.dir/build.make CMakeFiles/cmTC_590fe.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_590fe.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_590fe.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_590fe
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_590fe.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_590fe.dir/CheckSymbolExists.c.o  -o cmTC_590fe -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fenv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef FE_INEXACT
+  return ((int*)(&FE_INEXACT))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file linux/magic.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_63c08/fast"
+/usr/bin/make -f CMakeFiles/cmTC_63c08.dir/build.make CMakeFiles/cmTC_63c08.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_63c08.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_63c08.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_63c08
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_63c08.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_63c08.dir/CheckIncludeFile.c.o  -o cmTC_63c08 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_04334/fast"
+/usr/bin/make -f CMakeFiles/cmTC_04334.dir/build.make CMakeFiles/cmTC_04334.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_04334.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_04334.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_04334
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04334.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_create   -rdynamic  CMakeFiles/cmTC_04334.dir/CheckFunctionExists.c.o  -o cmTC_04334 -lpthread -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_getspecific exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1e9bb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1e9bb.dir/build.make CMakeFiles/cmTC_1e9bb.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1e9bb.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_getspecific   -o CMakeFiles/cmTC_1e9bb.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1e9bb
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1e9bb.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_getspecific   -rdynamic  CMakeFiles/cmTC_1e9bb.dir/CheckFunctionExists.c.o  -o cmTC_1e9bb -lpthread -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_rwlock_init exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_08ed8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_08ed8.dir/build.make CMakeFiles/cmTC_08ed8.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_08ed8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_rwlock_init   -o CMakeFiles/cmTC_08ed8.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_08ed8
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08ed8.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_rwlock_init   -rdynamic  CMakeFiles/cmTC_08ed8.dir/CheckFunctionExists.c.o  -o cmTC_08ed8 -lpthread -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_mutex_lock exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_406e2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_406e2.dir/build.make CMakeFiles/cmTC_406e2.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_406e2.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_mutex_lock   -o CMakeFiles/cmTC_406e2.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_406e2
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_406e2.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_mutex_lock   -rdynamic  CMakeFiles/cmTC_406e2.dir/CheckFunctionExists.c.o  -o cmTC_406e2 -lpthread -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function dlopen exists in the dl passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b210f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b210f.dir/build.make CMakeFiles/cmTC_b210f.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b210f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=dlopen   -o CMakeFiles/cmTC_b210f.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b210f
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b210f.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=dlopen   -rdynamic  CMakeFiles/cmTC_b210f.dir/CheckFunctionExists.c.o  -o cmTC_b210f -ldl -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function clock_gettime exists in the rt passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0e9a1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0e9a1.dir/build.make CMakeFiles/cmTC_0e9a1.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0e9a1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=clock_gettime   -o CMakeFiles/cmTC_0e9a1.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0e9a1
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e9a1.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=clock_gettime   -rdynamic  CMakeFiles/cmTC_0e9a1.dir/CheckFunctionExists.c.o  -o cmTC_0e9a1 -lrt -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function setupterm exists in the tinfo passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dcc9e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dcc9e.dir/build.make CMakeFiles/cmTC_dcc9e.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dcc9e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=setupterm   -o CMakeFiles/cmTC_dcc9e.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dcc9e
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dcc9e.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=setupterm   -rdynamic  CMakeFiles/cmTC_dcc9e.dir/CheckFunctionExists.c.o  -o cmTC_dcc9e -ltinfo -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the backtrace exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4b66e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4b66e.dir/build.make CMakeFiles/cmTC_4b66e.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b66e.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_4b66e.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4b66e
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b66e.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_4b66e.dir/CheckSymbolExists.c.o  -o cmTC_4b66e 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <execinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef backtrace
+  return ((int*)(&backtrace))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the _Unwind_Backtrace exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8148c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8148c.dir/build.make CMakeFiles/cmTC_8148c.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8148c.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_8148c.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8148c
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8148c.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_8148c.dir/CheckSymbolExists.c.o  -o cmTC_8148c -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unwind.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _Unwind_Backtrace
+  return ((int*)(&_Unwind_Backtrace))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getpagesize exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bf9db/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bf9db.dir/build.make CMakeFiles/cmTC_bf9db.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bf9db.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_bf9db.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bf9db
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf9db.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_bf9db.dir/CheckSymbolExists.c.o  -o cmTC_bf9db -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getpagesize
+  return ((int*)(&getpagesize))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the sysconf exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c25c6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c25c6.dir/build.make CMakeFiles/cmTC_c25c6.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c25c6.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_c25c6.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c25c6
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c25c6.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_c25c6.dir/CheckSymbolExists.c.o  -o cmTC_c25c6 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysconf
+  return ((int*)(&sysconf))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getrusage exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1908d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1908d.dir/build.make CMakeFiles/cmTC_1908d.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1908d.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_1908d.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_1908d
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1908d.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_1908d.dir/CheckSymbolExists.c.o  -o cmTC_1908d -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/resource.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getrusage
+  return ((int*)(&getrusage))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the setrlimit exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c1092/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1092.dir/build.make CMakeFiles/cmTC_c1092.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c1092.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_c1092.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c1092
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c1092.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_c1092.dir/CheckSymbolExists.c.o  -o cmTC_c1092 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/resource.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setrlimit
+  return ((int*)(&setrlimit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the isatty exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7dbaa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7dbaa.dir/build.make CMakeFiles/cmTC_7dbaa.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7dbaa.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_7dbaa.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_7dbaa
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7dbaa.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_7dbaa.dir/CheckSymbolExists.c.o  -o cmTC_7dbaa -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef isatty
+  return ((int*)(&isatty))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the futimens exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8a813/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8a813.dir/build.make CMakeFiles/cmTC_8a813.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a813.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_8a813.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8a813
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a813.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_8a813.dir/CheckSymbolExists.c.o  -o cmTC_8a813 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/stat.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef futimens
+  return ((int*)(&futimens))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the futimes exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_75fcc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_75fcc.dir/build.make CMakeFiles/cmTC_75fcc.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_75fcc.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_75fcc.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_75fcc
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75fcc.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_75fcc.dir/CheckSymbolExists.c.o  -o cmTC_75fcc -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef futimes
+  return ((int*)(&futimes))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the posix_fallocate exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0664f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0664f.dir/build.make CMakeFiles/cmTC_0664f.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0664f.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_0664f.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_0664f
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0664f.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_0664f.dir/CheckSymbolExists.c.o  -o cmTC_0664f -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fcntl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_fallocate
+  return ((int*)(&posix_fallocate))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the sigaltstack exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_add86/fast"
+/usr/bin/make -f CMakeFiles/cmTC_add86.dir/build.make CMakeFiles/cmTC_add86.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_add86.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_add86.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_add86
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_add86.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_add86.dir/CheckSymbolExists.c.o  -o cmTC_add86 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <signal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sigaltstack
+  return ((int*)(&sigaltstack))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the writev exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ec420/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec420.dir/build.make CMakeFiles/cmTC_ec420.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ec420.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_ec420.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ec420
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec420.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_ec420.dir/CheckSymbolExists.c.o  -o cmTC_ec420 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/uio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef writev
+  return ((int*)(&writev))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the lseek64 exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_72c8b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_72c8b.dir/build.make CMakeFiles/cmTC_72c8b.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72c8b.dir/CheckSymbolExists.c.o
+/usr/bin/cc -D_LARGEFILE64_SOURCE  -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_72c8b.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_72c8b
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72c8b.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_72c8b.dir/CheckSymbolExists.c.o  -o cmTC_72c8b -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef lseek64
+  return ((int*)(&lseek64))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the mallinfo exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b4423/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b4423.dir/build.make CMakeFiles/cmTC_b4423.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b4423.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_b4423.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_b4423
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b4423.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_b4423.dir/CheckSymbolExists.c.o  -o cmTC_b4423 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mallinfo
+  return ((int*)(&mallinfo))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the mkdtemp exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fb539/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fb539.dir/build.make CMakeFiles/cmTC_fb539.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb539.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_fb539.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_fb539
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb539.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_fb539.dir/CheckSymbolExists.c.o  -o cmTC_fb539 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mkdtemp
+  return ((int*)(&mkdtemp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the mkstemp exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d01d4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d01d4.dir/build.make CMakeFiles/cmTC_d01d4.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d01d4.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_d01d4.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d01d4
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d01d4.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_d01d4.dir/CheckSymbolExists.c.o  -o cmTC_d01d4 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mkstemp
+  return ((int*)(&mkstemp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the mktemp exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2677a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2677a.dir/build.make CMakeFiles/cmTC_2677a.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2677a.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_2677a.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2677a
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2677a.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_2677a.dir/CheckSymbolExists.c.o  -o cmTC_2677a -lm 
+CMakeFiles/cmTC_2677a.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): warning: the use of `mktemp' is dangerous, better use `mkstemp' or `mkdtemp'
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mktemp
+  return ((int*)(&mktemp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getcwd exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5b187/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5b187.dir/build.make CMakeFiles/cmTC_5b187.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5b187.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_5b187.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5b187
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b187.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_5b187.dir/CheckSymbolExists.c.o  -o cmTC_5b187 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getcwd
+  return ((int*)(&getcwd))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the gettimeofday exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d13d3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d13d3.dir/build.make CMakeFiles/cmTC_d13d3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d13d3.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_d13d3.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_d13d3
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d13d3.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_d13d3.dir/CheckSymbolExists.c.o  -o cmTC_d13d3 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gettimeofday
+  return ((int*)(&gettimeofday))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getrlimit exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f0b49/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f0b49.dir/build.make CMakeFiles/cmTC_f0b49.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f0b49.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_f0b49.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_f0b49
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f0b49.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_f0b49.dir/CheckSymbolExists.c.o  -o cmTC_f0b49 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/types.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getrlimit
+  return ((int*)(&getrlimit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the posix_spawn exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e06db/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e06db.dir/build.make CMakeFiles/cmTC_e06db.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e06db.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_e06db.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_e06db
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e06db.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_e06db.dir/CheckSymbolExists.c.o  -o cmTC_e06db -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <spawn.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef posix_spawn
+  return ((int*)(&posix_spawn))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the pread exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2231a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2231a.dir/build.make CMakeFiles/cmTC_2231a.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2231a.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_2231a.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2231a
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2231a.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_2231a.dir/CheckSymbolExists.c.o  -o cmTC_2231a -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pread
+  return ((int*)(&pread))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the realpath exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a0b87/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a0b87.dir/build.make CMakeFiles/cmTC_a0b87.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a0b87.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_a0b87.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a0b87
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0b87.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_a0b87.dir/CheckSymbolExists.c.o  -o cmTC_a0b87 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef realpath
+  return ((int*)(&realpath))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the sbrk exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bea4d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bea4d.dir/build.make CMakeFiles/cmTC_bea4d.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bea4d.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_bea4d.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bea4d
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bea4d.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_bea4d.dir/CheckSymbolExists.c.o  -o cmTC_bea4d -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sbrk
+  return ((int*)(&sbrk))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strtoll exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_be7fb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_be7fb.dir/build.make CMakeFiles/cmTC_be7fb.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_be7fb.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_be7fb.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_be7fb
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be7fb.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_be7fb.dir/CheckSymbolExists.c.o  -o cmTC_be7fb -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoll
+  return ((int*)(&strtoll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strerror exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_963d7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_963d7.dir/build.make CMakeFiles/cmTC_963d7.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_963d7.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_963d7.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_963d7
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_963d7.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_963d7.dir/CheckSymbolExists.c.o  -o cmTC_963d7 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strerror
+  return ((int*)(&strerror))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strerror_r exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_47248/fast"
+/usr/bin/make -f CMakeFiles/cmTC_47248.dir/build.make CMakeFiles/cmTC_47248.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_47248.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_47248.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_47248
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47248.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_47248.dir/CheckSymbolExists.c.o  -o cmTC_47248 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strerror_r
+  return ((int*)(&strerror_r))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the setenv exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_72f61/fast"
+/usr/bin/make -f CMakeFiles/cmTC_72f61.dir/build.make CMakeFiles/cmTC_72f61.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72f61.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_72f61.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_72f61
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72f61.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_72f61.dir/CheckSymbolExists.c.o  -o cmTC_72f61 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setenv
+  return ((int*)(&setenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the dlopen exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_21682/fast"
+/usr/bin/make -f CMakeFiles/cmTC_21682.dir/build.make CMakeFiles/cmTC_21682.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_21682.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_21682.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_21682
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_21682.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_21682.dir/CheckSymbolExists.c.o  -o cmTC_21682 -lm -ldl 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <dlfcn.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dlopen
+  return ((int*)(&dlopen))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the __GLIBC__ exist passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5b052/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5b052.dir/build.make CMakeFiles/cmTC_5b052.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5b052.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_5b052.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5b052
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b052.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread    -rdynamic  CMakeFiles/cmTC_5b052.dir/CheckSymbolExists.c.o  -o cmTC_5b052 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __GLIBC__
+  return ((int*)(&__GLIBC__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_getname_np exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ea517/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ea517.dir/build.make CMakeFiles/cmTC_ea517.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ea517.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_getname_np   -o CMakeFiles/cmTC_ea517.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ea517
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea517.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_getname_np   -rdynamic  CMakeFiles/cmTC_ea517.dir/CheckFunctionExists.c.o  -o cmTC_ea517 -lpthread -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_setname_np exists in the pthread passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e4b5e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e4b5e.dir/build.make CMakeFiles/cmTC_e4b5e.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4b5e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_setname_np   -o CMakeFiles/cmTC_e4b5e.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e4b5e
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4b5e.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=pthread_setname_np   -rdynamic  CMakeFiles/cmTC_e4b5e.dir/CheckFunctionExists.c.o  -o cmTC_e4b5e -lpthread -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test HAVE_INT64_T succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5059b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5059b.dir/build.make CMakeFiles/cmTC_5059b.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5059b.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_INT64_T   -o CMakeFiles/cmTC_5059b.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5059b
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5059b.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_INT64_T   -rdynamic  CMakeFiles/cmTC_5059b.dir/src.cxx.o  -o cmTC_5059b -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include<sys/types.h>
+#include<inttypes.h>
+#include<stdint.h>
+ int64_t typeVar;
+    int main() {
+        return 0;
+    }
+    
+Performing C++ SOURCE FILE Test HAVE_UINT64_T succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_82d80/fast"
+/usr/bin/make -f CMakeFiles/cmTC_82d80.dir/build.make CMakeFiles/cmTC_82d80.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_82d80.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_UINT64_T   -o CMakeFiles/cmTC_82d80.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_82d80
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82d80.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_UINT64_T   -rdynamic  CMakeFiles/cmTC_82d80.dir/src.cxx.o  -o cmTC_82d80 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include<sys/types.h>
+#include<inttypes.h>
+#include<stdint.h>
+ uint64_t typeVar;
+    int main() {
+        return 0;
+    }
+    
+Performing C++ SOURCE FILE Test HAVE_U_INT64_T succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c8957/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c8957.dir/build.make CMakeFiles/cmTC_c8957.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c8957.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_U_INT64_T   -o CMakeFiles/cmTC_c8957.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c8957
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8957.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_U_INT64_T   -rdynamic  CMakeFiles/cmTC_c8957.dir/src.cxx.o  -o cmTC_c8957 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include<sys/types.h>
+#include<inttypes.h>
+#include<stdint.h>
+ u_int64_t typeVar;
+    int main() {
+        return 0;
+    }
+    
+Performing C++ SOURCE FILE Test HAVE_CXX_ATOMICS_WITHOUT_LIB succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a2375/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a2375.dir/build.make CMakeFiles/cmTC_a2375.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a2375.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_CXX_ATOMICS_WITHOUT_LIB -std=c++11   -o CMakeFiles/cmTC_a2375.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a2375
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2375.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_CXX_ATOMICS_WITHOUT_LIB -std=c++11   -rdynamic  CMakeFiles/cmTC_a2375.dir/src.cxx.o  -o cmTC_a2375 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <atomic>
+std::atomic<int> x;
+int main() {
+  return x;
+}
+
+Performing C++ SOURCE FILE Test HAVE_CXX_ATOMICS64_WITHOUT_LIB succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3704d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3704d.dir/build.make CMakeFiles/cmTC_3704d.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3704d.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_CXX_ATOMICS64_WITHOUT_LIB -std=c++11   -o CMakeFiles/cmTC_3704d.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx: In function 'int main()':
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:6:12: warning: unused variable 'i' [-Wunused-variable]
+   uint64_t i = x.load(std::memory_order_relaxed);
+            ^
+Linking CXX executable cmTC_3704d
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3704d.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAVE_CXX_ATOMICS64_WITHOUT_LIB -std=c++11   -rdynamic  CMakeFiles/cmTC_3704d.dir/src.cxx.o  -o cmTC_3704d -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <atomic>
+#include <cstdint>
+std::atomic<uint64_t> x (0);
+int main() {
+  uint64_t i = x.load(std::memory_order_relaxed);
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test LLVM_HAS_ATOMICS succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c10d8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c10d8.dir/build.make CMakeFiles/cmTC_c10d8.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c10d8.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DLLVM_HAS_ATOMICS   -o CMakeFiles/cmTC_c10d8.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c10d8
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c10d8.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DLLVM_HAS_ATOMICS   -rdynamic  CMakeFiles/cmTC_c10d8.dir/src.cxx.o  -o cmTC_c10d8 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#ifdef _MSC_VER
+#include <Intrin.h> /* Workaround for PR19898. */
+#include <windows.h>
+#endif
+int main() {
+#ifdef _MSC_VER
+        volatile LONG val = 1;
+        MemoryBarrier();
+        InterlockedCompareExchange(&val, 0, 1);
+        InterlockedIncrement(&val);
+        InterlockedDecrement(&val);
+#else
+        volatile unsigned long val = 1;
+        __sync_synchronize();
+        __sync_val_compare_and_swap(&val, 1, 0);
+        __sync_add_and_fetch(&val, 1);
+        __sync_sub_and_fetch(&val, 1);
+#endif
+        return 0;
+      }
+
+Performing C++ SOURCE FILE Test SUPPORTS_VARIADIC_MACROS_FLAG succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f41f9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f41f9.dir/build.make CMakeFiles/cmTC_f41f9.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f41f9.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DSUPPORTS_VARIADIC_MACROS_FLAG   -Wvariadic-macros -o CMakeFiles/cmTC_f41f9.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f41f9
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f41f9.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DSUPPORTS_VARIADIC_MACROS_FLAG   -rdynamic  CMakeFiles/cmTC_f41f9.dir/src.cxx.o  -o cmTC_f41f9 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test HAS_MAYBE_UNINITIALIZED succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_44d6b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_44d6b.dir/build.make CMakeFiles/cmTC_44d6b.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_44d6b.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAS_MAYBE_UNINITIALIZED   -Wmaybe-uninitialized -o CMakeFiles/cmTC_44d6b.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_44d6b
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44d6b.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DHAS_MAYBE_UNINITIALIZED   -rdynamic  CMakeFiles/cmTC_44d6b.dir/src.cxx.o  -o cmTC_44d6b -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_FPIC succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dfef7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dfef7.dir/build.make CMakeFiles/cmTC_dfef7.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dfef7.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DC_SUPPORTS_FPIC   -Werror -fPIC -o CMakeFiles/cmTC_dfef7.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_dfef7
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfef7.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DC_SUPPORTS_FPIC   -rdynamic  CMakeFiles/cmTC_dfef7.dir/src.c.o  -o cmTC_dfef7 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FPIC succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a0b33/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a0b33.dir/build.make CMakeFiles/cmTC_a0b33.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a0b33.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DCXX_SUPPORTS_FPIC   -Werror -fPIC -o CMakeFiles/cmTC_a0b33.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_a0b33
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0b33.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DCXX_SUPPORTS_FPIC   -rdynamic  CMakeFiles/cmTC_a0b33.dir/src.cxx.o  -o cmTC_a0b33 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_818b3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_818b3.dir/build.make CMakeFiles/cmTC_818b3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_818b3.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -DSUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG   -fvisibility-inlines-hidden -o CMakeFiles/cmTC_818b3.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_818b3
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_818b3.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -DSUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG   -rdynamic  CMakeFiles/cmTC_818b3.dir/src.cxx.o  -o cmTC_818b3 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CXX11 succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_98b00/fast"
+/usr/bin/make -f CMakeFiles/cmTC_98b00.dir/build.make CMakeFiles/cmTC_98b00.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_98b00.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -DCXX_SUPPORTS_CXX11   -std=c++11 -o CMakeFiles/cmTC_98b00.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_98b00
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98b00.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -DCXX_SUPPORTS_CXX11   -rdynamic  CMakeFiles/cmTC_98b00.dir/src.cxx.o  -o cmTC_98b00 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_FUNCTION_SECTIONS succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c95d1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c95d1.dir/build.make CMakeFiles/cmTC_c95d1.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c95d1.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -DC_SUPPORTS_FNO_FUNCTION_SECTIONS   -Werror -fno-function-sections -o CMakeFiles/cmTC_c95d1.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_c95d1
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c95d1.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -DC_SUPPORTS_FNO_FUNCTION_SECTIONS   -rdynamic  CMakeFiles/cmTC_c95d1.dir/src.c.o  -o cmTC_c95d1 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_FFUNCTION_SECTIONS succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_432c2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_432c2.dir/build.make CMakeFiles/cmTC_432c2.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_432c2.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -DC_SUPPORTS_FFUNCTION_SECTIONS   -Werror -ffunction-sections -o CMakeFiles/cmTC_432c2.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_432c2
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_432c2.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -DC_SUPPORTS_FFUNCTION_SECTIONS   -rdynamic  CMakeFiles/cmTC_432c2.dir/src.c.o  -o cmTC_432c2 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FFUNCTION_SECTIONS succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2abc4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2abc4.dir/build.make CMakeFiles/cmTC_2abc4.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2abc4.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -DCXX_SUPPORTS_FFUNCTION_SECTIONS   -Werror -ffunction-sections -o CMakeFiles/cmTC_2abc4.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_2abc4
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2abc4.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -DCXX_SUPPORTS_FFUNCTION_SECTIONS   -rdynamic  CMakeFiles/cmTC_2abc4.dir/src.cxx.o  -o cmTC_2abc4 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_FDATA_SECTIONS succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e3250/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e3250.dir/build.make CMakeFiles/cmTC_e3250.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e3250.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -ffunction-sections -DC_SUPPORTS_FDATA_SECTIONS   -Werror -fdata-sections -o CMakeFiles/cmTC_e3250.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e3250
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e3250.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -ffunction-sections -DC_SUPPORTS_FDATA_SECTIONS   -rdynamic  CMakeFiles/cmTC_e3250.dir/src.c.o  -o cmTC_e3250 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FDATA_SECTIONS succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0eef3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0eef3.dir/build.make CMakeFiles/cmTC_0eef3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0eef3.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -DCXX_SUPPORTS_FDATA_SECTIONS   -Werror -fdata-sections -o CMakeFiles/cmTC_0eef3.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_0eef3
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0eef3.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -DCXX_SUPPORTS_FDATA_SECTIONS   -rdynamic  CMakeFiles/cmTC_0eef3.dir/src.cxx.o  -o cmTC_0eef3 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Determining if the include file sys/resource.h exists passed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_178a1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_178a1.dir/build.make CMakeFiles/cmTC_178a1.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_178a1.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -ffunction-sections -fdata-sections    -o CMakeFiles/cmTC_178a1.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_178a1
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_178a1.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -fPIC -w -ffunction-sections -fdata-sections    -rdynamic -Wl,-allow-shlib-undefined  CMakeFiles/cmTC_178a1.dir/CheckIncludeFile.c.o  -o cmTC_178a1 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test CXX_HAS_Wno_nested_anon_types succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_09449/fast"
+/usr/bin/make -f CMakeFiles/cmTC_09449.dir/build.make CMakeFiles/cmTC_09449.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_09449.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -DCXX_HAS_Wno_nested_anon_types   -Wno-nested-anon-types -o CMakeFiles/cmTC_09449.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_09449
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09449.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -DCXX_HAS_Wno_nested_anon_types   -rdynamic -Wl,-allow-shlib-undefined  CMakeFiles/cmTC_09449.dir/src.cxx.o  -o cmTC_09449 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_HAS_Wno_covered_switch_default succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d65c8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d65c8.dir/build.make CMakeFiles/cmTC_d65c8.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d65c8.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -Wno-nested-anon-types -DCXX_HAS_Wno_covered_switch_default   -Wno-covered-switch-default -o CMakeFiles/cmTC_d65c8.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_d65c8
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d65c8.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -Wno-nested-anon-types -DCXX_HAS_Wno_covered_switch_default   -rdynamic -Wl,-allow-shlib-undefined  CMakeFiles/cmTC_d65c8.dir/src.cxx.o  -o cmTC_d65c8 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_HAS_Wno_unused_local_typedef succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_97da9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_97da9.dir/build.make CMakeFiles/cmTC_97da9.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_97da9.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -Wno-nested-anon-types -Wno-covered-switch-default -DCXX_HAS_Wno_unused_local_typedef   -Wno-unused-local-typedef -o CMakeFiles/cmTC_97da9.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_97da9
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97da9.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -Wno-nested-anon-types -Wno-covered-switch-default -DCXX_HAS_Wno_unused_local_typedef   -rdynamic -Wl,-allow-shlib-undefined  CMakeFiles/cmTC_97da9.dir/src.cxx.o  -o cmTC_97da9 -lm 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_HAS_Wno_maybe_uninitialized succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f48cc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f48cc.dir/build.make CMakeFiles/cmTC_f48cc.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f48cc.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -Wno-shadow -fno-strict-aliasing -Wno-unused-parameter -Wwrite-strings -Wno-long-long -Wno-missing-field-initializers  -DLLVM_BUILD_GLOBAL_ISEL -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -DCXX_HAS_Wno_maybe_uninitialized   -Werror -Wno-maybe-uninitialized -o CMakeFiles/cmTC_f48cc.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_f48cc
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f48cc.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -Wno-shadow -fno-strict-aliasing -Wno-unused-parameter -Wwrite-strings -Wno-long-long -Wno-missing-field-initializers  -DLLVM_BUILD_GLOBAL_ISEL -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -DCXX_HAS_Wno_maybe_uninitialized   -rdynamic  CMakeFiles/cmTC_f48cc.dir/src.cxx.o  -o cmTC_f48cc 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_HAS_fno_rtti succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_98a86/fast"
+/usr/bin/make -f CMakeFiles/cmTC_98a86.dir/build.make CMakeFiles/cmTC_98a86.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_98a86.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -Wno-shadow -fno-strict-aliasing -Wno-unused-parameter -Wwrite-strings -Wno-long-long -Wno-missing-field-initializers  -DLLVM_BUILD_GLOBAL_ISEL -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -DCXX_HAS_fno_rtti   -fno-rtti -o CMakeFiles/cmTC_98a86.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_98a86
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_98a86.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -Wno-shadow -fno-strict-aliasing -Wno-unused-parameter -Wwrite-strings -Wno-long-long -Wno-missing-field-initializers  -DLLVM_BUILD_GLOBAL_ISEL -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -DCXX_HAS_fno_rtti   -rdynamic  CMakeFiles/cmTC_98a86.dir/src.cxx.o  -o cmTC_98a86 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C SOURCE FILE Test C_HAS_Wno_strict_overflow succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_742c3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_742c3.dir/build.make CMakeFiles/cmTC_742c3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_742c3.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DC_HAS_Wno_strict_overflow   -Werror -Wno-strict-overflow -o CMakeFiles/cmTC_742c3.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_742c3
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_742c3.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DC_HAS_Wno_strict_overflow   -rdynamic  CMakeFiles/cmTC_742c3.dir/src.c.o  -o cmTC_742c3 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_HAS_Wno_maybe_uninitialized succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4e2bb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4e2bb.dir/build.make CMakeFiles/cmTC_4e2bb.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4e2bb.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DC_HAS_Wno_maybe_uninitialized   -Werror -Wno-maybe-uninitialized -o CMakeFiles/cmTC_4e2bb.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4e2bb
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e2bb.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DC_HAS_Wno_maybe_uninitialized   -rdynamic  CMakeFiles/cmTC_4e2bb.dir/src.c.o  -o cmTC_4e2bb 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_HAS_Wno_parentheses_equality succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0d351/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0d351.dir/build.make CMakeFiles/cmTC_0d351.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0d351.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DC_HAS_Wno_parentheses_equality   -Werror -Wno-parentheses-equality -o CMakeFiles/cmTC_0d351.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0d351
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d351.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DC_HAS_Wno_parentheses_equality   -rdynamic  CMakeFiles/cmTC_0d351.dir/src.c.o  -o cmTC_0d351 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_HAS_fno_strict_aliasing succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b5dd0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b5dd0.dir/build.make CMakeFiles/cmTC_b5dd0.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b5dd0.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DCXX_HAS_fno_strict_aliasing   -Werror -fno-strict-aliasing -o CMakeFiles/cmTC_b5dd0.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_b5dd0
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5dd0.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DCXX_HAS_fno_strict_aliasing   -rdynamic  CMakeFiles/cmTC_b5dd0.dir/src.cxx.o  -o cmTC_b5dd0 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_HAS_Wno_parentheses_equality succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fc91b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fc91b.dir/build.make CMakeFiles/cmTC_fc91b.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fc91b.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fno-strict-aliasing -DCXX_HAS_Wno_parentheses_equality   -Werror -Wno-parentheses-equality -o CMakeFiles/cmTC_fc91b.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_fc91b
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc91b.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fno-strict-aliasing -DCXX_HAS_Wno_parentheses_equality   -rdynamic  CMakeFiles/cmTC_fc91b.dir/src.cxx.o  -o cmTC_fc91b 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test found_setresuid succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c0247/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c0247.dir/build.make CMakeFiles/cmTC_c0247.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c0247.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_setresuid   -o CMakeFiles/cmTC_c0247.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c0247
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c0247.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_setresuid   -rdynamic  CMakeFiles/cmTC_c0247.dir/src.cxx.o  -o cmTC_c0247 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <unistd.h>
+  int main() { uid_t r = 0, e = 0, s = 0; if (setresuid(r, e, s) != 0) { }; return 0;}
+Performing C++ SOURCE FILE Test found_attribute_always_inline succeeded with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bc975/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bc975.dir/build.make CMakeFiles/cmTC_bc975.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_bc975.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_attribute_always_inline   -o CMakeFiles/cmTC_bc975.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_bc975
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bc975.dir/link.txt --verbose=1
+/usr/bin/c++   -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_attribute_always_inline   -rdynamic  CMakeFiles/cmTC_bc975.dir/src.cxx.o  -o cmTC_bc975 
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+inline __attribute__((always_inline)) bool TestBit(unsigned long f) { return f != 0; };
+int main() { return TestBit(0); }

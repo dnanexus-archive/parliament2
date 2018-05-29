@@ -1,0 +1,369 @@
+import warnings
+
+import numpy as np
+from scipy.sparse import csr_matrix
+
+from sklearn.utils.testing import assert_almost_equal
+from sklearn.utils.testing import assert_array_almost_equal
+from sklearn.utils.testing import assert_true
+from sklearn.utils.testing import assert_equal
+from sklearn.utils.testing import assert_less, assert_greater
+
+from sklearn import datasets
+from sklearn.decomposition import PCA
+from sklearn.decomposition import ProbabilisticPCA
+from sklearn.decomposition import RandomizedPCA
+from sklearn.decomposition.pca import _assess_dimension_
+from sklearn.decomposition.pca import _infer_dimension_
+
+iris = datasets.load_iris()
+
+
+def test_pca():
+    """PCA on dense arrays"""
+    pca = PCA(n_components=2)
+    X = iris.data
+    X_r = pca.fit(X).transform(X)
+    np.testing.assert_equal(X_r.shape[1], 2)
+
+    X_r2 = pca.fit_transform(X)
+    assert_array_almost_equal(X_r, X_r2)
+
+    pca = PCA()
+    pca.fit(X)
+    assert_almost_equal(pca.explained_variance_ratio_.sum(), 1.0, 3)
+
+    X_r = pca.transform(X)
+    X_r2 = pca.fit_transform(X)
+
+    assert_array_almost_equal(X_r, X_r2)
+
+
+def test_whitening():
+    """Check that PCA output has unit-variance"""
+    rng = np.random.RandomState(0)
+    n_samples = 100
+    n_features = 80
+    n_components = 30
+    rank = 50
+
+    # some low rank data with correlated features
+    X = np.dot(rng.randn(n_samples, rank),
+               np.dot(np.diag(np.linspace(10.0, 1.0, rank)),
+                      rng.randn(rank, n_features)))
+    # the component-wise variance of the first 50 features is 3 times the
+    # mean component-wise variance of the remaingin 30 features
+    X[:, :50] *= 3
+
+    assert_equal(X.shape, (n_samples, n_features))
+
+    # the component-wise variance is thus highly varying:
+    assert_almost_equal(X.std(axis=0).std(), 43.9, 1)
+
+    for this_PCA, copy in [(x, y) for x in (PCA, RandomizedPCA)
+                           for y in (True, False)]:
+        # whiten the data while projecting to the lower dim subspace
+        X_ = X.copy()  # make sure we keep an original across iterations.
+        pca = this_PCA(n_components=n_components, whiten=True, copy=copy)
+        # test fit_transform
+        X_whitened = pca.fit_transform(X_.copy())
+        assert_equal(X_whitened.shape, (n_samples, n_components))
+        X_whitened2 = pca.transform(X_)
+        assert_array_almost_equal(X_whitened, X_whitened2)
+
+        assert_almost_equal(X_whitened.std(axis=0), np.ones(n_components))
+        assert_almost_equal(X_whitened.mean(axis=0), np.zeros(n_components))
+
+        X_ = X.copy()
+        pca = this_PCA(n_components=n_components, whiten=False,
+                       copy=copy).fit(X_)
+        X_unwhitened = pca.transform(X_)
+        assert_equal(X_unwhitened.shape, (n_samples, n_components))
+
+        # in that case the output components still have varying variances
+        assert_almost_equal(X_unwhitened.std(axis=0).std(), 74.1, 1)
+        # we always center, so no test for non-centering.
+
+
+def test_pca_check_projection():
+    """Test that the projection of data is correct"""
+    rng = np.random.RandomState(0)
+    n, p = 100, 3
+    X = rng.randn(n, p) * .1
+    X[:10] += np.array([3, 4, 5])
+    Xt = 0.1 * rng.randn(1, p) + np.array([3, 4, 5])
+
+    Yt = PCA(n_components=2).fit(X).transform(Xt)
+    Yt /= np.sqrt((Yt ** 2).sum())
+
+    assert_almost_equal(np.abs(Yt[0][0]), 1., 1)
+
+
+def test_pca_inverse():
+    """Test that the projection of data can be inverted"""
+    rng = np.random.RandomState(0)
+    n, p = 50, 3
+    X = rng.randn(n, p)  # spherical data
+    X[:, 1] *= .00001  # make middle component relatively small
+    X += [5, 4, 3]  # make a large mean
+
+    # same check that we can find the original data from the transformed
+    # signal (since the data is almost of rank n_components)
+    pca = PCA(n_components=2).fit(X)
+    Y = pca.transform(X)
+    Y_inverse = pca.inverse_transform(Y)
+    assert_almost_equal(X, Y_inverse, decimal=3)
+
+    # same as above with whitening (approximate reconstruction)
+    pca = PCA(n_components=2, whiten=True)
+    pca.fit(X)
+    Y = pca.transform(X)
+    Y_inverse = pca.inverse_transform(Y)
+    relative_max_delta = (np.abs(X - Y_inverse) / np.abs(X).mean()).max()
+    assert_almost_equal(relative_max_delta, 0.11, decimal=2)
+
+
+def test_randomized_pca_check_projection():
+    """Test that the projection by RandomizedPCA on dense data is correct"""
+    rng = np.random.RandomState(0)
+    n, p = 100, 3
+    X = rng.randn(n, p) * .1
+    X[:10] += np.array([3, 4, 5])
+    Xt = 0.1 * rng.randn(1, p) + np.array([3, 4, 5])
+
+    Yt = RandomizedPCA(n_components=2, random_state=0).fit(X).transform(Xt)
+    Yt /= np.sqrt((Yt ** 2).sum())
+
+    assert_almost_equal(np.abs(Yt[0][0]), 1., 1)
+
+
+def test_randomized_pca_check_list():
+    """Test that the projection by RandomizedPCA on list data is correct"""
+    X = [[1.0, 0.0], [0.0, 1.0]]
+    X_transformed = RandomizedPCA(n_components=1,
+                                  random_state=0).fit(X).transform(X)
+    assert_equal(X_transformed.shape, (2, 1))
+    assert_almost_equal(X_transformed.mean(), 0.00, 2)
+    assert_almost_equal(X_transformed.std(), 0.71, 2)
+
+
+def test_randomized_pca_inverse():
+    """Test that RandomizedPCA is inversible on dense data"""
+    rng = np.random.RandomState(0)
+    n, p = 50, 3
+    X = rng.randn(n, p)  # spherical data
+    X[:, 1] *= .00001  # make middle component relatively small
+    X += [5, 4, 3]  # make a large mean
+
+    # same check that we can find the original data from the transformed signal
+    # (since the data is almost of rank n_components)
+    pca = RandomizedPCA(n_components=2, random_state=0).fit(X)
+    Y = pca.transform(X)
+    Y_inverse = pca.inverse_transform(Y)
+    assert_almost_equal(X, Y_inverse, decimal=2)
+
+    # same as above with whitening (approximate reconstruction)
+    pca = RandomizedPCA(n_components=2, whiten=True,
+                        random_state=0).fit(X)
+    Y = pca.transform(X)
+    Y_inverse = pca.inverse_transform(Y)
+    relative_max_delta = (np.abs(X - Y_inverse) / np.abs(X).mean()).max()
+    assert_almost_equal(relative_max_delta, 0.11, decimal=2)
+
+
+def test_sparse_randomized_pca_check_projection():
+    """Test that the projection by RandomizedPCA on sparse data is correct"""
+    rng = np.random.RandomState(0)
+    n, p = 100, 3
+    X = rng.randn(n, p) * .1
+    X[:10] += np.array([3, 4, 5])
+    X = csr_matrix(X)
+    Xt = 0.1 * rng.randn(1, p) + np.array([3, 4, 5])
+    Xt = csr_matrix(Xt)
+
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter('always', DeprecationWarning)
+        Yt = RandomizedPCA(n_components=2, random_state=0).fit(X).transform(Xt)
+        assert_equal(len(w), 1)
+        assert_equal(w[0].category, DeprecationWarning)
+
+    Yt /= np.sqrt((Yt ** 2).sum())
+
+    np.testing.assert_almost_equal(np.abs(Yt[0][0]), 1., 1)
+
+
+def test_sparse_randomized_pca_inverse():
+    """Test that RandomizedPCA is inversible on sparse data"""
+    rng = np.random.RandomState(0)
+    n, p = 50, 3
+    X = rng.randn(n, p)  # spherical data
+    X[:, 1] *= .00001  # make middle component relatively small
+    # no large means because the sparse version of randomized pca does not do
+    # centering to avoid breaking the sparsity
+    X = csr_matrix(X)
+
+    # same check that we can find the original data from the transformed signal
+    # (since the data is almost of rank n_components)
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter('always', DeprecationWarning)
+        pca = RandomizedPCA(n_components=2, random_state=0).fit(X)
+        assert_equal(len(w), 1)
+        assert_equal(w[0].category, DeprecationWarning)
+
+    Y = pca.transform(X)
+
+    Y_inverse = pca.inverse_transform(Y)
+    assert_almost_equal(X.todense(), Y_inverse, decimal=2)
+
+    # same as above with whitening (approximate reconstruction)
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter('always', DeprecationWarning)
+        pca = RandomizedPCA(n_components=2, whiten=True,
+                            random_state=0).fit(X)
+        assert_equal(len(w), 1)
+        assert_equal(w[0].category, DeprecationWarning)
+
+    Y = pca.transform(X)
+    Y_inverse = pca.inverse_transform(Y)
+    relative_max_delta = (np.abs(X.todense() - Y_inverse)
+                          / np.abs(X).mean()).max()
+    # XXX: this does not seam to work as expected:
+    assert_almost_equal(relative_max_delta, 0.91, decimal=2)
+
+
+def test_pca_dim():
+    """Check automated dimensionality setting"""
+    rng = np.random.RandomState(0)
+    n, p = 100, 5
+    X = rng.randn(n, p) * .1
+    X[:10] += np.array([3, 4, 5, 1, 2])
+    pca = PCA(n_components='mle').fit(X)
+    assert_equal(pca.n_components, 1)
+
+
+def test_infer_dim_1():
+    """TODO: explain what this is testing
+
+    Or at least use explicit variable names...
+    """
+    n, p = 1000, 5
+    rng = np.random.RandomState(0)
+    X = (rng.randn(n, p) * .1 + rng.randn(n, 1) * np.array([3, 4, 5, 1, 2])
+         + np.array([1, 0, 7, 4, 6]))
+    pca = PCA(n_components=p)
+    pca.fit(X)
+    spect = pca.explained_variance_
+    ll = []
+    for k in range(p):
+        ll.append(_assess_dimension_(spect, k, n, p))
+    ll = np.array(ll)
+    assert_greater(ll[1], ll.max() - .01 * n)
+
+
+def test_infer_dim_2():
+    """TODO: explain what this is testing
+
+    Or at least use explicit variable names...
+    """
+    n, p = 1000, 5
+    rng = np.random.RandomState(0)
+    X = rng.randn(n, p) * .1
+    X[:10] += np.array([3, 4, 5, 1, 2])
+    X[10:20] += np.array([6, 0, 7, 2, -1])
+    pca = PCA(n_components=p)
+    pca.fit(X)
+    spect = pca.explained_variance_
+    assert_greater(_infer_dimension_(spect, n, p), 1)
+
+
+def test_infer_dim_3():
+    """
+    """
+    n, p = 100, 5
+    rng = np.random.RandomState(0)
+    X = rng.randn(n, p) * .1
+    X[:10] += np.array([3, 4, 5, 1, 2])
+    X[10:20] += np.array([6, 0, 7, 2, -1])
+    X[30:40] += 2 * np.array([-1, 1, -1, 1, -1])
+    pca = PCA(n_components=p)
+    pca.fit(X)
+    spect = pca.explained_variance_
+    assert_greater(_infer_dimension_(spect, n, p), 2)
+
+
+def test_infer_dim_by_explained_variance():
+    X = iris.data
+    pca = PCA(n_components=0.95)
+    pca.fit(X)
+    assert_equal(pca.n_components, 2)
+
+    pca = PCA(n_components=0.01)
+    pca.fit(X)
+    assert_equal(pca.n_components, 1)
+
+    rng = np.random.RandomState(0)
+    # more features than samples
+    X = rng.rand(5, 20)
+    pca = PCA(n_components=.5).fit(X)
+    assert_equal(pca.n_components, 2)
+
+
+def test_probabilistic_pca_1():
+    """Test that probabilistic PCA yields a reasonable score"""
+    n, p = 1000, 3
+    rng = np.random.RandomState(0)
+    X = rng.randn(n, p) * .1 + np.array([3, 4, 5])
+    ppca = ProbabilisticPCA(n_components=2)
+    ppca.fit(X)
+    ll1 = ppca.score(X)
+    h = -0.5 * np.log(2 * np.pi * np.exp(1) * 0.1 ** 2) * p
+    np.testing.assert_almost_equal(ll1.mean() / h, 1, 0)
+
+
+def test_probabilistic_pca_2():
+    """Test that probabilistic PCA correctly separated different datasets"""
+    n, p = 100, 3
+    rng = np.random.RandomState(0)
+    X = rng.randn(n, p) * .1 + np.array([3, 4, 5])
+    ppca = ProbabilisticPCA(n_components=2)
+    ppca.fit(X)
+    ll1 = ppca.score(X)
+    ll2 = ppca.score(rng.randn(n, p) * .2 + np.array([3, 4, 5]))
+    assert_greater(ll1.mean(), ll2.mean())
+
+
+def test_probabilistic_pca_3():
+    """The homoscedastic model should work slightly worth
+    than the heteroscedastic one in over-fitting condition
+    """
+    n, p = 100, 3
+    rng = np.random.RandomState(0)
+    X = rng.randn(n, p) * .1 + np.array([3, 4, 5])
+    ppca = ProbabilisticPCA(n_components=2)
+    ppca.fit(X)
+    ll1 = ppca.score(X)
+    ppca.fit(X, homoscedastic=False)
+    ll2 = ppca.score(X)
+    assert_less(ll1.mean(), ll2.mean())
+
+
+def test_probabilistic_pca_4():
+    """Check that ppca select the right model"""
+    n, p = 200, 3
+    rng = np.random.RandomState(0)
+    Xl = (rng.randn(n, p) + rng.randn(n, 1) * np.array([3, 4, 5])
+          + np.array([1, 0, 7]))
+    Xt = (rng.randn(n, p) + rng.randn(n, 1) * np.array([3, 4, 5])
+          + np.array([1, 0, 7]))
+    ll = np.zeros(p)
+    for k in range(p):
+        ppca = ProbabilisticPCA(n_components=k)
+        ppca.fit(Xl)
+        ll[k] = ppca.score(Xt).mean()
+
+    assert_true(ll.argmax() == 1)
+
+
+if __name__ == '__main__':
+    import nose
+    nose.run(argv=['', __file__])

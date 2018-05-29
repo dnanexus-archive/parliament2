@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libLLVMSymbolize.a  CMakeFiles/LLVMSymbolize.dir/DIPrinter.cpp.o CMakeFiles/LLVMSymbolize.dir/SymbolizableObjectFile.cpp.o CMakeFiles/LLVMSymbolize.dir/Symbolize.cpp.o
+/usr/bin/ranlib ../../libLLVMSymbolize.a

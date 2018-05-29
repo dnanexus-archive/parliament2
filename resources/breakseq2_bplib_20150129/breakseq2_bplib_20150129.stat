@@ -1,0 +1,26 @@
+*** Before Processing ***
+1KG P1    BPLIB :	8943
+1KG Pilot BPLIB :	10440
+Original  BPLIB :	1861
+*** After selecting >=100bp indels ***
+1KG P1    BPLIB :	8712
+1KG Pilot BPLIB :	8553
+Original  BPLIB :	1800
+*** After removing redundant calls with 50% reciproval overlapping ***
+1KG Pilot BPLIB not in 1KG P1 :	3399
+Original  BPLIB not in 1KGs   :	1004
+Final non redundant BPLIB     :	13115
+*** Building and indexing new BPLIB for BreakSeq2 ***
+Total number of events     :	13115
+------------------------
+1KG_Phase1	All Events	8712
+1KG_Pilot	All Events	3399
+Original	All Events	1004
+------------------------
+BreakSeq2	Deletion	12699
+BreakSeq2	Insertion	416
+------------------------
+1KG_Phase1	Deletion	8712
+1KG_Pilot	Deletion	3399
+Original	Deletion	588
+Original	Insertion	416

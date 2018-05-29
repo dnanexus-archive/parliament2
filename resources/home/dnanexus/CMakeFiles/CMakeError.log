@@ -1,0 +1,561 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5c918/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5c918.dir/build.make CMakeFiles/cmTC_5c918.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5c918.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5c918.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5c918
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c918.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_5c918.dir/CheckSymbolExists.c.o  -o cmTC_5c918 
+CMakeFiles/cmTC_5c918.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_5c918] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_5c918/fast] Error 2
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ff930/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ff930.dir/build.make CMakeFiles/cmTC_ff930.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ff930.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ff930.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ff930
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff930.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_ff930.dir/CheckFunctionExists.c.o  -o cmTC_ff930 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_ff930] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ff930/fast] Error 2
+
+
+Performing C++ SOURCE FILE Test GLIBCXX_USE_CXX11_ABI failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6818f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6818f.dir/build.make CMakeFiles/cmTC_6818f.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6818f.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -DGLIBCXX_USE_CXX11_ABI   -o CMakeFiles/cmTC_6818f.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:4:4: error: #error NOCXX11
+   #error NOCXX11
+    ^
+make[1]: *** [CMakeFiles/cmTC_6818f.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_6818f/fast] Error 2
+
+Source file was:
+
+#include <string>
+#if _GLIBCXX_USE_CXX11_ABI == 0
+  #error NOCXX11
+#endif
+int main() {}
+
+Determining if the include file malloc/malloc.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4e499/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4e499.dir/build.make CMakeFiles/cmTC_4e499.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4e499.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_4e499.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:27: fatal error: malloc/malloc.h: No such file or directory
+ #include <malloc/malloc.h>
+                           ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4e499.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_4e499/fast] Error 2
+
+
+Determining if the include file ndir.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_df7eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_df7eb.dir/build.make CMakeFiles/cmTC_df7eb.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df7eb.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_df7eb.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:18: fatal error: ndir.h: No such file or directory
+ #include <ndir.h>
+                  ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_df7eb.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_df7eb/fast] Error 2
+
+
+Determining if the include file sys/ndir.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_49139/fast"
+/usr/bin/make -f CMakeFiles/cmTC_49139.dir/build.make CMakeFiles/cmTC_49139.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49139.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_49139.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:22: fatal error: sys/ndir.h: No such file or directory
+ #include <sys/ndir.h>
+                      ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_49139.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_49139/fast] Error 2
+
+
+Determining if the include file valgrind/valgrind.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_24c69/fast"
+/usr/bin/make -f CMakeFiles/cmTC_24c69.dir/build.make CMakeFiles/cmTC_24c69.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24c69.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_24c69.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:31: fatal error: valgrind/valgrind.h: No such file or directory
+ #include <valgrind/valgrind.h>
+                               ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_24c69.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_24c69/fast] Error 2
+
+
+Determining if the include file mach/mach.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dc0c3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dc0c3.dir/build.make CMakeFiles/cmTC_dc0c3.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dc0c3.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_dc0c3.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:23: fatal error: mach/mach.h: No such file or directory
+ #include <mach/mach.h>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_dc0c3.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_dc0c3/fast] Error 2
+
+
+Determining if the include file histedit.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6449c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6449c.dir/build.make CMakeFiles/cmTC_6449c.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6449c.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_6449c.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:22: fatal error: histedit.h: No such file or directory
+ #include <histedit.h>
+                      ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_6449c.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_6449c/fast] Error 2
+
+
+Determining if the include file CrashReporterClient.h exists failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_52001/fast"
+/usr/bin/make -f CMakeFiles/cmTC_52001.dir/build.make CMakeFiles/cmTC_52001.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_52001.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_52001.dir/CheckIncludeFile.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:33: fatal error: CrashReporterClient.h: No such file or directory
+ #include <CrashReporterClient.h>
+                                 ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_52001.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_52001/fast] Error 2
+
+
+Determining if the function xar_open exists in the xar failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e6c60/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e6c60.dir/build.make CMakeFiles/cmTC_e6c60.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6c60.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=xar_open   -o CMakeFiles/cmTC_e6c60.dir/CheckFunctionExists.c.o   -c /home/dnanexus/cmake-3.11.0-Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e6c60
+/home/dnanexus/cmake-3.11.0-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6c60.dir/link.txt --verbose=1
+/usr/bin/cc  -pipe -m64 -Wall -W -fPIC -pthread -DCHECK_FUNCTION_EXISTS=xar_open   -rdynamic  CMakeFiles/cmTC_e6c60.dir/CheckFunctionExists.c.o  -o cmTC_e6c60 -lxar -lm 
+/usr/bin/ld: cannot find -lxar
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTC_e6c60] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_e6c60/fast] Error 2
+
+
+Determining if the arc4random exist failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_626ff/fast"
+/usr/bin/make -f CMakeFiles/cmTC_626ff.dir/build.make CMakeFiles/cmTC_626ff.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_626ff.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_626ff.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'arc4random' undeclared (first use in this function)
+   return ((int*)(&arc4random))[argc];
+                   ^
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+ int main(int argc, char** argv)
+              ^
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:13:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make[1]: *** [CMakeFiles/cmTC_626ff.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_626ff/fast] Error 2
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef arc4random
+  return ((int*)(&arc4random))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the mallctl exist failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ed915/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ed915.dir/build.make CMakeFiles/cmTC_ed915.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ed915.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_ed915.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:23: fatal error: malloc_np.h: No such file or directory
+ #include <malloc_np.h>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_ed915.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ed915/fast] Error 2
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc_np.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mallctl
+  return ((int*)(&mallctl))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the malloc_zone_statistics exist failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a4526/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a4526.dir/build.make CMakeFiles/cmTC_a4526.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a4526.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_a4526.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:27: fatal error: malloc/malloc.h: No such file or directory
+ #include <malloc/malloc.h>
+                           ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_a4526.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a4526/fast] Error 2
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <malloc/malloc.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef malloc_zone_statistics
+  return ((int*)(&malloc_zone_statistics))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strerror_s exist failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6c5ee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6c5ee.dir/build.make CMakeFiles/cmTC_6c5ee.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6c5ee.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_6c5ee.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'strerror_s' undeclared (first use in this function)
+   return ((int*)(&strerror_s))[argc];
+                   ^
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+ int main(int argc, char** argv)
+              ^
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:13:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make[1]: *** [CMakeFiles/cmTC_6c5ee.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_6c5ee/fast] Error 2
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <string.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strerror_s
+  return ((int*)(&strerror_s))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the dladdr exist failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_51064/fast"
+/usr/bin/make -f CMakeFiles/cmTC_51064.dir/build.make CMakeFiles/cmTC_51064.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_51064.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread    -o CMakeFiles/cmTC_51064.dir/CheckSymbolExists.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: 'dladdr' undeclared (first use in this function)
+   return ((int*)(&dladdr))[argc];
+                   ^
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter 'argc' set but not used [-Wunused-but-set-parameter]
+ int main(int argc, char** argv)
+              ^
+/home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:13:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make[1]: *** [CMakeFiles/cmTC_51064.dir/CheckSymbolExists.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_51064/fast] Error 2
+
+File /home/dnanexus/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <dlfcn.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef dladdr
+  return ((int*)(&dladdr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C++ SOURCE FILE Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8ba3b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8ba3b.dir/build.make CMakeFiles/cmTC_8ba3b.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8ba3b.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -DSUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG   -Wgnu-zero-variadic-macro-arguments -o CMakeFiles/cmTC_8ba3b.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wgnu-zero-variadic-macro-arguments'
+make[1]: *** [CMakeFiles/cmTC_8ba3b.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_8ba3b/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_WERROR_DATE_TIME failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d46dc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d46dc.dir/build.make CMakeFiles/cmTC_d46dc.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d46dc.dir/src.c.o
+/usr/bin/cc   -pipe -m64 -Wall -W -fPIC -pthread -fPIC -DC_SUPPORTS_WERROR_DATE_TIME   -Werror -Werror=date-time -o CMakeFiles/cmTC_d46dc.dir/src.c.o   -c /home/dnanexus/CMakeFiles/CMakeTmp/src.c
+cc1: error: -Werror=date-time: no option -Wdate-time
+make[1]: *** [CMakeFiles/cmTC_d46dc.dir/src.c.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_d46dc/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_WERROR_DATE_TIME failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_df994/fast"
+/usr/bin/make -f CMakeFiles/cmTC_df994.dir/build.make CMakeFiles/cmTC_df994.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_df994.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -DCXX_SUPPORTS_WERROR_DATE_TIME   -Werror -Werror=date-time -o CMakeFiles/cmTC_df994.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: error: -Werror=date-time: no option -Wdate-time
+make[1]: *** [CMakeFiles/cmTC_df994.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_df994/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_NO_NESTED_ANON_TYPES_FLAG failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_68ffb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_68ffb.dir/build.make CMakeFiles/cmTC_68ffb.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_68ffb.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -fvisibility=hidden -fPIC -fvisibility-inlines-hidden -std=c++11 -w -ffunction-sections -fdata-sections -fno-common -Woverloaded-virtual -fno-strict-aliasing -DCXX_SUPPORTS_NO_NESTED_ANON_TYPES_FLAG   -Werror -Wnested-anon-types -o CMakeFiles/cmTC_68ffb.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wnested-anon-types'
+make[1]: *** [CMakeFiles/cmTC_68ffb.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_68ffb/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test found_stdstringview failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a16d7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a16d7.dir/build.make CMakeFiles/cmTC_a16d7.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a16d7.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_stdstringview   -o CMakeFiles/cmTC_a16d7.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:1:23: fatal error: string_view: No such file or directory
+ #include <string_view>
+                       ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_a16d7.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_a16d7/fast] Error 2
+
+Source file was:
+#include <string_view>
+  int main() { char arr[3] = {'B', 'a', 'r'}; std::string_view strv(arr, sizeof(arr)); return 0;}
+Performing C++ SOURCE FILE Test found_stdexpstringview failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4c144/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4c144.dir/build.make CMakeFiles/cmTC_4c144.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4c144.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_stdexpstringview   -o CMakeFiles/cmTC_4c144.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:1:36: fatal error: experimental/string_view: No such file or directory
+ #include <experimental/string_view>
+                                    ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_4c144.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_4c144/fast] Error 2
+
+Source file was:
+#include <experimental/string_view>
+   int main() { char arr[3] = {'B', 'a', 'r'}; std::experimental::string_view strv(arr, sizeof(arr)); return 0;}
+Performing C++ SOURCE FILE Test found_stdapply failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_23820/fast"
+/usr/bin/make -f CMakeFiles/cmTC_23820.dir/build.make CMakeFiles/cmTC_23820.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_23820.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_stdapply   -o CMakeFiles/cmTC_23820.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx: In function 'int main()':
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:2:14: error: 'apply' is not a member of 'std'
+ int main() { std::apply([](int, int){}, std::make_tuple(1,2)); return 0;}
+              ^
+make[1]: *** [CMakeFiles/cmTC_23820.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_23820/fast] Error 2
+
+Source file was:
+#include <tuple>
+int main() { std::apply([](int, int){}, std::make_tuple(1,2)); return 0;}
+Performing C++ SOURCE FILE Test found_stdinvoke failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_270da/fast"
+/usr/bin/make -f CMakeFiles/cmTC_270da.dir/build.make CMakeFiles/cmTC_270da.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_270da.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_stdinvoke   -o CMakeFiles/cmTC_270da.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx: In function 'int main()':
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:2:21: error: 'invoke' is not a member of 'std'
+ int main() { return std::invoke([](int i){return i;}, 0); }
+                     ^
+make[1]: *** [CMakeFiles/cmTC_270da.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_270da/fast] Error 2
+
+Source file was:
+#include <functional>
+int main() { return std::invoke([](int i){return i;}, 0); }
+Performing C++ SOURCE FILE Test found_stdindexsequence failed with the following output:
+Change Dir: /home/dnanexus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ebe60/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ebe60.dir/build.make CMakeFiles/cmTC_ebe60.dir/build
+make[1]: Entering directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ebe60.dir/src.cxx.o
+/usr/bin/c++    -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -Dfound_stdindexsequence   -o CMakeFiles/cmTC_ebe60.dir/src.cxx.o -c /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx: In function 'int main()':
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:4:30: error: 'integer_sequence' is not a member of 'std'
+   static_assert(std::is_same<std::integer_sequence<std::size_t, 0, 1, 2>, std::make_index_sequence<3>>::value, "");
+                              ^
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:4:30: error: 'integer_sequence' is not a member of 'std'
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:4:72: error: wrong number of template arguments (4, should be 2)
+   static_assert(std::is_same<std::integer_sequence<std::size_t, 0, 1, 2>, std::make_index_sequence<3>>::value, "");
+                                                                        ^
+In file included from /usr/include/c++/4.8/bits/move.h:57:0,
+                 from /usr/include/c++/4.8/bits/stl_pair.h:59,
+                 from /usr/include/c++/4.8/utility:70,
+                 from /home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:1:
+/usr/include/c++/4.8/type_traits:823:12: error: provided for 'template<class, class> struct std::is_same'
+     struct is_same;
+            ^
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:4:75: error: expected string-literal before 'std'
+   static_assert(std::is_same<std::integer_sequence<std::size_t, 0, 1, 2>, std::make_index_sequence<3>>::value, "");
+                                                                           ^
+/home/dnanexus/CMakeFiles/CMakeTmp/src.cxx:4:75: error: expected ')' before 'std'
+make[1]: *** [CMakeFiles/cmTC_ebe60.dir/src.cxx.o] Error 1
+make[1]: Leaving directory `/home/dnanexus/CMakeFiles/CMakeTmp'
+make: *** [cmTC_ebe60/fast] Error 2
+
+Source file was:
+#include <utility>
+#include <type_traits>
+int main() {
+  static_assert(std::is_same<std::integer_sequence<std::size_t, 0, 1, 2>, std::make_index_sequence<3>>::value, "");
+  return 0;
+}

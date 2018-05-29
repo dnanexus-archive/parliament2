@@ -1,0 +1,14 @@
+Library.TQpSolverBase:                      libQuadp.so libMatrix.so
+Library.TGondzioSolver:                     libQuadp.so libMatrix.so
+Library.TMehrotraSolver:                    libQuadp.so libMatrix.so
+Library.TQpLinSolverBase:                   libQuadp.so libMatrix.so
+Library.TQpLinSolverDens:                   libQuadp.so libMatrix.so
+Library.TQpLinSolverSparse:                 libQuadp.so libMatrix.so
+Library.TQpResidual:                        libQuadp.so libMatrix.so
+Library.TQpVar:                             libQuadp.so libMatrix.so
+Library.TQpDataBase:                        libQuadp.so libMatrix.so
+Library.TQpDataDens:                        libQuadp.so libMatrix.so
+Library.TQpDataSparse:                      libQuadp.so libMatrix.so
+Library.TQpProbBase:                        libQuadp.so libMatrix.so
+Library.TQpProbDens:                        libQuadp.so libMatrix.so
+Library.TQpProbSparse:                      libQuadp.so libMatrix.so

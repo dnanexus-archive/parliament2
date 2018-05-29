@@ -1,0 +1,16 @@
+{ decls }
+namespace TMVA {  }
+
+[ libTMVAGui.so ]
+# List of selected classes
+class TMVA::MethodInfo
+class TMVA::StatDialogBDT
+class TMVA::StatDialogBDTReg
+class TMVA::StatDialogMVAEffs
+class TMVA::TMVAGUI
+header TMVA/mvaeffs.h
+header TMVA/BDT.h
+header TMVA/BDT_Reg.h
+header TMVA/TMVAGui.h
+# List of selected namespaces
+namespace TMVA

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <title>Installing PDF/PNG Export Functionality</title>
+</head>
+<body>
+
+<div class="container">
+
+<h2>PNG/PDF Export</h2>
+<p>Export to PNG file formats requires the <a href="https://wiki.gnome.org/action/show/Projects/LibRsvg">LibRSVG</a> (SVG rendering) library or <a href="https://inkscape.org/">Inkscape</a> to be installed.</p>
+<p>Export to PDF requires LibRSVG, Inkscape or <a href="https://github.com/nspies/webkitToPDF">webkitToPDF</a> to be installed.</p>
+
+<h2>Installing LibRSVG</h2>
+<h3>Mac OS X</h3>
+<ol>
+    <li><strong>Install homebrew:</strong> follow the one-step installation directions <a href="http://brew.sh">here</a> to install homebrew, the OS X package manager.</li>
+    <li><strong>Install librsvg using homebrew:</strong> run the following command to install librsvg:<br />
+        <pre>brew install librsvg</pre></li>
+</ol>
+
+<h3>Linux (Ubuntu or similar)</h3>
+<ol>
+    <li><strong>Install librsvg:</strong> run the following command to install librsvg on ubuntu/debian/similar:
+        <pre>sudo apt-get install librsvg2-dev</pre></li>
+</ol>
+
+<h2>Installing webkitToPDF (OS X only)</h2>
+<p>To install, download the latest binary file from the <a href="https://github.com/nspies/webkitToPDF/releases/latest">releases page</a>, and move the application into your PATH. For example, after downloading and unzipping the application, use the following command to install the program (requires the administrator password):</p>
+
+<p><pre>sudo mv webkitToPDF /usr/bin</pre></p>
+
+
+</div>
+</body>
+</html>

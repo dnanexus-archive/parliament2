@@ -1,0 +1,7 @@
+Library.TRootGuiBuilder:                    libGuiBld.so libGui.so libGraf.so libMathCore.so
+Library.TGuiBldDragManager:                 libGuiBld.so libGui.so libGraf.so libMathCore.so
+Library.TGuiBldEditor:                      libGuiBld.so libGui.so libGraf.so libMathCore.so
+Library.TGuiBldHintsButton:                 libGuiBld.so libGui.so libGraf.so libMathCore.so
+Library.TGuiBldHintsEditor:                 libGuiBld.so libGui.so libGraf.so libMathCore.so
+Library.TGuiBldGeometryFrame:               libGuiBld.so libGui.so libGraf.so libMathCore.so
+Library.TGuiBldNameFrame:                   libGuiBld.so libGui.so libGraf.so libMathCore.so

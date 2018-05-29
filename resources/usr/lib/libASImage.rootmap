@@ -1,0 +1,3 @@
+Library.TASImage:                           libASImage.so libGraf.so libMathCore.so
+Library.TASImagePlugin:                     libASImage.so libGraf.so libMathCore.so
+Library.TASPluginGS:                        libASImage.so libGraf.so libMathCore.so

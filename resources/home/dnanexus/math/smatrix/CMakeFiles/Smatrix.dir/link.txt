@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -pipe -m64  -Wshadow -Wall -W -Woverloaded-virtual -fsigned-char -fPIC -pthread -std=c++11 -O3 -g -DNDEBUG  -Wl,--no-undefined -shared -Wl,-soname,libSmatrix.so -o ../../lib/libSmatrix.so CMakeFiles/Smatrix.dir/G__Smatrix32.cxx.o CMakeFiles/Smatrix.dir/G__Smatrix.cxx.o -Wl,-rpath,/home/dnanexus/lib: ../../lib/libCore.so 

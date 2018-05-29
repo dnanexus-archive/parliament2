@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../lib/libclangRewrite.a  CMakeFiles/clangRewrite.dir/DeltaTree.cpp.o CMakeFiles/clangRewrite.dir/HTMLRewrite.cpp.o CMakeFiles/clangRewrite.dir/RewriteRope.cpp.o CMakeFiles/clangRewrite.dir/Rewriter.cpp.o CMakeFiles/clangRewrite.dir/TokenRewriter.cpp.o
+/usr/bin/ranlib ../../../../lib/libclangRewrite.a

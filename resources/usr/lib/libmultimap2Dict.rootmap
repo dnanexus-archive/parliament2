@@ -1,0 +1,10 @@
+Library.multimap<long,int>:                 multimap2.dll
+Library.multimap<long,long>:                multimap2.dll
+Library.multimap<long,double>:              multimap2.dll
+Library.multimap<long,void*>:               multimap2.dll
+Library.multimap<long,char*>:               multimap2.dll
+Library.multimap<double,int>:               multimap2.dll
+Library.multimap<double,long>:              multimap2.dll
+Library.multimap<double,double>:            multimap2.dll
+Library.multimap<double,void*>:             multimap2.dll
+Library.multimap<double,char*>:             multimap2.dll

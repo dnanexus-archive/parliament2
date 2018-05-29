@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/oldnumeric/linear_algebra.py

@@ -1,0 +1,1 @@
+../../../../../../share/pyshared/numpy/lib/benchmarks/simpleindex.py

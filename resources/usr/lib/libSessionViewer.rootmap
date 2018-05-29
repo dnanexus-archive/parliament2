@@ -1,0 +1,17 @@
+Library.TProofProgressDialog:               libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TProofProgressLog:                  libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TProofProgressMemoryPlot:           libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionLogView:                    libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionServerFrame:                libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionFrame:                      libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TEditQueryFrame:                    libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionQueryFrame:                 libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionOutputFrame:                libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionInputFrame:                 libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionViewer:                     libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TQueryDescription:                  libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TSessionDescription:                libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TPackageDescription:                libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TNewQueryDlg:                       libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TNewChainDlg:                       libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so
+Library.TUploadDataSetDlg:                  libSessionViewer.so libProof.so libGui.so libHist.so libGpad.so libGraf.so libTree.so libMathCore.so

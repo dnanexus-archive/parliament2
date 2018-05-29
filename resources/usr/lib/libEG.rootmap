@@ -1,0 +1,9 @@
+Library.TParticle:                          libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TAttParticle:                       libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TPrimary:                           libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TGenerator:                         libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TDatabasePDG:                       libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TParticlePDG:                       libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TDecayChannel:                      libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TParticleClassPDG:                  libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so
+Library.TVirtualMCDecayer:                  libEG.so libGraf3d.so libGraf.so libGpad.so libMathCore.so

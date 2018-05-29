@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/core/setup_common.py

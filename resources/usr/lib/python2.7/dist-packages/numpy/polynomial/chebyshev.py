@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/polynomial/chebyshev.py

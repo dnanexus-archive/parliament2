@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/random/setupscons.py

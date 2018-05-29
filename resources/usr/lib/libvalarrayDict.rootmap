@@ -1,0 +1,4 @@
+Library.valarray<int>:                      valarray.dll
+Library.valarray<long>:                     valarray.dll
+Library.valarry<float>:                     valarray.dll
+Library.valarray<double>:                   valarray.dll

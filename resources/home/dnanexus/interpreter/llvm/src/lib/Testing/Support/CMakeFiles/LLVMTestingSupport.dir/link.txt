@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libLLVMTestingSupport.a  CMakeFiles/LLVMTestingSupport.dir/Error.cpp.o
+/usr/bin/ranlib ../../libLLVMTestingSupport.a

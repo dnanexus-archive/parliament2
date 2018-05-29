@@ -1,0 +1,12 @@
+Library.TRecEvent:                          libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecCmdEvent:                       libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecExtraEvent:                     libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecGuiEvent:                       libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecWinPair:                        libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecorder:                          libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecorderState:                     libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecorderReplaying:                 libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecorderRecording:                 libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecorderInactive:                  libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TRecorderPaused:                    libRecorder.so libRIO.so libTree.so libGui.so libThread.so
+Library.TGRecorder:                         libRecorder.so libRIO.so libTree.so libGui.so libThread.so

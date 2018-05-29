@@ -1,0 +1,4 @@
+Library.TFitEditor:                         libFitPanel.so libGui.so libGpad.so libHist.so libGraf.so libTree.so libMathCore.so
+Library.TFitParametersDialog:               libFitPanel.so libGui.so libGpad.so libHist.so libGraf.so libTree.so libMathCore.so
+Library.TTreeInput:                         libFitPanel.so libGui.so libGpad.so libHist.so libGraf.so libTree.so libMathCore.so
+Library.TAdvancedGraphicsDialog:            libFitPanel.so libGui.so libGpad.so libHist.so libGraf.so libTree.so libMathCore.so

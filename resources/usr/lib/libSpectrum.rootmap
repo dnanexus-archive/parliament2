@@ -1,0 +1,7 @@
+Library.TSpectrum:                          libSpectrum.so libHist.so libMatrix.so
+Library.TSpectrumFit:                       libSpectrum.so libHist.so libMatrix.so
+Library.TSpectrumTransform:                 libSpectrum.so libHist.so libMatrix.so
+Library.TSpectrum2:                         libSpectrum.so libHist.so libMatrix.so
+Library.TSpectrum2Fit:                      libSpectrum.so libHist.so libMatrix.so
+Library.TSpectrum2Transform:                libSpectrum.so libHist.so libMatrix.so
+Library.TSpectrum3:                         libSpectrum.so libHist.so libMatrix.so

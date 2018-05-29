@@ -1,0 +1,25 @@
+[ libRHTTP.so ]
+# List of selected classes
+class TCivetweb
+class TFastCgi
+class THttpCallArg
+class THttpEngine
+class THttpLongPollEngine
+class THttpServer
+class THttpWSEngine
+class THttpWSHandler
+class TRootSniffer
+class TRootSnifferScanRec
+class TRootSnifferStore
+class TRootSnifferStoreJson
+class TRootSnifferStoreXml
+header TCivetweb.h
+header TFastCgi.h
+header THttpCallArg.h
+header THttpEngine.h
+header THttpLongPollEngine.h
+header THttpServer.h
+header THttpWSEngine.h
+header THttpWSHandler.h
+header TRootSniffer.h
+header TRootSnifferStore.h

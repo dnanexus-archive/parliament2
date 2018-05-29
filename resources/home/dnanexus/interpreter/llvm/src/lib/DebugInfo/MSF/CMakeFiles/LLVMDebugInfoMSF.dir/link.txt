@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libLLVMDebugInfoMSF.a  CMakeFiles/LLVMDebugInfoMSF.dir/MappedBlockStream.cpp.o CMakeFiles/LLVMDebugInfoMSF.dir/MSFBuilder.cpp.o CMakeFiles/LLVMDebugInfoMSF.dir/MSFCommon.cpp.o CMakeFiles/LLVMDebugInfoMSF.dir/MSFError.cpp.o
+/usr/bin/ranlib ../../libLLVMDebugInfoMSF.a

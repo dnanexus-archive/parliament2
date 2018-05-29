@@ -1,0 +1,1 @@
+../../../../../../../share/pyshared/numpy/core/tests/data/astype_copy.pkl

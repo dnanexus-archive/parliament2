@@ -1,0 +1,6 @@
+Library.TVirtualMC:                         libVMC.so libEG.so libGeom.so libMathCore.so
+Library.TVirtualMCGeometry:                 libVMC.so libEG.so libGeom.so libMathCore.so
+Library.TVirtualMCApplication:              libVMC.so libEG.so libGeom.so libMathCore.so
+Library.TVirtualMCStack:                    libVMC.so libEG.so libGeom.so libMathCore.so
+Library.TMCVerbose:                         libVMC.so libEG.so libGeom.so libMathCore.so
+Library.TGeoMCGeometry:                     libVMC.so libEG.so libGeom.so libMathCore.so

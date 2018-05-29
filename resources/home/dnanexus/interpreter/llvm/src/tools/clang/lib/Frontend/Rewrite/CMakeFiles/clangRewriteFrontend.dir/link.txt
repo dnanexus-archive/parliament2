@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../../lib/libclangRewriteFrontend.a  CMakeFiles/clangRewriteFrontend.dir/FixItRewriter.cpp.o CMakeFiles/clangRewriteFrontend.dir/FrontendActions.cpp.o CMakeFiles/clangRewriteFrontend.dir/HTMLPrint.cpp.o CMakeFiles/clangRewriteFrontend.dir/InclusionRewriter.cpp.o CMakeFiles/clangRewriteFrontend.dir/RewriteMacros.cpp.o CMakeFiles/clangRewriteFrontend.dir/RewriteModernObjC.cpp.o CMakeFiles/clangRewriteFrontend.dir/RewriteObjC.cpp.o CMakeFiles/clangRewriteFrontend.dir/RewriteTest.cpp.o
+/usr/bin/ranlib ../../../../../lib/libclangRewriteFrontend.a

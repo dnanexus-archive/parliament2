@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+pyfaidx/__init__.py
+pyfaidx/cli.py
+pyfaidx.egg-info/PKG-INFO
+pyfaidx.egg-info/SOURCES.txt
+pyfaidx.egg-info/dependency_links.txt
+pyfaidx.egg-info/entry_points.txt
+pyfaidx.egg-info/requires.txt
+pyfaidx.egg-info/top_level.txt

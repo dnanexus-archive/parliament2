@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../../../lib/libclangToolingRefactor.a  CMakeFiles/clangToolingRefactor.dir/AtomicChange.cpp.o CMakeFiles/clangToolingRefactor.dir/Rename/RenamingAction.cpp.o CMakeFiles/clangToolingRefactor.dir/Rename/USRFinder.cpp.o CMakeFiles/clangToolingRefactor.dir/Rename/USRFindingAction.cpp.o CMakeFiles/clangToolingRefactor.dir/Rename/USRLocFinder.cpp.o
+/usr/bin/ranlib ../../../../../lib/libclangToolingRefactor.a

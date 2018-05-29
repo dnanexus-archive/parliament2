@@ -1,0 +1,13 @@
+# Target labels
+ LZMA
+# Source files and their labels
+/home/dnanexus/CMakeFiles/LZMA
+/home/dnanexus/CMakeFiles/LZMA.rule
+/home/dnanexus/CMakeFiles/LZMA-complete.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-install.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-mkdir.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-download.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-update.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-patch.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-configure.rule
+/home/dnanexus/LZMA-prefix/src/LZMA-stamp/LZMA-build.rule

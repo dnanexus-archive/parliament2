@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/move_header_graf3d_g3d"
+  "../../include/TAxis3D.h"
+  "../../include/TBRIK.h"
+  "../../include/TCONE.h"
+  "../../include/TCONS.h"
+  "../../include/TCTUB.h"
+  "../../include/TELTU.h"
+  "../../include/TGTRA.h"
+  "../../include/TGeometry.h"
+  "../../include/THYPE.h"
+  "../../include/THelix.h"
+  "../../include/TMarker3DBox.h"
+  "../../include/TMaterial.h"
+  "../../include/TMixture.h"
+  "../../include/TNode.h"
+  "../../include/TNodeDiv.h"
+  "../../include/TPARA.h"
+  "../../include/TPCON.h"
+  "../../include/TPGON.h"
+  "../../include/TPointSet3D.h"
+  "../../include/TPoints3DABC.h"
+  "../../include/TPolyLine3D.h"
+  "../../include/TPolyMarker3D.h"
+  "../../include/TRotMatrix.h"
+  "../../include/TSPHE.h"
+  "../../include/TShape.h"
+  "../../include/TTRAP.h"
+  "../../include/TTRD1.h"
+  "../../include/TTRD2.h"
+  "../../include/TTUBE.h"
+  "../../include/TTUBS.h"
+  "../../include/TView3D.h"
+  "../../include/TXTRU.h"
+  "../../include/X3DBuffer.h"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/move_header_graf3d_g3d.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

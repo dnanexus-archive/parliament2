@@ -1,0 +1,3 @@
+[console_scripts]
+faidx = pyfaidx.cli:main
+

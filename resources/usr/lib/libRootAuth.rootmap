@@ -1,0 +1,4 @@
+Library.TAuthenticate:                      libRootAuth.so libNet.so libRIO.so
+Library.THostAuth:                          libRootAuth.so libNet.so libRIO.so
+Library.TRootAuth:                          libRootAuth.so libNet.so libRIO.so
+Library.TRootSecContext:                    libRootAuth.so libNet.so libRIO.so

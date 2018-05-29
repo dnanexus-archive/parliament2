@@ -1,0 +1,4 @@
+Library.TNeuron:                            libMLP.so libHist.so libMatrix.so libTree.so libGraf.so libGpad.so libTreePlayer.so libMathCore.so
+Library.TSynapse:                           libMLP.so libHist.so libMatrix.so libTree.so libGraf.so libGpad.so libTreePlayer.so libMathCore.so
+Library.TMultiLayerPerceptron:              libMLP.so libHist.so libMatrix.so libTree.so libGraf.so libGpad.so libTreePlayer.so libMathCore.so
+Library.TMLPAnalyzer:                       libMLP.so libHist.so libMatrix.so libTree.so libGraf.so libGpad.so libTreePlayer.so libMathCore.so

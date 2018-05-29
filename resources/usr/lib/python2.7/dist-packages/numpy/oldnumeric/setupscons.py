@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/oldnumeric/setupscons.py

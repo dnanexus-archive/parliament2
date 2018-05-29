@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libLLVMDlltoolDriver.a  CMakeFiles/LLVMDlltoolDriver.dir/DlltoolDriver.cpp.o
+/usr/bin/ranlib ../../libLLVMDlltoolDriver.a

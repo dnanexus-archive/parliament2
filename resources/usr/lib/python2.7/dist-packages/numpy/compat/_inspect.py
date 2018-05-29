@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/compat/_inspect.py

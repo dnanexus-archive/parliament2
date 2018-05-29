@@ -1,0 +1,12 @@
+{ decls }
+namespace std {  }
+
+[ libunordered_multisetDict.so ]
+# List of selected classes
+class unordered_multiset<char*>
+class unordered_multiset<double>
+class unordered_multiset<float>
+class unordered_multiset<int>
+class unordered_multiset<long>
+class unordered_multiset<string>
+class unordered_multiset<void*>

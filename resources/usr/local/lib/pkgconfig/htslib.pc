@@ -1,0 +1,10 @@
+includedir=/usr/local/include
+libdir=/usr/local/lib
+
+Name: htslib
+Description: C library for high-throughput sequencing data formats
+Version: 1.3.1
+Cflags: -I${includedir}
+Libs: -L${libdir} -lhts
+Libs.private: -L${libdir} -lhts -lm -lpthread
+Requires.private: zlib

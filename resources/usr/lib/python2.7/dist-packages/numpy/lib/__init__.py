@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/lib/__init__.py

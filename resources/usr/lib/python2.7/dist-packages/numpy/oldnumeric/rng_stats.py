@@ -1,0 +1,1 @@
+../../../../../share/pyshared/numpy/oldnumeric/rng_stats.py
