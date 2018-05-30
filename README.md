@@ -16,7 +16,7 @@ You must have [Docker](https://www.docker.com/) installed in order to run Parlia
 
 ### Installing
 
-Download the files by running `git clone https://github.com/dnanexus/parliament2.git`. You will have to run `tar -czvf resources/` in the directory `parliament2` in order to build the Docker image.
+Download the files by running `git clone https://github.com/dnanexus/parliament2.git`. You will have to run `tar -czvf resources.tar.gz resources/` in the directory `parliament2` in order to build the Docker image.
 
 Then, run `docker build . -t parliament2` from within the `parliament2` directory created by GitHub. There should now be a Docker image named `parliament2` on your computer.
 
