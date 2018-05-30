@@ -15,6 +15,7 @@ run_delly_duplication=${14}
 run_genotype_candidates=${15}
 run_svviz=${16}
 svviz_only_validated_candidates=${17}
+dnanexus=${18}
 
 cp "${ref_fasta}" ref.fa
 
@@ -291,7 +292,11 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     set -e
     # Verify that there are VCF files available
     if [[ -z $(find . -name "*.vcf") ]]; then
-        dx-jobutil-report-error "Candidate VCF files required to genotype."
+        if [[ "$dnanexus" == "True" ]]; then
+            dx-jobutil-report-error "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+        else
+            raise IOError("ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found.")
+        fi
     fi
     set +e
 
