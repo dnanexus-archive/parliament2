@@ -78,7 +78,8 @@ if [[ "$run_breakseq" == "True" ]]; then
         --bwa /usr/local/bin/bwa --samtools /usr/local/bin/samtools \
         --bplib_gff "$bplib" \
         --nthreads "$(nproc)" --bplib_gff "$bplib" \
-        --sample "$prefix" 1> /home/dnanexus/out/breakseq.stdout.log 2> /home/dnanexus/out/breakseq.stderr.log &
+        --sample "$prefix" &
+        # --sample "$prefix" 1> /home/dnanexus/out/breakseq.stdout.log 2> /home/dnanexus/out/breakseq.stderr.log &
 fi
 
 # MANTA
