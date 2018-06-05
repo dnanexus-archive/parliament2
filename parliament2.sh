@@ -15,6 +15,7 @@ run_delly_duplication=${14}
 run_genotype_candidates=${15}
 run_svviz=${16}
 svviz_only_validated_candidates=${17}
+dnanexus=${18}
 
 cp "${ref_fasta}" ref.fa
 
@@ -291,7 +292,12 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     set -e
     # Verify that there are VCF files available
     if [[ -z $(find . -name "*.vcf") ]]; then
-        dx-jobutil-report-error "Candidate VCF files required to genotype."
+        if [[ "$dnanexus" == "True" ]]; then
+            dx-jobutil-report-error "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+        else
+            echo "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+            exit 1
+        fi
     fi
     set +e
 
@@ -308,6 +314,10 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
         mkdir /home/dnanexus/svtype_breakseq
         timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
+
+        if [[ -f breakseq.vcf ]]; then
+            echo breakseq.vcf >> survivor_inputs
+        fi
     fi
 
     # CNVnator
@@ -316,7 +326,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         mkdir /home/dnanexus/svtype_cnvnator
         cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
         timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
-        cp cnvnator.vcf "${prefix}".cnvnator.self.svtyped.vcf
     fi
 
     # Delly
@@ -348,6 +357,11 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         zcat manta/results/variants/candidateSV.vcf.gz | python /add_ciend.py 100 > /home/dnanexus/manta.input.vcf
         mkdir /home/dnanexus/svtype_manta
         timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/manta.input.vcf svtype_manta /home/dnanexus/"${prefix}".manta.svtyped.vcf input.bam
+
+        if [[ -f diploidSV.vcf ]]; then
+            mv diploidSV.vcf manta.diploid.vcf
+            echo manta.diploid.vcf >> survivor_inputs
+        fi
     fi
 
     # Prepare inputs for SURVIVOR
@@ -369,7 +383,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Prepare SURVIVOR outputs for upload
     cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "$prefix" > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
+    python /combine_combined.py survivor_sorted.vcf "$prefix" | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
 
     wait
 
