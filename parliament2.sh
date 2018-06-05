@@ -314,9 +314,10 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
         mkdir /home/dnanexus/svtype_breakseq
         timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-    fi
-    if [[ -n breakseq.vcf ]]; then
-        echo breakseq.vcf >> survivor_inputs
+
+        if [[ -f breakseq.vcf ]]; then
+            echo breakseq.vcf >> survivor_inputs
+        fi
     fi
 
     # CNVnator
@@ -357,8 +358,10 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         mkdir /home/dnanexus/svtype_manta
         timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/manta.input.vcf svtype_manta /home/dnanexus/"${prefix}".manta.svtyped.vcf input.bam
 
-        mv diploidSV.vcf manta.diploid.vcf
-        echo manta.diploid.vcf >> survivor_inputs
+        if [[ -f diploidSV.vcf ]]; then
+            mv diploidSV.vcf manta.diploid.vcf
+            echo manta.diploid.vcf >> survivor_inputs
+        fi
     fi
 
     # Prepare inputs for SURVIVOR
