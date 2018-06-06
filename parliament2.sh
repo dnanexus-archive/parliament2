@@ -419,7 +419,9 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
                 ((count++))
             done
             
-            parallel --verbose -j 50% -a commands.txt eval 2> /dev/null
+            threads="$(nproc)"
+            threads=$((threads / 2))
+            parallel --verbose -j $threads -a commands.txt eval 2> /dev/null
             
             tar -czf /home/dnanexus/out/"$prefix".svviz_outputs.tar.gz svviz_outputs/
         fi
