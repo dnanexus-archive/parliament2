@@ -74,6 +74,33 @@ This app will output a number of files, representing the outputs of each of the 
 
 - `svviz_outputs.tar.gz`: If the option to visualize events is selected, a tarball containing a set of PDFs documenting the genomic regions for calls will be generated
 
+## Running Parliament2 on DNAnexus
+
+Parliament2 is available as an app on DNAnexus at https://platform.dnanexus.com/app/parliament2 (note: a DNAnexus account is required to access this link; you can create one at https://platform.dnanexus.com/login). The documentation for the app is included both on the DNAnexus platform and in the `dx_app_code` directory of this repository. A DNAnexus account is required to access the platform.
+
+To run Parliament2 on DNAnexus, your input BAM file must be already on the DNAnexus platform. To run Parliament2 using the graphic interface, simply click the "Run" button from the app page and select your inputs. To run Parliament2 using the command-line interface, run the command `dx run parliament2 -h` and follow the guide generated. For more information on running executables on DNAnexus, see the [guide to running apps and applets](https://wiki.dnanexus.com/Command-Line-Client/Running-Apps-and-Applets).
+
+General information on using DNAnexus can be found in the [official documentation](https://wiki.dnanexus.com/Home).
+
+### Building Parliament2 on DNAnexus
+
+To build Parliament2 on your own on DNAnexus, you will have to have built the Docker image locally. Then:
+
+* Run `dx-docker create-asset parliament2`. This will take approximately 45 minutes and will generate a string that you can copy-paste into the `dxapp.json` file found in the `dx_app_code/parliament2` directory under the "Regional Options" section for your region.
+
+* Run `dx build parliament2` to build the applet from within the `dx_app_code` directory.
+
+For more information about using DNAnexus, see the following links:
+
+* [Tutorial for using Docker images on DNAnexus](https://wiki.dnanexus.com/Developer-Tutorials/Using-Docker-Images)
+* [Tutorial for building apps on DNAnexus](https://wiki.dnanexus.com/Developer-Tutorials/Intro-to-Building-Apps) 
+
+General information on using DNAnexus can be found in the [official documentation](https://wiki.dnanexus.com/Home).
+
+#### Modifying Parliament2 on DNAnexus
+
+To modify Parliament2 and run it on DNAnexus, please see the developer README in the `dx_app_code/parliament2` directory of this repository.
+
 ## More Information
 
 ### Additional Notes

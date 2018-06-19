@@ -1,0 +1,257 @@
+{
+  "name": "parliament2",
+  "title": "Parliament2",
+  "summary": "Uses Lumpy, Manta, Breakseq, Breakdancer, Delly, and CNVnator and validates the SVs through Genotyping and Visualization",
+  "tags": [
+    "Structural Variation",
+    "WGS"
+  ],
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "illumina_bam",
+      "label": "Illumina Input BAM",
+      "help": "The Illumina BAM file for which to call structural variants containing mapped reads.",
+      "class": "file",
+      "patterns": ["*.bam", "*.cram"],
+      "optional": false
+    },
+    {
+      "name": "illumina_bai",
+      "label": "Illumina Index to BAMs",
+      "help": "(Optional) The corresponding index for the Illumina BAM file.",
+      "class": "file",
+      "patterns": ["*.bai"],
+      "optional": true
+    },
+    {
+      "name": "ref_fasta",
+      "label": "Reference genome in FASTA format",
+      "help": "The reference file that matches the reference used to map the Illumina inputs.",
+      "class": "file",
+      "patterns": ["*.fa.gz", "*.fasta.gz"],
+      "optional": false,
+      "suggestions": [
+        {
+          "name": "DNAnexus Reference Genomes: AWS US-east",
+          "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS: China-north",
+          "project": "project-Bxv84pQ27z999kj0jbQz0FK9",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS Germany",
+          "project": "project-F3zxk7Q4F30Xp8fG69K1Vppj",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: Azure West US",
+          "project": "project-F0yyz6j9Jz8YpxQV8B8Kk7Zy",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS Sydney",
+          "project": "project-F4gXb605fKQyBq5vJBG31KGG",
+          "path": "/"
+        }
+      ]
+    },
+    {
+      "name": "prefix",
+      "label": "Prefix to give output files",
+      "help": "(Optional) If provided, all output files will start with this. If absent, the base of the BAM file name will be used.",
+      "class": "string",
+      "optional": true
+    },
+    {
+      "name": "filter_short_contigs",
+      "label": "Filter short contigs?",
+      "help": "If selected, SV calls will not be generated on contigs shorter than 1 MB.",
+      "class": "boolean",
+      "optional": false,
+      "default": true
+    },
+    {
+      "name": "run_breakdancer",
+      "label": "Run Breakdancer?",
+      "help": "If selected, the program Breakdancer will be one of the SV callers run.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_breakseq",
+      "label": "Run Breakseq?",
+      "help": "If selected, the program Breakseq2 will be one of the SV callers run.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_manta",
+      "label": "Run Manta?",
+      "help": "If selected, the program Manta will be one of the SV callers run.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_cnvnator",
+      "label": "Run CNVnator?",
+      "help": "If selected, the program CNVnator will be one of the SV callers run.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_lumpy",
+      "label": "Run Lumpy?",
+      "help": "If selected, the program Lumpy will be one of the SV callers run.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_delly_deletion",
+      "label": "Run Delly Deletion?",
+      "help": "If selected, the deletion module of the program Delly2 will be one of the SV callers run.",
+      "class": "boolean",
+      "default": false
+    },
+    {
+      "name": "run_delly_insertion",
+      "label": "Run Delly Insertion?",
+      "help": "If selected, the insertion module of the program Delly2 will be one of the SV callers run.",
+      "class": "boolean",
+      "default": false
+    },
+    {
+      "name": "run_delly_inversion",
+      "label": "Run Delly Inversion?",
+      "help": "If selected, the inversion module of the program Delly2 will be one of the SV callers run.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_delly_duplication",
+      "label": "Run Delly Duplication?",
+      "help": "If selected, the duplication module of theprogram Delly2 will be one of the SV callers run.",
+      "class": "boolean",
+      "default": false
+    },
+    {
+      "name": "run_genotype_candidates",
+      "label": "Genotype Candidates?",
+      "help": "If selected, candidate events determined from the individual callers will be genotyped and merged to create a consensus output.",
+      "class": "boolean",
+      "default": true,
+      "group": "Genotyping and Visualization"
+    },
+    {
+      "name": "run_svviz",
+      "label": "Run SVVIZ?",
+      "help": "If selected, visualizations of genotyped SV events will be produced with SVVIZ, one screenshot of support per event. For this option to take effect, Genotype Candidates must be set to True.",
+      "class": "boolean",
+      "default": false,
+      "group": "Genotyping and Visualization"
+    },
+    {
+      "name": "svviz_only_validated_candidates",
+      "label": "Restrict SVVIZ to Validated Candidates",
+      "help": "Run SVVIZ only on validated candidates? For this option to be relevant, Run SVVIZ must be set to True. Setting to False will make the SVVIZ component run longer.",
+      "class": "boolean",
+      "default": true,
+      "group": "Genotyping and Visualization"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "sv_caller_results",
+      "label": "SV Caller Results",
+      "help": "Raw output files from the individual SV callers.",
+      "class": "array:file",
+      "optional": false
+    },
+    {
+      "name": "svtyped_vcfs",
+      "label": "Genotyped SV VCFs",
+      "help": "(Optional) A set of genotyped variant calls. The genotyping method is orthogonal to the original caller, serving as bioinformatic cross-validation. Only produced if Genotype Candidates is set to True.",
+      "class": "array:file",
+      "optional": true
+    },
+    {
+      "name": "combined_genotypes",
+      "label": "Combined Genotypes",
+      "help": "(Optional) A file of merged, genotyped, validated SV calls. Only generated if Genotype Candidates is set to True.",
+      "class": "file",
+      "patterns": ["*.vcf"],
+      "optional": true
+    },
+    {
+      "name": "svviz_outputs",
+      "label": "SVVIZ Visualizations",
+      "help": "(Optional) Visualizations generated with SVVIZ on validated SV calls.",
+      "class": "file",
+      "patterns": ["*.tar.gz"],
+      "optional": true
+    }
+  ],
+  "runSpec": {
+    "file": "parliament2.py",
+    "release": "14.04",
+    "interpreter": "python2.7",
+    "timeoutPolicy": {
+      "main": {
+        "hours": 24
+      }
+    },
+    "distribution": "Ubuntu"
+  },
+  "access": {
+    "network": [
+      "*"
+    ]
+  },
+  "details": {
+    "upstreamUrl": "https://www.dnanexus.com/papers/Parliament_Info_Sheet.pdf",
+    "contactOrgs": [
+      "org-dnanexus"
+    ],
+    "citations": [
+      "doi:10.1186/s12864-015-1479-3"
+    ],
+    "upstreamAuthor": "Baylor College of Medicine",
+    "whatsNew": "* 1.0.0: Adding Parliament2."
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "assetDepends": [
+        {
+          "project": "project-FBbQqQj026K9PF53332ZFBB9",
+          "folder": "/",
+          "version": "0.0.1",
+          "name": "parliament2:0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x32"
+        }
+      }
+    },
+    "azure:westus": {
+      "assetDepends": [
+        {
+          "project": "project-FBbQqG895xZxxGFV3281QqqY",
+          "folder": "/",
+          "version": "0.0.1",
+          "name": "parliament2:0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "azure:mem2_ssd1_x16"
+        }
+      }
+    }
+  },
+  "openSource": false
+}
