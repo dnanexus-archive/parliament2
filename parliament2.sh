@@ -39,20 +39,23 @@ extn=${illumina_bam##*.}
 threads="$(nproc)"
 threads=$((threads - 3))
 
-echo "Set up and index BAM"
+echo "Set up and index BAM/CRAM"
 
 # # Allow for CRAM files
 if [[ "$extn" == "cram" ]] || [[ "$extn" == "CRAM" ]]; then
+    echo "CRAM file input"
     mkfifo tmp_input.bam
     samtools view "${illumina_bam}" -bh -@ "$threads" -T ref.fa -o - | tee tmp_input.bam > input.bam & 
     samtools index tmp_input.bam
     wait
     cp tmp_input.bam.bai input.bam.bai
     rm tmp_input.bam
-elif [[ "$illumina_bai" == "" ]]; then
+elif [[ "$illumina_bai" == "None" ]]; then
+    echo "BAM file input, no index exists"
     cp "${illumina_bam}" input.bam
     samtools index input.bam
 else
+    echo "BAM file input, index exists"
     cp "${illumina_bam}" input.bam
     cp "${illumina_bai}" input.bam.bai
 fi

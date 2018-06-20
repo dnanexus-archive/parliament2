@@ -44,8 +44,11 @@ def gunzip_input(input_file):
 
 
 def run_parliament(bam, bai, ref_genome, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates):
-    
-     subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
+
+    if bai is not None:    
+        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
+    else:
+        subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
 
 
 def main():
@@ -53,7 +56,10 @@ def main():
     
     prefix = args.prefix
     if prefix is None:
-        prefix = args.bam[:-4]
+        if args.bam.endswith(".bam"):
+            prefix = args.bam[:-4]
+        else:
+            prefix = args.bam[:-5]
     if not args.bam.startswith("/home/dnanexus/in/"):
         args.bam = "/home/dnanexus/in/{0}".format(args.bam)
         args.bai = "/home/dnanexus/in/{0}".format(args.bai)
