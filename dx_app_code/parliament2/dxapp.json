@@ -7,6 +7,7 @@
     "WGS"
   ],
   "dxapi": "1.0.0",
+  "version": "0.1.6",
   "inputSpec": [
     {
       "name": "illumina_bam",
@@ -219,7 +220,7 @@
       "doi:10.1186/s12864-015-1479-3"
     ],
     "upstreamAuthor": "Baylor College of Medicine",
-    "whatsNew": "* 1.0.0: Adding Parliament2."
+    "whatsNew": "* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
   },
   "regionalOptions": {
     "aws:us-east-1": {

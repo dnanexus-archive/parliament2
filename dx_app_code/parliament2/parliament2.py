@@ -7,11 +7,6 @@ import glob
 
 @dxpy.entry_point('main')
 def main(**job_inputs):
-    # Preparation
-    sv_caller_results = []
-    
-    if 'illumina_bai' in job_inputs:
-        illumina_bai = job_inputs['illumina_bai']
 
     if 'prefix' not in job_inputs:
         bam_name = dxpy.describe(job_inputs['illumina_bam'])['name']
@@ -19,6 +14,8 @@ def main(**job_inputs):
             prefix = bam_name[:-5]
         else:
             prefix = bam_name[:-4]
+    else:
+        prefix = job_inputs['prefix']
 
     # Running Docker image
     subprocess.check_call(['mkdir', '-p', '/home/dnanexus/in', '/home/dnanexus/out'])

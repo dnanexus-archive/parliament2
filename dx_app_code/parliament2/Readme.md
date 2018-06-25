@@ -51,6 +51,8 @@ Because the field of structural variation is relatively new and complex, we view
 
 Breakseq2 may only be able to work when using the 1000 Genomes reference genome (hs37d5). For other reference genomes, you may not get Breakseq2 results.
 
+Parliament2 is open-source and can be found here: <https://github.com/dnanexus/parliament2>.
+
 ## Supporting information
 
 For additional information, please see the following papers:
