@@ -74,7 +74,7 @@ fi
 # BREAKSEQ2
 if [[ "$run_breakseq" == "True" ]]; then
     echo "BreakSeq"
-    source /breakseq2/bin/activate
+    source "/breakseq2/bin/activate"
     bplib="/breakseq2_bplib_20150129/breakseq2_bplib_20150129.gff"
     work="breakseq2"
     timeout 6h ./breakseq2-2.2/scripts/run_breakseq2.py --reference ref.fa \
