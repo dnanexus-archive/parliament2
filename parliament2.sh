@@ -74,6 +74,7 @@ fi
 # BREAKSEQ2
 if [[ "$run_breakseq" == "True" ]]; then
     echo "BreakSeq"
+    source /breakseq2/bin/activate
     bplib="/breakseq2_bplib_20150129/breakseq2_bplib_20150129.gff"
     work="breakseq2"
     timeout 6h ./breakseq2-2.2/scripts/run_breakseq2.py --reference ref.fa \
@@ -285,11 +286,6 @@ wait
 # Run SVtyper and SVviz
 if [[ "$run_genotype_candidates" == "True" ]]; then
     echo "Running SVTyper"
-    # SVviz and BreakSeq have mutually exclusive versions of pysam required, so
-    # SVviz is only installed later and if necessary
-    if [[ "$run_svviz" == "True" ]]; then
-        pip install svviz -q &
-    fi
 
     mkdir -p /home/dnanexus/out/svtyped_vcfs/
     set -e
@@ -393,6 +389,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Run svviz
     if [[ "$run_svviz" == "True" ]]; then
         echo "Running svviz"
+        source "/svviz/bin/activate"
         mkdir svviz_outputs
 
         grep \# survivor_sorted.vcf > header.txt

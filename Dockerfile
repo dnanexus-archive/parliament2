@@ -14,15 +14,10 @@ ENV DYLD_LIBRARY_PATH=/usr/lib/root/lib
 ENV HTSLIB_LIBRARY_DIR=/usr/local/lib
 ENV HTSLIB_INCLUDE_DIR=/usr/local/include
 
+WORKDIR /
+
 # System packages 
 RUN apt-get update && apt-get install -y curl wget
-
-# Install miniconda to /miniconda
-RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
-RUN bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b
-RUN rm Miniconda-latest-Linux-x86_64.sh
-ENV PATH=/miniconda/bin:${PATH}
-RUN conda update -y conda
 
 RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/amd64/' > /etc/apt/sources.list.d/dnanexus.list"
 RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/all/' >> /etc/apt/sources.list.d/dnanexus.list"
@@ -73,6 +68,25 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     zlib1g-dev
 RUN apt-get update
 
+# Install virtualenv
+RUN pip install --upgrade pip 
+RUN pip install virtualenv
+
+# Create BreakSeq virtualenv
+RUN virtualenv breakseq2
+RUN /bin/bash -c "source /breakseq2/bin/activate && apt-get install -y --force-yes python-dev && pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz && deactivate"
+
+# Create svviz virtualenv
+RUN virtualenv svviz
+RUN /bin/bash -c "source /svviz/bin/activate && pip install svviz && deactivate"
+
+# Install miniconda to /miniconda
+RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+RUN bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b
+RUN rm Miniconda-latest-Linux-x86_64.sh
+ENV PATH=/miniconda/bin:${PATH}
+RUN conda update -y conda
+
 RUN conda config --add channels r
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
@@ -83,15 +97,12 @@ RUN conda install -c bioconda samblaster -y
 RUN conda install -y -c anaconda networkx
 RUN conda install gcc_linux-64 -y
 RUN conda install -c bioconda manta
+RUN conda install -y numpy
 
 WORKDIR /
 ADD resources.tar.gz /
 RUN cp -a /resources/* /
 RUN rm -rf /resources/
-
-RUN conda install -y numpy
-RUN pip install --upgrade pip 
-RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz
 
 RUN pip install dxpy
     
