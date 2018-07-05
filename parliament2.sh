@@ -282,6 +282,25 @@ fi) &
 
 wait
 
+set -e
+# Verify that there are VCF files available
+if [[ -z $(find . -name "*.vcf") ]]; then
+    if [[ "$dnanexus" == "True" ]]; then
+        dx-jobutil-report-error "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+    else
+        echo "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+        exit 1
+    fi
+fi
+set +e
+
+# See which chromosomes are in the BAM file
+samtools idxstats input.bam | cut -f 1 | head -3
+
+# Check that all VCF files have all chromosomes
+    # for item in *svtyped.vcf; do
+
+
 # Run SVtyper and SVviz
 if [[ "$run_genotype_candidates" == "True" ]]; then
     echo "Running SVTyper"
@@ -292,17 +311,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     fi
 
     mkdir -p /home/dnanexus/out/svtyped_vcfs/
-    set -e
-    # Verify that there are VCF files available
-    if [[ -z $(find . -name "*.vcf") ]]; then
-        if [[ "$dnanexus" == "True" ]]; then
-            dx-jobutil-report-error "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
-        else
-            echo "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
-            exit 1
-        fi
-    fi
-    set +e
 
     i=0
     # Breakdancer
