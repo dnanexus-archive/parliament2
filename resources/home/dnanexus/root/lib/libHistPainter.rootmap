@@ -1,0 +1,12 @@
+[ libHistPainter.so ]
+# List of selected classes
+class TGraph2DPainter
+class TGraphPainter
+class THistPainter
+class TPainter3dAlgorithms
+class TPaletteAxis
+header TGraph2DPainter.h
+header TGraphPainter.h
+header THistPainter.h
+header TPainter3dAlgorithms.h
+header TPaletteAxis.h

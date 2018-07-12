@@ -1,0 +1,12 @@
+{ decls }
+namespace ROOT {  }
+
+[ libMultiProc.so ]
+# List of selected classes
+class ROOT::TProcessExecutor
+class TMPClient
+class TMPWorker
+header TMPClient.h
+header TMPWorker.h
+# List of selected typedefs and outer classes
+typedef TProcPool

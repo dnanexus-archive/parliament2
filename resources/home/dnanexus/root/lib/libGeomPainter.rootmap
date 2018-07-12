@@ -1,0 +1,10 @@
+[ libGeomPainter.so ]
+# List of selected classes
+class TGeoChecker
+class TGeoOverlap
+class TGeoPainter
+class TGeoTrack
+header TGeoChecker.h
+header TGeoOverlap.h
+header TGeoPainter.h
+header TGeoTrack.h

@@ -1,0 +1,20 @@
+{ decls }
+namespace std {  }
+
+[ libvectorDict.so ]
+# List of selected classes
+class vector<Long64_t>
+class vector<ULong64_t>
+class vector<bool>
+class vector<char const*>
+class vector<char*>
+class vector<char>
+class vector<const char*>
+class vector<double>
+class vector<float>
+class vector<long>
+class vector<short>
+class vector<unsigned char>
+class vector<unsigned int>
+class vector<unsigned long>
+class vector<unsigned short>

@@ -1,0 +1,22 @@
+[ libVMC.so ]
+# List of selected classes
+class TGeoMCGeometry
+class TMCVerbose
+class TVirtualMC
+class TVirtualMCApplication
+class TVirtualMCGeometry
+class TVirtualMCSensitiveDetector
+class TVirtualMCStack
+header TGeoMCGeometry.h
+header TMCVerbose.h
+header TVirtualMC.h
+header TVirtualMCApplication.h
+header TVirtualMCGeometry.h
+header TVirtualMCSensitiveDetector.h
+header TVirtualMCStack.h
+# List of selected enums and outer classes
+enum TMCProcess
+enum EMCOpSurfaceModel
+enum EMCOpSurfaceType
+enum EMCOpSurfaceFinish
+enum TMCParticleType

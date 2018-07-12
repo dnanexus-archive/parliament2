@@ -1,0 +1,14 @@
+[ libXMLParser.so ]
+# List of selected classes
+class TDOMParser
+class TSAXParser
+class TXMLAttr
+class TXMLDocument
+class TXMLNode
+class TXMLParser
+header TDOMParser.h
+header TSAXParser.h
+header TXMLAttr.h
+header TXMLDocument.h
+header TXMLNode.h
+header TXMLParser.h

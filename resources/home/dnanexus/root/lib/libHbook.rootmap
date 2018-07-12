@@ -1,0 +1,10 @@
+[ libHbook.so ]
+# List of selected classes
+class THbookBranch
+class THbookFile
+class THbookKey
+class THbookTree
+header THbookBranch.h
+header THbookFile.h
+header THbookKey.h
+header THbookTree.h

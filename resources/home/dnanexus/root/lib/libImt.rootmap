@@ -1,0 +1,10 @@
+{ decls }
+namespace ROOT { namespace Experimental {  } }
+namespace ROOT { namespace Internal {  } }
+namespace ROOT {  }
+
+[ libImt.so ]
+# List of selected classes
+class ROOT::Experimental::TTaskGroup
+class ROOT::Internal::TPoolManager
+class ROOT::TThreadExecutor

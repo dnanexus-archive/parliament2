@@ -1,0 +1,17 @@
+{ decls }
+namespace std {  }
+
+[ libmapDict.so ]
+# List of selected classes
+class map<char*,char*>
+class map<char*,double>
+class map<char*,float>
+class map<char*,int>
+class map<char*,long>
+class map<char*,void*>
+class map<string,double>
+class map<string,float>
+class map<string,int>
+class map<string,long>
+class map<string,string>
+class map<string,void*>

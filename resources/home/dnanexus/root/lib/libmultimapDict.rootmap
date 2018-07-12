@@ -1,0 +1,14 @@
+{ decls }
+namespace std {  }
+
+[ libmultimapDict.so ]
+# List of selected classes
+class multimap<char*,char*>
+class multimap<char*,double>
+class multimap<char*,int>
+class multimap<char*,long>
+class multimap<char*,void*>
+class multimap<string,double>
+class multimap<string,int>
+class multimap<string,long>
+class multimap<string,void*>

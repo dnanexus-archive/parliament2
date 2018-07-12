@@ -1,0 +1,8 @@
+{ decls }
+namespace ROOT { namespace Math {  } }
+
+[ libGenetic.so ]
+# List of selected classes
+class ROOT::Math::GeneticMinimizer
+class ROOT::Math::GeneticMinimizerParameters
+header Math/GeneticMinimizer.h

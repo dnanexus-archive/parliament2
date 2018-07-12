@@ -1,0 +1,191 @@
+{ decls }
+namespace std {  }
+namespace ROOT { namespace Math {  } }
+namespace ROOT { namespace Math { template <typename T> class Cartesian2D; } }
+namespace ROOT { namespace Math { class DefaultCoordinateSystemTag; } }
+namespace ROOT { namespace Math { template <typename T> class Polar2D; } }
+namespace ROOT { namespace Math { template <typename CoordSystem, typename Tag> class DisplacementVector2D; } }
+namespace ROOT { namespace Math { template <typename CoordSystem, typename Tag> class PositionVector2D; } }
+namespace ROOT { namespace Math { template <typename T> class Cartesian3D; } }
+namespace ROOT { namespace Math { template <typename CoordSystem, typename Tag> class DisplacementVector3D; } }
+namespace ROOT { namespace Math { template <typename T> class CylindricalEta3D; } }
+namespace ROOT { namespace Math { template <typename T> class Polar3D; } }
+namespace ROOT { namespace Math { template <typename T> class Cylindrical3D; } }
+namespace ROOT { namespace Math { template <typename CoordSystem, typename Tag> class PositionVector3D; } }
+namespace ROOT { namespace Math { template <typename T> class PxPyPzE4D; } }
+namespace ROOT { namespace Math { template <typename CoordSystem> class LorentzVector; } }
+namespace ROOT { namespace Math { template <typename T> class PxPyPzM4D; } }
+namespace ROOT { namespace Math { template <typename T> class PtEtaPhiE4D; } }
+namespace ROOT { namespace Math { template <typename T> class PtEtaPhiM4D; } }
+namespace ROOT { namespace Math { template <typename ScalarType> class PtEtaPhiM4D; } }
+namespace ROOT { namespace Math { template <typename ScalarType> class PxPyPzM4D; } }
+namespace ROOT { namespace Math { template <typename ScalarType> class PtEtaPhiE4D; } }
+namespace ROOT { namespace Math { namespace Impl {  } } }
+namespace ROOT { namespace Math { namespace Impl { template <typename T> class Plane3D; } } }
+namespace ROOT { namespace Math { namespace Impl { template <typename T> class Translation3D; } } }
+namespace ROOT { namespace Math { namespace Impl { template <typename T> class Transform3D; } } }
+
+[ libGenVector.so ]
+# List of selected classes
+class ROOT::Math::AxisAngle
+class ROOT::Math::Boost
+class ROOT::Math::BoostX
+class ROOT::Math::BoostY
+class ROOT::Math::BoostZ
+class ROOT::Math::Cartesian2D<double>
+class ROOT::Math::Cartesian2D<float>
+class ROOT::Math::Cartesian3D<double>
+class ROOT::Math::Cartesian3D<float>
+class ROOT::Math::Cylindrical3D<double>
+class ROOT::Math::Cylindrical3D<float>
+class ROOT::Math::CylindricalEta3D<double>
+class ROOT::Math::CylindricalEta3D<float>
+class ROOT::Math::DefaultCoordinateSystemTag
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Cartesian2D<double> >
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Cartesian2D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Cartesian2D<float> >
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Cartesian2D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Polar2D<double> >
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Polar2D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Polar2D<float> >
+class ROOT::Math::DisplacementVector2D<ROOT::Math::Polar2D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<double> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<float> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cylindrical3D<double> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cylindrical3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cylindrical3D<float> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Cylindrical3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::CylindricalEta3D<double> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::CylindricalEta3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::CylindricalEta3D<float> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::CylindricalEta3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Polar3D<double> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Polar3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Polar3D<float> >
+class ROOT::Math::DisplacementVector3D<ROOT::Math::Polar3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::EulerAngles
+class ROOT::Math::GlobalCoordinateSystemTag
+class ROOT::Math::Impl::Plane3D<double>
+class ROOT::Math::Impl::Transform3D<double>
+class ROOT::Math::Impl::Translation3D<double>
+class ROOT::Math::LocalCoordinateSystemTag
+class ROOT::Math::LorentzRotation
+class ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiE4D<double> >
+class ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiE4D<float> >
+class ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<double> >
+class ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiM4D<float> >
+class ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double> >
+class ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<float> >
+class ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<double> >
+class ROOT::Math::LorentzVector<ROOT::Math::PxPyPzM4D<float> >
+class ROOT::Math::Plane3D
+class ROOT::Math::Polar2D<double>
+class ROOT::Math::Polar2D<float>
+class ROOT::Math::Polar3D<double>
+class ROOT::Math::Polar3D<float>
+class ROOT::Math::PositionVector2D<ROOT::Math::Cartesian2D<double> >
+class ROOT::Math::PositionVector2D<ROOT::Math::Cartesian2D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector2D<ROOT::Math::Cartesian2D<float> >
+class ROOT::Math::PositionVector2D<ROOT::Math::Cartesian2D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector2D<ROOT::Math::Polar2D<double> >
+class ROOT::Math::PositionVector2D<ROOT::Math::Polar2D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector2D<ROOT::Math::Polar2D<float> >
+class ROOT::Math::PositionVector2D<ROOT::Math::Polar2D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<double> >
+class ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<float> >
+class ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::Cylindrical3D<double> >
+class ROOT::Math::PositionVector3D<ROOT::Math::Cylindrical3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::Cylindrical3D<float> >
+class ROOT::Math::PositionVector3D<ROOT::Math::Cylindrical3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::CylindricalEta3D<double> >
+class ROOT::Math::PositionVector3D<ROOT::Math::CylindricalEta3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::CylindricalEta3D<float> >
+class ROOT::Math::PositionVector3D<ROOT::Math::CylindricalEta3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::Polar3D<double> >
+class ROOT::Math::PositionVector3D<ROOT::Math::Polar3D<double>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PositionVector3D<ROOT::Math::Polar3D<float> >
+class ROOT::Math::PositionVector3D<ROOT::Math::Polar3D<float>,ROOT::Math::DefaultCoordinateSystemTag>
+class ROOT::Math::PtEtaPhiE4D<double>
+class ROOT::Math::PtEtaPhiE4D<float>
+class ROOT::Math::PtEtaPhiM4D<double>
+class ROOT::Math::PtEtaPhiM4D<float>
+class ROOT::Math::PxPyPzE4D<double>
+class ROOT::Math::PxPyPzE4D<float>
+class ROOT::Math::PxPyPzM4D<double>
+class ROOT::Math::PxPyPzM4D<float>
+class ROOT::Math::Quaternion
+class ROOT::Math::Rotation3D
+class ROOT::Math::RotationX
+class ROOT::Math::RotationY
+class ROOT::Math::RotationZ
+class ROOT::Math::RotationZYX
+class ROOT::Math::Transform3D
+class ROOT::Math::Translation3D
+class vector<ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<double>,ROOT::Math::DefaultCoordinateSystemTag> >
+class vector<ROOT::Math::DisplacementVector3D<ROOT::Math::Cartesian3D<float>,ROOT::Math::DefaultCoordinateSystemTag> >
+class vector<ROOT::Math::DisplacementVector3D<ROOT::Math::CylindricalEta3D<double>,ROOT::Math::DefaultCoordinateSystemTag> >
+class vector<ROOT::Math::LorentzVector<ROOT::Math::PtEtaPhiE4D<double> > >
+class vector<ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double> > >
+class vector<ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<float> > >
+class vector<ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<double>,ROOT::Math::DefaultCoordinateSystemTag> >
+class vector<ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<float>,ROOT::Math::DefaultCoordinateSystemTag> >
+class vector<ROOT::Math::PositionVector3D<ROOT::Math::CylindricalEta3D<double>,ROOT::Math::DefaultCoordinateSystemTag> >
+class vector<ROOT::Math::PtEtaPhiEVector>
+class vector<ROOT::Math::RhoEtaPhiPoint>
+class vector<ROOT::Math::RhoEtaPhiVector>
+class vector<ROOT::Math::XYZPoint>
+class vector<ROOT::Math::XYZPointF>
+class vector<ROOT::Math::XYZTVector>
+class vector<ROOT::Math::XYZTVectorF>
+class vector<ROOT::Math::XYZVector>
+class vector<ROOT::Math::XYZVectorF>
+header Math/GenVector/AxisAngle.h
+header Math/GenVector/Boost.h
+header Math/GenVector/BoostX.h
+header Math/GenVector/BoostY.h
+header Math/GenVector/BoostZ.h
+header Math/GenVector/CoordinateSystemTags.h
+header Math/GenVector/EulerAngles.h
+header Math/GenVector/LorentzRotation.h
+header Math/GenVector/Quaternion.h
+header Math/GenVector/Rotation3D.h
+header Math/GenVector/RotationX.h
+header Math/GenVector/RotationY.h
+header Math/GenVector/RotationZ.h
+header Math/GenVector/RotationZYX.h
+# List of selected namespaces
+namespace ROOT
+namespace ROOT::Math
+namespace ROOT::Math::VectorUtil
+# List of selected typedefs and outer classes
+typedef ROOT::Math::XYVector
+typedef ROOT::Math::XYVectorF
+typedef ROOT::Math::Polar2DVector
+typedef ROOT::Math::Polar2DVectorF
+typedef ROOT::Math::XYPoint
+typedef ROOT::Math::XYPointF
+typedef ROOT::Math::Polar2DPoint
+typedef ROOT::Math::Polar2DPointF
+typedef ROOT::Math::XYZVector
+typedef ROOT::Math::XYZVectorF
+typedef ROOT::Math::RhoEtaPhiVector
+typedef ROOT::Math::RhoEtaPhiVectorF
+typedef ROOT::Math::Polar3DVector
+typedef ROOT::Math::Polar3DVectorF
+typedef ROOT::Math::RhoZPhiVector
+typedef ROOT::Math::XYZPoint
+typedef ROOT::Math::XYZPointF
+typedef ROOT::Math::RhoEtaPhiPoint
+typedef ROOT::Math::RhoEtaPhiPointF
+typedef ROOT::Math::Polar3DPoint
+typedef ROOT::Math::Polar3DPointF
+typedef ROOT::Math::XYZTVector
+typedef ROOT::Math::PxPyPzEVector
+typedef ROOT::Math::XYZTVectorF
+typedef ROOT::Math::PxPyPzMVector
+typedef ROOT::Math::PtEtaPhiEVector
+typedef ROOT::Math::PtEtaPhiMVector

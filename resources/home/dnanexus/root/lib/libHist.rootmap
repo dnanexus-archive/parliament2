@@ -1,0 +1,258 @@
+{ decls }
+namespace std {  }
+namespace ROOT { namespace Internal {  } }
+template <typename T> class TNDArrayRef;
+template <typename T> class TNDArrayT;
+template <typename T> class THnT;
+class TArrayD;
+class TArrayF;
+class TArrayL;
+class TArrayI;
+class TArrayS;
+class TArrayC;
+namespace ROOT { namespace Math {  } }
+namespace ROOT { namespace Math { template <typename T> class WrappedMultiTF1Templ; } }
+namespace ROOT { namespace v5 {  } }
+
+[ libHist.so ]
+# List of selected classes
+class Foption_t
+class ROOT::Internal::THnBaseBrowsable
+class ROOT::Math::WrappedMultiTF1
+class ROOT::Math::WrappedMultiTF1Templ<double>
+class ROOT::Math::WrappedTF1
+class ROOT::v5::TF1Data
+class ROOT::v5::TFormula
+class ROOT::v5::TFormulaPrimitive
+class TAxis
+class TAxisModLab
+class TBackCompFitter
+class TBinomialEfficiencyFitter
+class TConfidenceLevel
+class TEfficiency
+class TF1
+class TF12
+class TF1AbsComposition
+class TF1Convolution
+class TF1NormSum
+class TF1Parameters
+class TF2
+class TF3
+class TFitResult
+class TFitResultPtr
+class TFormula
+class TFormulaParamOrder
+class TFractionFitter
+class TGraph
+class TGraph2D
+class TGraph2DErrors
+class TGraphAsymmErrors
+class TGraphBentErrors
+class TGraphDelaunay
+class TGraphDelaunay2D
+class TGraphErrors
+class TGraphSmooth
+class TGraphTime
+class TH1
+class TH1C
+class TH1D
+class TH1F
+class TH1I
+class TH1K
+class TH1S
+class TH2
+class TH2C
+class TH2D
+class TH2F
+class TH2I
+class TH2Poly
+class TH2PolyBin
+class TH2S
+class TH3
+class TH3C
+class TH3D
+class TH3F
+class TH3I
+class TH3S
+class THLimitsFinder
+class THStack
+class THn
+class THnBase
+class THnChain
+class THnIter
+class THnSparse
+class THnSparseArrayChunk
+class THnSparseT<TArrayC>
+class THnSparseT<TArrayD>
+class THnSparseT<TArrayF>
+class THnSparseT<TArrayI>
+class THnSparseT<TArrayL>
+class THnSparseT<TArrayS>
+class THnT<Char_t>
+class THnT<Double_t>
+class THnT<Float_t>
+class THnT<Int_t>
+class THnT<Long64_t>
+class THnT<Long_t>
+class THnT<Short_t>
+class THnT<UInt_t>
+class THnT<ULong64_t>
+class THnT<ULong_t>
+class THnT<UShort_t>
+class THnT<char>
+class THnT<double>
+class THnT<float>
+class THnT<int>
+class THnT<long>
+class THnT<short>
+class THnT<unsigned int>
+class THnT<unsigned long>
+class THnT<unsigned short>
+class TKDE
+class TLimit
+class TLimitDataSource
+class TMultiDimFit
+class TMultiGraph
+class TNDArray
+class TNDArrayRef<Char_t>
+class TNDArrayRef<Double_t>
+class TNDArrayRef<Float_t>
+class TNDArrayRef<Int_t>
+class TNDArrayRef<Long64_t>
+class TNDArrayRef<Long_t>
+class TNDArrayRef<Short_t>
+class TNDArrayRef<UInt_t>
+class TNDArrayRef<ULong64_t>
+class TNDArrayRef<ULong_t>
+class TNDArrayRef<UShort_t>
+class TNDArrayRef<char>
+class TNDArrayRef<double>
+class TNDArrayRef<float>
+class TNDArrayRef<int>
+class TNDArrayRef<long>
+class TNDArrayRef<short>
+class TNDArrayRef<unsigned int>
+class TNDArrayRef<unsigned long>
+class TNDArrayRef<unsigned short>
+class TNDArrayT<Char_t>
+class TNDArrayT<Double_t>
+class TNDArrayT<Float_t>
+class TNDArrayT<Int_t>
+class TNDArrayT<Long64_t>
+class TNDArrayT<Long_t>
+class TNDArrayT<Short_t>
+class TNDArrayT<UInt_t>
+class TNDArrayT<ULong64_t>
+class TNDArrayT<ULong_t>
+class TNDArrayT<UShort_t>
+class TNDArrayT<char>
+class TNDArrayT<double>
+class TNDArrayT<float>
+class TNDArrayT<int>
+class TNDArrayT<long>
+class TNDArrayT<short>
+class TNDArrayT<unsigned int>
+class TNDArrayT<unsigned long>
+class TNDArrayT<unsigned short>
+class TPolyMarker
+class TPrincipal
+class TProfile
+class TProfile2D
+class TProfile2Poly
+class TProfile2PolyBin
+class TProfile3D
+class TSVDUnfold
+class TSpline
+class TSpline3
+class TSpline5
+class TSplinePoly
+class TSplinePoly3
+class TSplinePoly5
+class TVirtualFitter
+class TVirtualGraphPainter
+class TVirtualHistPainter
+class map<TString,int,TFormulaParamOrder>
+class vector<TF1*>
+class vector<TF1AbsComposition*>
+class vector<std::unique_ptr<TF1> >
+class vector<std::unique_ptr<TF1AbsComposition> >
+class vector<unique_ptr<TF1,default_delete<TF1> > >
+class vector<unique_ptr<TF1AbsComposition,default_delete<TF1AbsComposition> > >
+header Foption.h
+header THnBase.h
+header Math/WrappedTF1.h
+header v5/TF1Data.h
+header v5/TFormula.h
+header v5/TFormulaPrimitive.h
+header TAxis.h
+header TAxisModLab.h
+header TBackCompFitter.h
+header TBinomialEfficiencyFitter.h
+header TConfidenceLevel.h
+header TEfficiency.h
+header TF1.h
+header TF12.h
+header TF1AbsComposition.h
+header TF1Convolution.h
+header TF1NormSum.h
+header TF2.h
+header TF3.h
+header TFitResult.h
+header TFitResultPtr.h
+header TFormula.h
+header TFractionFitter.h
+header TGraph.h
+header TGraph2D.h
+header TGraph2DErrors.h
+header TGraphAsymmErrors.h
+header TGraphBentErrors.h
+header TGraphDelaunay.h
+header TGraphDelaunay2D.h
+header TGraphErrors.h
+header TGraphSmooth.h
+header TGraphTime.h
+header TH1.h
+header TH1K.h
+header TH2.h
+header TH2Poly.h
+header TH3.h
+header THLimitsFinder.h
+header THStack.h
+header THn.h
+header THnChain.h
+header THnSparse.h
+header THnSparse_Internal.h
+header TKDE.h
+header TLimit.h
+header TLimitDataSource.h
+header TMultiDimFit.h
+header TMultiGraph.h
+header TNDArray.h
+header TPolyMarker.h
+header TPrincipal.h
+header TProfile.h
+header TProfile2D.h
+header TProfile2Poly.h
+header TProfile3D.h
+header TSVDUnfold.h
+header TSpline.h
+header TVirtualFitter.h
+header TVirtualGraphPainter.h
+header TVirtualHistPainter.h
+# List of selected namespaces
+namespace ROOT::Fit
+# List of selected typedefs and outer classes
+typedef THnF
+typedef THnD
+typedef THnC
+typedef THnS
+typedef THnI
+typedef THnL
+typedef THnSparseD
+typedef THnSparseF
+typedef THnSparseL
+typedef THnSparseI
+typedef THnSparseS
+typedef THnSparseC
+# List of selected enums and outer classes
+enum EErrorType

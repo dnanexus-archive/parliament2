@@ -1,0 +1,26 @@
+[ libGQt.so ]
+# List of selected classes
+class TGQt
+class TQMimeTypes
+class TQtApplication
+class TQtBrush
+class TQtClientFilter
+class TQtClientWidget
+class TQtMarker
+class TQtPadFont
+class TQtRootSlot
+class TQtTimer
+class TQtWidget
+header TGQt.h
+header TQMimeTypes.h
+header TQtApplication.h
+header TQtBrush.h
+header TQtClientFilter.h
+header TQtClientWidget.h
+header TQtMarker.h
+header TQtPadFont.h
+header TQtRootSlot.h
+header TQtTimer.h
+header TQtWidget.h
+# List of selected vars
+var gQt

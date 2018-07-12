@@ -1,0 +1,10 @@
+[ libRSQLite.so ]
+# List of selected classes
+class TSQLiteResult
+class TSQLiteRow
+class TSQLiteServer
+class TSQLiteStatement
+header TSQLiteResult.h
+header TSQLiteRow.h
+header TSQLiteServer.h
+header TSQLiteStatement.h

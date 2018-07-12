@@ -1,0 +1,156 @@
+{ decls }
+namespace ROOT { namespace Internal {  } }
+namespace ROOT { namespace Detail {  } }
+namespace ROOT { namespace Internal { template <typename T> class TImpProxy; } }
+namespace ROOT { namespace Internal { template <typename T, int> class TArrayType; } }
+namespace ROOT { namespace Internal { template <typename T> class TArrayProxy; } }
+namespace ROOT { namespace Internal { template <typename T> class TClaImpProxy; } }
+namespace ROOT { namespace Internal { template <typename T> class TClaArrayProxy; } }
+namespace ROOT {  }
+
+[ libTreePlayer.so ]
+# List of selected classes
+class ROOT::Detail::TBranchProxy
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Bool_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Char_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Int_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Long64_t,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Long64_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Long_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<Short_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<UChar_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<UInt_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<ULong64_t,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<ULong64_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<ULong_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<UShort_t> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<bool,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<char,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<double,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<double> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<float,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<float> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<int,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<long,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<short,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<unsigned char,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<unsigned int,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<unsigned long,0> >
+class ROOT::Internal::TArrayProxy<ROOT::Internal::TArrayType<unsigned short,0> >
+class ROOT::Internal::TBranchProxyClassDescriptor
+class ROOT::Internal::TBranchProxyDescriptor
+class ROOT::Internal::TBranchProxyDirector
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Bool_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Char_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Int_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Long64_t,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Long64_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Long_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<Short_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<UChar_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<UInt_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<ULong64_t,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<ULong64_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<ULong_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<UShort_t> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<bool,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<char,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<double,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<double> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<float,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<float> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<int,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<long,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<short,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<unsigned char,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<unsigned int,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<unsigned long,0> >
+class ROOT::Internal::TClaArrayProxy<ROOT::Internal::TArrayType<unsigned short,0> >
+class ROOT::Internal::TClaImpProxy<Bool_t>
+class ROOT::Internal::TClaImpProxy<Char_t>
+class ROOT::Internal::TClaImpProxy<Int_t>
+class ROOT::Internal::TClaImpProxy<Long64_t>
+class ROOT::Internal::TClaImpProxy<Long_t>
+class ROOT::Internal::TClaImpProxy<Short_t>
+class ROOT::Internal::TClaImpProxy<UChar_t>
+class ROOT::Internal::TClaImpProxy<UInt_t>
+class ROOT::Internal::TClaImpProxy<ULong64_t>
+class ROOT::Internal::TClaImpProxy<ULong_t>
+class ROOT::Internal::TClaImpProxy<UShort_t>
+class ROOT::Internal::TClaImpProxy<bool>
+class ROOT::Internal::TClaImpProxy<char>
+class ROOT::Internal::TClaImpProxy<double>
+class ROOT::Internal::TClaImpProxy<float>
+class ROOT::Internal::TClaImpProxy<int>
+class ROOT::Internal::TClaImpProxy<long>
+class ROOT::Internal::TClaImpProxy<short>
+class ROOT::Internal::TClaImpProxy<unsigned char>
+class ROOT::Internal::TClaImpProxy<unsigned int>
+class ROOT::Internal::TClaImpProxy<unsigned long>
+class ROOT::Internal::TClaImpProxy<unsigned short>
+class ROOT::Internal::TFriendProxy
+class ROOT::Internal::TFriendProxyDescriptor
+class ROOT::Internal::TImpProxy<Bool_t>
+class ROOT::Internal::TImpProxy<Char_t>
+class ROOT::Internal::TImpProxy<Int_t>
+class ROOT::Internal::TImpProxy<Long64_t>
+class ROOT::Internal::TImpProxy<Long_t>
+class ROOT::Internal::TImpProxy<Short_t>
+class ROOT::Internal::TImpProxy<UChar_t>
+class ROOT::Internal::TImpProxy<UInt_t>
+class ROOT::Internal::TImpProxy<ULong64_t>
+class ROOT::Internal::TImpProxy<ULong_t>
+class ROOT::Internal::TImpProxy<UShort_t>
+class ROOT::Internal::TImpProxy<bool>
+class ROOT::Internal::TImpProxy<char>
+class ROOT::Internal::TImpProxy<double>
+class ROOT::Internal::TImpProxy<float>
+class ROOT::Internal::TImpProxy<int>
+class ROOT::Internal::TImpProxy<long>
+class ROOT::Internal::TImpProxy<short>
+class ROOT::Internal::TImpProxy<unsigned char>
+class ROOT::Internal::TImpProxy<unsigned int>
+class ROOT::Internal::TImpProxy<unsigned long>
+class ROOT::Internal::TImpProxy<unsigned short>
+class ROOT::Internal::TNamedBranchProxy
+class ROOT::Internal::TTreeReaderArrayBase
+class ROOT::Internal::TTreeReaderValueBase
+class ROOT::TTreeProcessorMT
+class TChainIndex
+class TChainIndex::TChainIndexEntry
+class TFileDrawMap
+class TMPWorkerTree
+class TSelectorDraw
+class TSelectorEntries
+class TSimpleAnalysis
+class TTreeDrawArgsParser
+class TTreeFormula
+class TTreeFormulaManager
+class TTreeIndex
+class TTreePerfStats
+class TTreePlayer
+class TTreeReader
+class TTreeTableInterface
+header TBranchProxy.h
+header TBranchProxyClassDescriptor.h
+header TBranchProxyDescriptor.h
+header TBranchProxyDirector.h
+header TFriendProxy.h
+header TFriendProxyDescriptor.h
+header TTreeReaderUtils.h
+header TTreeReaderArray.h
+header TTreeReaderValue.h
+header TChainIndex.h
+header TFileDrawMap.h
+header TMPWorkerTree.h
+header TSelectorDraw.h
+header TSelectorEntries.h
+header TSimpleAnalysis.h
+header TTreeDrawArgsParser.h
+header TTreeFormula.h
+header TTreeFormulaManager.h
+header TTreeIndex.h
+header TTreePerfStats.h
+header TTreePlayer.h
+header TTreeReader.h
+header TTreeTableInterface.h

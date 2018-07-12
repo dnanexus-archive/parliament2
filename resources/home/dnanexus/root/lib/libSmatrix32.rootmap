@@ -1,0 +1,33 @@
+{ decls }
+namespace ROOT { namespace Math {  } }
+namespace ROOT { namespace Math { template <typename T, unsigned int, unsigned int> class MatRepStd; } }
+namespace ROOT { namespace Math { template <typename T, unsigned int> class MatRepSym; } }
+namespace ROOT { namespace Math { template <typename T, unsigned int> class SVector; } }
+namespace ROOT { namespace Math { template <typename T, unsigned int, unsigned int, typename R> class SMatrix; } }
+
+[ libSmatrix.so ]
+# List of selected classes
+class ROOT::Math::MatRepStd<Double32_t,3,3>
+class ROOT::Math::MatRepStd<Double32_t,4,4>
+class ROOT::Math::MatRepStd<Double32_t,5,5>
+class ROOT::Math::MatRepStd<Double32_t,6,6>
+class ROOT::Math::MatRepSym<Double32_t,3>
+class ROOT::Math::MatRepSym<Double32_t,4>
+class ROOT::Math::MatRepSym<Double32_t,5>
+class ROOT::Math::MatRepSym<Double32_t,6>
+class ROOT::Math::SMatrix<Double32_t,3,3,ROOT::Math::MatRepStd<Double32_t,3,3> >
+class ROOT::Math::SMatrix<Double32_t,3,3,ROOT::Math::MatRepSym<Double32_t,3> >
+class ROOT::Math::SMatrix<Double32_t,3,3>
+class ROOT::Math::SMatrix<Double32_t,4,4,ROOT::Math::MatRepStd<Double32_t,4,4> >
+class ROOT::Math::SMatrix<Double32_t,4,4,ROOT::Math::MatRepSym<Double32_t,4> >
+class ROOT::Math::SMatrix<Double32_t,4,4>
+class ROOT::Math::SMatrix<Double32_t,5,5,ROOT::Math::MatRepStd<Double32_t,5,5> >
+class ROOT::Math::SMatrix<Double32_t,5,5,ROOT::Math::MatRepSym<Double32_t,5> >
+class ROOT::Math::SMatrix<Double32_t,5,5>
+class ROOT::Math::SMatrix<Double32_t,6,6,ROOT::Math::MatRepStd<Double32_t,6,6> >
+class ROOT::Math::SMatrix<Double32_t,6,6,ROOT::Math::MatRepSym<Double32_t,6> >
+class ROOT::Math::SMatrix<Double32_t,6,6>
+class ROOT::Math::SVector<Double32_t,3>
+class ROOT::Math::SVector<Double32_t,4>
+class ROOT::Math::SVector<Double32_t,5>
+class ROOT::Math::SVector<Double32_t,6>

@@ -1,0 +1,12 @@
+{ decls }
+namespace std {  }
+
+[ libmultisetDict.so ]
+# List of selected classes
+class multiset<char*>
+class multiset<double>
+class multiset<float>
+class multiset<int>
+class multiset<long>
+class multiset<string>
+class multiset<void*>

@@ -1,0 +1,369 @@
+{ decls }
+namespace ROOT { namespace Math {  } }
+namespace ROOT { namespace Math { template <typename T, unsigned int, unsigned int> class MatRepStd; } }
+namespace ROOT { namespace Math { template <unsigned int> class RowOffsets; } }
+namespace ROOT { namespace Math { template <typename T, unsigned int> class MatRepSym; } }
+namespace ROOT { namespace Math { template <typename T, unsigned int> class SVector; } }
+namespace ROOT { namespace Math { template <typename T, unsigned int, unsigned int, typename R> class SMatrix; } }
+
+[ libSmatrix.so ]
+# List of selected classes
+class ROOT::Math::MatRepStd<double,2,2>
+class ROOT::Math::MatRepStd<double,2u,2u>
+class ROOT::Math::MatRepStd<double,3,3>
+class ROOT::Math::MatRepStd<double,3,4>
+class ROOT::Math::MatRepStd<double,3u,3u>
+class ROOT::Math::MatRepStd<double,3u,4u>
+class ROOT::Math::MatRepStd<double,4,3>
+class ROOT::Math::MatRepStd<double,4,4>
+class ROOT::Math::MatRepStd<double,4u,3u>
+class ROOT::Math::MatRepStd<double,4u,4u>
+class ROOT::Math::MatRepStd<double,5,5>
+class ROOT::Math::MatRepStd<double,5u,5u>
+class ROOT::Math::MatRepStd<double,6,6>
+class ROOT::Math::MatRepStd<double,6u,6u>
+class ROOT::Math::MatRepStd<double,7,7>
+class ROOT::Math::MatRepStd<double,7u,7u>
+class ROOT::Math::MatRepStd<double,9,7>
+class ROOT::Math::MatRepStd<double,9u,7u>
+class ROOT::Math::MatRepStd<float,2,2>
+class ROOT::Math::MatRepStd<float,2u,2u>
+class ROOT::Math::MatRepStd<float,3,3>
+class ROOT::Math::MatRepStd<float,3,4>
+class ROOT::Math::MatRepStd<float,3u,3u>
+class ROOT::Math::MatRepStd<float,3u,4u>
+class ROOT::Math::MatRepStd<float,4,3>
+class ROOT::Math::MatRepStd<float,4,4>
+class ROOT::Math::MatRepStd<float,4u,3u>
+class ROOT::Math::MatRepStd<float,4u,4u>
+class ROOT::Math::MatRepStd<float,5,5>
+class ROOT::Math::MatRepStd<float,5u,5u>
+class ROOT::Math::MatRepStd<float,6,6>
+class ROOT::Math::MatRepStd<float,6u,6u>
+class ROOT::Math::MatRepStd<float,7,7>
+class ROOT::Math::MatRepStd<float,7u,7u>
+class ROOT::Math::MatRepStd<float,9,7>
+class ROOT::Math::MatRepStd<float,9u,7u>
+class ROOT::Math::MatRepSym<double,2>
+class ROOT::Math::MatRepSym<double,2u>
+class ROOT::Math::MatRepSym<double,3>
+class ROOT::Math::MatRepSym<double,3u>
+class ROOT::Math::MatRepSym<double,4>
+class ROOT::Math::MatRepSym<double,4u>
+class ROOT::Math::MatRepSym<double,5>
+class ROOT::Math::MatRepSym<double,5u>
+class ROOT::Math::MatRepSym<double,6>
+class ROOT::Math::MatRepSym<double,6u>
+class ROOT::Math::MatRepSym<double,7>
+class ROOT::Math::MatRepSym<double,7u>
+class ROOT::Math::MatRepSym<float,2>
+class ROOT::Math::MatRepSym<float,2u>
+class ROOT::Math::MatRepSym<float,3>
+class ROOT::Math::MatRepSym<float,3u>
+class ROOT::Math::MatRepSym<float,4>
+class ROOT::Math::MatRepSym<float,4u>
+class ROOT::Math::MatRepSym<float,5>
+class ROOT::Math::MatRepSym<float,5u>
+class ROOT::Math::MatRepSym<float,6>
+class ROOT::Math::MatRepSym<float,6u>
+class ROOT::Math::MatRepSym<float,7>
+class ROOT::Math::MatRepSym<float,7u>
+class ROOT::Math::RowOffsets<2>
+class ROOT::Math::RowOffsets<2u>
+class ROOT::Math::RowOffsets<3>
+class ROOT::Math::RowOffsets<3u>
+class ROOT::Math::RowOffsets<4>
+class ROOT::Math::RowOffsets<4u>
+class ROOT::Math::RowOffsets<5>
+class ROOT::Math::RowOffsets<5u>
+class ROOT::Math::RowOffsets<6>
+class ROOT::Math::RowOffsets<6u>
+class ROOT::Math::RowOffsets<7>
+class ROOT::Math::RowOffsets<7u>
+class ROOT::Math::SMatrix<double,2,2,ROOT::Math::MatRepStd<double,2,2> >
+class ROOT::Math::SMatrix<double,2,2,ROOT::Math::MatRepStd<double,2,2> >::SMatrixRow
+class ROOT::Math::SMatrix<double,2,2,ROOT::Math::MatRepStd<double,2,2> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,2,2,ROOT::Math::MatRepSym<double,2> >
+class ROOT::Math::SMatrix<double,2,2,ROOT::Math::MatRepSym<double,2> >::SMatrixRow
+class ROOT::Math::SMatrix<double,2,2,ROOT::Math::MatRepSym<double,2> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,2,2>
+class ROOT::Math::SMatrix<double,2,2>::SMatrixRow
+class ROOT::Math::SMatrix<double,2,2>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,2u,2u,ROOT::Math::MatRepStd<double,2u,2u> >
+class ROOT::Math::SMatrix<double,2u,2u,ROOT::Math::MatRepStd<double,2u,2u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,2u,2u,ROOT::Math::MatRepStd<double,2u,2u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,2u,2u,ROOT::Math::MatRepSym<double,2u> >
+class ROOT::Math::SMatrix<double,2u,2u,ROOT::Math::MatRepSym<double,2u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,2u,2u,ROOT::Math::MatRepSym<double,2u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3,3,ROOT::Math::MatRepStd<double,3,3> >
+class ROOT::Math::SMatrix<double,3,3,ROOT::Math::MatRepStd<double,3,3> >::SMatrixRow
+class ROOT::Math::SMatrix<double,3,3,ROOT::Math::MatRepStd<double,3,3> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3,3,ROOT::Math::MatRepSym<double,3> >
+class ROOT::Math::SMatrix<double,3,3,ROOT::Math::MatRepSym<double,3> >::SMatrixRow
+class ROOT::Math::SMatrix<double,3,3,ROOT::Math::MatRepSym<double,3> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3,3>
+class ROOT::Math::SMatrix<double,3,3>::SMatrixRow
+class ROOT::Math::SMatrix<double,3,3>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3,4,ROOT::Math::MatRepStd<double,3,4> >
+class ROOT::Math::SMatrix<double,3,4,ROOT::Math::MatRepStd<double,3,4> >::SMatrixRow
+class ROOT::Math::SMatrix<double,3,4,ROOT::Math::MatRepStd<double,3,4> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3,4>
+class ROOT::Math::SMatrix<double,3,4>::SMatrixRow
+class ROOT::Math::SMatrix<double,3,4>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3u,3u,ROOT::Math::MatRepStd<double,3u,3u> >
+class ROOT::Math::SMatrix<double,3u,3u,ROOT::Math::MatRepStd<double,3u,3u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,3u,3u,ROOT::Math::MatRepStd<double,3u,3u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3u,3u,ROOT::Math::MatRepSym<double,3u> >
+class ROOT::Math::SMatrix<double,3u,3u,ROOT::Math::MatRepSym<double,3u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,3u,3u,ROOT::Math::MatRepSym<double,3u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,3u,4u,ROOT::Math::MatRepStd<double,3u,4u> >
+class ROOT::Math::SMatrix<double,3u,4u,ROOT::Math::MatRepStd<double,3u,4u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,3u,4u,ROOT::Math::MatRepStd<double,3u,4u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4,3,ROOT::Math::MatRepStd<double,4,3> >
+class ROOT::Math::SMatrix<double,4,3,ROOT::Math::MatRepStd<double,4,3> >::SMatrixRow
+class ROOT::Math::SMatrix<double,4,3,ROOT::Math::MatRepStd<double,4,3> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4,3>
+class ROOT::Math::SMatrix<double,4,3>::SMatrixRow
+class ROOT::Math::SMatrix<double,4,3>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4,4,ROOT::Math::MatRepStd<double,4,4> >
+class ROOT::Math::SMatrix<double,4,4,ROOT::Math::MatRepStd<double,4,4> >::SMatrixRow
+class ROOT::Math::SMatrix<double,4,4,ROOT::Math::MatRepStd<double,4,4> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4,4,ROOT::Math::MatRepSym<double,4> >
+class ROOT::Math::SMatrix<double,4,4,ROOT::Math::MatRepSym<double,4> >::SMatrixRow
+class ROOT::Math::SMatrix<double,4,4,ROOT::Math::MatRepSym<double,4> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4,4>
+class ROOT::Math::SMatrix<double,4,4>::SMatrixRow
+class ROOT::Math::SMatrix<double,4,4>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4u,3u,ROOT::Math::MatRepStd<double,4u,3u> >
+class ROOT::Math::SMatrix<double,4u,3u,ROOT::Math::MatRepStd<double,4u,3u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,4u,3u,ROOT::Math::MatRepStd<double,4u,3u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4u,4u,ROOT::Math::MatRepStd<double,4u,4u> >
+class ROOT::Math::SMatrix<double,4u,4u,ROOT::Math::MatRepStd<double,4u,4u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,4u,4u,ROOT::Math::MatRepStd<double,4u,4u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,4u,4u,ROOT::Math::MatRepSym<double,4u> >
+class ROOT::Math::SMatrix<double,4u,4u,ROOT::Math::MatRepSym<double,4u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,4u,4u,ROOT::Math::MatRepSym<double,4u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,5,5,ROOT::Math::MatRepStd<double,5,5> >
+class ROOT::Math::SMatrix<double,5,5,ROOT::Math::MatRepStd<double,5,5> >::SMatrixRow
+class ROOT::Math::SMatrix<double,5,5,ROOT::Math::MatRepStd<double,5,5> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,5,5,ROOT::Math::MatRepSym<double,5> >
+class ROOT::Math::SMatrix<double,5,5,ROOT::Math::MatRepSym<double,5> >::SMatrixRow
+class ROOT::Math::SMatrix<double,5,5,ROOT::Math::MatRepSym<double,5> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,5,5>
+class ROOT::Math::SMatrix<double,5,5>::SMatrixRow
+class ROOT::Math::SMatrix<double,5,5>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,5u,5u,ROOT::Math::MatRepStd<double,5u,5u> >
+class ROOT::Math::SMatrix<double,5u,5u,ROOT::Math::MatRepStd<double,5u,5u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,5u,5u,ROOT::Math::MatRepStd<double,5u,5u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,5u,5u,ROOT::Math::MatRepSym<double,5u> >
+class ROOT::Math::SMatrix<double,5u,5u,ROOT::Math::MatRepSym<double,5u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,5u,5u,ROOT::Math::MatRepSym<double,5u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,6,6,ROOT::Math::MatRepStd<double,6,6> >
+class ROOT::Math::SMatrix<double,6,6,ROOT::Math::MatRepStd<double,6,6> >::SMatrixRow
+class ROOT::Math::SMatrix<double,6,6,ROOT::Math::MatRepStd<double,6,6> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,6,6,ROOT::Math::MatRepSym<double,6> >
+class ROOT::Math::SMatrix<double,6,6,ROOT::Math::MatRepSym<double,6> >::SMatrixRow
+class ROOT::Math::SMatrix<double,6,6,ROOT::Math::MatRepSym<double,6> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,6,6>
+class ROOT::Math::SMatrix<double,6,6>::SMatrixRow
+class ROOT::Math::SMatrix<double,6,6>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,6u,6u,ROOT::Math::MatRepStd<double,6u,6u> >
+class ROOT::Math::SMatrix<double,6u,6u,ROOT::Math::MatRepStd<double,6u,6u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,6u,6u,ROOT::Math::MatRepStd<double,6u,6u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,6u,6u,ROOT::Math::MatRepSym<double,6u> >
+class ROOT::Math::SMatrix<double,6u,6u,ROOT::Math::MatRepSym<double,6u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,6u,6u,ROOT::Math::MatRepSym<double,6u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,7,7,ROOT::Math::MatRepStd<double,7,7> >
+class ROOT::Math::SMatrix<double,7,7,ROOT::Math::MatRepStd<double,7,7> >::SMatrixRow
+class ROOT::Math::SMatrix<double,7,7,ROOT::Math::MatRepStd<double,7,7> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,7,7,ROOT::Math::MatRepSym<double,7> >
+class ROOT::Math::SMatrix<double,7,7,ROOT::Math::MatRepSym<double,7> >::SMatrixRow
+class ROOT::Math::SMatrix<double,7,7,ROOT::Math::MatRepSym<double,7> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,7,7>
+class ROOT::Math::SMatrix<double,7,7>::SMatrixRow
+class ROOT::Math::SMatrix<double,7,7>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,7u,7u,ROOT::Math::MatRepStd<double,7u,7u> >
+class ROOT::Math::SMatrix<double,7u,7u,ROOT::Math::MatRepStd<double,7u,7u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,7u,7u,ROOT::Math::MatRepStd<double,7u,7u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,7u,7u,ROOT::Math::MatRepSym<double,7u> >
+class ROOT::Math::SMatrix<double,7u,7u,ROOT::Math::MatRepSym<double,7u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,7u,7u,ROOT::Math::MatRepSym<double,7u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,9,7,ROOT::Math::MatRepStd<double,9,7> >
+class ROOT::Math::SMatrix<double,9,7,ROOT::Math::MatRepStd<double,9,7> >::SMatrixRow
+class ROOT::Math::SMatrix<double,9,7,ROOT::Math::MatRepStd<double,9,7> >::SMatrixRow_const
+class ROOT::Math::SMatrix<double,9,7>
+class ROOT::Math::SMatrix<double,9,7>::SMatrixRow
+class ROOT::Math::SMatrix<double,9,7>::SMatrixRow_const
+class ROOT::Math::SMatrix<double,9u,7u,ROOT::Math::MatRepStd<double,9u,7u> >
+class ROOT::Math::SMatrix<double,9u,7u,ROOT::Math::MatRepStd<double,9u,7u> >::SMatrixRow
+class ROOT::Math::SMatrix<double,9u,7u,ROOT::Math::MatRepStd<double,9u,7u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,2,2,ROOT::Math::MatRepStd<float,2,2> >
+class ROOT::Math::SMatrix<float,2,2,ROOT::Math::MatRepStd<float,2,2> >::SMatrixRow
+class ROOT::Math::SMatrix<float,2,2,ROOT::Math::MatRepStd<float,2,2> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,2,2,ROOT::Math::MatRepSym<float,2> >
+class ROOT::Math::SMatrix<float,2,2,ROOT::Math::MatRepSym<float,2> >::SMatrixRow
+class ROOT::Math::SMatrix<float,2,2,ROOT::Math::MatRepSym<float,2> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,2,2>
+class ROOT::Math::SMatrix<float,2,2>::SMatrixRow
+class ROOT::Math::SMatrix<float,2,2>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,2u,2u,ROOT::Math::MatRepStd<float,2u,2u> >
+class ROOT::Math::SMatrix<float,2u,2u,ROOT::Math::MatRepStd<float,2u,2u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,2u,2u,ROOT::Math::MatRepStd<float,2u,2u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,2u,2u,ROOT::Math::MatRepSym<float,2u> >
+class ROOT::Math::SMatrix<float,2u,2u,ROOT::Math::MatRepSym<float,2u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,2u,2u,ROOT::Math::MatRepSym<float,2u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3,3,ROOT::Math::MatRepStd<float,3,3> >
+class ROOT::Math::SMatrix<float,3,3,ROOT::Math::MatRepStd<float,3,3> >::SMatrixRow
+class ROOT::Math::SMatrix<float,3,3,ROOT::Math::MatRepStd<float,3,3> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3,3,ROOT::Math::MatRepSym<float,3> >
+class ROOT::Math::SMatrix<float,3,3,ROOT::Math::MatRepSym<float,3> >::SMatrixRow
+class ROOT::Math::SMatrix<float,3,3,ROOT::Math::MatRepSym<float,3> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3,3>
+class ROOT::Math::SMatrix<float,3,3>::SMatrixRow
+class ROOT::Math::SMatrix<float,3,3>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3,4,ROOT::Math::MatRepStd<float,3,4> >
+class ROOT::Math::SMatrix<float,3,4,ROOT::Math::MatRepStd<float,3,4> >::SMatrixRow
+class ROOT::Math::SMatrix<float,3,4,ROOT::Math::MatRepStd<float,3,4> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3,4>
+class ROOT::Math::SMatrix<float,3,4>::SMatrixRow
+class ROOT::Math::SMatrix<float,3,4>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3u,3u,ROOT::Math::MatRepStd<float,3u,3u> >
+class ROOT::Math::SMatrix<float,3u,3u,ROOT::Math::MatRepStd<float,3u,3u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,3u,3u,ROOT::Math::MatRepStd<float,3u,3u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3u,3u,ROOT::Math::MatRepSym<float,3u> >
+class ROOT::Math::SMatrix<float,3u,3u,ROOT::Math::MatRepSym<float,3u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,3u,3u,ROOT::Math::MatRepSym<float,3u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,3u,4u,ROOT::Math::MatRepStd<float,3u,4u> >
+class ROOT::Math::SMatrix<float,3u,4u,ROOT::Math::MatRepStd<float,3u,4u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,3u,4u,ROOT::Math::MatRepStd<float,3u,4u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4,3,ROOT::Math::MatRepStd<float,4,3> >
+class ROOT::Math::SMatrix<float,4,3,ROOT::Math::MatRepStd<float,4,3> >::SMatrixRow
+class ROOT::Math::SMatrix<float,4,3,ROOT::Math::MatRepStd<float,4,3> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4,3>
+class ROOT::Math::SMatrix<float,4,3>::SMatrixRow
+class ROOT::Math::SMatrix<float,4,3>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4,4,ROOT::Math::MatRepStd<float,4,4> >
+class ROOT::Math::SMatrix<float,4,4,ROOT::Math::MatRepStd<float,4,4> >::SMatrixRow
+class ROOT::Math::SMatrix<float,4,4,ROOT::Math::MatRepStd<float,4,4> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4,4,ROOT::Math::MatRepSym<float,4> >
+class ROOT::Math::SMatrix<float,4,4,ROOT::Math::MatRepSym<float,4> >::SMatrixRow
+class ROOT::Math::SMatrix<float,4,4,ROOT::Math::MatRepSym<float,4> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4,4>
+class ROOT::Math::SMatrix<float,4,4>::SMatrixRow
+class ROOT::Math::SMatrix<float,4,4>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4u,3u,ROOT::Math::MatRepStd<float,4u,3u> >
+class ROOT::Math::SMatrix<float,4u,3u,ROOT::Math::MatRepStd<float,4u,3u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,4u,3u,ROOT::Math::MatRepStd<float,4u,3u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4u,4u,ROOT::Math::MatRepStd<float,4u,4u> >
+class ROOT::Math::SMatrix<float,4u,4u,ROOT::Math::MatRepStd<float,4u,4u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,4u,4u,ROOT::Math::MatRepStd<float,4u,4u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,4u,4u,ROOT::Math::MatRepSym<float,4u> >
+class ROOT::Math::SMatrix<float,4u,4u,ROOT::Math::MatRepSym<float,4u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,4u,4u,ROOT::Math::MatRepSym<float,4u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,5,5,ROOT::Math::MatRepStd<float,5,5> >
+class ROOT::Math::SMatrix<float,5,5,ROOT::Math::MatRepStd<float,5,5> >::SMatrixRow
+class ROOT::Math::SMatrix<float,5,5,ROOT::Math::MatRepStd<float,5,5> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,5,5,ROOT::Math::MatRepSym<float,5> >
+class ROOT::Math::SMatrix<float,5,5,ROOT::Math::MatRepSym<float,5> >::SMatrixRow
+class ROOT::Math::SMatrix<float,5,5,ROOT::Math::MatRepSym<float,5> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,5,5>
+class ROOT::Math::SMatrix<float,5,5>::SMatrixRow
+class ROOT::Math::SMatrix<float,5,5>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,5u,5u,ROOT::Math::MatRepStd<float,5u,5u> >
+class ROOT::Math::SMatrix<float,5u,5u,ROOT::Math::MatRepStd<float,5u,5u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,5u,5u,ROOT::Math::MatRepStd<float,5u,5u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,5u,5u,ROOT::Math::MatRepSym<float,5u> >
+class ROOT::Math::SMatrix<float,5u,5u,ROOT::Math::MatRepSym<float,5u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,5u,5u,ROOT::Math::MatRepSym<float,5u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,6,6,ROOT::Math::MatRepStd<float,6,6> >
+class ROOT::Math::SMatrix<float,6,6,ROOT::Math::MatRepStd<float,6,6> >::SMatrixRow
+class ROOT::Math::SMatrix<float,6,6,ROOT::Math::MatRepStd<float,6,6> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,6,6,ROOT::Math::MatRepSym<float,6> >
+class ROOT::Math::SMatrix<float,6,6,ROOT::Math::MatRepSym<float,6> >::SMatrixRow
+class ROOT::Math::SMatrix<float,6,6,ROOT::Math::MatRepSym<float,6> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,6,6>
+class ROOT::Math::SMatrix<float,6,6>::SMatrixRow
+class ROOT::Math::SMatrix<float,6,6>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,6u,6u,ROOT::Math::MatRepStd<float,6u,6u> >
+class ROOT::Math::SMatrix<float,6u,6u,ROOT::Math::MatRepStd<float,6u,6u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,6u,6u,ROOT::Math::MatRepStd<float,6u,6u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,6u,6u,ROOT::Math::MatRepSym<float,6u> >
+class ROOT::Math::SMatrix<float,6u,6u,ROOT::Math::MatRepSym<float,6u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,6u,6u,ROOT::Math::MatRepSym<float,6u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,7,7,ROOT::Math::MatRepStd<float,7,7> >
+class ROOT::Math::SMatrix<float,7,7,ROOT::Math::MatRepStd<float,7,7> >::SMatrixRow
+class ROOT::Math::SMatrix<float,7,7,ROOT::Math::MatRepStd<float,7,7> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,7,7,ROOT::Math::MatRepSym<float,7> >
+class ROOT::Math::SMatrix<float,7,7,ROOT::Math::MatRepSym<float,7> >::SMatrixRow
+class ROOT::Math::SMatrix<float,7,7,ROOT::Math::MatRepSym<float,7> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,7,7>
+class ROOT::Math::SMatrix<float,7,7>::SMatrixRow
+class ROOT::Math::SMatrix<float,7,7>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,7u,7u,ROOT::Math::MatRepStd<float,7u,7u> >
+class ROOT::Math::SMatrix<float,7u,7u,ROOT::Math::MatRepStd<float,7u,7u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,7u,7u,ROOT::Math::MatRepStd<float,7u,7u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,7u,7u,ROOT::Math::MatRepSym<float,7u> >
+class ROOT::Math::SMatrix<float,7u,7u,ROOT::Math::MatRepSym<float,7u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,7u,7u,ROOT::Math::MatRepSym<float,7u> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,9,7,ROOT::Math::MatRepStd<float,9,7> >
+class ROOT::Math::SMatrix<float,9,7,ROOT::Math::MatRepStd<float,9,7> >::SMatrixRow
+class ROOT::Math::SMatrix<float,9,7,ROOT::Math::MatRepStd<float,9,7> >::SMatrixRow_const
+class ROOT::Math::SMatrix<float,9,7>
+class ROOT::Math::SMatrix<float,9,7>::SMatrixRow
+class ROOT::Math::SMatrix<float,9,7>::SMatrixRow_const
+class ROOT::Math::SMatrix<float,9u,7u,ROOT::Math::MatRepStd<float,9u,7u> >
+class ROOT::Math::SMatrix<float,9u,7u,ROOT::Math::MatRepStd<float,9u,7u> >::SMatrixRow
+class ROOT::Math::SMatrix<float,9u,7u,ROOT::Math::MatRepStd<float,9u,7u> >::SMatrixRow_const
+class ROOT::Math::SMatrixIdentity
+class ROOT::Math::SVector<double,2>
+class ROOT::Math::SVector<double,2u>
+class ROOT::Math::SVector<double,3>
+class ROOT::Math::SVector<double,3u>
+class ROOT::Math::SVector<double,4>
+class ROOT::Math::SVector<double,4u>
+class ROOT::Math::SVector<double,5>
+class ROOT::Math::SVector<double,5u>
+class ROOT::Math::SVector<double,6>
+class ROOT::Math::SVector<double,6u>
+class ROOT::Math::SVector<double,7>
+class ROOT::Math::SVector<double,7u>
+class ROOT::Math::SVector<float,2>
+class ROOT::Math::SVector<float,2u>
+class ROOT::Math::SVector<float,3>
+class ROOT::Math::SVector<float,3u>
+class ROOT::Math::SVector<float,4>
+class ROOT::Math::SVector<float,4u>
+class ROOT::Math::SVector<float,5>
+class ROOT::Math::SVector<float,5u>
+class ROOT::Math::SVector<float,6>
+class ROOT::Math::SVector<float,6u>
+class ROOT::Math::SVector<float,7>
+class ROOT::Math::SVector<float,7u>
+header Math/SMatrix.h
+# List of selected namespaces
+namespace ROOT::Math
+# List of selected typedefs and outer classes
+typedef ROOT::Math::SMatrix2D
+typedef ROOT::Math::SMatrix3D
+typedef ROOT::Math::SMatrix4D
+typedef ROOT::Math::SMatrix5D
+typedef ROOT::Math::SMatrix6D
+typedef ROOT::Math::SMatrix7D
+typedef ROOT::Math::SMatrixSym2D
+typedef ROOT::Math::SMatrixSym3D
+typedef ROOT::Math::SMatrixSym4D
+typedef ROOT::Math::SMatrixSym5D
+typedef ROOT::Math::SMatrixSym6D
+typedef ROOT::Math::SMatrixSym7D
+typedef ROOT::Math::SMatrix2F
+typedef ROOT::Math::SMatrix3F
+typedef ROOT::Math::SMatrix4F
+typedef ROOT::Math::SMatrix5F
+typedef ROOT::Math::SMatrix6F
+typedef ROOT::Math::SMatrix7F
+typedef ROOT::Math::SMatrixSym2F
+typedef ROOT::Math::SMatrixSym3F
+typedef ROOT::Math::SMatrixSym4F
+typedef ROOT::Math::SMatrixSym5F
+typedef ROOT::Math::SMatrixSym6F
+typedef ROOT::Math::SMatrixSym7F

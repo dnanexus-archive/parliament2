@@ -1,0 +1,16 @@
+[ libGuiBld.so ]
+# List of selected classes
+class TGuiBldDragManager
+class TGuiBldEditor
+class TGuiBldGeometryFrame
+class TGuiBldHintsButton
+class TGuiBldHintsEditor
+class TGuiBldNameFrame
+class TRootGuiBuilder
+header TGuiBldDragManager.h
+header TGuiBldEditor.h
+header TGuiBldGeometryFrame.h
+header TGuiBldHintsButton.h
+header TGuiBldHintsEditor.h
+header TGuiBldNameFrame.h
+header TRootGuiBuilder.h

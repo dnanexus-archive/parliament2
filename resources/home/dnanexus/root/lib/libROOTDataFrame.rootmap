@@ -1,0 +1,35 @@
+{ decls }
+namespace ROOT { namespace Internal { namespace RDF {  } } }
+namespace ROOT { namespace RDF {  } }
+namespace ROOT { namespace Detail { namespace RDF {  } } }
+namespace ROOT { namespace Detail { namespace RDF { class RFilterBase; } } }
+namespace ROOT { namespace Detail { namespace RDF { class RCustomColumnBase; } } }
+namespace ROOT {  }
+
+[ libROOTDataFrame.so ]
+# List of selected classes
+class ROOT::Detail::RDF::RCustomColumnBase
+class ROOT::Detail::RDF::RFilterBase
+class ROOT::Detail::RDF::RJittedFilter
+class ROOT::Detail::RDF::RLoopManager
+class ROOT::Detail::RDF::RRangeBase
+class ROOT::Internal::RDF::CountHelper
+class ROOT::Internal::RDF::FillHelper
+class ROOT::Internal::RDF::RIgnoreErrorLevelRAII
+class ROOT::RDF::RCsvDS
+class ROOT::RDF::RInterface<ROOT::Detail::RDF::RCustomColumnBase,void>
+class ROOT::RDF::RInterface<ROOT::Detail::RDF::RCustomColumnBase>
+class ROOT::RDF::RInterface<ROOT::Detail::RDF::RFilterBase,void>
+class ROOT::RDF::RInterface<ROOT::Detail::RDF::RFilterBase>
+class ROOT::RDF::RRootDS
+class ROOT::RDF::RTrivialDS
+class ROOT::RDF::TH1DModel
+class ROOT::RDF::TH2DModel
+class ROOT::RDF::TH3DModel
+class ROOT::RDF::TProfile1DModel
+class ROOT::RDF::TProfile2DModel
+class ROOT::RDataFrame
+# List of selected namespaces
+namespace ROOT::RDF
+namespace ROOT::Detail::RDF
+namespace ROOT::Internal::RDF

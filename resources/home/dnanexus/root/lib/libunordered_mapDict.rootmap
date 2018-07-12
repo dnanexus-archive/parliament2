@@ -1,0 +1,29 @@
+{ decls }
+namespace std {  }
+
+[ libunordered_mapDict.so ]
+# List of selected classes
+class unordered_map<char*,char*>
+class unordered_map<char*,double>
+class unordered_map<char*,float>
+class unordered_map<char*,int>
+class unordered_map<char*,long>
+class unordered_map<char*,void*>
+class unordered_map<double,char*>
+class unordered_map<double,double>
+class unordered_map<double,float>
+class unordered_map<double,int>
+class unordered_map<double,long>
+class unordered_map<double,void*>
+class unordered_map<int,int>
+class unordered_map<long,char*>
+class unordered_map<long,double>
+class unordered_map<long,float>
+class unordered_map<long,int>
+class unordered_map<long,long>
+class unordered_map<long,void*>
+class unordered_map<string,double>
+class unordered_map<string,float>
+class unordered_map<string,int>
+class unordered_map<string,long>
+class unordered_map<string,void*>

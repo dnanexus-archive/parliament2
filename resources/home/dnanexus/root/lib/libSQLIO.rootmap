@@ -1,0 +1,19 @@
+[ libSQLIO.so ]
+# List of selected classes
+class TBufferSQL2
+class TKeySQL
+class TSQLClassColumnInfo
+class TSQLClassInfo
+class TSQLColumnData
+class TSQLFile
+class TSQLObjectData
+class TSQLObjectDataPool
+class TSQLObjectInfo
+class TSQLStructure
+class TSQLTableData
+header TBufferSQL2.h
+header TKeySQL.h
+header TSQLClassInfo.h
+header TSQLStructure.h
+header TSQLFile.h
+header TSQLObjectData.h

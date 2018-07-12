@@ -1,0 +1,10 @@
+[ libRMySQL.so ]
+# List of selected classes
+class TMySQLResult
+class TMySQLRow
+class TMySQLServer
+class TMySQLStatement
+header TMySQLResult.h
+header TMySQLRow.h
+header TMySQLServer.h
+header TMySQLStatement.h

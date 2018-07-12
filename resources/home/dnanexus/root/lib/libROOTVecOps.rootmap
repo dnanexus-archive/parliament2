@@ -1,0 +1,45 @@
+{ decls }
+namespace std {  }
+namespace ROOT { namespace VecOps {  } }
+namespace ROOT { namespace VecOps { template <typename T> class RVec; } }
+
+[ libROOTVecOps.so ]
+# List of selected classes
+class ROOT::VecOps::RVec<Long64_t>
+class ROOT::VecOps::RVec<Long64_t>::Impl_t
+class ROOT::VecOps::RVec<ULong64_t>
+class ROOT::VecOps::RVec<ULong64_t>::Impl_t
+class ROOT::VecOps::RVec<char>
+class ROOT::VecOps::RVec<char>::Impl_t
+class ROOT::VecOps::RVec<double>
+class ROOT::VecOps::RVec<double>::Impl_t
+class ROOT::VecOps::RVec<float>
+class ROOT::VecOps::RVec<float>::Impl_t
+class ROOT::VecOps::RVec<int>
+class ROOT::VecOps::RVec<int>::Impl_t
+class ROOT::VecOps::RVec<long>
+class ROOT::VecOps::RVec<long>::Impl_t
+class ROOT::VecOps::RVec<short>
+class ROOT::VecOps::RVec<short>::Impl_t
+class ROOT::VecOps::RVec<unsigned char>
+class ROOT::VecOps::RVec<unsigned char>::Impl_t
+class ROOT::VecOps::RVec<unsigned int>
+class ROOT::VecOps::RVec<unsigned int>::Impl_t
+class ROOT::VecOps::RVec<unsigned long>
+class ROOT::VecOps::RVec<unsigned long>::Impl_t
+class ROOT::VecOps::RVec<unsigned short>
+class ROOT::VecOps::RVec<unsigned short>::Impl_t
+class vector<Long64_t,ROOT::Detail::VecOps::RAdoptAllocator<Long64_t> >
+class vector<ULong64_t,ROOT::Detail::VecOps::RAdoptAllocator<ULong64_t> >
+class vector<char,ROOT::Detail::VecOps::RAdoptAllocator<char> >
+class vector<double,ROOT::Detail::VecOps::RAdoptAllocator<double> >
+class vector<float,ROOT::Detail::VecOps::RAdoptAllocator<float> >
+class vector<int,ROOT::Detail::VecOps::RAdoptAllocator<int> >
+class vector<long,ROOT::Detail::VecOps::RAdoptAllocator<long> >
+class vector<short,ROOT::Detail::VecOps::RAdoptAllocator<short> >
+class vector<unsigned char,ROOT::Detail::VecOps::RAdoptAllocator<unsigned char> >
+class vector<unsigned int,ROOT::Detail::VecOps::RAdoptAllocator<unsigned int> >
+class vector<unsigned long,ROOT::Detail::VecOps::RAdoptAllocator<unsigned long> >
+class vector<unsigned short,ROOT::Detail::VecOps::RAdoptAllocator<unsigned short> >
+# List of selected namespaces
+namespace ROOT::VecOps

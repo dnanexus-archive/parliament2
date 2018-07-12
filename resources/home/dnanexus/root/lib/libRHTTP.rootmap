@@ -1,0 +1,17 @@
+[ libRHTTP.so ]
+# List of selected classes
+class THttpCallArg
+class THttpEngine
+class THttpServer
+class THttpWSHandler
+class TRootSniffer
+class TRootSnifferScanRec
+class TRootSnifferStore
+class TRootSnifferStoreJson
+class TRootSnifferStoreXml
+header THttpCallArg.h
+header THttpEngine.h
+header THttpServer.h
+header THttpWSHandler.h
+header TRootSniffer.h
+header TRootSnifferStore.h

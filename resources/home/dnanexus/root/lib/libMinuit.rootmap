@@ -1,0 +1,14 @@
+[ libMinuit.so ]
+# List of selected classes
+class TFitter
+class TLinearFitter
+class TLinearMinimizer
+class TMinuit
+class TMinuitMinimizer
+header TFitter.h
+header TLinearFitter.h
+header TLinearMinimizer.h
+header TMinuit.h
+header TMinuitMinimizer.h
+# List of selected vars
+var gMinuit

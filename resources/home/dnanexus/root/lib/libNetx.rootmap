@@ -1,0 +1,8 @@
+[ libNetx.so ]
+# List of selected classes
+class TXNetFile
+class TXNetFileStager
+class TXNetSystem
+header TXNetFile.h
+header TXNetFileStager.h
+header TXNetSystem.h

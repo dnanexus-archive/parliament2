@@ -1,0 +1,24 @@
+{ decls }
+namespace PyROOT {  }
+
+[ libPyROOT.so ]
+# List of selected classes
+class PyROOT::TPyException
+class PyROOT::TPyROOTApplication
+class TPyArg
+class TPyDispatcher
+class TPyMultiGenFunction
+class TPyMultiGradFunction
+class TPyReturn
+class TPySelector
+class TPython
+header TPyException.h
+header TPyROOTApplication.h
+header TPyArg.h
+header TPyDispatcher.h
+header TPyFitFunction.h
+header TPyReturn.h
+header TPySelector.h
+header TPython.h
+# List of selected namespaces
+namespace PyROOT

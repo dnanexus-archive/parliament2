@@ -1,0 +1,695 @@
+{ decls }
+namespace __gnu_cxx {  }
+namespace __gnu_cxx { template <typename _Iterator, typename _Container> class __normal_iterator; }
+class TString;
+namespace std {  }
+namespace ROOT {  }
+template <typename AParamType> class TParameter;
+namespace ROOT { namespace Detail {  } }
+
+[ libCore.so ]
+# List of selected classes
+class ColorStruct_t
+class CpuInfo_t
+class Event_t
+class FileStat_t
+class GCValues_t
+class MemInfo_t
+class PictureAttributes_t
+class Point_t
+class ProcInfo_t
+class ROOT::Detail::TSchemaRuleSet
+class ROOT::Detail::TStatusBitsChecker
+class ROOT::TReadLockGuard
+class ROOT::TSchemaRule
+class ROOT::TSchemaRule::TSources
+class ROOT::TVirtualRWMutex
+class ROOT::TWriteLockGuard
+class Rectangle_t
+class RedirectHandle_t
+class Segment_t
+class SetWindowAttributes_t
+class SysInfo_t
+class TApplication
+class TApplicationImp
+class TArray
+class TArrayC
+class TArrayD
+class TArrayF
+class TArrayI
+class TArrayL
+class TArrayL64
+class TArrayS
+class TAtt3D
+class TAttAxis
+class TAttBBox
+class TAttBBox2D
+class TAttFill
+class TAttLine
+class TAttMarker
+class TAttPad
+class TAttText
+class TBase64
+class TBaseClass
+class TBenchmark
+class TBits
+class TBits::TReference
+class TBrowser
+class TBrowserImp
+class TBtree
+class TBtreeIter
+class TBuffer
+class TBuffer3D
+class TCanvasImp
+class TClass
+class TClassGenerator
+class TClassMenuItem
+class TClassRef
+class TClassStreamer
+class TClassTable
+class TClonesArray
+class TCollection
+class TColor
+class TColorGradient
+class TContextMenu
+class TContextMenuImp
+class TControlBarImp
+class TDataMember
+class TDataType
+class TDatime
+class TDictAttributeMap
+class TDictionary
+class TDirectory
+class TEnum
+class TEnumConstant
+class TEnv
+class TEnvRec
+class TExMap
+class TExMapIter
+class TExec
+class TFileCollection
+class TFileHandler
+class TFileInfo
+class TFileInfoMeta
+class TFileMergeInfo
+class TFolder
+class TFunction
+class TFunctionTemplate
+class TGLManager
+class TGLPaintDevice
+class TGlobal
+class TGuiFactory
+class THashList
+class THashTable
+class THashTableIter
+class TInetAddress
+class TInspectorImp
+class TInterpreter
+class TIsAProxy
+class TIter
+class TIterator
+class TLinearGradient
+class TList
+class TListIter
+class TListOfDataMembers
+class TListOfEnums
+class TListOfEnumsWithLock
+class TListOfEnumsWithLockIter
+class TListOfFunctionTemplates
+class TListOfFunctions
+class TListOfFunctionsIter
+class TLockGuard
+class TMD5
+class TMacro
+class TMap
+class TMapIter
+class TMemberInspector
+class TMemberStreamer
+class TMessageHandler
+class TMethod
+class TMethodArg
+class TMethodCall
+class TNamed
+class TObjArray
+class TObjArrayIter
+class TObjString
+class TObject
+class TObjectRefSpy
+class TObjectSpy
+class TObjectTable
+class TOptionListItem
+class TOrdCollection
+class TOrdCollectionIter
+class TPMERegexp
+class TPRegexp
+class TPair
+class TParameter<Bool_t>
+class TParameter<Double_t>
+class TParameter<Float_t>
+class TParameter<Int_t>
+class TParameter<Long64_t>
+class TParameter<Long_t>
+class TParameter<bool>
+class TParameter<double>
+class TParameter<float>
+class TParameter<int>
+class TParameter<long>
+class TPluginHandler
+class TPluginManager
+class TPoint
+class TProcessEventTimer
+class TProcessID
+class TProcessUUID
+class TProtoClass
+class TProtoClass::TProtoRealData
+class TQClass
+class TQCommand
+class TQConnection
+class TQObjSender
+class TQObject
+class TQUndoManager
+class TROOT
+class TRadialGradient
+class TRealData
+class TRedirectOutputGuard
+class TRef
+class TRefArray
+class TRefArrayIter
+class TRefCnt
+class TRefTable
+class TRegexp
+class TRemoteObject
+class TRootIOCtor
+class TSeqCollection
+class TSignalHandler
+class TSortedList
+class TStdExceptionHandler
+class TStopwatch
+class TStorage
+class TStreamerArtificial
+class TStreamerBase
+class TStreamerBasicPointer
+class TStreamerBasicType
+class TStreamerElement
+class TStreamerLoop
+class TStreamerObject
+class TStreamerObjectAny
+class TStreamerObjectAnyPointer
+class TStreamerObjectPointer
+class TStreamerSTL
+class TStreamerSTLstring
+class TStreamerString
+class TString
+class TStringLong
+class TStringToken
+class TStyle
+class TSubString
+class TSysEvtHandler
+class TSystem
+class TSystemDirectory
+class TSystemFile
+class TTask
+class TTime
+class TTimeStamp
+class TTimer
+class TToggle
+class TToggleGroup
+class TUUID
+class TUnixSystem
+class TUri
+class TUrl
+class TVirtualAuth
+class TVirtualCollectionProxy
+class TVirtualFFT
+class TVirtualGLManip
+class TVirtualGLPainter
+class TVirtualIsAProxy
+class TVirtualMonitoringReader
+class TVirtualMonitoringWriter
+class TVirtualMutex
+class TVirtualPS
+class TVirtualPad
+class TVirtualPadEditor
+class TVirtualPadPainter
+class TVirtualPerfStats
+class TVirtualStreamerInfo
+class TVirtualTableInterface
+class TVirtualViewer3D
+class TVirtualX
+class UserGroup_t
+class WindowAttributes_t
+class __gnu_cxx::__normal_iterator<TString const*,vector<TString> >
+class __gnu_cxx::__normal_iterator<TString*,vector<TString> >
+class __gnu_cxx::__normal_iterator<char const*,string>
+class __gnu_cxx::__normal_iterator<char*,string>
+class __gnu_cxx::__normal_iterator<const TString*,vector<TString> >
+class __gnu_cxx::__normal_iterator<const char*,string>
+class __gnu_cxx::__normal_iterator<const int*,vector<int> >
+class __gnu_cxx::__normal_iterator<const string*,vector<string> >
+class __gnu_cxx::__normal_iterator<int const*,vector<int> >
+class __gnu_cxx::__normal_iterator<int*,vector<int> >
+class __gnu_cxx::__normal_iterator<string const*,vector<string> >
+class __gnu_cxx::__normal_iterator<string*,vector<string> >
+class pair<char const*,char*>
+class pair<char const*,double>
+class pair<char const*,float>
+class pair<char const*,int>
+class pair<char const*,long>
+class pair<char const*,void*>
+class pair<char*,char*>
+class pair<char*,double>
+class pair<char*,float>
+class pair<char*,int>
+class pair<char*,long>
+class pair<char*,void*>
+class pair<const char*,char*>
+class pair<const char*,double>
+class pair<const char*,float>
+class pair<const char*,int>
+class pair<const char*,long>
+class pair<const char*,void*>
+class pair<const double,char*>
+class pair<const double,double>
+class pair<const double,float>
+class pair<const double,int>
+class pair<const double,long>
+class pair<const double,void*>
+class pair<const float,char*>
+class pair<const float,double>
+class pair<const float,float>
+class pair<const float,int>
+class pair<const float,long>
+class pair<const float,void*>
+class pair<const int,char*>
+class pair<const int,double>
+class pair<const int,float>
+class pair<const int,int>
+class pair<const int,long>
+class pair<const int,void*>
+class pair<const long,char*>
+class pair<const long,double>
+class pair<const long,float>
+class pair<const long,int>
+class pair<const long,long>
+class pair<const long,void*>
+class pair<const std::string,double>
+class pair<const std::string,float>
+class pair<const std::string,int>
+class pair<const std::string,long>
+class pair<const std::string,void*>
+class pair<const string,double>
+class pair<const string,float>
+class pair<const string,int>
+class pair<const string,long>
+class pair<const string,void*>
+class pair<double const,char*>
+class pair<double const,double>
+class pair<double const,float>
+class pair<double const,int>
+class pair<double const,long>
+class pair<double const,void*>
+class pair<double,char*>
+class pair<double,double>
+class pair<double,float>
+class pair<double,int>
+class pair<double,long>
+class pair<double,void*>
+class pair<float const,char*>
+class pair<float const,double>
+class pair<float const,float>
+class pair<float const,int>
+class pair<float const,long>
+class pair<float const,void*>
+class pair<float,char*>
+class pair<float,double>
+class pair<float,float>
+class pair<float,int>
+class pair<float,long>
+class pair<float,void*>
+class pair<int const,char*>
+class pair<int const,double>
+class pair<int const,float>
+class pair<int const,int>
+class pair<int const,long>
+class pair<int const,void*>
+class pair<int,char*>
+class pair<int,double>
+class pair<int,float>
+class pair<int,int>
+class pair<int,long>
+class pair<int,void*>
+class pair<long const,char*>
+class pair<long const,double>
+class pair<long const,float>
+class pair<long const,int>
+class pair<long const,long>
+class pair<long const,void*>
+class pair<long,char*>
+class pair<long,double>
+class pair<long,float>
+class pair<long,int>
+class pair<long,long>
+class pair<long,void*>
+class pair<std::string,int>
+class pair<string const,double>
+class pair<string const,float>
+class pair<string const,int>
+class pair<string const,long>
+class pair<string const,void*>
+class pair<string,double>
+class pair<string,float>
+class pair<string,int>
+class pair<string,long>
+class pair<string,void*>
+class reverse_iterator<__gnu_cxx::__normal_iterator<TString*,vector<TString> > >
+class reverse_iterator<__gnu_cxx::__normal_iterator<int*,vector<int> > >
+class reverse_iterator<__gnu_cxx::__normal_iterator<string*,vector<string> > >
+class string
+class string::const_iterator
+class string::iterator
+class timespec
+class vector<Int_t>
+class vector<Int_t>::const_iterator
+class vector<Int_t>::iterator
+class vector<Int_t>::reverse_iterator
+class vector<TDataMember*>
+class vector<TProtoClass::TProtoRealData>
+class vector<TString>
+class vector<TString>::const_iterator
+class vector<TString>::iterator
+class vector<TString>::reverse_iterator
+class vector<int>
+class vector<pair<int,int> >
+class vector<std::pair<Int_t,Int_t> >
+class vector<string>
+class vector<string>::const_iterator
+class vector<string>::iterator
+class vector<string>::reverse_iterator
+header GuiTypes.h
+header TSystem.h
+header TSchemaRuleSet.h
+header TStatusBitsChecker.h
+header TVirtualRWMutex.h
+header TSchemaRule.h
+header TApplication.h
+header TApplicationImp.h
+header TArray.h
+header TArrayC.h
+header TArrayD.h
+header TArrayF.h
+header TArrayI.h
+header TArrayL.h
+header TArrayL64.h
+header TArrayS.h
+header TAtt3D.h
+header TAttAxis.h
+header TAttBBox.h
+header TAttBBox2D.h
+header TAttFill.h
+header TAttLine.h
+header TAttMarker.h
+header TAttPad.h
+header TAttText.h
+header TBase64.h
+header TBaseClass.h
+header TBenchmark.h
+header TBits.h
+header TBrowser.h
+header TBrowserImp.h
+header TBtree.h
+header TBuffer.h
+header TBuffer3D.h
+header TCanvasImp.h
+header TClass.h
+header TClassGenerator.h
+header TClassMenuItem.h
+header TClassRef.h
+header TClassStreamer.h
+header TClassTable.h
+header TClonesArray.h
+header TCollection.h
+header TColor.h
+header TColorGradient.h
+header TContextMenu.h
+header TContextMenuImp.h
+header TControlBarImp.h
+header TDataMember.h
+header TDataType.h
+header TDatime.h
+header TDictAttributeMap.h
+header TDictionary.h
+header TDirectory.h
+header TEnum.h
+header TEnumConstant.h
+header TEnv.h
+header TExMap.h
+header TExec.h
+header TFileCollection.h
+header TSysEvtHandler.h
+header TFileInfo.h
+header TFileMergeInfo.h
+header TFolder.h
+header TFunction.h
+header TFunctionTemplate.h
+header TVirtualGL.h
+header TGlobal.h
+header TGuiFactory.h
+header THashList.h
+header THashTable.h
+header TInetAddress.h
+header TInspectorImp.h
+header TInterpreter.h
+header TIsAProxy.h
+header TIterator.h
+header TList.h
+header TListOfDataMembers.h
+header TListOfEnums.h
+header TListOfEnumsWithLock.h
+header TListOfFunctionTemplates.h
+header TListOfFunctions.h
+header TVirtualMutex.h
+header TMD5.h
+header TMacro.h
+header TMap.h
+header TMemberInspector.h
+header TMemberStreamer.h
+header TMessageHandler.h
+header TMethod.h
+header TMethodArg.h
+header TMethodCall.h
+header TNamed.h
+header TObjArray.h
+header TObjString.h
+header TObject.h
+header TObjectSpy.h
+header TObjectTable.h
+header TOrdCollection.h
+header TPRegexp.h
+header TPluginManager.h
+header TPoint.h
+header TProcessID.h
+header TProcessUUID.h
+header TProtoClass.h
+header TQClass.h
+header TQCommand.h
+header TQConnection.h
+header TQObject.h
+header TROOT.h
+header TRealData.h
+header TRedirectOutputGuard.h
+header TRef.h
+header TRefArray.h
+header TRefCnt.h
+header TRefTable.h
+header TRegexp.h
+header TRemoteObject.h
+header TRootIOCtor.h
+header TSeqCollection.h
+header TSortedList.h
+header TStopwatch.h
+header TStorage.h
+header TStreamerElement.h
+header TString.h
+header TStringLong.h
+header TStyle.h
+header TSystemDirectory.h
+header TSystemFile.h
+header TTask.h
+header TTime.h
+header TTimeStamp.h
+header TTimer.h
+header TToggle.h
+header TToggleGroup.h
+header TUUID.h
+header TUnixSystem.h
+header TUri.h
+header TUrl.h
+header TVirtualAuth.h
+header TVirtualCollectionProxy.h
+header TVirtualFFT.h
+header TVirtualIsAProxy.h
+header TVirtualMonitoring.h
+header TVirtualPS.h
+header TVirtualPad.h
+header TVirtualPadEditor.h
+header TVirtualPadPainter.h
+header TVirtualPerfStats.h
+header TVirtualStreamerInfo.h
+header TVirtualTableInterface.h
+header TVirtualViewer3D.h
+header TVirtualX.h
+header time.h
+# List of selected namespaces
+namespace ROOT
+namespace TMath
+namespace TClassEdit
+# List of selected typedefs and outer classes
+typedef TAssoc
+typedef timespec_t
+# List of selected enums and outer classes
+enum ESysConstants
+enum EColor
+enum EObjBits
+enum EProperty
+enum ESignals
+enum ELineStyle
+enum EMarkerStyle
+enum EGuiConstants
+enum EGEventType
+enum EGraphicsFunction
+enum EMouseButton
+enum EXMagic
+enum EInitialState
+enum ECursor
+enum EAccessMode
+enum EFpeMask
+enum EFileModeMask
+enum EEnvLevel
+enum EEventType
+enum EKeySym
+# List of selected vars
+var kTRUE
+var kFALSE
+var kMaxUChar
+var kMaxChar
+var kMinChar
+var kMaxUShort
+var kMaxShort
+var kMinShort
+var kMaxUInt
+var kMaxInt
+var kMinInt
+var kMaxULong
+var kMaxLong
+var kMinLong
+var kMaxULong64
+var kMaxLong64
+var kMinLong64
+var kBitsPerByte
+var kNPOS
+var gDebug
+var kInfo
+var kWarning
+var kError
+var kSysError
+var kFatal
+var gErrorIgnoreLevel
+var gErrorAbortLevel
+var gPrintViaErrorHandler
+var kIterForward
+var kIterBackward
+var gTQSender
+var kNone
+var kCopyFromParent
+var kParentRelative
+var kWABackPixmap
+var kWABackPixel
+var kWABorderPixmap
+var kWABorderPixel
+var kWABorderWidth
+var kWABitGravity
+var kWAWinGravity
+var kWABackingStore
+var kWABackingPlanes
+var kWABackingPixel
+var kWAOverrideRedirect
+var kWASaveUnder
+var kWAEventMask
+var kWADontPropagate
+var kWAColormap
+var kWACursor
+var kNoEventMask
+var kKeyPressMask
+var kKeyReleaseMask
+var kButtonPressMask
+var kButtonReleaseMask
+var kPointerMotionMask
+var kButtonMotionMask
+var kExposureMask
+var kStructureNotifyMask
+var kEnterWindowMask
+var kLeaveWindowMask
+var kFocusChangeMask
+var kOwnerGrabButtonMask
+var kColormapChangeMask
+var kKeyShiftMask
+var kKeyLockMask
+var kKeyControlMask
+var kKeyMod1Mask
+var kButton1Mask
+var kButton2Mask
+var kButton3Mask
+var kButton4Mask
+var kButton5Mask
+var kAnyModifier
+var kGCFunction
+var kGCPlaneMask
+var kGCForeground
+var kGCBackground
+var kGCLineWidth
+var kGCLineStyle
+var kGCCapStyle
+var kGCJoinStyle
+var kGCFillStyle
+var kGCFillRule
+var kGCTile
+var kGCStipple
+var kGCTileStipXOrigin
+var kGCTileStipYOrigin
+var kGCFont
+var kGCSubwindowMode
+var kGCGraphicsExposures
+var kGCClipXOrigin
+var kGCClipYOrigin
+var kGCClipMask
+var kGCDashOffset
+var kGCDashList
+var kGCArcMode
+var kDoRed
+var kDoGreen
+var kDoBlue
+var kPAColormap
+var kPADepth
+var kPASize
+var kPAHotspot
+var kPAReturnPixels
+var kPACloseness
+var kPrimarySelection
+var kCutBuffer
+var kMaxPixel
+var kNumCursors
+var gBenchmark
+var gRootDir
+var gProgName
+var gProgPath
+var gSystem
+var gPluginMgr
+var gApplication
+var gMonitoringWriter
+var gMonitoringReader
+var gEnv
+var gVirtualPS
+var gTQSlotParams
+var gStyle
+var gObjectTable
+var gClassTable

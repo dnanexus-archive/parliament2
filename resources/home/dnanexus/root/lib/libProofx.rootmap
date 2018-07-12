@@ -1,0 +1,16 @@
+[ libProofx.so ]
+# List of selected classes
+class TXHandler
+class TXProofMgr
+class TXProofServ
+class TXSlave
+class TXSocket
+class TXSocketHandler
+class TXUnixSocket
+header TXHandler.h
+header TXProofMgr.h
+header TXProofServ.h
+header TXSlave.h
+header TXSocket.h
+header TXSocketHandler.h
+header TXUnixSocket.h

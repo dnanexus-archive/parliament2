@@ -1,0 +1,10 @@
+[ libRLDAP.so ]
+# List of selected classes
+class TLDAPAttribute
+class TLDAPEntry
+class TLDAPResult
+class TLDAPServer
+header TLDAPAttribute.h
+header TLDAPEntry.h
+header TLDAPResult.h
+header TLDAPServer.h

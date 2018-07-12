@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+  <title>FetchContent &mdash; CMake 3.12.0-rc2 Documentation</title>
+
+    
+    <link rel="stylesheet" href="../_static/cmake.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.12.0-rc2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/cmake-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FindALSA" href="FindALSA.html" />
+    <link rel="prev" title="FeatureSummary" href="FeatureSummary.html" />
+  
+ 
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="FindALSA.html" title="FindALSA"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="FeatureSummary.html" title="FeatureSummary"
+             accesskey="P">previous</a> |</li>
+  <li>
+    <img src="../_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://cmake.org/">CMake</a> &#187;
+  </li>
+  <li>
+    <a href="../index.html">3.12.0-rc2 Documentation</a> &#187;
+  </li>
+
+          <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fetchcontent">
+<span id="module:FetchContent"></span><h1><a class="toc-backref" href="#id1">FetchContent</a><a class="headerlink" href="#fetchcontent" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#fetchcontent" id="id1">FetchContent</a><ul>
+<li><a class="reference internal" href="#overview" id="id2">Overview</a></li>
+<li><a class="reference internal" href="#declaring-content-details" id="id3">Declaring Content Details</a></li>
+<li><a class="reference internal" href="#populating-the-content" id="id4">Populating The Content</a></li>
+<li><a class="reference internal" href="#retrieve-population-properties" id="id5">Retrieve Population Properties</a></li>
+<li><a class="reference internal" href="#examples" id="id6">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This module enables populating content at configure time via any method
+supported by the <span class="target" id="index-0-module:ExternalProject"></span><a class="reference internal" href="ExternalProject.html#module:ExternalProject" title="ExternalProject"><code class="xref cmake cmake-module docutils literal"><span class="pre">ExternalProject</span></code></a> module.  Whereas
+<span class="target" id="index-0-command:externalproject_add"></span><a class="reference internal" href="ExternalProject.html#command:externalproject_add" title="externalproject_add"><code class="xref cmake cmake-command docutils literal"><span class="pre">ExternalProject_Add()</span></code></a> downloads at build time, the
+<code class="docutils literal"><span class="pre">FetchContent</span></code> module makes content available immediately, allowing the
+configure step to use the content in commands like <span class="target" id="index-0-command:add_subdirectory"></span><a class="reference internal" href="../command/add_subdirectory.html#command:add_subdirectory" title="add_subdirectory"><code class="xref cmake cmake-command docutils literal"><span class="pre">add_subdirectory()</span></code></a>,
+<span class="target" id="index-0-command:include"></span><a class="reference internal" href="../command/include.html#command:include" title="include"><code class="xref cmake cmake-command docutils literal"><span class="pre">include()</span></code></a> or <span class="target" id="index-0-command:file"></span><a class="reference internal" href="../command/file.html#command:file" title="file"><code class="xref cmake cmake-command docutils literal"><span class="pre">file()</span></code></a> operations.</p>
+<p>Content population details would normally be defined separately from the
+command that performs the actual population.  Projects should also
+check whether the content has already been populated somewhere else in the
+project hierarchy.  Typical usage would look something like this:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">googletest</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">https://github.com/google/googletest.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">release-1.8.0</span>
+<span class="p">)</span>
+
+<span class="nb">FetchContent_GetProperties</span><span class="p">(</span><span class="s">googletest</span><span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">googletest_POPULATED</span><span class="p">)</span>
+  <span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">googletest</span><span class="p">)</span>
+  <span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">googletest_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">googletest_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>When using the above pattern with a hierarchical project arrangement,
+projects at higher levels in the hierarchy are able to define or override
+the population details of content specified anywhere lower in the project
+hierarchy.  The ability to detect whether content has already been
+populated ensures that even if multiple child projects want certain content
+to be available, the first one to populate it wins.  The other child project
+can simply make use of the already available content instead of repeating
+the population for itself.  See the
+<a class="reference internal" href="#fetch-content-examples"><span class="std std-ref">Examples</span></a> section which demonstrates
+this scenario.</p>
+<p>The <code class="docutils literal"><span class="pre">FetchContent</span></code> module also supports defining and populating
+content in a single call, with no check for whether the content has been
+populated elsewhere in the project already.  This is a more low level
+operation and would not normally be the way the module is used, but it is
+sometimes useful as part of implementing some higher level feature or to
+populate some content in CMake&#8217;s script mode.</p>
+</div>
+<div class="section" id="declaring-content-details">
+<h2><a class="toc-backref" href="#id3">Declaring Content Details</a><a class="headerlink" href="#declaring-content-details" title="Permalink to this headline">¶</a></h2>
+<dl class="command">
+<dt id="command:fetchcontent_declare">
+<code class="descname">FetchContent_Declare</code><a class="headerlink" href="#command:fetchcontent_declare" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_Declare</span><span class="p">(</span><span class="s">&lt;name&gt;</span> <span class="s">&lt;contentOptions&gt;...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">FetchContent_Declare()</span></code> function records the options that describe
+how to populate the specified content, but if such details have already
+been recorded earlier in this project (regardless of where in the project
+hierarchy), this and all later calls for the same content <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> are
+ignored.  This &#8220;first to record, wins&#8221; approach is what allows hierarchical
+projects to have parent projects override content details of child projects.</p>
+<p>The content <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> can be any string without spaces, but good practice
+would be to use only letters, numbers and underscores.  The name will be
+treated case-insensitively and it should be obvious for the content it
+represents, often being the name of the child project or the value given
+to its top level <span class="target" id="index-0-command:project"></span><a class="reference internal" href="../command/project.html#command:project" title="project"><code class="xref cmake cmake-command docutils literal"><span class="pre">project()</span></code></a> command (if it is a CMake project).
+For well-known public projects, the name should generally be the official
+name of the project.  Choosing an unusual name makes it unlikely that other
+projects needing that same content will use the same name, leading to
+the content being populated multiple times.</p>
+<p>The <code class="docutils literal"><span class="pre">&lt;contentOptions&gt;</span></code> can be any of the download or update/patch options
+that the <span class="target" id="index-1-command:externalproject_add"></span><a class="reference internal" href="ExternalProject.html#command:externalproject_add" title="externalproject_add"><code class="xref cmake cmake-command docutils literal"><span class="pre">ExternalProject_Add()</span></code></a> command understands.  The configure,
+build, install and test steps are explicitly disabled and therefore options
+related to them will be ignored.  In most cases, <code class="docutils literal"><span class="pre">&lt;contentOptions&gt;</span></code> will
+just be a couple of options defining the download method and method-specific
+details like a commit tag or archive hash.  For example:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">googletest</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">https://github.com/google/googletest.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">release-1.8.0</span>
+<span class="p">)</span>
+
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">myCompanyIcons</span>
+  <span class="s">URL</span>      <span class="s">https://intranet.mycompany.com/assets/iconset_1.12.tar.gz</span>
+  <span class="s">URL_HASH</span> <span class="s">5588a7b18261c20068beabfb4f530b87</span>
+<span class="p">)</span>
+
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">myCompanyCertificates</span>
+  <span class="s">SVN_REPOSITORY</span> <span class="s">svn+ssh://svn.mycompany.com/srv/svn/trunk/certs</span>
+  <span class="s">SVN_REVISION</span>   <span class="s">-r12345</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="populating-the-content">
+<h2><a class="toc-backref" href="#id4">Populating The Content</a><a class="headerlink" href="#populating-the-content" title="Permalink to this headline">¶</a></h2>
+<dl class="command">
+<dt id="command:fetchcontent_populate">
+<code class="descname">FetchContent_Populate</code><a class="headerlink" href="#command:fetchcontent_populate" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_Populate</span><span class="p">(</span> <span class="s">&lt;name&gt;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>In most cases, the only argument given to <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> is the
+<code class="docutils literal"><span class="pre">&lt;name&gt;</span></code>.  When used this way, the command assumes the content details have
+been recorded by an earlier call to <span class="target" id="index-0-command:fetchcontent_declare"></span><a class="reference internal" href="#command:fetchcontent_declare" title="fetchcontent_declare"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Declare()</span></code></a>.  The
+details are stored in a global property, so they are unaffected by things
+like variable or directory scope.  Therefore, it doesn&#8217;t matter where in the
+project the details were previously declared, as long as they have been
+declared before the call to <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code>.  Those saved details
+are then used to construct a call to <span class="target" id="index-2-command:externalproject_add"></span><a class="reference internal" href="ExternalProject.html#command:externalproject_add" title="externalproject_add"><code class="xref cmake cmake-command docutils literal"><span class="pre">ExternalProject_Add()</span></code></a> in a
+private sub-build to perform the content population immediately.  The
+implementation of <code class="docutils literal"><span class="pre">ExternalProject_Add()</span></code> ensures that if the content has
+already been populated in a previous CMake run, that content will be reused
+rather than repopulating them again.  For the common case where population
+involves downloading content, the cost of the download is only paid once.</p>
+<p>An internal global property records when a particular content population
+request has been processed.  If <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> is called more
+than once for the same content name within a configure run, the second call
+will halt with an error.  Projects can and should check whether content
+population has already been processed with the
+<span class="target" id="index-0-command:fetchcontent_getproperties"></span><a class="reference internal" href="#command:fetchcontent_getproperties" title="fetchcontent_getproperties"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_GetProperties()</span></code></a> command before calling
+<code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> will set three variables in the scope of the
+caller; <code class="docutils literal"><span class="pre">&lt;lcName&gt;_POPULATED</span></code>, <code class="docutils literal"><span class="pre">&lt;lcName&gt;_SOURCE_DIR</span></code> and
+<code class="docutils literal"><span class="pre">&lt;lcName&gt;_BINARY_DIR</span></code>, where <code class="docutils literal"><span class="pre">&lt;lcName&gt;</span></code> is the lowercased <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code>.
+<code class="docutils literal"><span class="pre">&lt;lcName&gt;_POPULATED</span></code> will always be set to <code class="docutils literal"><span class="pre">True</span></code> by the call.
+<code class="docutils literal"><span class="pre">&lt;lcName&gt;_SOURCE_DIR</span></code> is the location where the
+content can be found upon return (it will have already been populated), while
+<code class="docutils literal"><span class="pre">&lt;lcName&gt;_BINARY_DIR</span></code> is a directory intended for use as a corresponding
+build directory.  The main use case for the two directory variables is to
+call <span class="target" id="index-1-command:add_subdirectory"></span><a class="reference internal" href="../command/add_subdirectory.html#command:add_subdirectory" title="add_subdirectory"><code class="xref cmake cmake-command docutils literal"><span class="pre">add_subdirectory()</span></code></a> immediately after population, i.e.:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">FooBar</span> <span class="s">...</span><span class="p">)</span>
+<span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">foobar_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">foobar_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The values of the three variables can also be retrieved from anywhere in the
+project hierarchy using the <span class="target" id="index-1-command:fetchcontent_getproperties"></span><a class="reference internal" href="#command:fetchcontent_getproperties" title="fetchcontent_getproperties"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_GetProperties()</span></code></a> command.</p>
+<p>A number of cache variables influence the behavior of all content population
+performed using details saved from a <span class="target" id="index-1-command:fetchcontent_declare"></span><a class="reference internal" href="#command:fetchcontent_declare" title="fetchcontent_declare"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Declare()</span></code></a> call:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">FETCHCONTENT_BASE_DIR</span></code></dt>
+<dd>In most cases, the saved details do not specify any options relating to the
+directories to use for the internal sub-build, final source and build areas.
+It is generally best to leave these decisions up to the <code class="docutils literal"><span class="pre">FetchContent</span></code>
+module to handle on the project&#8217;s behalf.  The <code class="docutils literal"><span class="pre">FETCHCONTENT_BASE_DIR</span></code>
+cache variable controls the point under which all content population
+directories are collected, but in most cases developers would not need to
+change this.  The default location is <code class="docutils literal"><span class="pre">${CMAKE_BINARY_DIR}/_deps</span></code>, but if
+developers change this value, they should aim to keep the path short and
+just below the top level of the build tree to avoid running into path
+length problems on Windows.</dd>
+<dt><code class="docutils literal"><span class="pre">FETCHCONTENT_QUIET</span></code></dt>
+<dd>The logging output during population can be quite verbose, making the
+configure stage quite noisy.  This cache option (<code class="docutils literal"><span class="pre">ON</span></code> by default) hides
+all population output unless an error is encountered.  If experiencing
+problems with hung downloads, temporarily switching this option off may
+help diagnose which content population is causing the issue.</dd>
+<dt><code class="docutils literal"><span class="pre">FETCHCONTENT_FULLY_DISCONNECTED</span></code></dt>
+<dd>When this option is enabled, no attempt is made to download or update
+any content.  It is assumed that all content has already been populated in
+a previous run or the source directories have been pointed at existing
+contents the developer has provided manually (using options described
+further below).  When the developer knows that no changes have been made to
+any content details, turning this option <code class="docutils literal"><span class="pre">ON</span></code> can significantly speed up
+the configure stage.  It is <code class="docutils literal"><span class="pre">OFF</span></code> by default.</dd>
+<dt><code class="docutils literal"><span class="pre">FETCHCONTENT_UPDATES_DISCONNECTED</span></code></dt>
+<dd>This is a less severe download/update control compared to
+<code class="docutils literal"><span class="pre">FETCHCONTENT_FULLY_DISCONNECTED</span></code>.  Instead of bypassing all download and
+update logic, the <code class="docutils literal"><span class="pre">FETCHCONTENT_UPDATES_DISCONNECTED</span></code> only disables the
+update stage.  Therefore, if content has not been downloaded previously,
+it will still be downloaded when this option is enabled.  This can speed up
+the configure stage, but not as much as
+<code class="docutils literal"><span class="pre">FETCHCONTENT_FULLY_DISCONNECTED</span></code>.  It is <code class="docutils literal"><span class="pre">OFF</span></code> by default.</dd>
+</dl>
+<p>In addition to the above cache variables, the following cache variables are
+also defined for each content name (<code class="docutils literal"><span class="pre">&lt;ucName&gt;</span></code> is the uppercased value of
+<code class="docutils literal"><span class="pre">&lt;name&gt;</span></code>):</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">FETCHCONTENT_SOURCE_DIR_&lt;ucName&gt;</span></code></dt>
+<dd>If this is set, no download or update steps are performed for the specified
+content and the <code class="docutils literal"><span class="pre">&lt;lcName&gt;_SOURCE_DIR</span></code> variable returned to the caller is
+pointed at this location.  This gives developers a way to have a separate
+checkout of the content that they can modify freely without interference
+from the build.  The build simply uses that existing source, but it still
+defines <code class="docutils literal"><span class="pre">&lt;lcName&gt;_BINARY_DIR</span></code> to point inside its own build area.
+Developers are strongly encouraged to use this mechanism rather than
+editing the sources populated in the default location, as changes to
+sources in the default location can be lost when content population details
+are changed by the project.</dd>
+<dt><code class="docutils literal"><span class="pre">FETCHCONTENT_UPDATES_DISCONNECTED_&lt;ucName&gt;</span></code></dt>
+<dd>This is the per-content equivalent of
+<code class="docutils literal"><span class="pre">FETCHCONTENT_UPDATES_DISCONNECTED</span></code>. If the global option or this option
+is <code class="docutils literal"><span class="pre">ON</span></code>, then updates will be disabled for the named content.
+Disabling updates for individual content can be useful for content whose
+details rarely change, while still leaving other frequently changing
+content with updates enabled.</dd>
+</dl>
+<p>The <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> command also supports a syntax allowing the
+content details to be specified directly rather than using any saved
+details.  This is more low-level and use of this form is generally to be
+avoided in favour of using saved content details as outlined above.
+Nevertheless, in certain situations it can be useful to invoke the content
+population as an isolated operation (typically as part of implementing some
+other higher level feature or when using CMake in script mode):</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_Populate</span><span class="p">(</span> <span class="s">&lt;name&gt;</span>
+  <span class="s">[QUIET]</span>
+  <span class="s">[SUBBUILD_DIR</span> <span class="s">&lt;subBuildDir&gt;]</span>
+  <span class="s">[SOURCE_DIR</span> <span class="s">&lt;srcDir&gt;]</span>
+  <span class="s">[BINARY_DIR</span> <span class="s">&lt;binDir&gt;]</span>
+  <span class="s">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This form has a number of key differences to that where only <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> is
+provided:</p>
+<ul class="simple">
+<li>All required population details are assumed to have been provided directly
+in the call to <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code>. Any saved details for
+<code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> are ignored.</li>
+<li>No check is made for whether content for <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> has already been
+populated.</li>
+<li>No global property is set to record that the population has occurred.</li>
+<li>No global properties record the source or binary directories used for the
+populated content.</li>
+<li>The <code class="docutils literal"><span class="pre">FETCHCONTENT_FULLY_DISCONNECTED</span></code> and
+<code class="docutils literal"><span class="pre">FETCHCONTENT_UPDATES_DISCONNECTED</span></code> cache variables are ignored.</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">&lt;lcName&gt;_SOURCE_DIR</span></code> and <code class="docutils literal"><span class="pre">&lt;lcName&gt;_BINARY_DIR</span></code> variables are still
+returned to the caller, but since these locations are not stored as global
+properties when this form is used, they are only available to the calling
+scope and below rather than the entire project hierarchy.  No
+<code class="docutils literal"><span class="pre">&lt;lcName&gt;_POPULATED</span></code> variable is set in the caller&#8217;s scope with this form.</p>
+<p>The supported options for <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> are the same as those
+for <span class="target" id="index-2-command:fetchcontent_declare"></span><a class="reference internal" href="#command:fetchcontent_declare" title="fetchcontent_declare"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Declare()</span></code></a>.  Those few options shown just
+above are either specific to <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> or their behavior is
+slightly modified from how <span class="target" id="index-3-command:externalproject_add"></span><a class="reference internal" href="ExternalProject.html#command:externalproject_add" title="externalproject_add"><code class="xref cmake cmake-command docutils literal"><span class="pre">ExternalProject_Add()</span></code></a> treats them.</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">QUIET</span></code></dt>
+<dd>The <code class="docutils literal"><span class="pre">QUIET</span></code> option can be given to hide the output associated with
+populating the specified content.  If the population fails, the output will
+be shown regardless of whether this option was given or not so that the
+cause of the failure can be diagnosed.  The global <code class="docutils literal"><span class="pre">FETCHCONTENT_QUIET</span></code>
+cache variable has no effect on <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> calls where the
+content details are provided directly.</dd>
+<dt><code class="docutils literal"><span class="pre">SUBBUILD_DIR</span></code></dt>
+<dd>The <code class="docutils literal"><span class="pre">SUBBUILD_DIR</span></code> argument can be provided to change the location of the
+sub-build created to perform the population.  The default value is
+<code class="docutils literal"><span class="pre">${CMAKE_CURRENT_BINARY_DIR}/&lt;lcName&gt;-subbuild</span></code> and it would be unusual
+to need to override this default.  If a relative path is specified, it will
+be interpreted as relative to <span class="target" id="index-0-variable:CMAKE_CURRENT_BINARY_DIR"></span><a class="reference internal" href="../variable/CMAKE_CURRENT_BINARY_DIR.html#variable:CMAKE_CURRENT_BINARY_DIR" title="CMAKE_CURRENT_BINARY_DIR"><code class="xref cmake cmake-variable docutils literal"><span class="pre">CMAKE_CURRENT_BINARY_DIR</span></code></a>.</dd>
+<dt><code class="docutils literal"><span class="pre">SOURCE_DIR</span></code>, <code class="docutils literal"><span class="pre">BINARY_DIR</span></code></dt>
+<dd>The <code class="docutils literal"><span class="pre">SOURCE_DIR</span></code> and <code class="docutils literal"><span class="pre">BINARY_DIR</span></code> arguments are supported by
+<span class="target" id="index-4-command:externalproject_add"></span><a class="reference internal" href="ExternalProject.html#command:externalproject_add" title="externalproject_add"><code class="xref cmake cmake-command docutils literal"><span class="pre">ExternalProject_Add()</span></code></a>, but different default values are used by
+<code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code>.  <code class="docutils literal"><span class="pre">SOURCE_DIR</span></code> defaults to
+<code class="docutils literal"><span class="pre">${CMAKE_CURRENT_BINARY_DIR}/&lt;lcName&gt;-src</span></code> and <code class="docutils literal"><span class="pre">BINARY_DIR</span></code> defaults to
+<code class="docutils literal"><span class="pre">${CMAKE_CURRENT_BINARY_DIR}/&lt;lcName&gt;-build</span></code>.  If a relative path is
+specified, it will be interpreted as relative to
+<span class="target" id="index-1-variable:CMAKE_CURRENT_BINARY_DIR"></span><a class="reference internal" href="../variable/CMAKE_CURRENT_BINARY_DIR.html#variable:CMAKE_CURRENT_BINARY_DIR" title="CMAKE_CURRENT_BINARY_DIR"><code class="xref cmake cmake-variable docutils literal"><span class="pre">CMAKE_CURRENT_BINARY_DIR</span></code></a>.</dd>
+</dl>
+<p>In addition to the above explicit options, any other unrecognized options are
+passed through unmodified to <span class="target" id="index-5-command:externalproject_add"></span><a class="reference internal" href="ExternalProject.html#command:externalproject_add" title="externalproject_add"><code class="xref cmake cmake-command docutils literal"><span class="pre">ExternalProject_Add()</span></code></a> to perform the
+download, patch and update steps.  The following options are explicitly
+prohibited (they are disabled by the <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> command):</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CONFIGURE_COMMAND</span></code></li>
+<li><code class="docutils literal"><span class="pre">BUILD_COMMAND</span></code></li>
+<li><code class="docutils literal"><span class="pre">INSTALL_COMMAND</span></code></li>
+<li><code class="docutils literal"><span class="pre">TEST_COMMAND</span></code></li>
+</ul>
+<p>If using <code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code> within CMake&#8217;s script mode, be aware
+that the implementation sets up a sub-build which therefore requires a CMake
+generator and build tool to be available. If these cannot be found by
+default, then the <span class="target" id="index-0-variable:CMAKE_GENERATOR"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR.html#variable:CMAKE_GENERATOR" title="CMAKE_GENERATOR"><code class="xref cmake cmake-variable docutils literal"><span class="pre">CMAKE_GENERATOR</span></code></a> and/or
+<span class="target" id="index-0-variable:CMAKE_MAKE_PROGRAM"></span><a class="reference internal" href="../variable/CMAKE_MAKE_PROGRAM.html#variable:CMAKE_MAKE_PROGRAM" title="CMAKE_MAKE_PROGRAM"><code class="xref cmake cmake-variable docutils literal"><span class="pre">CMAKE_MAKE_PROGRAM</span></code></a> variables will need to be set appropriately
+on the command line invoking the script.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="retrieve-population-properties">
+<h2><a class="toc-backref" href="#id5">Retrieve Population Properties</a><a class="headerlink" href="#retrieve-population-properties" title="Permalink to this headline">¶</a></h2>
+<dl class="command">
+<dt id="command:fetchcontent_getproperties">
+<code class="descname">FetchContent_GetProperties</code><a class="headerlink" href="#command:fetchcontent_getproperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>When using saved content details, a call to <span class="target" id="index-0-command:fetchcontent_populate"></span><a class="reference internal" href="#command:fetchcontent_populate" title="fetchcontent_populate"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Populate()</span></code></a>
+records information in global properties which can be queried at any time.
+This information includes the source and binary directories associated with
+the content and also whether or not the content population has been processed
+during the current configure run.</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_GetProperties</span><span class="p">(</span> <span class="s">&lt;name&gt;</span>
+  <span class="s">[SOURCE_DIR</span> <span class="s">&lt;srcDirVar&gt;]</span>
+  <span class="s">[BINARY_DIR</span> <span class="s">&lt;binDirVar&gt;]</span>
+  <span class="s">[POPULATED</span> <span class="s">&lt;doneVar&gt;]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">SOURCE_DIR</span></code>, <code class="docutils literal"><span class="pre">BINARY_DIR</span></code> and <code class="docutils literal"><span class="pre">POPULATED</span></code> options can be used to
+specify which properties should be retrieved.  Each option accepts a value
+which is the name of the variable in which to store that property.  Most of
+the time though, only <code class="docutils literal"><span class="pre">&lt;name&gt;</span></code> is given, in which case the call will then
+set the same variables as a call to
+<span class="target" id="index-1-command:fetchcontent_populate"></span><a class="reference internal" href="#command:fetchcontent_populate" title="fetchcontent_populate"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Populate(name)</span></code></a>.  This allows
+the following canonical pattern to be used, which ensures that the relevant
+variables will always be defined regardless of whether or not the population
+has been performed elsewhere in the project already:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">FetchContent_GetProperties</span><span class="p">(</span><span class="s">foobar</span><span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">foobar_POPULATED</span><span class="p">)</span>
+  <span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">foobar</span><span class="p">)</span>
+
+  <span class="c"># Set any custom variables, etc. here, then</span>
+  <span class="c"># populate the content as part of this build</span>
+
+  <span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">foobar_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">foobar_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The above pattern allows other parts of the overall project hierarchy to
+re-use the same content and ensure that it is only populated once.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="examples">
+<span id="fetch-content-examples"></span><h2><a class="toc-backref" href="#id6">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Consider a project hierarchy where <code class="docutils literal"><span class="pre">projA</span></code> is the top level project and it
+depends on projects <code class="docutils literal"><span class="pre">projB</span></code> and <code class="docutils literal"><span class="pre">projC</span></code>. Both <code class="docutils literal"><span class="pre">projB</span></code> and <code class="docutils literal"><span class="pre">projC</span></code>
+can be built standalone and they also both depend on another project
+<code class="docutils literal"><span class="pre">projD</span></code>.  For simplicity, this example will assume that all four projects
+are available on a company git server.  The <code class="docutils literal"><span class="pre">CMakeLists.txt</span></code> of each project
+might have sections like the following:</p>
+<p><em>projA</em>:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">projB</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">git@mycompany.com/git/projB.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">4a89dc7e24ff212a7b5167bef7ab079d</span>
+<span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">projC</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">git@mycompany.com/git/projC.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">4ad4016bd1d8d5412d135cf8ceea1bb9</span>
+<span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">projD</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">git@mycompany.com/git/projD.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">origin/integrationBranch</span>
+<span class="p">)</span>
+
+<span class="nb">FetchContent_GetProperties</span><span class="p">(</span><span class="s">projB</span><span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">projb_POPULATED</span><span class="p">)</span>
+  <span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">projB</span><span class="p">)</span>
+  <span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">projb_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">projb_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+
+<span class="nb">FetchContent_GetProperties</span><span class="p">(</span><span class="s">projC</span><span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">projc_POPULATED</span><span class="p">)</span>
+  <span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">projC</span><span class="p">)</span>
+  <span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">projc_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">projc_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>projB</em>:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">projD</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">git@mycompany.com/git/projD.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">20b415f9034bbd2a2e8216e9a5c9e632</span>
+<span class="p">)</span>
+
+<span class="nb">FetchContent_GetProperties</span><span class="p">(</span><span class="s">projD</span><span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">projd_POPULATED</span><span class="p">)</span>
+  <span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">projD</span><span class="p">)</span>
+  <span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">projd_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">projd_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><em>projC</em>:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+  <span class="s">projD</span>
+  <span class="s">GIT_REPOSITORY</span> <span class="s">git@mycompany.com/git/projD.git</span>
+  <span class="s">GIT_TAG</span>        <span class="s">7d9a17ad2c962aa13e2fbb8043fb6b8a</span>
+<span class="p">)</span>
+
+<span class="nb">FetchContent_GetProperties</span><span class="p">(</span><span class="s">projD</span><span class="p">)</span>
+<span class="nb">if</span><span class="p">(</span><span class="s">NOT</span> <span class="s">projd_POPULATED</span><span class="p">)</span>
+  <span class="nb">FetchContent_Populate</span><span class="p">(</span><span class="s">projD</span><span class="p">)</span>
+  <span class="nb">add_subdirectory</span><span class="p">(</span><span class="o">${</span><span class="nv">projd_SOURCE_DIR</span><span class="o">}</span> <span class="o">${</span><span class="nv">projd_BINARY_DIR</span><span class="o">}</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>A few key points should be noted in the above:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">projB</span></code> and <code class="docutils literal"><span class="pre">projC</span></code> define different content details for <code class="docutils literal"><span class="pre">projD</span></code>,
+but <code class="docutils literal"><span class="pre">projA</span></code> also defines a set of content details for <code class="docutils literal"><span class="pre">projD</span></code> and
+because <code class="docutils literal"><span class="pre">projA</span></code> will define them first, the details from <code class="docutils literal"><span class="pre">projB</span></code> and
+<code class="docutils literal"><span class="pre">projC</span></code> will not be used.  The override details defined by <code class="docutils literal"><span class="pre">projA</span></code>
+are not required to match either of those from <code class="docutils literal"><span class="pre">projB</span></code> or <code class="docutils literal"><span class="pre">projC</span></code>, but
+it is up to the higher level project to ensure that the details it does
+define still make sense for the child projects.</li>
+<li>While <code class="docutils literal"><span class="pre">projA</span></code> defined content details for <code class="docutils literal"><span class="pre">projD</span></code>, it did not need
+to explicitly call <code class="docutils literal"><span class="pre">FetchContent_Populate(projD)</span></code> itself.  Instead, it
+leaves that to a child project to do (in this case it will be <code class="docutils literal"><span class="pre">projB</span></code>
+since it is added to the build ahead of <code class="docutils literal"><span class="pre">projC</span></code>).  If <code class="docutils literal"><span class="pre">projA</span></code> needed to
+customize how the <code class="docutils literal"><span class="pre">projD</span></code> content was brought into the build as well
+(e.g. define some CMake variables before calling
+<span class="target" id="index-2-command:add_subdirectory"></span><a class="reference internal" href="../command/add_subdirectory.html#command:add_subdirectory" title="add_subdirectory"><code class="xref cmake cmake-command docutils literal"><span class="pre">add_subdirectory()</span></code></a> after populating), it would do the call to
+<code class="docutils literal"><span class="pre">FetchContent_Populate()</span></code>, etc. just as it did for the <code class="docutils literal"><span class="pre">projB</span></code> and
+<code class="docutils literal"><span class="pre">projC</span></code> content.  For higher level projects, it is usually enough to
+just define the override content details and leave the actual population
+to the child projects.  This saves repeating the same thing at each level
+of the project hierarchy unnecessarily.</li>
+<li>Even though <code class="docutils literal"><span class="pre">projA</span></code> is the top level project in this example, it still
+checks whether <code class="docutils literal"><span class="pre">projB</span></code> and <code class="docutils literal"><span class="pre">projC</span></code> have already been populated before
+going ahead to do those populations.  This makes <code class="docutils literal"><span class="pre">projA</span></code> able to be more
+easily incorporated as a child of some other higher level project in the
+future if required.  Always protect a call to
+<span class="target" id="index-2-command:fetchcontent_populate"></span><a class="reference internal" href="#command:fetchcontent_populate" title="fetchcontent_populate"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Populate()</span></code></a> with a check to
+<span class="target" id="index-2-command:fetchcontent_getproperties"></span><a class="reference internal" href="#command:fetchcontent_getproperties" title="fetchcontent_getproperties"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_GetProperties()</span></code></a>, even in what may be considered a top
+level project at the time.</li>
+</ul>
+<p>The following example demonstrates how one might download and unpack a
+firmware tarball using CMake&#8217;s <span class="target" id="index-0-manual:cmake(1)"></span><a class="reference internal" href="../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal"><span class="pre">script</span> <span class="pre">mode</span></code></a>.  The call to
+<span class="target" id="index-3-command:fetchcontent_populate"></span><a class="reference internal" href="#command:fetchcontent_populate" title="fetchcontent_populate"><code class="xref cmake cmake-command docutils literal"><span class="pre">FetchContent_Populate()</span></code></a> specifies all the content details and the
+unpacked firmware will be placed in a <code class="docutils literal"><span class="pre">firmware</span></code> directory below the
+current working directory.</p>
+<p><em>getFirmware.cmake</em>:</p>
+<div class="highlight-cmake"><div class="highlight"><pre><span></span><span class="c"># NOTE: Intended to be run in script mode with cmake -P</span>
+<span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="nb">FetchContent_Populate</span><span class="p">(</span>
+  <span class="s">firmware</span>
+  <span class="s">URL</span>        <span class="s">https://mycompany.com/assets/firmware-1.23-arm.tar.gz</span>
+  <span class="s">URL_HASH</span>   <span class="s">MD5=68247684da89b608d466253762b0ff11</span>
+  <span class="s">SOURCE_DIR</span> <span class="s">firmware</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">FetchContent</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#declaring-content-details">Declaring Content Details</a></li>
+<li><a class="reference internal" href="#populating-the-content">Populating The Content</a></li>
+<li><a class="reference internal" href="#retrieve-population-properties">Retrieve Population Properties</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="FeatureSummary.html"
+                        title="previous chapter">FeatureSummary</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FindALSA.html"
+                        title="next chapter">FindALSA</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/module/FetchContent.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="FindALSA.html" title="FindALSA"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="FeatureSummary.html" title="FeatureSummary"
+             >previous</a> |</li>
+  <li>
+    <img src="../_static/cmake-logo-16.png" alt=""
+         style="vertical-align: middle; margin-top: -2px" />
+  </li>
+  <li>
+    <a href="https://cmake.org/">CMake</a> &#187;
+  </li>
+  <li>
+    <a href="../index.html">3.12.0-rc2 Documentation</a> &#187;
+  </li>
+
+          <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2000-2018 Kitware, Inc. and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>

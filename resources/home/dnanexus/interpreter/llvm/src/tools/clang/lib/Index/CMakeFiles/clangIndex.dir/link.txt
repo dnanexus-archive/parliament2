@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libclangIndex.a  CMakeFiles/clangIndex.dir/CodegenNameGenerator.cpp.o CMakeFiles/clangIndex.dir/CommentToXML.cpp.o CMakeFiles/clangIndex.dir/IndexBody.cpp.o CMakeFiles/clangIndex.dir/IndexDecl.cpp.o CMakeFiles/clangIndex.dir/IndexingAction.cpp.o CMakeFiles/clangIndex.dir/IndexingContext.cpp.o CMakeFiles/clangIndex.dir/IndexSymbol.cpp.o CMakeFiles/clangIndex.dir/IndexTypeSourceInfo.cpp.o CMakeFiles/clangIndex.dir/USRGeneration.cpp.o
-/usr/bin/ranlib ../../../../lib/libclangIndex.a

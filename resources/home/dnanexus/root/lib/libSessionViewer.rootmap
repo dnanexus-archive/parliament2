@@ -1,0 +1,27 @@
+[ libSessionViewer.so ]
+# List of selected classes
+class TEditQueryFrame
+class TNewChainDlg
+class TNewQueryDlg
+class TPackageDescription
+class TProofProgressDialog
+class TProofProgressLog
+class TProofProgressMemoryPlot
+class TQueryDescription
+class TSessionDescription
+class TSessionFrame
+class TSessionInputFrame
+class TSessionLogView
+class TSessionOutputFrame
+class TSessionQueryFrame
+class TSessionServerFrame
+class TSessionViewer
+class TUploadDataSetDlg
+header TSessionViewer.h
+header TSessionDialogs.h
+header TProofProgressDialog.h
+header TProofProgressLog.h
+header TProofProgressMemoryPlot.h
+header TSessionLogView.h
+# List of selected vars
+var gSessionViewer

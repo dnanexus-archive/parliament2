@@ -1,0 +1,80 @@
+{ decls }
+namespace std {  }
+
+[ libProof.so ]
+# List of selected classes
+class TCondor
+class TCondorSlave
+class TDSet
+class TDSetElement
+class TDSetProxy
+class TDataSetManager
+class TDataSetManagerFile
+class TLockPath
+class TMergerInfo
+class TPackMgr
+class TProof
+class TProofChain
+class TProofCondor
+class TProofDebug
+class TProofDesc
+class TProofLite
+class TProofLog
+class TProofLogElem
+class TProofMgr
+class TProofMgrLite
+class TProofNodeInfo
+class TProofOutputFile
+class TProofOutputList
+class TProofProgressInfo
+class TProofProgressStatus
+class TProofQueryResult
+class TProofResources
+class TProofResourcesStatic
+class TProofServ
+class TProofServLite
+class TProofSuperMaster
+class TQueryResultManager
+class TSelVerifyDataSet
+class TSlave
+class TSlaveInfo
+class TSlaveLite
+class TVirtualProofPlayer
+class list<pair<TDSetElement*,TString> >
+class list<std::pair<TDSetElement*,TString> >
+class pair<TDSetElement*,TString>
+header TCondor.h
+header TDSet.h
+header TDSetProxy.h
+header TDataSetManager.h
+header TDataSetManagerFile.h
+header TLockPath.h
+header TProof.h
+header TPackMgr.h
+header TProofChain.h
+header TProofCondor.h
+header TProofDebug.h
+header TProofMgr.h
+header TProofLite.h
+header TProofLog.h
+header TProofMgrLite.h
+header TProofNodeInfo.h
+header TProofOutputFile.h
+header TProofOutputList.h
+header TProofProgressStatus.h
+header TProofQueryResult.h
+header TProofResources.h
+header TProofResourcesStatic.h
+header TProofServ.h
+header TProofServLite.h
+header TProofSuperMaster.h
+header TQueryResultManager.h
+header TSelVerifyDataSet.h
+header TSlave.h
+header TSlaveLite.h
+header TVirtualProofPlayer.h
+# List of selected vars
+var gProofDebugMask
+var gProofDebugLevel
+var gProof
+var gProofServ

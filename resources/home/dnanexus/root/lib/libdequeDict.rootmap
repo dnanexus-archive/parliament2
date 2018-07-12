@@ -1,0 +1,11 @@
+{ decls }
+namespace std {  }
+
+[ libdequeDict.so ]
+# List of selected classes
+class deque<char*>
+class deque<double>
+class deque<float>
+class deque<int>
+class deque<long>
+class deque<void*>

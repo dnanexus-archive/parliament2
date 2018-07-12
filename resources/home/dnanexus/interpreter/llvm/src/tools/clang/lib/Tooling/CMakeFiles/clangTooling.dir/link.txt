@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../../lib/libclangTooling.a  CMakeFiles/clangTooling.dir/ArgumentsAdjusters.cpp.o CMakeFiles/clangTooling.dir/CommonOptionsParser.cpp.o CMakeFiles/clangTooling.dir/CompilationDatabase.cpp.o CMakeFiles/clangTooling.dir/FileMatchTrie.cpp.o CMakeFiles/clangTooling.dir/FixIt.cpp.o CMakeFiles/clangTooling.dir/JSONCompilationDatabase.cpp.o CMakeFiles/clangTooling.dir/Refactoring.cpp.o CMakeFiles/clangTooling.dir/RefactoringCallbacks.cpp.o CMakeFiles/clangTooling.dir/Tooling.cpp.o
-/usr/bin/ranlib ../../../../lib/libclangTooling.a

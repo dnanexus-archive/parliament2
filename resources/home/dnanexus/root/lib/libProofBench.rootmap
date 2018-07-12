@@ -1,0 +1,20 @@
+[ libProofBench.so ]
+# List of selected classes
+class TPBHandleDSType
+class TPBHistType
+class TPBReadType
+class TProofBench
+class TProofBenchDataSet
+class TProofBenchRun
+class TProofBenchRunCPU
+class TProofBenchRunDataRead
+class TProofNodes
+class TProofPerfAnalysis
+header TProofBenchTypes.h
+header TProofBench.h
+header TProofBenchDataSet.h
+header TProofBenchRun.h
+header TProofBenchRunCPU.h
+header TProofBenchRunDataRead.h
+header TProofNodes.h
+header TProofPerfAnalysis.h

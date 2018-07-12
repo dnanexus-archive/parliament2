@@ -1,0 +1,8 @@
+[ libNetxNG.so ]
+# List of selected classes
+class TNetXNGFile
+class TNetXNGFileStager
+class TNetXNGSystem
+header TNetXNGFile.h
+header TNetXNGFileStager.h
+header TNetXNGSystem.h

@@ -1,0 +1,34 @@
+{ decls }
+namespace ROOT {  }
+
+[ libThread.so ]
+# List of selected classes
+class ROOT::TSpinMutex
+class TAtomicCount
+class TCondition
+class TConditionImp
+class TMutex
+class TMutexImp
+class TPosixCondition
+class TPosixMutex
+class TPosixThread
+class TPosixThreadFactory
+class TRWLock
+class TSemaphore
+class TThread
+class TThreadFactory
+class TThreadImp
+header TAtomicCountGcc.h
+header TCondition.h
+header TConditionImp.h
+header TMutex.h
+header TMutexImp.h
+header TPosixCondition.h
+header TPosixMutex.h
+header TPosixThread.h
+header TPosixThreadFactory.h
+header TRWLock.h
+header TSemaphore.h
+header TThread.h
+header TThreadFactory.h
+header TThreadImp.h

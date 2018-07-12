@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../libLLVMX86AsmPrinter.a  CMakeFiles/LLVMX86AsmPrinter.dir/X86ATTInstPrinter.cpp.o CMakeFiles/LLVMX86AsmPrinter.dir/X86IntelInstPrinter.cpp.o CMakeFiles/LLVMX86AsmPrinter.dir/X86InstComments.cpp.o
-/usr/bin/ranlib ../../../libLLVMX86AsmPrinter.a

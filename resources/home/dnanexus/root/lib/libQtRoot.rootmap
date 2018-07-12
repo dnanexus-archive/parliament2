@@ -1,0 +1,4 @@
+[ libQtRoot.so ]
+# List of selected classes
+class TQtRootGuiFactory
+header TQtRootGuiFactory.h

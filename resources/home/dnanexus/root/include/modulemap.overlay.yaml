@@ -1,0 +1,19 @@
+{
+  'version': 0,
+  'roots': [
+    { 'name': '/usr/include/c++/4.8', 'type': 'directory',
+      'contents': [
+        { 'name': 'module.modulemap', 'type': 'file',
+          'external-contents': '/mnt/build/workspace/root-release-6.14/BUILDTYPE/Release/COMPILER/native/LABEL/ubuntu14/install/ROOT/6.14.00/include/stl.modulemap'
+        }
+      ]
+    },
+    { 'name': '/usr/include/', 'type': 'directory',
+      'contents': [
+        { 'name': 'module.modulemap', 'type': 'file',
+          'external-contents': '/mnt/build/workspace/root-release-6.14/BUILDTYPE/Release/COMPILER/native/LABEL/ubuntu14/install/ROOT/6.14.00/include/libc.modulemap'
+        }
+      ]
+    }
+  ]
+}

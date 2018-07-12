@@ -1,0 +1,11 @@
+{ decls }
+namespace Memstat {  }
+
+[ libMemStat.so ]
+# List of selected classes
+class Memstat::TMemStatMng
+class TMemStat
+header TMemStatMng.h
+header TMemStat.h
+# List of selected namespaces
+namespace Memstat

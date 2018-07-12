@@ -1,0 +1,22 @@
+[ libPhysics.so ]
+# List of selected classes
+class TFeldmanCousins
+class TGenPhaseSpace
+class TLorentzRotation
+class TLorentzVector
+class TQuaternion
+class TRobustEstimator
+class TRolke
+class TRotation
+class TVector2
+class TVector3
+header TFeldmanCousins.h
+header TGenPhaseSpace.h
+header TLorentzRotation.h
+header TLorentzVector.h
+header TQuaternion.h
+header TRobustEstimator.h
+header TRolke.h
+header TRotation.h
+header TVector2.h
+header TVector3.h

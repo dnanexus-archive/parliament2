@@ -1,0 +1,10 @@
+[ libBonjour.so ]
+# List of selected classes
+class TBonjourBrowser
+class TBonjourRecord
+class TBonjourRegistrar
+class TBonjourResolver
+header TBonjourBrowser.h
+header TBonjourRecord.h
+header TBonjourRegistrar.h
+header TBonjourResolver.h

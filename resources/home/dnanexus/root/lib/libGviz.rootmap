@@ -1,0 +1,8 @@
+[ libGviz.so ]
+# List of selected classes
+class TGraphEdge
+class TGraphNode
+class TGraphStruct
+header TGraphEdge.h
+header TGraphNode.h
+header TGraphStruct.h

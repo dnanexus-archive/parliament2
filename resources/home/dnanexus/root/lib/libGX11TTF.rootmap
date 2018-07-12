@@ -1,0 +1,4 @@
+[ libGX11TTF.so ]
+# List of selected classes
+class TGX11TTF
+header TGX11TTF.h

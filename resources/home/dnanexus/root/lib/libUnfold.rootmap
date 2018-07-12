@@ -1,0 +1,12 @@
+[ libUnfold.so ]
+# List of selected classes
+class TUnfold
+class TUnfoldBinning
+class TUnfoldBinningXML
+class TUnfoldDensity
+class TUnfoldSys
+header TUnfold.h
+header TUnfoldBinning.h
+header TUnfoldBinningXML.h
+header TUnfoldDensity.h
+header TUnfoldSys.h

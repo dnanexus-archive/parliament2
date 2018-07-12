@@ -1,0 +1,12 @@
+[ libPostscript.so ]
+# List of selected classes
+class TImageDump
+class TPDF
+class TPostScript
+class TSVG
+class TTeXDump
+header TImageDump.h
+header TPDF.h
+header TPostScript.h
+header TSVG.h
+header TTeXDump.h

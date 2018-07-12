@@ -21,7 +21,7 @@ for item in $directory*; do
     echo "./svtyper -B $input_bam -i $directory/$i >> $directory/$i" >> $output.cmds
 done
 
-parallel --verbose --timeout 300 -a $output.cmds eval 2> /dev/null
+parallel --verbose -a $output.cmds eval 2> /dev/null
 
 grep \# $input > $output
 for item in $directory/*; do

@@ -1,0 +1,29 @@
+[ libHtml.so ]
+# List of selected classes
+class TClassDocInfo
+class TClassDocOutput
+class TDocDirective
+class TDocHtmlDirective
+class TDocLatexDirective
+class TDocMacroDirective
+class TDocOutput
+class TDocParser
+class THtml
+class THtml::TFileDefinition
+class THtml::TFileSysDB
+class THtml::TFileSysDir
+class THtml::TFileSysEntry
+class THtml::TFileSysRoot
+class THtml::THelperBase
+class THtml::TModuleDefinition
+class THtml::TPathDefinition
+class TLibraryDocInfo
+class TModuleDocInfo
+header TDocInfo.h
+header TClassDocOutput.h
+header TDocDirective.h
+header TDocOutput.h
+header TDocParser.h
+header THtml.h
+# List of selected vars
+var gHtml
