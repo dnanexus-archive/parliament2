@@ -139,6 +139,13 @@
       "default": false
     },
     {
+      "name": "output_log_files",
+      "label": "Output Log Files?",
+      "help": "If selected, log files for Breakdancer and Manta (if applicable) will be uploaded as output.",
+      "class": "boolean",
+      "default": true
+    },
+    {
       "name": "run_genotype_candidates",
       "label": "Genotype Candidates?",
       "help": "If selected, candidate events determined from the individual callers will be genotyped and merged to create a consensus output.",
@@ -192,6 +199,14 @@
       "help": "(Optional) Visualizations generated with SVVIZ on validated SV calls.",
       "class": "file",
       "patterns": ["*.tar.gz"],
+      "optional": true
+    },
+    {
+      "name": "log_files",
+      "label": "Log Files",
+      "help": "(Optional) Log files for structural variant callers.",
+      "class": "file",
+      "patterns": ["*.txt"],
       "optional": true
     }
   ],
