@@ -79,13 +79,15 @@ def main(**job_inputs):
         'sv_caller_results' : sv_caller_results_upload
     }
 
-    if job_inputs['output_log_files']:
-        if job_inputs['run_breakseq'] or job_inputs['run_manta']:
-            log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
-            log_file_upload = []
-            for name in log_file_names:
-                log_file_upload.append(dxpy.dxlink(dxpy.upload_local_file(name)))
-            output['log_files'] = log_file_upload
+    subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/svtyped_vcfs/'])
+
+    # if job_inputs['output_log_files']:
+    #     if job_inputs['run_breakseq'] or job_inputs['run_manta']:
+    #         log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
+    #         log_file_upload = []
+    #         for name in log_file_names:
+    #             log_file_upload.append(dxpy.dxlink(dxpy.upload_local_file(name)))
+    #         output['log_files'] = log_file_upload
 
     if job_inputs['run_genotype_candidates']:
         svtyped_vcf_names = glob.glob('/home/dnanexus/out/svtyped_vcfs/*')
