@@ -104,6 +104,7 @@ ENV PATH=${PATH}:/usr/bin/
 ENV PYTHONPATH=${PYTHONPATH}:/opt/conda/bin/
 ENV ROOTSYS=/home/dnanexus/root
 ENV LD_LIBRARY_PATH=/usr/lib/root/lib
+ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
 ENV DYLD_LIBRARY_PATH=/usr/lib/root/lib
 ENV HTSLIB_LIBRARY_DIR=/usr/local/lib
 ENV HTSLIB_INCLUDE_DIR=/usr/local/include

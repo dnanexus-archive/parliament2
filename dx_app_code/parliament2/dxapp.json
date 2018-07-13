@@ -141,7 +141,7 @@
     {
       "name": "output_log_files",
       "label": "Output Log Files?",
-      "help": "If selected, log files for Breakdancer and Manta (if applicable) will be uploaded as output.",
+      "help": "If selected, log files (if applicable) will be uploaded as output. Currently only implemented for Breakseq and Manta.",
       "class": "boolean",
       "default": true
     },
