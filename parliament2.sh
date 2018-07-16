@@ -191,6 +191,10 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
 fi
 
 wait
+# Only install SVTyper if necessary
+if [[ "$run_genotype_candidates" == "True" ]]; then
+    pip install git+https://github.com/hall-lab/svtyper.git -q &
+fi
 
 echo "Converting results to VCF format"
 mkdir -p /home/dnanexus/out/sv_caller_results/
