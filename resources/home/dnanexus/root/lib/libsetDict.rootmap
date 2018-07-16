@@ -1,0 +1,12 @@
+{ decls }
+namespace std {  }
+
+[ libsetDict.so ]
+# List of selected classes
+class set<char*>
+class set<double>
+class set<float>
+class set<int>
+class set<long>
+class set<string>
+class set<void*>

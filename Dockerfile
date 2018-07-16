@@ -4,16 +4,6 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Samantha Zarate
 
-ENV PATH=${PATH}:/home/dnanexus/
-ENV PATH=${PATH}:/opt/conda/bin/
-ENV PATH=${PATH}:/usr/bin/
-ENV PYTHONPATH=${PYTHONPATH}:/opt/conda/bin/
-ENV ROOTSYS=/usr/lib/root
-ENV LD_LIBRARY_PATH=/usr/lib/root/lib
-ENV DYLD_LIBRARY_PATH=/usr/lib/root/lib
-ENV HTSLIB_LIBRARY_DIR=/usr/local/lib
-ENV HTSLIB_INCLUDE_DIR=/usr/local/include
-
 # System packages 
 RUN apt-get update && apt-get install -y curl wget
 
@@ -22,7 +12,7 @@ RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
 RUN bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b
 RUN rm Miniconda-latest-Linux-x86_64.sh
 ENV PATH=/miniconda/bin:${PATH}
-RUN conda update -y conda
+# RUN conda update -y conda
 
 RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/amd64/' > /etc/apt/sources.list.d/dnanexus.list"
 RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/all/' >> /etc/apt/sources.list.d/dnanexus.list"
@@ -76,11 +66,11 @@ RUN apt-get update
 RUN conda config --add channels r
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
-RUN conda install -y samtools==0.1.19
-RUN conda install -c bcbio bx-python -y
+RUN conda install -c faircloth-lab samtools
 RUN conda install -c bioconda sambamba -y
+RUN conda install -c bcbio bx-python -y
+RUN conda install -c anaconda networkx -y
 RUN conda install -c bioconda samblaster -y
-RUN conda install -y -c anaconda networkx
 RUN conda install gcc_linux-64 -y
 RUN conda install -c bioconda manta
 
@@ -92,6 +82,10 @@ RUN rm -rf /resources/
 RUN conda install -y numpy
 RUN pip install --upgrade pip 
 RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz
+RUN pip install pycparser
+RUN pip install asn1crypto
+RUN pip install idna
+RUN pip install ipaddress
 
 RUN pip install dxpy
     
@@ -103,6 +97,17 @@ COPY parliament2.py .
 COPY parliament2.sh .
 
 RUN /bin/bash -c "source /etc/profile.d/dnanexus.environment.sh"
+
+ENV PATH=${PATH}:/home/dnanexus/
+ENV PATH=${PATH}:/opt/conda/bin/
+ENV PATH=${PATH}:/usr/bin/
+ENV PYTHONPATH=${PYTHONPATH}:/opt/conda/bin/
+ENV ROOTSYS=/home/dnanexus/root
+ENV LD_LIBRARY_PATH=/usr/lib/root/lib
+ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
+ENV DYLD_LIBRARY_PATH=/usr/lib/root/lib
+ENV HTSLIB_LIBRARY_DIR=/usr/local/lib
+ENV HTSLIB_INCLUDE_DIR=/usr/local/include
 
 WORKDIR /home/dnanexus
 RUN ["chmod", "+x", "parliament2.py"]

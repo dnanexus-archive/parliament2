@@ -1,0 +1,6 @@
+[ libGuiHtml.so ]
+# List of selected classes
+class TGHtml
+class TGHtmlBrowser
+header TGHtml.h
+header TGHtmlBrowser.h

@@ -1,0 +1,6 @@
+[ libRDAVIX.so ]
+# List of selected classes
+class TDavixFile
+class TDavixSystem
+header TDavixFile.h
+header TDavixSystem.h

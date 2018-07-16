@@ -1,0 +1,14 @@
+[ libFoam.so ]
+# List of selected classes
+class TFoam
+class TFoamCell
+class TFoamIntegrand
+class TFoamMaxwt
+class TFoamSampler
+class TFoamVect
+header TFoam.h
+header TFoamCell.h
+header TFoamIntegrand.h
+header TFoamMaxwt.h
+header TFoamSampler.h
+header TFoamVect.h

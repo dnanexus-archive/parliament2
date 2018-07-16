@@ -1,0 +1,20 @@
+[ libEG.so ]
+# List of selected classes
+class TAttParticle
+class TDatabasePDG
+class TDecayChannel
+class TGenerator
+class TParticle
+class TParticleClassPDG
+class TParticlePDG
+class TPrimary
+class TVirtualMCDecayer
+header TAttParticle.h
+header TDatabasePDG.h
+header TDecayChannel.h
+header TGenerator.h
+header TParticle.h
+header TParticleClassPDG.h
+header TParticlePDG.h
+header TPrimary.h
+header TVirtualMCDecayer.h

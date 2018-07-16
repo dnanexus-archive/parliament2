@@ -2,9 +2,8 @@
 contig=$1
 count=$2
 
-cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -tree input.bam
-cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -his 100
-cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -stat 100
-cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -partition 100
-cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -call 100  > output.cnvnator_calls-$count
-
+/home/dnanexus/CNVnator-0.3.3/cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -tree input.bam
+/home/dnanexus/CNVnator-0.3.3/cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -his 100
+/home/dnanexus/CNVnator-0.3.3/cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -stat 100
+/home/dnanexus/CNVnator-0.3.3/cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -partition 100
+/home/dnanexus/CNVnator-0.3.3/cnvnator -root output.root"$contig" -chrom $contig -genome ref.fa -call 100  > output.cnvnator_calls-$count

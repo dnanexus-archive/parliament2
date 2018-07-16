@@ -139,6 +139,13 @@
       "default": false
     },
     {
+      "name": "output_log_files",
+      "label": "Output Log Files?",
+      "help": "If selected, log files (if applicable) will be uploaded as output. Currently only implemented for Breakseq and Manta.",
+      "class": "boolean",
+      "default": true
+    },
+    {
       "name": "run_genotype_candidates",
       "label": "Genotype Candidates?",
       "help": "If selected, candidate events determined from the individual callers will be genotyped and merged to create a consensus output.",
@@ -193,6 +200,14 @@
       "class": "file",
       "patterns": ["*.tar.gz"],
       "optional": true
+    },
+    {
+      "name": "log_files",
+      "label": "Log Files",
+      "help": "(Optional) Log files for structural variant callers.",
+      "class": "file",
+      "patterns": ["*.txt"],
+      "optional": true
     }
   ],
   "runSpec": {
@@ -226,10 +241,10 @@
     "aws:us-east-1": {
       "assetDepends": [
         {
-          "project": "project-FBbQqQj026K9PF53332ZFBB9",
+          "project": "project-FBbG4280Qg43bZJ1Jyyk8F8v",
           "folder": "/",
           "version": "0.0.1",
-          "name": "parliament2:0.0.1"
+          "name": "parliament2"
         }
       ],
       "systemRequirements": {

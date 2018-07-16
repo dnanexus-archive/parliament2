@@ -1,0 +1,13 @@
+-I/opt/xrootd/include/xrootd
+-I/opt/xrootd/include/xrootd/private
+-I/usr/include
+-I/usr/include/graphviz
+-I/usr/include/libxml2
+-I/usr/include/python2.7
+-I/usr/lib/python2.7/dist-packages/numpy/core/include
+-m64 
+-pthread
+-fsigned-char
+-std=c++11
+-pipe
+-DSYSTEM_TYPE_unix

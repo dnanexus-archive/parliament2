@@ -1,0 +1,16 @@
+[ libSpectrum.so ]
+# List of selected classes
+class TSpectrum
+class TSpectrum2
+class TSpectrum2Fit
+class TSpectrum2Transform
+class TSpectrum3
+class TSpectrumFit
+class TSpectrumTransform
+header TSpectrum.h
+header TSpectrum2.h
+header TSpectrum2Fit.h
+header TSpectrum2Transform.h
+header TSpectrum3.h
+header TSpectrumFit.h
+header TSpectrumTransform.h

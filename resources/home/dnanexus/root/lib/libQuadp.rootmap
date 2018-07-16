@@ -1,0 +1,30 @@
+[ libQuadp.so ]
+# List of selected classes
+class TGondzioSolver
+class TMehrotraSolver
+class TQpDataBase
+class TQpDataDens
+class TQpDataSparse
+class TQpLinSolverBase
+class TQpLinSolverDens
+class TQpLinSolverSparse
+class TQpProbBase
+class TQpProbDens
+class TQpProbSparse
+class TQpResidual
+class TQpSolverBase
+class TQpVar
+header TGondzioSolver.h
+header TMehrotraSolver.h
+header TQpDataBase.h
+header TQpDataDens.h
+header TQpDataSparse.h
+header TQpLinSolverBase.h
+header TQpLinSolverDens.h
+header TQpLinSolverSparse.h
+header TQpProbBase.h
+header TQpProbDens.h
+header TQpProbSparse.h
+header TQpResidual.h
+header TQpSolverBase.h
+header TQpVar.h

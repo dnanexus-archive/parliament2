@@ -1,0 +1,10 @@
+[ libPgSQL.so ]
+# List of selected classes
+class TPgSQLResult
+class TPgSQLRow
+class TPgSQLServer
+class TPgSQLStatement
+header TPgSQLResult.h
+header TPgSQLRow.h
+header TPgSQLServer.h
+header TPgSQLStatement.h

@@ -1,0 +1,10 @@
+[ libFFTW.so ]
+# List of selected classes
+class TFFTComplex
+class TFFTComplexReal
+class TFFTReal
+class TFFTRealComplex
+header TFFTComplex.h
+header TFFTComplexReal.h
+header TFFTReal.h
+header TFFTRealComplex.h

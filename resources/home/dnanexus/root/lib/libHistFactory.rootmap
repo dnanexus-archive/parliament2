@@ -1,0 +1,51 @@
+{ decls }
+namespace std {  }
+namespace RooStats { namespace HistFactory {  } }
+
+[ libHistFactory.so ]
+# List of selected classes
+class ParamHistFunc
+class PiecewiseInterpolation
+class RooStats::HistFactory::Asimov
+class RooStats::HistFactory::Channel
+class RooStats::HistFactory::ConfigParser
+class RooStats::HistFactory::Data
+class RooStats::HistFactory::EstimateSummary
+class RooStats::HistFactory::FlexibleInterpVar
+class RooStats::HistFactory::HistFactoryNavigation
+class RooStats::HistFactory::HistFactorySimultaneous
+class RooStats::HistFactory::HistRef
+class RooStats::HistFactory::HistoToWorkspaceFactory
+class RooStats::HistFactory::HistoToWorkspaceFactoryFast
+class RooStats::HistFactory::LinInterpVar
+class RooStats::HistFactory::Measurement
+class RooStats::HistFactory::PreprocessFunction
+class RooStats::HistFactory::RooBarlowBeestonLL
+class RooStats::HistFactory::Sample
+class RooStats::HistFactory::StatError
+class RooStats::HistFactory::StatErrorConfig
+class vector<RooStats::HistFactory::Channel>
+class vector<RooStats::HistFactory::HistRef>
+class vector<RooStats::HistFactory::Sample>
+header RooStats/HistFactory/ParamHistFunc.h
+header RooStats/HistFactory/PiecewiseInterpolation.h
+header RooStats/HistFactory/Asimov.h
+header RooStats/HistFactory/Channel.h
+header RooStats/HistFactory/ConfigParser.h
+header RooStats/HistFactory/Data.h
+header RooStats/HistFactory/EstimateSummary.h
+header RooStats/HistFactory/FlexibleInterpVar.h
+header RooStats/HistFactory/HistFactoryNavigation.h
+header RooStats/HistFactory/HistFactorySimultaneous.h
+header RooStats/HistFactory/HistRef.h
+header RooStats/HistFactory/HistoToWorkspaceFactory.h
+header RooStats/HistFactory/HistoToWorkspaceFactoryFast.h
+header RooStats/HistFactory/LinInterpVar.h
+header RooStats/HistFactory/Measurement.h
+header RooStats/HistFactory/PreprocessFunction.h
+header RooStats/HistFactory/RooBarlowBeestonLL.h
+header RooStats/HistFactory/Sample.h
+header RooStats/HistFactory/Systematics.h
+# List of selected namespaces
+namespace RooStats
+namespace RooStats::HistFactory

@@ -1,0 +1,4 @@
+[ libKrb5Auth.so ]
+# List of selected classes
+class TKSocket
+header TKSocket.h

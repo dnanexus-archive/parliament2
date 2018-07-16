@@ -1,0 +1,16 @@
+[ libQtGSI.so ]
+# List of selected classes
+class TQApplication
+class TQCanvasImp
+class TQCanvasMenu
+class TQRootApplication
+class TQRootCanvas
+class TQRootDialog
+class TQRootGuiFactory
+header TQApplication.h
+header TQCanvasImp.h
+header TQCanvasMenu.h
+header TQRootApplication.h
+header TQRootCanvas.h
+header TQRootDialog.h
+header TQRootGuiFactory.h

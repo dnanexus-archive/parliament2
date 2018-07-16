@@ -1,0 +1,13 @@
+# default: on
+# description: The rootd daemon allows remote access to ROOT files.
+service rootd
+{
+	disable			= no
+	socket_type		= stream
+	wait			= no
+	user			= root
+	server			= $(ROOTSYS)/bin/rootd
+	server_args		= -i $(ROOTSYS)
+	log_on_success		+= DURATION USERID
+	log_on_failure		+= USERID
+}

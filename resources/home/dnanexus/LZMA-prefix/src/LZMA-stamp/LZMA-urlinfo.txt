@@ -1,3 +1,0 @@
-repository='external project URL'
-module='/home/dnanexus/root/core/lzma/src/xz-5.2.1.tar.gz'
-tag='SHA256=b918b6648076e74f8d7ae19db5ee663df800049e187259faf5eb997a7b974681'

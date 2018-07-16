@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../libLLVMCoverage.a  CMakeFiles/LLVMCoverage.dir/CoverageMapping.cpp.o CMakeFiles/LLVMCoverage.dir/CoverageMappingWriter.cpp.o CMakeFiles/LLVMCoverage.dir/CoverageMappingReader.cpp.o
-/usr/bin/ranlib ../../libLLVMCoverage.a

@@ -1,0 +1,69 @@
+{ decls }
+namespace std {  }
+namespace ROOT { namespace Minuit2 {  } }
+
+[ libMinuit2.so ]
+# List of selected classes
+class ROOT::Minuit2::CombinedMinimizer
+class ROOT::Minuit2::FCNBase
+class ROOT::Minuit2::FCNGradientBase
+class ROOT::Minuit2::FumiliFCNBase
+class ROOT::Minuit2::FumiliMinimizer
+class ROOT::Minuit2::FunctionMinimizer
+class ROOT::Minuit2::FunctionMinimum
+class ROOT::Minuit2::GenericFunction
+class ROOT::Minuit2::MinosError
+class ROOT::Minuit2::Minuit2Minimizer
+class ROOT::Minuit2::MinuitParameter
+class ROOT::Minuit2::MnApplication
+class ROOT::Minuit2::MnContours
+class ROOT::Minuit2::MnFumiliMinimize
+class ROOT::Minuit2::MnHesse
+class ROOT::Minuit2::MnMachinePrecision
+class ROOT::Minuit2::MnMigrad
+class ROOT::Minuit2::MnMinimize
+class ROOT::Minuit2::MnMinos
+class ROOT::Minuit2::MnPlot
+class ROOT::Minuit2::MnScan
+class ROOT::Minuit2::MnSimplex
+class ROOT::Minuit2::MnStrategy
+class ROOT::Minuit2::MnTraceObject
+class ROOT::Minuit2::MnUserParameterState
+class ROOT::Minuit2::MnUserParameters
+class ROOT::Minuit2::ModularFunctionMinimizer
+class ROOT::Minuit2::ScanMinimizer
+class ROOT::Minuit2::SimplexMinimizer
+class ROOT::Minuit2::VariableMetricMinimizer
+class TMinuit2TraceObject
+class vector<ROOT::Minuit2::MinuitParameter>
+header Minuit2/CombinedMinimizer.h
+header Minuit2/FCNBase.h
+header Minuit2/FCNGradientBase.h
+header Minuit2/FumiliFCNBase.h
+header Minuit2/FumiliMinimizer.h
+header Minuit2/FunctionMinimizer.h
+header Minuit2/FunctionMinimum.h
+header Minuit2/GenericFunction.h
+header Minuit2/MinosError.h
+header Minuit2/Minuit2Minimizer.h
+header Minuit2/MinuitParameter.h
+header Minuit2/MnApplication.h
+header Minuit2/MnContours.h
+header Minuit2/MnFumiliMinimize.h
+header Minuit2/MnHesse.h
+header Minuit2/MnMachinePrecision.h
+header Minuit2/MnMigrad.h
+header Minuit2/MnMinimize.h
+header Minuit2/MnMinos.h
+header Minuit2/MnPlot.h
+header Minuit2/MnScan.h
+header Minuit2/MnSimplex.h
+header Minuit2/MnStrategy.h
+header Minuit2/MnTraceObject.h
+header Minuit2/MnUserParameterState.h
+header Minuit2/MnUserParameters.h
+header Minuit2/ModularFunctionMinimizer.h
+header Minuit2/ScanMinimizer.h
+header Minuit2/SimplexMinimizer.h
+header Minuit2/VariableMetricMinimizer.h
+header TMinuit2TraceObject.h

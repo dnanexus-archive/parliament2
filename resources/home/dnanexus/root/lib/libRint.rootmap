@@ -1,0 +1,6 @@
+[ libRint.so ]
+# List of selected classes
+class TRint
+class TTabCom
+header TRint.h
+header TTabCom.h

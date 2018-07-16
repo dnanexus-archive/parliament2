@@ -1,0 +1,12 @@
+{ decls }
+namespace std {  }
+
+[ libforward_listDict.so ]
+# List of selected classes
+class forward_list<char*>
+class forward_list<double>
+class forward_list<float>
+class forward_list<int>
+class forward_list<long>
+class forward_list<string>
+class forward_list<void*>

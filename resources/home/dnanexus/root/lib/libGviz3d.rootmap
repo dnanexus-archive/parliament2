@@ -1,0 +1,12 @@
+[ libGviz3d.so ]
+# List of selected classes
+class TStructNode
+class TStructNodeEditor
+class TStructNodeProperty
+class TStructViewer
+class TStructViewerGUI
+header TStructNode.h
+header TStructNodeEditor.h
+header TStructNodeProperty.h
+header TStructViewer.h
+header TStructViewerGUI.h

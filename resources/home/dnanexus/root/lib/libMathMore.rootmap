@@ -1,0 +1,114 @@
+{ decls }
+namespace ROOT { namespace Math {  } }
+namespace ROOT { namespace Math { class IParametricGradFunctionOneDim; } }
+namespace ROOT { namespace Math { namespace Roots {  } } }
+namespace ROOT { namespace Math { class GSLQRngSobol; } }
+namespace ROOT { namespace Math { class GSLQRngNiederreiter2; } }
+namespace ROOT { namespace Math { class GSLRngMT; } }
+namespace ROOT { namespace Math { class GSLRngTaus; } }
+namespace ROOT { namespace Math { class GSLRngRanLux; } }
+namespace ROOT { namespace Math { class GSLRngGFSR4; } }
+namespace ROOT { namespace Math { class GSLRngRanLuxD2; } }
+namespace ROOT { namespace Math { class GSLRngRanLuxD1; } }
+namespace ROOT { namespace Math { class GSLRngRanLuxS2; } }
+namespace ROOT { namespace Math { class GSLRngRanLuxS1; } }
+
+[ libMathMore.so ]
+# List of selected classes
+class ROOT::Math::ChebyshevApprox
+class ROOT::Math::Derivator
+class ROOT::Math::GSLIntegrator
+class ROOT::Math::GSLMCIntegrator
+class ROOT::Math::GSLMinimizer
+class ROOT::Math::GSLMinimizer1D
+class ROOT::Math::GSLMultiRootFinder
+class ROOT::Math::GSLNLSMinimizer
+class ROOT::Math::GSLQRngNiederreiter2
+class ROOT::Math::GSLQRngSobol
+class ROOT::Math::GSLQuasiRandomEngine
+class ROOT::Math::GSLRandomEngine
+class ROOT::Math::GSLRngGFSR4
+class ROOT::Math::GSLRngMT
+class ROOT::Math::GSLRngRanLux
+class ROOT::Math::GSLRngRanLuxD1
+class ROOT::Math::GSLRngRanLuxD2
+class ROOT::Math::GSLRngRanLuxS1
+class ROOT::Math::GSLRngRanLuxS2
+class ROOT::Math::GSLRngTaus
+class ROOT::Math::GSLRootFinder
+class ROOT::Math::GSLRootFinderDeriv
+class ROOT::Math::GSLSimAnFunc
+class ROOT::Math::GSLSimAnMinimizer
+class ROOT::Math::GSLSimAnParams
+class ROOT::Math::GSLSimAnnealing
+class ROOT::Math::Interpolator
+class ROOT::Math::KelvinFunctions
+class ROOT::Math::LSResidualFunc
+class ROOT::Math::MathMoreLib
+class ROOT::Math::MiserParameters
+class ROOT::Math::ParamFunction<ROOT::Math::IParametricGradFunctionOneDim>
+class ROOT::Math::Polynomial
+class ROOT::Math::QuasiRandom<ROOT::Math::GSLQRngNiederreiter2>
+class ROOT::Math::QuasiRandom<ROOT::Math::GSLQRngSobol>
+class ROOT::Math::Random<ROOT::Math::GSLRngGFSR4>
+class ROOT::Math::Random<ROOT::Math::GSLRngMT>
+class ROOT::Math::Random<ROOT::Math::GSLRngRanLux>
+class ROOT::Math::Random<ROOT::Math::GSLRngRanLuxD1>
+class ROOT::Math::Random<ROOT::Math::GSLRngRanLuxD2>
+class ROOT::Math::Random<ROOT::Math::GSLRngRanLuxS1>
+class ROOT::Math::Random<ROOT::Math::GSLRngRanLuxS2>
+class ROOT::Math::Random<ROOT::Math::GSLRngTaus>
+class ROOT::Math::Roots::Bisection
+class ROOT::Math::Roots::Brent
+class ROOT::Math::Roots::FalsePos
+class ROOT::Math::Roots::Newton
+class ROOT::Math::Roots::Secant
+class ROOT::Math::Roots::Steffenson
+class ROOT::Math::Vavilov
+class ROOT::Math::VavilovAccurate
+class ROOT::Math::VavilovAccurateCdf
+class ROOT::Math::VavilovAccuratePdf
+class ROOT::Math::VavilovAccurateQuantile
+class ROOT::Math::VavilovFast
+class ROOT::Math::VegasParameters
+header Math/ChebyshevApprox.h
+header Math/Derivator.h
+header Math/GSLIntegrator.h
+header Math/GSLMCIntegrator.h
+header Math/GSLMinimizer.h
+header Math/GSLMinimizer1D.h
+header Math/GSLMultiRootFinder.h
+header Math/GSLNLSMinimizer.h
+header Math/GSLQuasiRandom.h
+header Math/GSLRndmEngines.h
+header Math/GSLRootFinder.h
+header Math/GSLRootFinderDeriv.h
+header Math/GSLSimAnnealing.h
+header Math/GSLSimAnMinimizer.h
+header Math/Interpolator.h
+header Math/KelvinFunctions.h
+header Math/PdfFuncMathMore.h
+header Math/MCParameters.h
+header Math/Polynomial.h
+header Math/RootFinderAlgorithms.h
+header Math/Vavilov.h
+header Math/VavilovAccurate.h
+header Math/VavilovAccurateCdf.h
+header Math/VavilovAccuratePdf.h
+header Math/VavilovAccurateQuantile.h
+header Math/VavilovFast.h
+# List of selected namespaces
+namespace ROOT
+namespace ROOT::Math
+namespace ROOT::MathMore
+namespace ROOT::Math::Roots
+namespace ROOT::Math::Integration
+namespace ROOT::Math::Minim1D
+# List of selected typedefs and outer classes
+typedef ROOT::Math::QuasiRandomSobol
+typedef ROOT::Math::QuasiRandomNiederreiter
+typedef ROOT::Math::RandomMT
+typedef ROOT::Math::RandomTaus
+typedef ROOT::Math::RandomRanLux
+typedef ROOT::Math::RandomGFSR4
+typedef ROOT::Math::MultiRootFinder

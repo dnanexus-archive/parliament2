@@ -1,0 +1,268 @@
+{ decls }
+namespace ROOT { namespace Math { namespace IntegrationOneDim {  } } }
+namespace __gnu_cxx {  }
+namespace __gnu_cxx { template <typename _Iterator, typename _Container> class __normal_iterator; }
+namespace std {  }
+namespace ROOT { namespace Math {  } }
+template <typename Index, typename Value> class TKDTree;
+namespace ROOT { namespace Math { template <typename T> class IBaseFunctionMultiDimTempl; } }
+namespace ROOT { namespace Math { template <typename T> class IGradientFunctionMultiDimTempl; } }
+namespace ROOT { namespace Math { template <typename T> class IGradientMultiDimTempl; } }
+namespace ROOT { namespace Math { template <typename T> class IParametricFunctionMultiDimTempl; } }
+namespace ROOT { namespace Math { template <typename T> class IParametricGradFunctionMultiDimTempl; } }
+namespace ROOT { namespace Math { template <typename T> class ParamFunctorTempl; } }
+namespace ROOT { namespace Math { template <typename FunctionType> class BasicFitMethodFunction; } }
+namespace ROOT { namespace Math { template <unsigned int, typename _val_type> class TDataPoint; } }
+namespace ROOT { namespace Math { template <typename _val_type> class TDataPointN; } }
+namespace ROOT { namespace Math { template <int, int> class MixMaxEngine; } }
+namespace ROOT { namespace Math { class MersenneTwisterEngine; } }
+namespace ROOT { namespace Math { template <typename Engine> class Random; } }
+namespace ROOT { namespace Math { class LCGEngine; } }
+template <typename Engine> class TRandomGen;
+namespace ROOT { namespace Math { template <typename Generator> class StdEngine; } }
+namespace ROOT { namespace Fit {  } }
+namespace ROOT { namespace Fit { class UnBinData; } }
+namespace ROOT { namespace Fit { template <typename DerivFunType, typename ModelFunType, typename DataType> class BasicFCN; } }
+namespace ROOT { namespace Fit { class BinData; } }
+namespace ROOT { namespace Fit { template <typename DerivFunType, typename ModelFunType> class LogLikelihoodFCN; } }
+namespace ROOT { namespace Fit { template <typename DerivFunType, typename ModelFunType> class Chi2FCN; } }
+namespace ROOT { namespace Fit { template <typename DerivFunType, typename ModelFunType> class PoissonLikelihoodFCN; } }
+
+[ libMathCore.so ]
+# List of selected classes
+class ROOT::Fit::BasicFCN<ROOT::Math::IBaseFunctionMultiDim,ROOT::Math::IBaseFunctionMultiDim,ROOT::Fit::BinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IBaseFunctionMultiDim,ROOT::Math::IBaseFunctionMultiDim,ROOT::Fit::UnBinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Fit::BinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Fit::UnBinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IGradientFunctionMultiDim,ROOT::Math::IGradientFunctionMultiDim,ROOT::Fit::BinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IGradientFunctionMultiDim,ROOT::Math::IGradientFunctionMultiDim,ROOT::Fit::UnBinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Fit::BinData>
+class ROOT::Fit::BasicFCN<ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Fit::UnBinData>
+class ROOT::Fit::BinData
+class ROOT::Fit::Chi2FCN<ROOT::Math::IBaseFunctionMultiDim>
+class ROOT::Fit::Chi2FCN<ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Math::IParametricFunctionMultiDimTempl<double> >
+class ROOT::Fit::Chi2FCN<ROOT::Math::IGradientFunctionMultiDim>
+class ROOT::Fit::Chi2FCN<ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Math::IParametricFunctionMultiDimTempl<double> >
+class ROOT::Fit::DataOptions
+class ROOT::Fit::DataRange
+class ROOT::Fit::FitConfig
+class ROOT::Fit::FitData
+class ROOT::Fit::FitResult
+class ROOT::Fit::Fitter
+class ROOT::Fit::LogLikelihoodFCN<ROOT::Math::IBaseFunctionMultiDim>
+class ROOT::Fit::LogLikelihoodFCN<ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Math::IParametricFunctionMultiDimTempl<double> >
+class ROOT::Fit::LogLikelihoodFCN<ROOT::Math::IGradientFunctionMultiDim>
+class ROOT::Fit::LogLikelihoodFCN<ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Math::IParametricFunctionMultiDimTempl<double> >
+class ROOT::Fit::ParameterSettings
+class ROOT::Fit::PoissonLikelihoodFCN<ROOT::Math::IBaseFunctionMultiDim>
+class ROOT::Fit::PoissonLikelihoodFCN<ROOT::Math::IBaseFunctionMultiDimTempl<double>,ROOT::Math::IParametricFunctionMultiDimTempl<double> >
+class ROOT::Fit::PoissonLikelihoodFCN<ROOT::Math::IGradientFunctionMultiDim>
+class ROOT::Fit::PoissonLikelihoodFCN<ROOT::Math::IGradientFunctionMultiDimTempl<double>,ROOT::Math::IParametricFunctionMultiDimTempl<double> >
+class ROOT::Fit::SparseData
+class ROOT::Fit::UnBinData
+class ROOT::Math::AdaptiveIntegratorMultiDim
+class ROOT::Math::BaseIntegratorOptions
+class ROOT::Math::BasicFitMethodFunction<ROOT::Math::IBaseFunctionMultiDim>
+class ROOT::Math::BasicFitMethodFunction<ROOT::Math::IBaseFunctionMultiDimTempl<double> >
+class ROOT::Math::BasicFitMethodFunction<ROOT::Math::IGradientFunctionMultiDim>
+class ROOT::Math::BasicFitMethodFunction<ROOT::Math::IGradientFunctionMultiDimTempl<double> >
+class ROOT::Math::BasicMinimizer
+class ROOT::Math::BrentMinimizer1D
+class ROOT::Math::BrentRootFinder
+class ROOT::Math::ChebyshevPol
+class ROOT::Math::Delaunay2D
+class ROOT::Math::DistSampler
+class ROOT::Math::DistSamplerOptions
+class ROOT::Math::Factory
+class ROOT::Math::Functor
+class ROOT::Math::Functor1D
+class ROOT::Math::GaussIntegrator
+class ROOT::Math::GaussLegendreIntegrator
+class ROOT::Math::GenAlgoOptions
+class ROOT::Math::GoFTest
+class ROOT::Math::GradFunctor
+class ROOT::Math::GradFunctor1D
+class ROOT::Math::IBaseFunctionMultiDim
+class ROOT::Math::IBaseFunctionMultiDimTempl<double>
+class ROOT::Math::IBaseFunctionOneDim
+class ROOT::Math::IBaseParam
+class ROOT::Math::IGradientFunctionMultiDim
+class ROOT::Math::IGradientFunctionMultiDimTempl<double>
+class ROOT::Math::IGradientFunctionOneDim
+class ROOT::Math::IGradientMultiDim
+class ROOT::Math::IGradientMultiDimTempl<double>
+class ROOT::Math::IGradientOneDim
+class ROOT::Math::IMinimizer1D
+class ROOT::Math::IOptions
+class ROOT::Math::IParametricFunctionMultiDim
+class ROOT::Math::IParametricFunctionMultiDimTempl<double>
+class ROOT::Math::IParametricFunctionOneDim
+class ROOT::Math::IParametricGradFunctionMultiDim
+class ROOT::Math::IParametricGradFunctionMultiDimTempl<double>
+class ROOT::Math::IParametricGradFunctionOneDim
+class ROOT::Math::IRootFinderMethod
+class ROOT::Math::IntegratorMultiDim
+class ROOT::Math::IntegratorMultiDimOptions
+class ROOT::Math::IntegratorOneDim
+class ROOT::Math::IntegratorOneDimOptions
+class ROOT::Math::KDTree<ROOT::Math::TDataPoint1D>
+class ROOT::Math::KDTree<ROOT::Math::TDataPoint<1,double> >
+class ROOT::Math::KDTree<ROOT::Math::TDataPoint<1u,double> >
+class ROOT::Math::LCGEngine
+class ROOT::Math::MersenneTwisterEngine
+class ROOT::Math::MinimTransformFunction
+class ROOT::Math::MinimTransformVariable
+class ROOT::Math::Minimizer
+class ROOT::Math::MinimizerOptions
+class ROOT::Math::MixMaxEngine<17,1>
+class ROOT::Math::MixMaxEngine<240,0>
+class ROOT::Math::MixMaxEngine<256,2>
+class ROOT::Math::ParamFunctor
+class ROOT::Math::ParamFunctorTempl<double>
+class ROOT::Math::Random<ROOT::Math::LCGEngine>
+class ROOT::Math::Random<ROOT::Math::MersenneTwisterEngine>
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<17,0> >
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<17,1> >
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<17,2> >
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<240,0> >
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<256,0> >
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<256,2> >
+class ROOT::Math::Random<ROOT::Math::MixMaxEngine<256,4> >
+class ROOT::Math::RichardsonDerivator
+class ROOT::Math::RootFinder
+class ROOT::Math::StdRandomEngine
+class ROOT::Math::TDataPoint<1,Double_t>
+class ROOT::Math::TDataPoint<1,Float_t>
+class ROOT::Math::TDataPoint<1,double>
+class ROOT::Math::TDataPoint<1,float>
+class ROOT::Math::TDataPoint<1u,double>
+class ROOT::Math::TDataPoint<1u,float>
+class ROOT::Math::TDataPointN<Double_t>
+class ROOT::Math::TDataPointN<Float_t>
+class ROOT::Math::TDataPointN<double>
+class ROOT::Math::TDataPointN<float>
+class ROOT::Math::TRandomEngine
+class ROOT::Math::VirtualIntegrator
+class ROOT::Math::VirtualIntegratorMultiDim
+class ROOT::Math::VirtualIntegratorOneDim
+class TComplex
+class TKDTree<Int_t,Double_t>
+class TKDTree<Int_t,Float_t>
+class TKDTree<int,double>
+class TKDTree<int,float>
+class TKDTreeBinning
+class TRandom
+class TRandom1
+class TRandom2
+class TRandom3
+class TRandomGen<ROOT::Math::MixMaxEngine<17,0> >
+class TRandomGen<ROOT::Math::MixMaxEngine<17,1> >
+class TRandomGen<ROOT::Math::MixMaxEngine<240,0> >
+class TRandomGen<ROOT::Math::MixMaxEngine<256,0> >
+class TRandomGen<ROOT::Math::MixMaxEngine<256,2> >
+class TRandomGen<ROOT::Math::MixMaxEngine<256,4> >
+class TRandomGen<ROOT::Math::StdEngine<discard_block_engine<subtract_with_carry_engine<unsigned long,48,5,12>,389,11> > >
+class TRandomGen<ROOT::Math::StdEngine<discard_block_engine<subtract_with_carry_engine<unsigned long,48ul,5ul,12ul>,389ul,11ul> > >
+class TRandomGen<ROOT::Math::StdEngine<mersenne_twister_engine<unsigned long,64,312,156,31,13043109905998158313ull,29,6148914691236517205,17,8202884508482404352,37,18444473444759240704ull,43,6364136223846793005> > >
+class TRandomGen<ROOT::Math::StdEngine<mersenne_twister_engine<unsigned long,64ul,312ul,156ul,31ul,13043109905998158313ul,29ul,6148914691236517205ul,17ul,8202884508482404352ul,37ul,18444473444759240704ul,43ul,6364136223846793005ul> > >
+class TRandomGen<ROOT::Math::StdEngine<std::mt19937_64> >
+class TRandomGen<ROOT::Math::StdEngine<std::ranlux48> >
+class TStatistic
+class __gnu_cxx::__normal_iterator<const double*,vector<double> >
+class __gnu_cxx::__normal_iterator<double const*,vector<double> >
+class __gnu_cxx::__normal_iterator<double*,vector<double> >
+class discard_block_engine<std::ranlux48_base,389,11>
+class discard_block_engine<subtract_with_carry_engine<unsigned long,48,5,12>,389,11>
+class discard_block_engine<subtract_with_carry_engine<unsigned long,48ul,5ul,12ul>,389ul,11ul>
+class mersenne_twister_engine<uint_fast64_t,64,312,156,31,0xb5026f5aa96619e9ULL,29,0x5555555555555555ULL,17,0x71d67fffeda60000ULL,37,0xfff7eee000000000ULL,43,6364136223846793005ULL>
+class mersenne_twister_engine<unsigned long,64,312,156,31,13043109905998158313ull,29,6148914691236517205,17,8202884508482404352,37,18444473444759240704ull,43,6364136223846793005>
+class mersenne_twister_engine<unsigned long,64ul,312ul,156ul,31ul,13043109905998158313ul,29ul,6148914691236517205ul,17ul,8202884508482404352ul,37ul,18444473444759240704ul,43ul,6364136223846793005ul>
+class reverse_iterator<__gnu_cxx::__normal_iterator<double*,vector<double> > >
+class subtract_with_carry_engine<std::uint_fast64_t,48,5,12>
+class subtract_with_carry_engine<unsigned long,48,5,12>
+class subtract_with_carry_engine<unsigned long,48ul,5ul,12ul>
+class vector<Double_t>::const_iterator
+class vector<Double_t>::iterator
+class vector<Double_t>::reverse_iterator
+class vector<ROOT::Fit::ParameterSettings>
+class vector<std::vector<double> >
+class vector<vector<double> >
+header Fit/BinData.h
+header Fit/DataOptions.h
+header Fit/DataRange.h
+header Fit/FitConfig.h
+header Fit/FitData.h
+header Fit/FitResult.h
+header Fit/Fitter.h
+header Fit/ParameterSettings.h
+header Fit/SparseData.h
+header Fit/UnBinData.h
+header Math/AdaptiveIntegratorMultiDim.h
+header Math/IntegratorOptions.h
+header Math/BasicMinimizer.h
+header Math/BrentMinimizer1D.h
+header Math/BrentRootFinder.h
+header Math/ChebyshevPol.h
+header Math/Delaunay2D.h
+header Math/DistSampler.h
+header Math/DistSamplerOptions.h
+header Math/Factory.h
+header Math/Functor.h
+header Math/GaussIntegrator.h
+header Math/GaussLegendreIntegrator.h
+header Math/GenAlgoOptions.h
+header Math/GoFTest.h
+header Math/IFunction.h
+header Math/IParamFunction.h
+header Math/IMinimizer1D.h
+header Math/IOptions.h
+header Math/IRootFinderMethod.h
+header Math/IntegratorMultiDim.h
+header Math/Integrator.h
+header Math/LCGEngine.h
+header Math/MersenneTwisterEngine.h
+header Math/MinimTransformFunction.h
+header Math/MinimTransformVariable.h
+header Math/Minimizer.h
+header Math/MinimizerOptions.h
+header Math/RichardsonDerivator.h
+header Math/RootFinder.h
+header Math/StdEngine.h
+header Math/TRandomEngine.h
+header Math/VirtualIntegrator.h
+header TComplex.h
+header TKDTreeBinning.h
+header TRandom.h
+header TRandom1.h
+header TRandom2.h
+header TRandom3.h
+header TStatistic.h
+# List of selected namespaces
+namespace ROOT
+namespace TMath
+namespace ROOT::Math
+namespace ROOT::Fit
+namespace ROOT::Math::IntegrationOneDim
+namespace ROOT::Math::IntegrationMultiDim
+# List of selected typedefs and outer classes
+typedef TKDTreeID
+typedef TKDTreeIF
+typedef ROOT::Math::IMultiGenFunction
+typedef ROOT::Math::IGenFunction
+typedef ROOT::Math::IGradFunction
+typedef ROOT::Math::IMultiGradFunction
+typedef ROOT::Math::Integrator
+typedef ROOT::Math::FitMethodFunction
+typedef ROOT::Math::FitMethodGradFunction
+typedef ROOT::Math::TDataPoint1F
+typedef ROOT::Math::TDataPoint1D
+typedef ROOT::Fit::LogLikelihoodFunction
+typedef ROOT::Fit::LogLikelihoodGradFunction
+typedef ROOT::Fit::Chi2Function
+typedef ROOT::Fit::Chi2GradFunction
+typedef ROOT::Fit::PoissonLLFunction
+typedef ROOT::Fit::PoissonLLGradFunction
+# List of selected enums and outer classes
+enum ROOT::Math::IntegrationOneDim::Type
+# List of selected vars
+var gRandom

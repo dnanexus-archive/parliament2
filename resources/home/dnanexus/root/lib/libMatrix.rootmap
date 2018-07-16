@@ -1,0 +1,148 @@
+{ decls }
+template <typename Element> class TMatrixTBase;
+template <typename Element> class TVectorT;
+template <typename Element> class TMatrixT;
+template <typename Element> class TMatrixTSym;
+template <typename Element> class TMatrixTSparse;
+template <typename Element> class TMatrixTRow_const;
+template <typename Element> class TMatrixTRow;
+template <typename Element> class TMatrixTColumn_const;
+template <typename Element> class TMatrixTColumn;
+template <typename Element> class TMatrixTDiag_const;
+template <typename Element> class TMatrixTDiag;
+template <typename Element> class TMatrixTFlat_const;
+template <typename Element> class TMatrixTFlat;
+template <typename Element> class TMatrixTSub_const;
+template <typename Element> class TMatrixTSub;
+template <typename Element> class TMatrixTSparseRow_const;
+template <typename Element> class TMatrixTSparseRow;
+template <typename Element> class TMatrixTSparseDiag_const;
+template <typename Element> class TMatrixTSparseDiag;
+template <typename Element> class TMatrixTLazy;
+template <typename Element> class TMatrixTSymLazy;
+template <typename Element> class THaarMatrixT;
+template <typename Element> class THilbertMatrixT;
+template <typename Element> class THilbertMatrixTSym;
+
+[ libMatrix.so ]
+# List of selected classes
+class TDecompBK
+class TDecompBase
+class TDecompChol
+class TDecompLU
+class TDecompQRH
+class TDecompSVD
+class TDecompSparse
+class THaarMatrixT<double>
+class THaarMatrixT<float>
+class THilbertMatrixT<double>
+class THilbertMatrixT<float>
+class THilbertMatrixTSym<double>
+class THilbertMatrixTSym<float>
+class TMatrixDEigen
+class TMatrixDSymEigen
+class TMatrixT<double>
+class TMatrixT<float>
+class TMatrixTBase<double>
+class TMatrixTBase<float>
+class TMatrixTColumn<double>
+class TMatrixTColumn<float>
+class TMatrixTColumn_const<double>
+class TMatrixTColumn_const<float>
+class TMatrixTDiag<double>
+class TMatrixTDiag<float>
+class TMatrixTDiag_const<double>
+class TMatrixTDiag_const<float>
+class TMatrixTFlat<double>
+class TMatrixTFlat<float>
+class TMatrixTFlat_const<double>
+class TMatrixTFlat_const<float>
+class TMatrixTLazy<double>
+class TMatrixTLazy<float>
+class TMatrixTRow<double>
+class TMatrixTRow<float>
+class TMatrixTRow_const<double>
+class TMatrixTRow_const<float>
+class TMatrixTSparse<double>
+class TMatrixTSparse<float>
+class TMatrixTSparseDiag<double>
+class TMatrixTSparseDiag<float>
+class TMatrixTSparseDiag_const<double>
+class TMatrixTSparseDiag_const<float>
+class TMatrixTSparseRow<double>
+class TMatrixTSparseRow<float>
+class TMatrixTSparseRow_const<double>
+class TMatrixTSparseRow_const<float>
+class TMatrixTSub<double>
+class TMatrixTSub<float>
+class TMatrixTSub_const<double>
+class TMatrixTSub_const<float>
+class TMatrixTSym<double>
+class TMatrixTSym<float>
+class TMatrixTSymLazy<double>
+class TMatrixTSymLazy<float>
+class TVectorT<double>
+class TVectorT<float>
+header TDecompBK.h
+header TDecompBase.h
+header TDecompChol.h
+header TDecompLU.h
+header TDecompQRH.h
+header TDecompSVD.h
+header TDecompSparse.h
+header TMatrixDEigen.h
+header TMatrixDSymEigen.h
+# List of selected namespaces
+namespace TMatrixTCramerInv
+namespace TMatrixTSymCramerInv
+# List of selected typedefs and outer classes
+typedef TVectorF
+typedef TVectorD
+typedef TMatrixFSparse
+typedef TMatrixFRow_const
+typedef TMatrixFColumn_const
+typedef TMatrixFDiag_const
+typedef TMatrixFFlat_const
+typedef TMatrixFSub_const
+typedef TMatrixFSparseRow_const
+typedef TMatrixFSparseDiag_const
+typedef TMatrixFRow
+typedef TMatrixFColumn
+typedef TMatrixFDiag
+typedef TMatrixFFlat
+typedef TMatrixFSub
+typedef TMatrixFSparseRow
+typedef TMatrixFSparseDiag
+typedef TMatrixD
+typedef TMatrixDRow_const
+typedef TMatrixDColumn_const
+typedef TMatrixDDiag_const
+typedef TMatrixDFlat_const
+typedef TMatrixDSub_const
+typedef TMatrixDSparseRow_const
+typedef TMatrixDSparseDiag_const
+typedef TMatrixDRow
+typedef TMatrixDColumn
+typedef TMatrixDDiag
+typedef TMatrixDFlat
+typedef TMatrixDSub
+typedef TMatrixDSparseRow
+typedef TMatrixDSparseDiag
+typedef TMatrixDSym
+typedef TMatrixDSparse
+typedef TVector
+typedef TMatrixF
+typedef TMatrixFSym
+typedef TMatrixFLazy
+typedef TMatrixFSymLazy
+typedef THaarMatrixF
+typedef THilbertMatrixF
+typedef THilbertMatrixFSym
+typedef TMatrix
+typedef TMatrixDLazy
+typedef TMatrixDSymLazy
+typedef THaarMatrixD
+typedef THilbertMatrixD
+typedef THilbertMatrixDSym
+# List of selected vars
+var gMatrixCheck

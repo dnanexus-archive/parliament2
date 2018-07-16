@@ -1,0 +1,15 @@
+[ libRecorder.so ]
+# List of selected classes
+class TGRecorder
+class TRecCmdEvent
+class TRecEvent
+class TRecExtraEvent
+class TRecGuiEvent
+class TRecWinPair
+class TRecorder
+class TRecorderInactive
+class TRecorderPaused
+class TRecorderRecording
+class TRecorderReplaying
+class TRecorderState
+header TRecorder.h

@@ -1,0 +1,15 @@
+{ decls }
+namespace TMVA {  }
+
+[ libPyMVA.so ]
+# List of selected classes
+class TMVA::MethodPyAdaBoost
+class TMVA::MethodPyGTB
+class TMVA::MethodPyKeras
+class TMVA::MethodPyRandomForest
+class TMVA::PyMethodBase
+header TMVA/MethodPyAdaBoost.h
+header TMVA/MethodPyGTB.h
+header TMVA/MethodPyKeras.h
+header TMVA/MethodPyRandomForest.h
+header TMVA/PyMethodBase.h

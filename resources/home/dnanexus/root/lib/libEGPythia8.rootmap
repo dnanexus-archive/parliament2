@@ -1,0 +1,6 @@
+[ libEGPythia8.so ]
+# List of selected classes
+class TPythia8
+class TPythia8Decayer
+header TPythia8.h
+header TPythia8Decayer.h

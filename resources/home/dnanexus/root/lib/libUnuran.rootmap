@@ -1,0 +1,16 @@
+[ libUnuran.so ]
+# List of selected classes
+class TUnuran
+class TUnuranBaseDist
+class TUnuranContDist
+class TUnuranDiscrDist
+class TUnuranEmpDist
+class TUnuranMultiContDist
+class TUnuranSampler
+header TUnuran.h
+header TUnuranBaseDist.h
+header TUnuranContDist.h
+header TUnuranDiscrDist.h
+header TUnuranEmpDist.h
+header TUnuranMultiContDist.h
+header TUnuranSampler.h

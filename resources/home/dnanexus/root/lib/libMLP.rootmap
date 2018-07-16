@@ -1,0 +1,10 @@
+[ libMLP.so ]
+# List of selected classes
+class TMLPAnalyzer
+class TMultiLayerPerceptron
+class TNeuron
+class TSynapse
+header TMLPAnalyzer.h
+header TMultiLayerPerceptron.h
+header TNeuron.h
+header TSynapse.h

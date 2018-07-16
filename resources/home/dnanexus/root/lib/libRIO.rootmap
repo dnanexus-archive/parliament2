@@ -1,0 +1,74 @@
+{ decls }
+namespace TStreamerInfoActions {  }
+namespace ROOT { namespace Experimental {  } }
+
+[ libRIO.so ]
+# List of selected classes
+class ROOT::Experimental::TBufferMerger
+class ROOT::Experimental::TBufferMergerFile
+class TArchiveFile
+class TArchiveMember
+class TBufferFile
+class TBufferIO
+class TBufferJSON
+class TBufferText
+class TCollectionClassStreamer
+class TCollectionMemberStreamer
+class TCollectionProxyFactory
+class TCollectionStreamer
+class TDirectoryFile
+class TEmulatedCollectionProxy
+class TEmulatedMapProxy
+class TFPBlock
+class TFile
+class TFileCacheRead
+class TFileCacheWrite
+class TFileMerger
+class TFilePrefetch
+class TFree
+class TGenCollectionProxy
+class TGenCollectionProxy::Method
+class TGenCollectionProxy::Value
+class TKey
+class TKeyMapFile
+class TLockFile
+class TMapFile
+class TMapRec
+class TMemFile
+class TStreamerInfo
+class TStreamerInfoActions::TActionSequence
+class TStreamerInfoActions::TConfiguration
+class TStreamerInfoActions::TConfiguredAction
+class TVirtualArray
+class TVirtualObject
+class TZIPFile
+class TZIPMember
+header TArchiveFile.h
+header TBufferFile.h
+header TBufferIO.h
+header TBufferJSON.h
+header TBufferText.h
+header TCollectionProxyFactory.h
+header TDirectoryFile.h
+header TEmulatedCollectionProxy.h
+header TEmulatedMapProxy.h
+header TFPBlock.h
+header TFile.h
+header TFileCacheRead.h
+header TFileCacheWrite.h
+header TFileMerger.h
+header TFilePrefetch.h
+header TFree.h
+header TGenCollectionProxy.h
+header TKey.h
+header TKeyMapFile.h
+header TLockFile.h
+header TMapFile.h
+header TMemFile.h
+header TStreamerInfo.h
+header TStreamerInfoActions.h
+header TVirtualArray.h
+header TVirtualObject.h
+header TZIPFile.h
+# List of selected namespaces
+namespace TStreamerInfoActions

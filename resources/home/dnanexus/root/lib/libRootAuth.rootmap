@@ -1,0 +1,10 @@
+[ libRootAuth.so ]
+# List of selected classes
+class TAuthenticate
+class THostAuth
+class TRootAuth
+class TRootSecContext
+header TAuthenticate.h
+header THostAuth.h
+header TRootAuth.h
+header TRootSecContext.h

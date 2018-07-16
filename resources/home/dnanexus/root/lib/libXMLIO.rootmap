@@ -1,0 +1,14 @@
+[ libXMLIO.so ]
+# List of selected classes
+class TBufferXML
+class TKeyXML
+class TXMLEngine
+class TXMLFile
+class TXMLPlayer
+class TXMLSetup
+header TBufferXML.h
+header TKeyXML.h
+header TXMLEngine.h
+header TXMLFile.h
+header TXMLPlayer.h
+header TXMLSetup.h

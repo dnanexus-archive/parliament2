@@ -1,0 +1,12 @@
+{ decls }
+namespace std {  }
+
+[ liblistDict.so ]
+# List of selected classes
+class list<char*>
+class list<double>
+class list<float>
+class list<int>
+class list<long>
+class list<string>
+class list<void*>

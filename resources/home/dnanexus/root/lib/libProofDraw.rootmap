@@ -1,0 +1,24 @@
+{ decls }
+namespace std {  }
+class TProofDrawListOfGraphs;
+class TProofDrawListOfPolyMarkers3D;
+
+[ libProofDraw.so ]
+# List of selected classes
+class TProofDraw
+class TProofDrawEntryList
+class TProofDrawEventList
+class TProofDrawGraph
+class TProofDrawHist
+class TProofDrawListOfGraphs
+class TProofDrawListOfGraphs::Point3D_t
+class TProofDrawListOfPolyMarkers3D
+class TProofDrawListOfPolyMarkers3D::Point4D_t
+class TProofDrawPolyMarker3D
+class TProofDrawProfile
+class TProofDrawProfile2D
+class TProofVectorContainer<TProofDrawListOfGraphs::Point3D_t>
+class TProofVectorContainer<TProofDrawListOfPolyMarkers3D::Point4D_t>
+class vector<TProofDrawListOfGraphs::Point3D_t>
+class vector<TProofDrawListOfPolyMarkers3D::Point4D_t>
+header TProofDraw.h
