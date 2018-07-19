@@ -1,3 +1,80 @@
+run_in_parallel() {
+    contigs = $1
+    while read contig; do
+        if [[ $(samtools view input.bam "$contig" | head -n 20 | wc -l) -ge 10 ]]; then
+            count=$((count + 1))
+            if [[ "$run_breakdancer" == "True" ]]; then
+                echo "Running Breakdancer for contig $contig"
+                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "$contig" > breakdancer-"$count".ctx &
+                concat_breakdancer_cmd="$concat_breakdancer_cmd breakdancer-$count.ctx"
+            fi
+
+            if [[ "$run_cnvnator" == "True" ]]; then
+                echo "Running CNVnator for contig $contig"
+                runCNVnator "$contig" "$count" &
+                concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-$count"
+            fi
+
+            echo "Running sambamba view"
+            timeout 2h sambamba view -h -f bam -t $(nproc) input.bam $contig > chr.$count.bam
+            echo "Running sambamba index"
+            sambamba index -t $(nproc) chr.$count.bam 
+
+            if [[ "$run_delly_deletion" == "True" ]]; then  
+                echo "Running Delly (deletions) for contig $contig"
+                timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam & 
+                delly_deletion_concat="$delly_deletion_concat $count.delly.deletion.vcf"
+            fi
+
+            if [[ "$run_delly_inversion" == "True" ]]; then 
+                echo "Running Delly (inversions) for contig $contig"
+                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam &
+                delly_inversion_concat="$delly_inversion_concat $count.delly.inversion.vcf"
+            fi
+
+            if [[ "$run_delly_duplication" == "True" ]]; then 
+                echo "Running Delly (duplications) for contig $contig"
+                timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam &
+                delly_duplication_concat="$delly_duplication_concat $count.delly.duplication.vcf"
+            fi
+
+            if [[ "$run_delly_insertion" == "True" ]]; then 
+                echo "Running Delly (insertions) for contig $contig"
+                timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam &
+                delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
+            fi
+            
+            if [[ "$run_lumpy" == "True" ]]; then
+                echo "Running Lumpy for contig $contig"
+                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
+                lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
+            fi
+
+            breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
+            cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
+            sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
+            manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
+            breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
+            delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
+            lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
+            active_threads=$(python /getThreads.py "$breakdancer_threads" "$cnvnator_threads" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes")
+            
+            while [[ $active_threads -ge $(nproc) ]]; do
+                echo "Waiting for 60 seconds"
+                breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
+                cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
+                sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
+                manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
+                breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
+                delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
+                lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
+                active_threads=$(python /getThreads.py "$breakdancer_threads" "$cnvnator_threads" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes")
+                sleep 60
+            done
+        fi
+    done < contigs
+}
+
 illumina_bam=$1
 illumina_bai=$2
 ref_fasta=$3
@@ -115,79 +192,7 @@ fi
 # Process management for launching jobs
 if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
-    while read contig; do
-        if [[ $(samtools view input.bam "$contig" | head -n 20 | wc -l) -ge 10 ]]; then
-            count=$((count + 1))
-            if [[ "$run_breakdancer" == "True" ]]; then
-                echo "Running Breakdancer for contig $contig"
-                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "$contig" > breakdancer-"$count".ctx &
-                concat_breakdancer_cmd="$concat_breakdancer_cmd breakdancer-$count.ctx"
-            fi
-
-            if [[ "$run_cnvnator" == "True" ]]; then
-                echo "Running CNVnator for contig $contig"
-                runCNVnator "$contig" "$count" &
-                concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-$count"
-            fi
-
-            echo "Running sambamba view"
-            timeout 2h sambamba view -h -f bam -t $(nproc) input.bam $contig > chr.$count.bam
-            echo "Running sambamba index"
-            sambamba index -t $(nproc) chr.$count.bam 
-
-            if [[ "$run_delly_deletion" == "True" ]]; then  
-                echo "Running Delly (deletions) for contig $contig"
-                timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam & 
-                delly_deletion_concat="$delly_deletion_concat $count.delly.deletion.vcf"
-            fi
-
-            if [[ "$run_delly_inversion" == "True" ]]; then 
-                echo "Running Delly (inversions) for contig $contig"
-                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam &
-                delly_inversion_concat="$delly_inversion_concat $count.delly.inversion.vcf"
-            fi
-
-            if [[ "$run_delly_duplication" == "True" ]]; then 
-                echo "Running Delly (duplications) for contig $contig"
-                timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam &
-                delly_duplication_concat="$delly_duplication_concat $count.delly.duplication.vcf"
-            fi
-
-            if [[ "$run_delly_insertion" == "True" ]]; then 
-                echo "Running Delly (insertions) for contig $contig"
-                timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam &
-                delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
-            fi
-            
-            if [[ "$run_lumpy" == "True" ]]; then
-                echo "Running Lumpy for contig $contig"
-                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
-                lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
-            fi
-
-            breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
-            cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
-            sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
-            manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
-            breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
-            delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
-            lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
-            active_threads=$(python /getThreads.py "$breakdancer_threads" "$cnvnator_threads" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes")
-            
-            while [[ $active_threads -ge $(nproc) ]]; do
-                echo "Waiting for 60 seconds"
-                breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
-                cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
-                sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
-                manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
-                breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
-                delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
-                lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
-                active_threads=$(python /getThreads.py "$breakdancer_threads" "$cnvnator_threads" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes")
-                sleep 60
-            done
-        fi
-    done < contigs
+    run_in_parallel contigs
 fi
 
 wait
@@ -302,11 +307,13 @@ fi
 set +e
 
 # See which chromosomes are in the BAM file
-samtools idxstats input.bam | cut -f 1 | head -3
+samtools idxstats input.bam | cut -f 1 | uniq > bam_chromosomes.txt
 
 # Check that all VCF files have all chromosomes
-    # for item in *svtyped.vcf; do
-
+for item in *.vcf; do
+    cat "${item}" | cut -f 1 | grep -v "#" | uniq > "${item%.vcf}"_chromosomes.txt
+    # python ./verify_chromosomes.py "${item%.vcf}"_chromosomes.txt > contigs
+done
 
 # Run SVtyper and SVviz
 if [[ "$run_genotype_candidates" == "True" ]]; then
