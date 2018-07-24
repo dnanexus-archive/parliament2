@@ -161,6 +161,14 @@
       "class": "boolean",
       "default": true,
       "group": "Genotyping and Visualization"
+    },
+    {
+      "name": "rerun_chromosomes",
+      "label": "Re-Run on Missing Chromosomes",
+      "help": "If the chromosomes in the output VCF file doesn't match those in the BAM header, re-run the SV caller on the missing chromosomes? Default is True. Mark False if your BAM file is intentionally truncated.",
+      "class": "boolean",
+      "default": true,
+      "group": "Advanced"
     }
   ],
   "outputSpec": [
@@ -226,10 +234,10 @@
     "aws:us-east-1": {
       "assetDepends": [
         {
-          "project": "project-FBbQqQj026K9PF53332ZFBB9",
+          "project": "project-FBbG4280Qg43bZJ1Jyyk8F8v",
           "folder": "/",
-          "version": "0.0.1",
-          "name": "parliament2:0.1.7"
+          "name": "parliament2",
+          "version": "0.0.1"
         }
       ],
       "systemRequirements": {

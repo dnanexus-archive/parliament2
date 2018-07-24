@@ -30,7 +30,7 @@ def main(**job_inputs):
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
 
-    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/','parliament2:0.1.7', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/','parliament2', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
         input_bai = dxpy.open_dxfile(job_inputs['illumina_bai'])
@@ -39,6 +39,8 @@ def main(**job_inputs):
 
         docker_call.extend(['--bai', bai_name])
 
+    if job_inputs['rerun_chromosomes']:
+        docker_call.append('--rerun_chromosomes')
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
     if job_inputs['run_breakdancer']:

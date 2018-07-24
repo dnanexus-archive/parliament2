@@ -2,20 +2,21 @@ illumina_bam=$1
 illumina_bai=$2
 ref_fasta=$3
 prefix=$4
-filter_short_contigs=$5
-run_breakdancer=$6
-run_breakseq=$7
-run_manta=$8
-run_cnvnator=$9
-run_lumpy=${10}
-run_delly_deletion=${11}
-run_delly_insertion=${12}
-run_delly_inversion=${13}
-run_delly_duplication=${14}
-run_genotype_candidates=${15}
-run_svviz=${16}
-svviz_only_validated_candidates=${17}
-dnanexus=${18}
+rerun_chromosomes=$5
+filter_short_contigs=$6
+run_breakdancer=$7
+run_breakseq=$8
+run_manta=$9
+run_cnvnator=${10}
+run_lumpy=${11}
+run_delly_deletion=${12}
+run_delly_insertion=${13}
+run_delly_inversion=${14}
+run_delly_duplication=${15}
+run_genotype_candidates=${16}
+run_svviz=${17}
+svviz_only_validated_candidates=${18}
+dnanexus=${19}
 
 cp "${ref_fasta}" ref.fa
 
@@ -67,6 +68,9 @@ echo "Generate contigs"
 
 samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > contigs
 
+# See which chromosomes are in the BAM file
+samtools idxstats input.bam | cut -f 1 | uniq > bam_chromosomes.txt &
+
 mkdir -p /home/dnanexus/out/log_files/
 
 if [[ "$run_breakseq" == "True" || "$run_manta" == "True" ]]; then
@@ -98,10 +102,8 @@ if [[ "$run_breakdancer" == "True" ]]; then
     timeout 2h /breakdancer/cpp/bam2cfg -o breakdancer.cfg input.bam
 fi
 
-concat_breakdancer_cmd=
-concat_cnvnator_cmd=
-
-count=0
+concat_breakdancer_cmd=""
+concat_cnvnator_cmd=""
 delly_deletion_concat=""
 delly_inversion_concat=""
 delly_duplication_concat=""
@@ -112,12 +114,12 @@ if [[ "$run_delly_deletion" == "True" ]] || [[ "$run_delly_insertion" == "True" 
    run_delly="True"
 fi
 
+count=0
 # Process management for launching jobs
 if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
     while read contig; do
         if [[ $(samtools view input.bam "$contig" | head -n 20 | wc -l) -ge 10 ]]; then
-            count=$((count + 1))
             if [[ "$run_breakdancer" == "True" ]]; then
                 echo "Running Breakdancer for contig $contig"
                 timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "$contig" > breakdancer-"$count".ctx &
@@ -186,6 +188,7 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
                 active_threads=$(python /getThreads.py "$breakdancer_threads" "$cnvnator_threads" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes")
                 sleep 60
             done
+            count=$((count + 1))
         fi
     done < contigs
 fi
@@ -271,9 +274,6 @@ fi) &
     python /convertHeader.py "$prefix" "$lumpy_merge_command" | vcf-sort -c | uniq > lumpy.vcf
 
     cp lumpy.vcf /home/dnanexus/out/sv_caller_results/"$prefix".lumpy.vcf
-
-    python /vcf2bedpe.py -i lumpy.vcf -o lumpy.gff
-    python /Lumpy2merge.py lumpy.gff "$prefix" 1.0
 fi) &
 
 (if [[ "$run_manta" == "True" ]]; then
@@ -301,77 +301,142 @@ if [[ -z $(find . -name "*.vcf") ]]; then
 fi
 set +e
 
-# See which chromosomes are in the BAM file
-samtools idxstats input.bam | cut -f 1 | uniq > bam_chromosomes.txt
+if [[ "$rerun_chromosomes" == "True" ]]; then
+    # Check that all VCF files have all chromosomes
+    echo "Verify that all chromosomes have been successfully analyzed"
 
-# Check that all VCF files have all chromosomes
-for item in *.vcf; do
-    cat "${item}" | cut -f 1 | grep -v "#" | uniq > "${item%.vcf}"_chromosomes.txt
-    python ./verify_chromosomes.py "${item%.vcf}"_chromosomes.txt > contigs
+    concat_breakdancer_cmd=""
+    concat_cnvnator_cmd=""
+    delly_deletion_concat=""
+    delly_inversion_concat=""
+    delly_duplication_concat=""
+    delly_insertion_concat=""
+    lumpy_merge_command=""
+    count=0
+    # Chromosome dropping expected to be rare; process management less complicated
+    for item in *.vcf; do
+        cat "${item}" | cut -f 1 | grep -v "#" | uniq > "${item%.vcf}"_chromosomes.txt
+        python ./verify_chromosomes.py "${item%.vcf}"_chromosomes.txt > contigs
 
-    if [[ "${item}" = *"breakdancer"* ]]; then
-        while read contig; do
-            echo "Re-running Breakdancer for contig $contig"
-            timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "$contig" > breakdancer-"$count".ctx &
-            concat_breakdancer_cmd="$concat_breakdancer_cmd breakdancer-$count.ctx"
-        done < contigs
-    fi
+        if [[ -z "$contigs" ]]; then
+            echo "No chromosomes to re-run for caller ${item}."
+        else
+            if [[ "${item}" = *"breakdancer"* ]]; then
+                while read contig; do
+                    echo "Re-running Breakdancer for contig $contig"
+                    timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "$contig" > breakdancer-"$count".ctx &
+                    concat_breakdancer_cmd="$concat_breakdancer_cmd breakdancer-$count.ctx"
+                done < contigs
+            elif [[ "${item}" = *"cnvnator"* ]]; then
+                while read contig; do
+                    echo "Re-running CNVnator for contig $contig"
+                    runCNVnator "$contig" "$count" &
+                    concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-$count"
+                done < contigs
+            elif [[ "${item}" = *"delly.inversion"* ]] || [[ "${item}" = *"delly.inversion"* ]] || [[ "${item}" = *"delly.duplication"* ]] || [[ "${item}" = *"delly.deletion"* ]] || [[ "${item}" = *"lumpy"* ]]; then
+                while read contigs; do
+                    timeout 2h sambamba view -h -f bam -t $(nproc) input.bam $contig > chr.$count.bam
+                    echo "Re-running sambamba index"
+                    sambamba index -t $(nproc) chr.$count.bam        
+                done < contigs
+            fi
 
-    if [[ "${item}" = *"cnvnator"* ]]; then
-        while read contig; do
-            echo "Re-running CNVnator for contig $contig"
-            runCNVnator "$contig" "$count" &
-            concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-$count"
-        done < contigs
-    fi
+            if [[ "${item}" = *"delly.deletion"* ]]; then
+                while read contig; do
+                    echo "Re-running Delly (deletions) for contig $contig"
+                    timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam & 
+                    delly_deletion_concat="$delly_deletion_concat $count.delly.deletion.vcf"
+                done < contigs
+            elif [[ "${item}" = *"delly.duplication"* ]]; then
+                while read contig; do
+                    echo "Re-running Delly (duplications) for contig $contig"
+                    timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam &
+                    delly_duplication_concat="$delly_duplication_concat $count.delly.duplication.vcf"
+                done < contigs
+            elif [[ "${item}" = *"delly.insertion"* ]]; then
+                while read contig; do
+                    echo "Re-running Delly (insertions) for contig $contig"
+                    timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam &
+                    delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
+                done < contigs
+            elif [[ "${item}" = *"delly.inversion"* ]]; then
+                while read contig; do
+                    echo "Re-running Delly (inversions) for contig $contig"
+                    timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam &
+                    delly_inversion_concat="$delly_inversion_concat $count.delly.inversion.vcf"
+                done < contigs
+            elif [[ "${item}" = *"lumpy"* ]]; then
+                while read contig; do
+                    echo "Re-running Lumpy for contig $contig"
+                    timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
+                    lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
+                done < contigs
+            fi
 
-    if [[ "${item}" = *"delly.inversion"* ]] || [[ "${item}" = *"delly.inversion"* ]] || [[ "${item}" = *"delly.duplication"* ]] || [[ "${item}" = *"delly.deletion"* ]] || [[ "${item}" = *"lumpy"* ]]; then
-        while read contigs; do
-            timeout 2h sambamba view -h -f bam -t $(nproc) input.bam $contig > chr.$count.bam
-            echo "Re-running sambamba index"
-            sambamba index -t $(nproc) chr.$count.bam        
-        done < contigs
-    fi
+            wait
 
-    if [[ "${item}" = *"delly.deletion"* ]]; then
-        while read contig; do
-            echo "Re-running Delly (deletions) for contig $contig"
-            timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam & 
-            delly_deletion_concat="$delly_deletion_concat $count.delly.deletion.vcf"
-        done < contigs
-    fi
-    if [[ "${item}" = *"delly.duplication"* ]]; then
-        while read contig; do
-            echo "Running Delly (duplications) for contig $contig"
-            timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam &
-            delly_duplication_concat="$delly_duplication_concat $count.delly.duplication.vcf"
-        done < contigs
-    fi
-    if [[ "${item}" = *"delly.insertion"* ]]; then
-        while read contig; do
-            echo "Running Delly (insertions) for contig $contig"
-            timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam &
-            delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
-        done < contigs
-    fi
-    if [[ "${item}" = *"delly.inversion"* ]]; then
-        while read contig; do
-            echo "Running Delly (inversions) for contig $contig"
-            timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam &
-            delly_inversion_concat="$delly_inversion_concat $count.delly.inversion.vcf"
-        done < contigs
-    fi
+            # Converting dropped chromosomes to VCF format
+            caller=""
+            if [[ "${item}" = *"breakdancer"* ]]; then
+                caller="breakdancer"
+                echo "Converting Breakdancer re-run results to VCF format"
+                # cat contents of each file into output file: lack of quotes intentional
+                cat $concat_breakdancer_cmd > breakdancer.output
 
-    if [[ "${item}" = *"lumpy"* ]]; then
-        while read contig; do
-            echo "Re-running Lumpy for contig $contig"
-            timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
-            lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
-        done < contigs
-    fi
+                cp breakdancer.output /home/dnanexus/out/sv_caller_results/"$prefix".breakdancer.ctx
 
-    wait
-done
+                python /BreakDancer2Merge.py 1.0 breakdancer.output "$prefix"
+
+                python /convert_breakdancer_vcf.py < breakdancer.output > "$prefix".breakdancer.vcf
+
+            elif [[ "${item}" = *"cnvnator"* ]]; then
+                caller="cnvnator"
+                echo "Convert CNVnator re-run results to VCF format"
+                # cat contents of each file into output file: lack of quotes intentional
+                cat $concat_cnvnator_cmd > cnvnator.output
+
+                perl /usr/utils/cnvnator2VCF.pl cnvnator.output > cnvnator.vcf
+
+                cp cnvnator.output "$prefix"_rerun.cnvnator.output
+                mv /home/dnanexus/out/sv_caller_results/"$prefix".cnvnator.output "$prefix"_original.cnvnator.output
+                cat "$prefix"_rerun.cnvnator.output "$prefix"_original.cnvnator.output > /home/dnanexus/out/sv_caller_results/"$prefix".cnvnator.output
+
+            elif [[ "${item}" = *"delly.deletion"* ]]; then
+                caller="delly.deletion"
+                echo "Convert Delly deletion re-run results to VCF format"
+                python /convertHeader.py "$prefix" "$delly_deletion_concat" | vcf-sort -c | uniq > delly.deletion.vcf
+
+            elif [[ "${item}" = *"delly.duplication"* ]]; then
+                caller="delly.duplication"
+                echo "Convert Delly duplication re-runresults to VCF format"
+                python /convertHeader.py "$prefix" "$delly_duplication_concat" | vcf-sort -c | uniq > delly.duplication.vcf
+
+            elif [[ "${item}" = *"delly.insertion"* ]]; then
+                caller="delly.insertion"
+                echo "Convert Delly insertion results to VCF format"
+                python /convertHeader.py "$prefix" "$delly_insertion_concat" | vcf-sort -c | uniq > delly.insertion.vcf
+
+            elif [[ "${item}" = *"delly.inversion"* ]]; then
+                caller="delly.inversion"
+                echo "Convert Delly inversion results to VCF format"
+                python /convertHeader.py "$prefix" "$delly_inversion_concat" | vcf-sort -c | uniq > delly.inversion.vcf
+
+            elif [[ "${item}" = *"lumpy"* ]]; then
+                caller="lumpy"
+                echo "Convert Lumpy re-run results to VCF format"
+                python /convertHeader.py "$prefix" "$lumpy_merge_command" | vcf-sort -c | uniq > lumpy.vcf
+
+            fi
+            if [[ -n "$caller" ]]; then
+                cp "$caller".vcf "$prefix"_rerun."$caller".vcf
+
+                mv /home/dnanexus/out/sv_caller_results/"$prefix"."$caller".vcf "$prefix"_original."$caller".vcf
+                vcf-concat "$prefix"_rerun."$caller".vcf "$prefix"_original."$caller".vcf > "$prefix"_unsorted."$caller".vcf
+                vcf-sort -c "$prefix"_unsorted.breakdancer.vcf > /home/dnanexus/out/sv_caller_results/"$prefix"."$caller".vcf
+            fi
+        fi
+    done
+fi
 
 # Run SVtyper and SVviz
 if [[ "$run_genotype_candidates" == "True" ]]; then
