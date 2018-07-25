@@ -7,9 +7,8 @@ input_bam=$4
 
 input_lines=$(grep -v \# $input | wc -l)
 threads=$(nproc)
-threads=$(expr $threads \* 4)
+threads=$((threads * 8))
 if [[ $input_lines -ge $threads ]]; then
-    threads=$(expr $threads \* 4)
     lines=$(expr $input_lines / $threads)
     split -d -a 5 -l $lines $input $directory
 fi
@@ -22,7 +21,9 @@ for item in $directory*; do
     echo "svtyper -B $input_bam -i $directory/$i >> $directory/$i" >> $output.cmds
 done
 
-parallel --verbose -a $output.cmds eval 2> /dev/null
+threads=$(nproc)
+threads=$((threads / 2))
+parallel --verbose -j $threads -a $output.cmds eval 2> /dev/null
 
 grep \# $input > $output
 for item in $directory/*; do

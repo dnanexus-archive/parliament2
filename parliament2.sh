@@ -21,7 +21,6 @@ dnanexus=${19}
 cp "${ref_fasta}" ref.fa
 
 echo "Classify FASTA"
-echo "$prefix"
 
 samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
@@ -201,6 +200,7 @@ fi
 
 echo "Converting results to VCF format"
 mkdir -p /home/dnanexus/out/sv_caller_results/
+mkdir -p /home/dnanexus/tmp/
 
 (if [[ "$run_breakdancer" == "True" ]] && [[ -n "$concat_breakdancer_cmd" ]]; then
     echo "Convert Breakdancer results to VCF format"
@@ -243,43 +243,52 @@ fi) &
 
 (if [[ "$run_delly_deletion" == "True" ]]; then 
     echo "Convert Delly deletion results to VCF format"
-    python /convertHeader.py "$prefix" "$delly_deletion_concat" | vcf-sort -c | uniq > delly.deletion.vcf
+    python /convertHeader.py "$prefix" "$delly_deletion_concat" | vcf-sort -c | uniq > tmp/delly.deletion.vcf
+    rm *delly.deletion.vcf
 
+    cp tmp/delly.deletion.vcf delly.deletion.vcf
     cp delly.deletion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.deletion.vcf
-fi) &
-
-(if [[ "$run_delly_inversion" == "True" ]]; then
-    echo "Convert Delly inversion results to VCF format"
-    python /convertHeader.py "$prefix" "$delly_inversion_concat" | vcf-sort -c | uniq > delly.inversion.vcf
-
-    cp delly.inversion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.inversion.vcf
 fi) &
 
 (if [[ "$run_delly_duplication" == "True" ]]; then
     echo "Convert Delly duplication results to VCF format"
-    python /convertHeader.py "$prefix" "$delly_duplication_concat" | vcf-sort -c | uniq > delly.duplication.vcf
+    python /convertHeader.py "$prefix" "$delly_duplication_concat" | vcf-sort -c | uniq > tmp/delly.duplication.vcf
+    rm *delly.duplication.vcf
 
+    cp tmp/delly.duplication.vcf delly.duplication.vcf
     cp delly.duplication.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.duplication.vcf
 fi) &
 
 (if [[ "$run_delly_insertion" == "True" ]]; then
     echo "Convert Delly insertion results to VCF format"
-    python /convertHeader.py "$prefix" "$delly_insertion_concat" | vcf-sort -c | uniq > delly.insertion.vcf
+    python /convertHeader.py "$prefix" "$delly_insertion_concat" | vcf-sort -c | uniq > tmp/delly.insertion.vcf
+    rm *delly.insertion.vcf
 
+    cp tmp/delly.insertion.vcf delly.insertion.vcf
     cp delly.insertion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.insertion.vcf
+fi) &
+
+(if [[ "$run_delly_inversion" == "True" ]]; then
+    echo "Convert Delly inversion results to VCF format"
+    python /convertHeader.py "$prefix" "$delly_inversion_concat" | vcf-sort -c | uniq > tmp/delly.inversion.vcf
+    rm *delly.inversion.vcf
+
+    cp tmp/delly.inversion.vcf delly.inversion.vcf
+    cp delly.inversion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.inversion.vcf
 fi) &
 
 (if [[ "$run_lumpy" == "True" ]]; then
     echo "Convert Lumpy results to VCF format"
-    python /convertHeader.py "$prefix" "$lumpy_merge_command" | vcf-sort -c | uniq > lumpy.vcf
+    python /convertHeader.py "$prefix" "$lumpy_merge_command" | vcf-sort -c | uniq > tmp/lumpy.vcf
+    rm lumpy*vcf
 
+    cp tmp/lumpy.vcf lumpy.vcf
     cp lumpy.vcf /home/dnanexus/out/sv_caller_results/"$prefix".lumpy.vcf
 fi) &
 
 (if [[ "$run_manta" == "True" ]]; then
     echo "Convert Manta results to VCF format"
     cp manta/results/variants/diploidSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.diploidSV.vcf.gz
-    # cp manta/results/variants/candidateSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.candidateSV.vcf.gz
     cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"$prefix".manta.alignmentStatsSummary.txt
 
     mv manta/results/variants/diploidSV.vcf.gz .
@@ -319,8 +328,9 @@ if [[ "$rerun_chromosomes" == "True" ]]; then
         python ./verify_chromosomes.py "${item%.vcf}"_chromosomes.txt > contigs
 
         if [[ -z "$contigs" ]]; then
-            echo "No chromosomes to re-run for caller ${item}."
+            echo "No chromosomes to re-run for ${item}"
         else
+            echo "Re-running for file ${item}"
             if [[ "${item}" = *"breakdancer"* ]]; then
                 while read contig; do
                     echo "Re-running Breakdancer for contig $contig"
@@ -336,7 +346,7 @@ if [[ "$rerun_chromosomes" == "True" ]]; then
             elif [[ "${item}" = *"delly.inversion"* ]] || [[ "${item}" = *"delly.inversion"* ]] || [[ "${item}" = *"delly.duplication"* ]] || [[ "${item}" = *"delly.deletion"* ]] || [[ "${item}" = *"lumpy"* ]]; then
                 while read contigs; do
                     timeout 2h sambamba view -h -f bam -t $(nproc) input.bam $contig > chr.$count.bam
-                    echo "Re-running sambamba index"
+                    echo "Re-running sambamba index for contig $contig"
                     sambamba index -t $(nproc) chr.$count.bam        
                 done < contigs
             fi
@@ -453,17 +463,18 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Breakdancer
     if [[ "$run_breakdancer" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
-        mkdir /home/dnanexus/svtype_breakdancer
-        bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
+        svtyper-sso --core $(nproc) -i /home/dnanexus/breakdancer.vcf -B input.bam > /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf
+        # mkdir /home/dnanexus/svtype_breakdancer
+        # bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
     fi
 
     # Breakseq
     if [[ "$run_breakseq" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
+        # svtyper-sso --core $(nproc) -i /home/dnanexus/breakseq.vcf -B input.bam > /home/dnanexus/"${prefix}".breakseq.svtyped.vcf
+
         mkdir /home/dnanexus/svtype_breakseq
         bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
 
         if [[ -f breakseq.vcf ]]; then
             echo breakseq.vcf >> survivor_inputs
@@ -473,44 +484,28 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # CNVnator
     if [[ "$run_cnvnator" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
+        # svtyper-sso --core $(nproc) -i /home/dnanexus/cnvnator.vcf -B input.bam > /home/dnanexus/"${prefix}".cnvnator.svtyped.vcf
         mkdir /home/dnanexus/svtype_cnvnator
         cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
-        bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
+        timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
     fi
 
     # Delly
     if [[ "$run_delly" == "True" ]]; then
         echo "Running SVTyper on Delly outputs"
         for item in delly*vcf; do
-            mkdir /home/dnanexus/svtype_delly_"$i"
-            bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
-            # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
-            i=$((i + 1))
-        done
-
-        grep \# delly.svtyper.0.vcf > "${prefix}".delly.svtyped.vcf
-
-        for item in delly.svtyper*.vcf; do
-            grep -v \# "$item" >> "${prefix}".delly.svtyped.vcf
+            svtyper-sso --core $(nproc) -i "${item}" -B input.bam > /home/dnanexus/"${prefix}"."${item%.vcf}".svtyped.vcf
         done
     fi
 
     # Lumpy
     if [[ "$run_lumpy" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
-        mkdir /home/dnanexus/svtype_lumpy
-        bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
+        svtyper-sso --core $(nproc) -i /home/dnanexus/lumpy.vcf -B input.bam > /home/dnanexus/"${prefix}".lumpy.svtyped.vcf
     fi
 
     # Manta
     if [[ "$run_manta" == "True" ]]; then
-        # echo "Running SVTyper on Manta outputs"
-        # zcat manta/results/variants/candidateSV.vcf.gz | python /add_ciend.py 100 > /home/dnanexus/manta.input.vcf
-        # mkdir /home/dnanexus/svtype_manta
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/manta.input.vcf svtype_manta /home/dnanexus/"${prefix}".manta.svtyped.vcf input.bam
-
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
             echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs
@@ -572,8 +567,8 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
                 ((count++))
             done
             
-            threads="$(nproc)"
-            threads=$((threads / 2))
+            threads=$(nproc)
+            threads=$((threads / 4))
             parallel --verbose -j $threads -a commands.txt eval 2> /dev/null
             
             tar -czf /home/dnanexus/out/"$prefix".svviz_outputs.tar.gz svviz_outputs/
