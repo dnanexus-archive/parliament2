@@ -402,7 +402,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Run SURVIVOR
     echo "Running SURVIVOR"
-    survivor 5 survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
+    survivor merge survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
     cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
