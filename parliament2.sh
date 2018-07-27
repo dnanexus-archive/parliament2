@@ -2,20 +2,20 @@ illumina_bam=$1
 illumina_bai=$2
 ref_fasta=$3
 prefix=$4
-rerun_chromosomes=$5
-filter_short_contigs=$6
-run_breakdancer=$7
-run_breakseq=$8
-run_manta=$9
-run_cnvnator=${10}
-run_lumpy=${11}
-run_delly_deletion=${12}
-run_delly_insertion=${13}
-run_delly_inversion=${14}
-run_delly_duplication=${15}
-run_genotype_candidates=${16}
-run_svviz=${17}
-svviz_only_validated_candidates=${18}
+filter_short_contigs=$5
+run_breakdancer=$6
+run_breakseq=$7
+run_manta=$8
+run_cnvnator=$9
+run_lumpy=${10}
+run_delly_deletion=${11}
+run_delly_insertion=${12}
+run_delly_inversion=${13}
+run_delly_duplication=${14}
+run_genotype_candidates=${15}
+run_svviz=${16}
+svviz_only_validated_candidates=${17}
+rerun_chromosomes=${18}
 dnanexus=${19}
 
 cp "${ref_fasta}" ref.fa
@@ -242,7 +242,7 @@ fi) &
 fi) &
 
 (if [[ "$run_delly_deletion" == "True" ]]; then 
-    echo "Convert Delly deletion results to VCF format"
+    echo "Convert Delly deletion results to VCF format using $delly_deletion_concat"
     python /convertHeader.py "$prefix" "$delly_deletion_concat" | vcf-sort -c | uniq > tmp/delly.deletion.vcf
     rm *delly.deletion.vcf
 
@@ -251,7 +251,7 @@ fi) &
 fi) &
 
 (if [[ "$run_delly_duplication" == "True" ]]; then
-    echo "Convert Delly duplication results to VCF format"
+    echo "Convert Delly duplication results to VCF format using $delly_duplication_concat"
     python /convertHeader.py "$prefix" "$delly_duplication_concat" | vcf-sort -c | uniq > tmp/delly.duplication.vcf
     rm *delly.duplication.vcf
 
@@ -260,7 +260,7 @@ fi) &
 fi) &
 
 (if [[ "$run_delly_insertion" == "True" ]]; then
-    echo "Convert Delly insertion results to VCF format"
+    echo "Convert Delly insertion results to VCF format using delly_insertion_concat"
     python /convertHeader.py "$prefix" "$delly_insertion_concat" | vcf-sort -c | uniq > tmp/delly.insertion.vcf
     rm *delly.insertion.vcf
 
@@ -269,7 +269,7 @@ fi) &
 fi) &
 
 (if [[ "$run_delly_inversion" == "True" ]]; then
-    echo "Convert Delly inversion results to VCF format"
+    echo "Convert Delly inversion results to VCF format using delly_inversion_concat"
     python /convertHeader.py "$prefix" "$delly_inversion_concat" | vcf-sort -c | uniq > tmp/delly.inversion.vcf
     rm *delly.inversion.vcf
 
@@ -278,7 +278,7 @@ fi) &
 fi) &
 
 (if [[ "$run_lumpy" == "True" ]]; then
-    echo "Convert Lumpy results to VCF format"
+    echo "Convert Lumpy results to VCF format using $lumpy_merge_command"
     python /convertHeader.py "$prefix" "$lumpy_merge_command" | vcf-sort -c | uniq > tmp/lumpy.vcf
     rm lumpy*vcf
 
@@ -324,7 +324,13 @@ if [[ "$rerun_chromosomes" == "True" ]]; then
     count=0
     # Chromosome dropping expected to be rare; process management less complicated
     for item in *.vcf; do
-        cat "${item}" | cut -f 1 | grep -v "#" | uniq > "${item%.vcf}"_chromosomes.txt
+        cat "${item}" | cut -f 1 | grep "chr" | uniq > "${item%.vcf}"_chromosomes.txt
+        echo "Bam chromosomes:"
+        cat bam_chromosomes.txt
+        echo "File chromosomes:"
+        cat "${item%.vcf}"_chromosomes.txt
+        echo "Non-overlapping:"
+        python ./verify_chromosomes.py "${item%.vcf}"_chromosomes.txt
         python ./verify_chromosomes.py "${item%.vcf}"_chromosomes.txt > contigs
 
         if [[ -z "$contigs" ]]; then
@@ -463,9 +469,9 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Breakdancer
     if [[ "$run_breakdancer" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
-        svtyper-sso --core $(nproc) -i /home/dnanexus/breakdancer.vcf -B input.bam > /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf
-        # mkdir /home/dnanexus/svtype_breakdancer
-        # bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
+        # svtyper-sso --core $(nproc) -i /home/dnanexus/breakdancer.vcf -B input.bam > /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf 2> /home/dnanexus/out/log_files/svtyped_breakdancer.stderr.log
+        mkdir /home/dnanexus/svtype_breakdancer
+        bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
     fi
 
     # Breakseq
@@ -494,14 +500,14 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     if [[ "$run_delly" == "True" ]]; then
         echo "Running SVTyper on Delly outputs"
         for item in delly*vcf; do
-            svtyper-sso --core $(nproc) -i "${item}" -B input.bam > /home/dnanexus/"${prefix}"."${item%.vcf}".svtyped.vcf
+            svtyper-sso --core $(nproc) -i "${item}" -B input.bam > /home/dnanexus/"${prefix}"."${item%.vcf}".svtyped.vcf 2> /home/dnanexus/out/log_files/svtyped_"${item}".stderr.log
         done
     fi
 
     # Lumpy
     if [[ "$run_lumpy" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
-        svtyper-sso --core $(nproc) -i /home/dnanexus/lumpy.vcf -B input.bam > /home/dnanexus/"${prefix}".lumpy.svtyped.vcf
+        svtyper-sso --core $(nproc) -i /home/dnanexus/lumpy.vcf -B input.bam > /home/dnanexus/"${prefix}".lumpy.svtyped.vcf 2> /home/dnanexus/out/log_files/svtyped_lumpy.stderr.log
     fi
 
     # Manta
@@ -512,17 +518,13 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         fi
     fi
 
-    # Prepare inputs for SURVIVOR
+    # Prepare inputs for SURVIVOR and for upload
     echo "Preparing inputs for SURVIVOR"
     for item in *svtyped.vcf; do
+        cp "$item" /home/dnanexus/out/svtyped_vcfs/$item
         python /adjust_svtyper_genotypes.py "$item" > adjusted.vcf
         mv adjusted.vcf "${item}"
         echo "${item}" >> survivor_inputs
-    done
-
-    # Prepare SVtyped VCFs for upload
-    for item in *svtyped.vcf; do
-        cp "$item" /home/dnanexus/out/svtyped_vcfs/$item
     done
 
     # Run SURVIVOR

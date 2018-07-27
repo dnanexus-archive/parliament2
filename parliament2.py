@@ -17,7 +17,6 @@ def parse_arguments():
     args.add_argument('--bai', required=False, help="(Optional) The name of the corresponding index for the Illumina BAM file.")
     args.add_argument('-r', '--ref_genome', required=True, help="The name of the reference file that matches the reference used to map the Illumina inputs.")
     args.add_argument('--prefix', required=False, help="(Optional) If provided, all output files will start with this. If absent, the base of the BAM file name will be used.")
-    args.add_argument('--rerun_chromosomes', action="store_true", help="If the chromosomes in the output VCF file doesn't match those in the BAM header, re-run the SV caller on the missing chromosomes? If your BAM file is not intentionally truncated, use this flag.")
     args.add_argument('--filter_short_contigs', action="store_true", help="If selected, SV calls will not be generated on contigs shorter than 1 MB.")
     args.add_argument('--breakdancer', action="store_true", help="If selected, the program Breakdancer will be one of the SV callers run.")
     args.add_argument('--breakseq', action="store_true", help="If selected, the program BreakSeq2 will be one of the SV callers run.")
@@ -31,6 +30,7 @@ def parse_arguments():
     args.add_argument('--genotype', action="store_true", help="If selected, candidate events determined from the individual callers will be genotyped and merged to create a consensus output.")
     args.add_argument('--svviz', action="store_true", help="If selected, visualizations of genotyped SV events will be produced with SVVIZ, one screenshot of support per event. For this option to take effect, Genotype must be selected.")
     args.add_argument('--svviz_only_validated_candidates', action="store_true", help="Run SVVIZ only on validated candidates? For this option to be relevant, SVVIZ must be selected. NOT selecting this will make the SVVIZ component run longer.")
+    args.add_argument('--rerun_chromosomes', action="store_true", help="If the chromosomes in the output VCF file doesn't match those in the BAM header, re-run the SV caller on the missing chromosomes? If your BAM file is not intentionally truncated, use this flag.")
     args.add_argument('--dnanexus', action="store_true", help=argparse.SUPPRESS)
 
     return args.parse_args()
@@ -44,10 +44,10 @@ def gunzip_input(input_file):
         return input_file
 
 
-def run_parliament(bam, bai, ref_genome, prefix, rerun_chromosomes, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates):
+def run_parliament(bam, bai, ref_genome, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates, rerun_chromosomes):
 
     if bai is not None:    
-        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(rerun_chromosomes), str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
+        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates), str(rerun_chromosomes)])
     else:
         subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, prefix, str(rerun_chromosomes), str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
 
@@ -69,7 +69,7 @@ def main():
     gunzip_input(args.ref_genome)
     ref_genome_name = args.ref_genome.replace('.gz', '')
 
-    run_parliament(args.bam, args.bai, ref_genome_name, prefix, args.rerun_chromosomes, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.svviz, args.svviz_only_validated_candidates)
+    run_parliament(args.bam, args.bai, ref_genome_name, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.svviz, args.svviz_only_validated_candidates, args.rerun_chromosomes)
 
 
 if __name__ == '__main__':
