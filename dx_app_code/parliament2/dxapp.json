@@ -169,6 +169,14 @@
       "class": "boolean",
       "default": true,
       "group": "Advanced"
+    },
+    {
+      "name": "output_log_files",
+      "label": "Output Log Files",
+      "help": "If BreakSeq, Manta, or SVTyper with Breakdancer, Delly, Lumpy, or Manta have been chosen to run, this will upload the resultant log files to the project.",
+      "class": "boolean",
+      "default": true,
+      "group": "Advanced"
     }
   ],
   "outputSpec": [
@@ -200,6 +208,14 @@
       "help": "(Optional) Visualizations generated with SVVIZ on validated SV calls.",
       "class": "file",
       "patterns": ["*.tar.gz"],
+      "optional": true
+    },
+    {
+      "name": "log_files",
+      "label": "Log files",
+      "help": "(Optional) Output log files from BreakSeq, Manta, and svtyper-sso.",
+      "class": "array:file",
+      "patterns": ["*.log"],
       "optional": true
     }
   ],
