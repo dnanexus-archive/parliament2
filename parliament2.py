@@ -1,14 +1,8 @@
 #!/usr/bin/env python
 
-import sys
 import argparse
 import subprocess
-from subprocess import PIPE
-import itertools
 import gzip
-import tempfile
-import shutil
-import os
 
 
 def parse_arguments():
@@ -65,8 +59,7 @@ def main():
         args.bai = "/home/dnanexus/in/{0}".format(args.bai)
         args.ref_genome = "/home/dnanexus/in/{0}".format(args.ref_genome)
 
-    gunzip_input(args.ref_genome)
-    ref_genome_name = args.ref_genome.replace('.gz', '')
+    ref_genome_name = gunzip_input(args.ref_genome)
 
     run_parliament(args.bam, args.bai, ref_genome_name, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.svviz, args.svviz_only_validated_candidates)
 
