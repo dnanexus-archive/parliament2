@@ -391,8 +391,8 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     survivor merge survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
-    cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "$prefix" | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
+    cat survivor.output.vcf | vcf-sort > survivor_sorted.vcf
+    python /combine_combined.py survivor_sorted.vcf "$prefix" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
 
     wait
 
