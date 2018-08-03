@@ -38,9 +38,7 @@ def main(**job_inputs):
         dxpy.download_dxfile(input_bai, bai_name)
 
         docker_call.extend(['--bai', bai_name])
-
-    if job_inputs['rerun_chromosomes']:
-        docker_call.append('--rerun_chromosomes')
+        
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
     if job_inputs['run_breakdancer']:

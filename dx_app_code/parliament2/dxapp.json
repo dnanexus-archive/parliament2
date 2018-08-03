@@ -163,14 +163,6 @@
       "group": "Genotyping and Visualization"
     },
     {
-      "name": "rerun_chromosomes",
-      "label": "Re-Run on Missing Chromosomes",
-      "help": "If the chromosomes in the output VCF file doesn't match those in the BAM header, re-run the SV caller on the missing chromosomes? Default is True. Mark False if your BAM file is intentionally truncated.",
-      "class": "boolean",
-      "default": true,
-      "group": "Advanced"
-    },
-    {
       "name": "output_log_files",
       "label": "Output Log Files",
       "help": "If BreakSeq, Manta, or SVTyper with Breakdancer, Delly, Lumpy, or Manta have been chosen to run, this will upload the resultant log files to the project.",
