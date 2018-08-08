@@ -13,7 +13,6 @@ for line in sys.stdin:
             continue
         else:
             position = int(tab_split[1])
-            print tab_split
             end = int(line.split("END=")[-1].split(";")[0].split("\t")[0].split(",")[0])
             chr2 = line.split("CHR2=")[-1].split(";")[0].split("\t")[0]
             chr1 = line.split("\t")[0].split("chr")[-1]
@@ -30,6 +29,5 @@ for line in sys.stdin:
                 sys.stdout.write("\t".join(tab_split))
                 sys.stdout.write('\n')
             else:
-                continue
                 sys.stdout.write(line.strip())
                 sys.stdout.write('\n')

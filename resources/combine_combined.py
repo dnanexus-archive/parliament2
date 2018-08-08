@@ -108,8 +108,6 @@ def main():
 
                 callers = support.lstrip(",").split(",")
                 callers.sort()
-                print callers
-                print deletion_quality_mappings[size_range].get(",".join(callers))
                 if deletion_quality_mappings[size_range].get(",".join(callers)) != None:
                     tab_split[5] = str(deletion_quality_mappings[size_range].get(",".join(callers)))
                     
