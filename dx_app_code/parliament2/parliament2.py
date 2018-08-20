@@ -30,7 +30,7 @@ def main(**job_inputs):
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
 
-    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/','parliament2:0.1.7', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
         input_bai = dxpy.open_dxfile(job_inputs['illumina_bai'])
@@ -38,7 +38,7 @@ def main(**job_inputs):
         dxpy.download_dxfile(input_bai, bai_name)
 
         docker_call.extend(['--bai', bai_name])
-
+        
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
     if job_inputs['run_breakdancer']:
@@ -81,13 +81,12 @@ def main(**job_inputs):
 
     subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/svtyped_vcfs/'])
 
-    # if job_inputs['output_log_files']:
-    #     if job_inputs['run_breakseq'] or job_inputs['run_manta']:
-    #         log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
-    #         log_file_upload = []
-    #         for name in log_file_names:
-    #             log_file_upload.append(dxpy.dxlink(dxpy.upload_local_file(name)))
-    #         output['log_files'] = log_file_upload
+    if job_inputs['output_log_files'] and os.listdir('/home/dnanexus/out/log_files/'):
+        log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
+        log_file_upload = []
+        for name in log_file_names:
+            log_file_upload.append(dxpy.dxlink(dxpy.upload_local_file(name)))
+        output['log_files'] = log_file_upload
 
     if job_inputs['run_genotype_candidates']:
         svtyped_vcf_names = glob.glob('/home/dnanexus/out/svtyped_vcfs/*')

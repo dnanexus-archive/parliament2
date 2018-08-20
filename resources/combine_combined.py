@@ -6,37 +6,51 @@ def main():
     written_additional_header = False
 
     sample = sys.argv[2]
+    for line in open(sys.argv[3], 'r'):
+        if "cnvnator" in line:
+            headers.append("CNVNATOR")
+        elif "breakdancer" in line:
+            headers.append("BREAKDANCER")
+        elif "breakseq" in line:
+            headers.append("BREAKSEQ")
+        elif "manta" in line:
+            headers.append("MANTA")
+        elif "lumpy" in line:
+            headers.append("LUMPY")
+        elif "delly" in line:
+            headers.append("DELLY")
+        else:
+            headers.append(line.strip())
+            
+    deletion_quality_mappings = { "lt300": {}, "300to1000": {}, "1kbplus": {}, "all": {}}
+
+    for line in open(sys.argv[4]):
+        size_split = line.split("_")
+        size_class = size_split[0]
+        entry_split = size_split[1].strip().split("=")
+        caller_technologies = entry_split[0].split("&")
+        caller_technologies.sort()
+        if int(entry_split[1]) == 0: 
+            deletion_quality_mappings[size_class][",".join(caller_technologies)] = "1"
+        else:
+            deletion_quality_mappings[size_class]["-".join(caller_technologies)] = int(entry_split[1])
 
     for line in open(sys.argv[1], 'r'):
         if line.startswith("##"):
             if "FORMAT" in line and not written_additional_header:
                 print "##INFO=<ID=CALLERS,Number=.,Type=String,Description=\"Callers that support an ALT call at this position\">"
-                sys.stdout.write(line)
+                print line
                 written_additional_header = True
-                print "##FORMAT=<ID=SP,Number=.,Type=String,Description=\"Callers that support an ALT call at this position\">"
             else:
-                sys.stdout.write(line)
+                print line
         elif line[0] == "#" and line[1] != "#":
             tab_split = line.strip().split("\t")
-            for x in tab_split[9:]:
-                if "cnvnator" in x:
-                    headers.append("CNVNATOR")
-                if "breakdancer" in x:
-                    headers.append("BREAKDANCER")
-                if "breakseq" in x:
-                    headers.append("BREAKSEQ")
-                if "manta" in x:
-                    headers.append("MANTA")
-                if "lumpy" in x:
-                    headers.append("LUMPY")
-                if "delly" in x:
-                    headers.append("DELLY")
             print "\t".join(tab_split[:9]) + "\t%s" % sample
         else:
             tab_split = line.strip().split("\t")
 
             position = int(tab_split[1])
-            end = tab_split[7].split("END=")[-1].split(";")[0].split("\t")[0]
+            end = tab_split[7].replace("CIEND","XXXXX").split("END=")[-1].split(";")[0].split("\t")[0]
             end_position = int(end)
             if end_position < position:
                 new_end = str(position)
@@ -78,6 +92,24 @@ def main():
             
             tab_split[9] += support.lstrip(",")
 
+            if "SVTYPE=DEL" in line:
+                try:
+                    size = end_position - position
+                    if size < 300:
+                        size_range = "lt300"
+                    elif size < 1000:
+                        size_range = "300to1000"
+                    else:
+                        size_range = "1kbplus"
+                except:
+                    size_range = "all"
+
+
+                callers = support.lstrip(",").split(",")
+                callers.sort()
+                if deletion_quality_mappings[size_range].get(",".join(callers)) != None:
+                    tab_split[5] = str(deletion_quality_mappings[size_range].get(",".join(callers)))
+                    
             print "\t".join(tab_split[:10])
         
 main()

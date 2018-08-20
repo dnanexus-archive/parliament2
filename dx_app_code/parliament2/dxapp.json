@@ -161,6 +161,14 @@
       "class": "boolean",
       "default": true,
       "group": "Genotyping and Visualization"
+    },
+    {
+      "name": "output_log_files",
+      "label": "Output Log Files",
+      "help": "If BreakSeq, Manta, or SVTyper with Breakdancer, Delly, Lumpy, or Manta have been chosen to run, this will upload the resultant log files to the project.",
+      "class": "boolean",
+      "default": true,
+      "group": "Advanced"
     }
   ],
   "outputSpec": [
@@ -193,6 +201,14 @@
       "class": "file",
       "patterns": ["*.tar.gz"],
       "optional": true
+    },
+    {
+      "name": "log_files",
+      "label": "Log files",
+      "help": "(Optional) Output log files from BreakSeq, Manta, and svtyper-sso.",
+      "class": "array:file",
+      "patterns": ["*.log"],
+      "optional": true
     }
   ],
   "runSpec": {
@@ -220,16 +236,16 @@
       "doi:10.1186/s12864-015-1479-3"
     ],
     "upstreamAuthor": "Baylor College of Medicine",
-    "whatsNew": "* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
+    "whatsNew": "* 0.1.8: Add upload of log files, update SURVIVOR version.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
   },
   "regionalOptions": {
     "aws:us-east-1": {
       "assetDepends": [
         {
-          "project": "project-FBbQqQj026K9PF53332ZFBB9",
+          "project": "project-FBbG4280Qg43bZJ1Jyyk8F8v",
           "folder": "/",
-          "version": "0.0.1",
-          "name": "parliament2:0.1.7"
+          "name": "parliament2",
+          "version": "0.0.1"
         }
       ],
       "systemRequirements": {

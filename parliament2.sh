@@ -212,7 +212,6 @@ fi) &
 (if [[ "$run_manta" == "True" ]]; then
     echo "Convert Manta results to VCF format"
     cp manta/results/variants/diploidSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.diploidSV.vcf.gz
-    # cp manta/results/variants/candidateSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.candidateSV.vcf.gz
     cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"$prefix".manta.alignmentStatsSummary.txt
 
     mv manta/results/variants/diploidSV.vcf.gz .
@@ -301,13 +300,6 @@ if [[ -z $(find . -name "*.vcf") ]]; then
 fi
 set +e
 
-# See which chromosomes are in the BAM file
-samtools idxstats input.bam | cut -f 1 | head -3
-
-# Check that all VCF files have all chromosomes
-    # for item in *svtyped.vcf; do
-
-
 # Run SVtyper and SVviz
 if [[ "$run_genotype_candidates" == "True" ]]; then
     echo "Running SVTyper"
@@ -325,17 +317,17 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
         mkdir /home/dnanexus/svtype_breakdancer
         bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
     fi
 
     # Breakseq
     if [[ "$run_breakseq" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
-        mkdir /home/dnanexus/svtype_breakseq
-        bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-
+        # BreakSeq may not generate anything if not on an hs37d5 genome
+        # Don't continue if BreakSeq hasn't worked
         if [[ -f breakseq.vcf ]]; then
+            mkdir /home/dnanexus/svtype_breakseq
+            bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
+
             echo breakseq.vcf >> survivor_inputs
         fi
     fi
@@ -345,7 +337,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
         mkdir /home/dnanexus/svtype_cnvnator
         cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
         bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
     fi
 
@@ -355,7 +346,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         for item in delly*vcf; do
             mkdir /home/dnanexus/svtype_delly_"$i"
             bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
-            # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
             i=$((i + 1))
         done
 
@@ -371,16 +361,12 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
         mkdir /home/dnanexus/svtype_lumpy
         bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
     fi
 
     # Manta
     if [[ "$run_manta" == "True" ]]; then
-        # echo "Running SVTyper on Manta outputs"
-        # zcat manta/results/variants/candidateSV.vcf.gz | python /add_ciend.py 100 > /home/dnanexus/manta.input.vcf
-        # mkdir /home/dnanexus/svtype_manta
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/manta.input.vcf svtype_manta /home/dnanexus/"${prefix}".manta.svtyped.vcf input.bam
-
+        # Manta has native genotyping; upload the genotyped file instead of
+        # SVTyping it
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
             echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs
@@ -402,11 +388,11 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Run SURVIVOR
     echo "Running SURVIVOR"
-    survivor 5 survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
+    survivor merge survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
-    cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "$prefix" | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
+    cat survivor.output.vcf | vcf-sort > survivor_sorted.vcf
+    python /combine_combined.py survivor_sorted.vcf "$prefix" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
 
     wait
 
