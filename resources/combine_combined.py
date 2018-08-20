@@ -64,7 +64,6 @@ def main():
             ref = 0
             if "chr" not in tab_split[0]:
                 tab_split[0] = "chr" + tab_split[0]
-            # print tab_split
             for i in range(len(tab_split[9:])):
                 if "0/1" in tab_split[9+i] or "1/1" in tab_split[9+i] or "./1" in tab_split[9+i]:
                     if "0/1" in tab_split[9+i] or "./1" in tab_split[9+i]:

@@ -18,8 +18,6 @@ for line in sys.stdin:
             chr1 = line.split("\t")[0].split("chr")[-1]
             
             if end < position and chr1 == chr2:
-                print position
-                print end
                 tab_split[1] = str(end)
                 info_fields = tab_split[7].split(";")
                 for i in range(len(info_fields)):
