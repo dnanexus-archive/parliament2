@@ -22,6 +22,18 @@ cp "${ref_fasta}" ref.fa
 echo "Classify FASTA"
 echo "$prefix"
 
+if [[ $run_breakdancer != "True" ]] && [[ $run_breakseq != "True" ]] && [[ $run_manta != "True" ]] && [[ $run_cnvnator != "True" ]] && [[ $run_lumpy != "True" ]] && [[ $run_delly_deletion != "True" ]] && [[ $run_delly_insertion != "True" ]] && [[ $run_delly_inversion != "True" ]] && [[ $run_delly_duplication != "True" ]]; then
+    echo "Did not detect any SV modules requested by the user through command-lin flags."
+    echo "Running with default modules: Breakdancer, Breakseq, Manta, CNVnator, Lumpy, and Delly Deletion"
+    run_breakdancer="True"
+    run_breakseq="True"
+    run_manta="True"
+    run_cnvnator="True"
+    run_lumpy="True"
+    run_delly_deletion="True"
+fi
+
+
 samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
 lumpy_exclude_string=""
