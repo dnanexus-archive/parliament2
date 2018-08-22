@@ -17,14 +17,20 @@ run_svviz=${16}
 svviz_only_validated_candidates=${17}
 dnanexus=${18}
 
+if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
+    if [[ "$dnanexus" == "True" ]]; then
+        dx-jobutil-report-error "ERROR: An invalid (nonexistent) input file has been specified."
+    else
+        echo "ERROR: An invalid (nonexistent) input file has been specified."
+        exit 1
+    fi
+fi
+
 cp "${ref_fasta}" ref.fa
 
-echo "Classify FASTA"
-echo "$prefix"
-
-if [[ $run_breakdancer != "True" ]] && [[ $run_breakseq != "True" ]] && [[ $run_manta != "True" ]] && [[ $run_cnvnator != "True" ]] && [[ $run_lumpy != "True" ]] && [[ $run_delly_deletion != "True" ]] && [[ $run_delly_insertion != "True" ]] && [[ $run_delly_inversion != "True" ]] && [[ $run_delly_duplication != "True" ]]; then
-    echo "Did not detect any SV modules requested by the user through command-lin flags."
-    echo "Running with default modules: Breakdancer, Breakseq, Manta, CNVnator, Lumpy, and Delly Deletion"
+if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "$run_manta" != "True" ]] && [[ "$run_cnvnator" != "True" ]] && [[ "$run_lumpy" != "True" ]] && [[ "$run_delly_deletion" != "True" ]] && [[ "$run_delly_insertion" != "True" ]] && [[ "$run_delly_inversion" != "True" ]] && [[ "$run_delly_duplication" != "True" ]]; then
+    echo "WARNING: Did not detect any SV modules requested by the user through command-line flags."
+    echo "Running with default SV modules: Breakdancer, Breakseq, Manta, CNVnator, Lumpy, and Delly Deletion"
     run_breakdancer="True"
     run_breakseq="True"
     run_manta="True"
@@ -32,7 +38,6 @@ if [[ $run_breakdancer != "True" ]] && [[ $run_breakseq != "True" ]] && [[ $run_
     run_lumpy="True"
     run_delly_deletion="True"
 fi
-
 
 samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
