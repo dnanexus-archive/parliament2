@@ -148,16 +148,16 @@
     },
     {
       "name": "run_svviz",
-      "label": "Run SVVIZ?",
-      "help": "If selected, visualizations of genotyped SV events will be produced with SVVIZ, one screenshot of support per event. For this option to take effect, Genotype Candidates must be set to True.",
+      "label": "Run svviz?",
+      "help": "If selected, visualizations of genotyped SV events will be produced with svviz, one screenshot of support per event. For this option to take effect, Genotype Candidates must be set to True.",
       "class": "boolean",
       "default": false,
       "group": "Genotyping and Visualization"
     },
     {
       "name": "svviz_only_validated_candidates",
-      "label": "Restrict SVVIZ to Validated Candidates",
-      "help": "Run SVVIZ only on validated candidates? For this option to be relevant, Run SVVIZ must be set to True. Setting to False will make the SVVIZ component run longer.",
+      "label": "Restrict svviz to Validated Candidates",
+      "help": "Run svviz only on validated candidates? For this option to be relevant, Run svviz must be set to True. Setting to False will make the svviz component run longer.",
       "class": "boolean",
       "default": true,
       "group": "Genotyping and Visualization"
@@ -196,8 +196,8 @@
     },
     {
       "name": "svviz_outputs",
-      "label": "SVVIZ Visualizations",
-      "help": "(Optional) Visualizations generated with SVVIZ on validated SV calls.",
+      "label": "svviz Visualizations",
+      "help": "(Optional) Visualizations generated with svviz on validated SV calls.",
       "class": "file",
       "patterns": ["*.tar.gz"],
       "optional": true
@@ -205,7 +205,7 @@
     {
       "name": "log_files",
       "label": "Log files",
-      "help": "(Optional) Output log files from BreakSeq, Manta, and svtyper-sso.",
+      "help": "(Optional) Output log files from BreakSeq and Manta.",
       "class": "array:file",
       "patterns": ["*.log"],
       "optional": true

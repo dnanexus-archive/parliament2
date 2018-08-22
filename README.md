@@ -103,14 +103,20 @@ To modify Parliament2 and run it on DNAnexus, please see the developer README in
 
 ## More Information
 
-### Structural variant caller versions
+### Tool versions
 
+#### Structural variant callers
 * Breakdancer: [v1.4.3](https://github.com/genome/breakdancer/releases/tag/v1.4.3)
 * BreakSeq2: [v2.2](http://bioinform.github.io/breakseq2/)
 * CNVnator: [v0.3.3](https://github.com/abyzovlab/CNVnator/commit/de012f2bccfd4e11e84cf685b19fc138115f2d0d)
 * Delly: [v0.7.2](https://github.com/dellytools/delly/releases/tag/v0.7.2)
 * Lumpy: [v0.2.13](https://github.com/arq5x/lumpy-sv/commit/f466f61e02680796192b055e4c084fbb23dcc692)
 * Manta: [v1.4.0](https://anaconda.org/bioconda/manta)
+
+#### Other tools
+* SVTyper: [v0.6.1](https://github.com/hall-lab/svtyper/commit/19aa65fa22800692ddde50cacfee00bbd6394099)
+* svviz: [v1.5.2](https://github.com/svviz/svviz/commit/84acefa13bf0d4ad6e7e0f1d058aed6f16681142)
+* SURVIVOR: [v1.0.3](https://github.com/fritzsedlazeck/SURVIVOR/commit/7c7731d71fa1cba017f470895fb3ef55f2812067)
 
 ### Additional notes
 
@@ -179,12 +185,12 @@ optional arguments:
                         individual callers will be genotyped and merged to
                         create a consensus output.
   --svviz               If selected, visualizations of genotyped SV events
-                        will be produced with SVVIZ, one screenshot of support
+                        will be produced with svviz, one screenshot of support
                         per event. For this option to take effect, Genotype
                         must be selected.
   --svviz_only_validated_candidates
-                        Run SVVIZ only on validated candidates? For this
-                        option to be relevant, SVVIZ must be selected. NOT
-                        selecting this will make the SVVIZ component run
+                        Run svviz only on validated candidates? For this
+                        option to be relevant, svviz must be selected. NOT
+                        selecting this will make the svviz component run
                         longer.
 ```
