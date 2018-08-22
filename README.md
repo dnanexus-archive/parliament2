@@ -16,7 +16,7 @@ You must have [Docker](https://www.docker.com/) installed in order to run Parlia
 
 ### Installing
 
-Download the files by running `git clone https://github.com/dnanexus/parliament2.git`. You will have to run `tar -czvf resources.tar.gz resources/` in the directory `parliament2` in order to build the Docker image.
+You can find the most up-to-date version of Parliament2 on our [release page](https://github.com/dnanexus/parliament2/releases). You will have to run `tar -czvf resources.tar.gz resources/` in the directory containing the Parliament2 files in order to build the Docker image.
 
 Then, run `docker build . -t parliament2` from within the `parliament2` directory created by GitHub. There should now be a Docker image named `parliament2` on your computer.
 
@@ -103,7 +103,16 @@ To modify Parliament2 and run it on DNAnexus, please see the developer README in
 
 ## More Information
 
-### Additional Notes
+### Structural variant caller versions
+
+* Breakdancer: [v1.4.3](https://github.com/genome/breakdancer/releases/tag/v1.4.3)
+* BreakSeq2: [v2.2](http://bioinform.github.io/breakseq2/)
+* CNVnator: [v0.3.3](https://github.com/abyzovlab/CNVnator/commit/de012f2bccfd4e11e84cf685b19fc138115f2d0d)
+* Delly: [v0.7.2](https://github.com/dellytools/delly/releases/tag/v0.7.2)
+* Lumpy: [v0.2.13](https://github.com/arq5x/lumpy-sv/commit/f466f61e02680796192b055e4c084fbb23dcc692)
+* Manta: [v1.4.0](https://anaconda.org/bioconda/manta)
+
+### Additional notes
 
 Because the field of structural variation is relatively new and complex, we viewed placing a dependency on all individual tools completing successfully as a requirement for a successful run to be too strict. In other words, if one of these tools fails while the others succeed, the app will output the results of the tools that completed and will not itself fail.
 
