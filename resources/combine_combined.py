@@ -39,10 +39,9 @@ def main():
         if line.startswith("##"):
             if "FORMAT" in line and not written_additional_header:
                 print "##INFO=<ID=CALLERS,Number=.,Type=String,Description=\"Callers that support an ALT call at this position\">"
-                sys.stdout.write(line)
                 written_additional_header = True
-            else:
-                sys.stdout.write(line)
+
+            print line
         elif line[0] == "#" and line[1] != "#":
             tab_split = line.strip().split("\t")
             print "\t".join(tab_split[:9]) + "\t%s" % sample
@@ -64,7 +63,6 @@ def main():
             ref = 0
             if "chr" not in tab_split[0]:
                 tab_split[0] = "chr" + tab_split[0]
-            # print tab_split
             for i in range(len(tab_split[9:])):
                 if "0/1" in tab_split[9+i] or "1/1" in tab_split[9+i] or "./1" in tab_split[9+i]:
                     if "0/1" in tab_split[9+i] or "./1" in tab_split[9+i]:
