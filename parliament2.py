@@ -22,6 +22,8 @@ def parse_arguments():
     args.add_argument('--delly_inversion', action="store_true", help="If selected, the inversion module of the program Delly2 will be one of the SV callers run.")
     args.add_argument('--delly_duplication', action="store_true", help="If selected, the duplication module of the program Delly2 will be one of the SV callers run.")
     args.add_argument('--genotype', action="store_true", help="If selected, candidate events determined from the individual callers will be genotyped and merged to create a consensus output.")
+    args.add_argument('--atlas', action="store_true", help="If selected, xAtlas will be run as a SNP and Indel caller.")
+    args.add_argument('--stats', action="store_true", help="If selected, samtools flagstat will be run to gather statistics on the input BAM file.")
     args.add_argument('--svviz', action="store_true", help="If selected, visualizations of genotyped SV events will be produced with SVVIZ, one screenshot of support per event. For this option to take effect, Genotype must be selected.")
     args.add_argument('--svviz_only_validated_candidates', action="store_true", help="Run SVVIZ only on validated candidates? For this option to be relevant, SVVIZ must be selected. NOT selecting this will make the SVVIZ component run longer.")
     args.add_argument('--dnanexus', action="store_true", help=argparse.SUPPRESS)
@@ -37,12 +39,12 @@ def gunzip_input(input_file):
         return input_file
 
 
-def run_parliament(bam, bai, ref_genome, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates):
+def run_parliament(bam, bai, ref_genome, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, atlas, stats, svviz, svviz_only_validated_candidates):
 
     if bai is not None:    
-        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
+        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
     else:
-        subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
+        subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
 
 
 def main():
@@ -61,7 +63,7 @@ def main():
 
     ref_genome_name = gunzip_input(args.ref_genome)
 
-    run_parliament(args.bam, args.bai, ref_genome_name, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.svviz, args.svviz_only_validated_candidates)
+    run_parliament(args.bam, args.bai, ref_genome_name, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.atlas, args.stats, args.svviz, args.svviz_only_validated_candidates)
 
 
 if __name__ == '__main__':

@@ -29,8 +29,7 @@ def main(**job_inputs):
     ref_genome = dxpy.open_dxfile(job_inputs['ref_fasta'])
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
-
-    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2:0.1.8', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_ccdg', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
         input_bai = dxpy.open_dxfile(job_inputs['illumina_bai'])
@@ -61,6 +60,10 @@ def main(**job_inputs):
         docker_call.append('--delly_duplication')
     if job_inputs['run_genotype_candidates']:
         docker_call.append('--genotype')
+    if job_inputs['run_atlas']:
+        docker_call.append('--atlas')
+    if job_inputs['run_stats']:
+        docker_call.append('--stats')
     if job_inputs['run_svviz']:
         docker_call.append('--svviz')
     if job_inputs['svviz_only_validated_candidates']:
@@ -78,6 +81,20 @@ def main(**job_inputs):
     output = {
         'sv_caller_results' : sv_caller_results_upload
     }
+
+    if job_inputs['run_atlas']:
+        atlas_file_names = glob.glob('/home/dnanexus/out/atlas/*')
+        atlas_file_names = []
+        for name in atlas_file_names:
+            atlas_file_names.append(dxpy.dxlink(dxpy.upload_local_file(name)))
+        output['align_stats_output'] = atlas_file_names
+
+    if job_inputs['run_stats']:
+        stats_file_names = glob.glob('/home/dnanexus/out/stats/*')
+        stats_file_uploads = []
+        for name in stats_file_names:
+            stats_file_uploads.append(dxpy.dxlink(dxpy.upload_local_file(name)))
+        output['align_stats_output'] = stats_file_uploads
 
     subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/svtyped_vcfs/'])
 

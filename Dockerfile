@@ -68,6 +68,7 @@ RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
 RUN conda install -c faircloth-lab samtools
 RUN conda install -c bioconda sambamba -y
+RUN conda install -c bioconda bcftools -y
 RUN conda install -c bcbio bx-python -y
 RUN conda install -c anaconda networkx -y
 RUN conda install -c bioconda samblaster -y

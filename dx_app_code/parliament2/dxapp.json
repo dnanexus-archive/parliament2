@@ -147,6 +147,20 @@
       "group": "Genotyping and Visualization"
     },
     {
+      "name": "run_atlas",
+      "label": "Run xAtlas?",
+      "help": "If selected, xAtlas will be run as a SNP and Indel caller.",
+      "class": "boolean",
+      "default": true
+    },
+    {
+      "name": "run_stats",
+      "label": "Run Stats??",
+      "help": "If selected, samtools flagstat will be run to gather statistics on the input BAM file.",
+      "class": "boolean",
+      "default": true
+    },
+    {
       "name": "run_svviz",
       "label": "Run svviz?",
       "help": "If selected, visualizations of genotyped SV events will be produced with svviz, one screenshot of support per event. For this option to take effect, Genotype Candidates must be set to True.",
@@ -203,6 +217,20 @@
       "optional": true
     },
     {
+      "name": "atlas_output",
+      "label": "Atlas Output Files",
+      "help": "Output from xAtlas.",
+      "class": "array:file",
+      "optional": true
+    },
+    {
+      "name": "align_stats_output",
+      "label": "Align stats file",
+      "help": "Output from samtools flagstat.",
+      "class": "array:file",
+      "optional": true
+    },
+    {
       "name": "log_files",
       "label": "Log files",
       "help": "(Optional) Output log files from BreakSeq and Manta.",
@@ -244,7 +272,7 @@
         {
           "project": "project-FBbQqQj026K9PF53332ZFBB9",
           "folder": "/",
-          "name": "parliament2:0.1.8",
+          "name": "parliament2_ccdg",
           "version": "0.0.1"
         }
       ],
