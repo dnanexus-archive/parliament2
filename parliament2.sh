@@ -13,9 +13,11 @@ run_delly_insertion=${12}
 run_delly_inversion=${13}
 run_delly_duplication=${14}
 run_genotype_candidates=${15}
-run_svviz=${16}
-svviz_only_validated_candidates=${17}
-dnanexus=${18}
+run_atlas=${16}
+run_stats=${17}
+run_svviz=${18}
+svviz_only_validated_candidates=${19}
+dnanexus=${20}
 
 # Files to include:
 # - GATK jar file
@@ -33,11 +35,8 @@ dnanexus=${18}
 
 cp "${ref_fasta}" ref.fa
 
-echo "Classify FASTA"
-echo "$prefix"
-
-update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-java -jar GenomeAnalysisTK.jar -version || (update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && java -jar GenomeAnalysisTK.jar -version)
+# update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+# java -jar GenomeAnalysisTK.jar -version || (update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && java -jar GenomeAnalysisTK.jar -version)
 
 samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
@@ -56,15 +55,6 @@ lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
 extn=${illumina_bam##*.}
 threads="$(nproc)"
 threads=$((threads - 3))
-
-mv /new_versions/alignstats /usr/bin/alignstats # This is new
-mv /new_versions/verifyBamID /usr/bin/verifyBamID #This is new
-mv /new_versions/split_maf.py /split_maf.py # This might be new
-mv /new_versions/xatlas /xatlas # This is new
-mv /new_versions/run_atlas.sh run_atlas.sh # This is new
-mv /new_versions/run_realign_atlas.sh run_realign_atlas.sh # This is new
-mv /new_versions/bcftools /usr/bin/bcftools
-## New stuff over
 
 echo "Set up and index BAM/CRAM"
 
@@ -98,28 +88,33 @@ mkdir -p /home/dnanexus/out/log_files/
 # This is new
 # Frontloading xAtlas
 if [[ "$run_atlas" == "True" ]]; then
+    /xatlas -h
     /xatlas --ref ref.fa --in input.bam --prefix "${prefix}" -s "${prefix}" --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr &
 fi
 
 # This is new
-if [[ "$run_stats" == "True" ]]; then
-    python /split_maf.py $maf_name chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 > maf.0.vcf
-    python /split_maf.py $maf_name chr9 chr10 chr11 chr12 chr13 chr15 chr15 > maf.1.vcf
-    python /split_maf.py $maf_name chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY > maf.2.vcf
-    verifyBamID --vcf maf.0.vcf --bam input.bam --out ${prefix}.chr1-8 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
-    verifyBamID --vcf maf.1.vcf --bam input.bam --out ${prefix}.chr9-15 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.1.stout.log 2> /home/dnanexus/out/log_files/verify.1.stderr.log &
-    verifyBamID --vcf maf.2.vcf --bam input.bam --out ${prefix}.chr16-Y $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.2.stout.log 2> /home/dnanexus/out/log_files/verify.2.stderr.log &
-    #verifyBamID --vcf $maf_name --bam input.bam --out ${prefix} $vbid_opt $vbid_user_opts 1>verify.0.stout.log 2>verify.0.stderr.log &
-fi
+# if [[ "$run_stats" == "True" ]]; then
+#     python /split_maf.py $maf_name chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 > maf.0.vcf
+#     python /split_maf.py $maf_name chr9 chr10 chr11 chr12 chr13 chr15 chr15 > maf.1.vcf
+#     python /split_maf.py $maf_name chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY > maf.2.vcf
+#     verifyBamID --vcf maf.0.vcf --bam input.bam --out ${prefix}.chr1-8 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
+#     verifyBamID --vcf maf.1.vcf --bam input.bam --out ${prefix}.chr9-15 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.1.stout.log 2> /home/dnanexus/out/log_files/verify.1.stderr.log &
+#     verifyBamID --vcf maf.2.vcf --bam input.bam --out ${prefix}.chr16-Y $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.2.stout.log 2> /home/dnanexus/out/log_files/verify.2.stderr.log &
+#     #verifyBamID --vcf $maf_name --bam input.bam --out ${prefix} $vbid_opt $vbid_user_opts 1>verify.0.stout.log 2>verify.0.stderr.log &
+# fi
 
 # This is new
 as_opt="-r $regions_name -t $target_name -m $cov_name"
 vbid_opt="--ignoreRG"
 as_opt2=""
 
+
 # Execute Stats app
-alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt $as_opt $as_opt2 $as_user_opts 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
-samtools flagstat input.bam > /home/dnanexus/out/alignstats/"${prefix}".flagstats &
+if [[ "$run_stats" == "True" ]]; then
+    echo "Running alignstats"
+    alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt $as_opt $as_opt2 $as_user_opts 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
+    samtools flagstat input.bam > /home/dnanexus/out/"${prefix}".flagstats &
+fi
 # End new things
 
 if [[ "$run_breakseq" == "True" || "$run_manta" == "True" ]]; then
@@ -492,7 +487,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Prepare SURVIVOR outputs for upload
     cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "$prefix" | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
+    python /combine_combined.py survivor_sorted.vcf "$prefix" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
 
     # Run svviz
     if [[ "$run_svviz" == "True" ]]; then
