@@ -61,7 +61,6 @@ mv /new_versions/alignstats /usr/bin/alignstats # This is new
 mv /new_versions/verifyBamID /usr/bin/verifyBamID #This is new
 mv /new_versions/split_maf.py /split_maf.py # This might be new
 mv /new_versions/xatlas /xatlas # This is new
-mv /new_versions/filter_ref_blocks.py /filter_ref_blocks.py
 mv /new_versions/run_atlas.sh run_atlas.sh # This is new
 mv /new_versions/run_realign_atlas.sh run_realign_atlas.sh # This is new
 mv /new_versions/bcftools /usr/bin/bcftools
