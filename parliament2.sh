@@ -33,7 +33,27 @@ dnanexus=${20}
 # - Mills indels
 # - Mills TBI
 
+if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
+    if [[ "$dnanexus" == "True" ]]; then
+        dx-jobutil-report-error "ERROR: An invalid (nonexistent) input file has been specified."
+    else
+        echo "ERROR: An invalid (nonexistent) input file has been specified."
+        exit 1
+    fi
+fi
+
 cp "${ref_fasta}" ref.fa
+
+if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "$run_manta" != "True" ]] && [[ "$run_cnvnator" != "True" ]] && [[ "$run_lumpy" != "True" ]] && [[ "$run_delly_deletion" != "True" ]] && [[ "$run_delly_insertion" != "True" ]] && [[ "$run_delly_inversion" != "True" ]] && [[ "$run_delly_duplication" != "True" ]]; then
+    echo "WARNING: Did not detect any SV modules requested by the user through command-line flags."
+    echo "Running with default SV modules: Breakdancer, Breakseq, Manta, CNVnator, Lumpy, and Delly Deletion"
+    run_breakdancer="True"
+    run_breakseq="True"
+    run_manta="True"
+    run_cnvnator="True"
+    run_lumpy="True"
+    run_delly_deletion="True"
+fi
 
 # update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
 # java -jar GenomeAnalysisTK.jar -version || (update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && java -jar GenomeAnalysisTK.jar -version)

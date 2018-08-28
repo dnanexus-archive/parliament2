@@ -29,7 +29,6 @@ def main(**job_inputs):
     ref_genome = dxpy.open_dxfile(job_inputs['ref_fasta'])
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
-
     docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_ccdg', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:

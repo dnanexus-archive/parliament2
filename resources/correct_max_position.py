@@ -2,10 +2,10 @@ import sys
 
 for line in sys.stdin:
     if line.startswith('#'):
-        # sys.stdout.write(line)
+        sys.stdout.write(line)
         continue
     elif line.strip() == "None":
-        # sys.stdout.write('\n')
+        sys.stdout.write('\n')
         continue
     else:
         tab_split = line.strip().split("\t")
