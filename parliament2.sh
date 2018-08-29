@@ -44,8 +44,8 @@ fi
 
 cp "${ref_fasta}" ref.fa
 
-if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "$run_manta" != "True" ]] && [[ "$run_cnvnator" != "True" ]] && [[ "$run_lumpy" != "True" ]] && [[ "$run_delly_deletion" != "True" ]] && [[ "$run_delly_insertion" != "True" ]] && [[ "$run_delly_inversion" != "True" ]] && [[ "$run_delly_duplication" != "True" ]]; then
-    echo "WARNING: Did not detect any SV modules requested by the user through command-line flags."
+if [[ "$run_breakdancer" == "False" ]] && [[ "$run_breakseq" == "False" ]] && [[ "$run_manta" == "False" ]] && [[ "$run_cnvnator" == "False" ]] && [[ "$run_lumpy" == "False" ]] && [[ "$run_delly_deletion" == "False" ]] && [[ "$run_delly_insertion" == "False" ]] && [[ "$run_delly_inversion" == "False" ]] && [[ "$run_delly_duplication" == "False" ]] && [[ "$run_atlas" == "False" ]]; then
+    echo "WARNING: Did not detect any variant calling modules requested by the user through command-line flags."
     echo "Running with default SV modules: Breakdancer, Breakseq, Manta, CNVnator, Lumpy, and Delly Deletion"
     run_breakdancer="True"
     run_breakseq="True"
@@ -108,7 +108,6 @@ mkdir -p /home/dnanexus/out/log_files/
 # This is new
 # Frontloading xAtlas
 if [[ "$run_atlas" == "True" ]]; then
-    /xatlas -h
     /xatlas --ref ref.fa --in input.bam --prefix "${prefix}" -s "${prefix}" --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr &
 fi
 
@@ -124,17 +123,17 @@ fi
 # fi
 
 # This is new
-as_opt="-r $regions_name -t $target_name -m $cov_name"
-vbid_opt="--ignoreRG"
-as_opt2=""
+# as_opt="-r $regions_name -t $target_name -m $cov_name"
+# vbid_opt="--ignoreRG"
+# as_opt2=""
 
 
-# Execute Stats app
-if [[ "$run_stats" == "True" ]]; then
-    echo "Running alignstats"
-    alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt $as_opt $as_opt2 $as_user_opts 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
-    samtools flagstat input.bam > /home/dnanexus/out/"${prefix}".flagstats &
-fi
+# # Execute Stats app
+# if [[ "$run_stats" == "True" ]]; then
+#     echo "Running alignstats"
+#     alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt $as_opt $as_opt2 $as_user_opts 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
+#     samtools flagstat input.bam > /home/dnanexus/out/"${prefix}".flagstats &
+# fi
 # End new things
 
 if [[ "$run_breakseq" == "True" || "$run_manta" == "True" ]]; then
@@ -271,19 +270,20 @@ fi
 wait
 
 # This is new
-mkdir -p /home/dnanexus/out/stats
-if [[ "$run_stats" == "True" ]]; then
-    cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-    cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-    cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
+# mkdir -p /home/dnanexus/out/stats
+# if [[ "$run_stats" == "True" ]]; then
+#     ls -sh
+#     cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
+#     cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
+#     cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
 
-    cp "${prefix}".chr1-8.selfSM /home/dnanexus/out/stats/"${prefix}".chr1-8.selfSM
-    cp "${prefix}".chr1-8.depthSM /home/dnanexus/out/stats/"${prefix}".chr1-8.depthSM
-    cp "${prefix}".chr9-15.selfSM /home/dnanexus/out/stats/"${prefix}".chr9-15.selfSM
-    cp "${prefix}".chr9-15.depthSM /home/dnanexus/out/stats/"${prefix}".chr9-15.depthSM
-    cp "${prefix}".chr16-Y.selfSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.selfSM
-    cp "${prefix}".chr16-Y.depthSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.depthSM
-fi
+#     cp "${prefix}".chr1-8.selfSM /home/dnanexus/out/stats/"${prefix}".chr1-8.selfSM
+#     cp "${prefix}".chr1-8.depthSM /home/dnanexus/out/stats/"${prefix}".chr1-8.depthSM
+#     cp "${prefix}".chr9-15.selfSM /home/dnanexus/out/stats/"${prefix}".chr9-15.selfSM
+#     cp "${prefix}".chr9-15.depthSM /home/dnanexus/out/stats/"${prefix}".chr9-15.depthSM
+#     cp "${prefix}".chr16-Y.selfSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.selfSM
+#     cp "${prefix}".chr16-Y.depthSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.depthSM
+# fi
 
 # This is new
 mkdir -p /home/dnanexus/out/atlas
@@ -294,7 +294,9 @@ if [[ "$run_atlas" == "True" ]]; then
     tabix "${prefix}"_snp.vcf.gz
 
     cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
+    cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
     cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
+    cp "${prefix}"_indel.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz.tbi
 fi
 
 # Only install SVTyper if necessary

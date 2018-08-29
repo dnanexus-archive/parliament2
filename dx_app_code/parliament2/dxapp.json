@@ -270,7 +270,7 @@
     "aws:us-east-1": {
       "assetDepends": [
         {
-          "project": "project-FBbQqQj026K9PF53332ZFBB9",
+          "project": "project-FBbG4280Qg43bZJ1Jyyk8F8v",
           "folder": "/",
           "name": "parliament2_ccdg",
           "version": "0.0.1"

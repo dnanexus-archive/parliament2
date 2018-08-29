@@ -83,11 +83,12 @@ def main(**job_inputs):
     }
 
     if job_inputs['run_atlas']:
+        subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/atlas/'])
         atlas_file_names = glob.glob('/home/dnanexus/out/atlas/*')
-        atlas_file_names = []
+        atlas_file_uploads = []
         for name in atlas_file_names:
-            atlas_file_names.append(dxpy.dxlink(dxpy.upload_local_file(name)))
-        output['align_stats_output'] = atlas_file_names
+            atlas_file_uploads.append(dxpy.dxlink(dxpy.upload_local_file(name)))
+        output['atlas_output'] = atlas_file_uploads
 
     if job_inputs['run_stats']:
         stats_file_names = glob.glob('/home/dnanexus/out/stats/*')
@@ -95,8 +96,6 @@ def main(**job_inputs):
         for name in stats_file_names:
             stats_file_uploads.append(dxpy.dxlink(dxpy.upload_local_file(name)))
         output['align_stats_output'] = stats_file_uploads
-
-    subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/svtyped_vcfs/'])
 
     if job_inputs['output_log_files'] and os.listdir('/home/dnanexus/out/log_files/'):
         log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
