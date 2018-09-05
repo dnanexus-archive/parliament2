@@ -35,6 +35,18 @@ fi
 
 lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
 
+# If no callers have been selected by tag, run the default set and print a message out
+
+if [[ "$run_breakdancer" != "True" && "$run_breakseq" != "True" && "$run_manta" != "True" && "$run_cnvnator" != "True" &&  "$run_delly" != "True" && "$run_delly_deletion" != "True" && "$run_delly_insertion" != "True" && "$run_delly_inversion" != "True" && "$run_delly_duplication" != "True" ]]; then
+        echo "User did not provide list of callers to use. Applying default selection instead (Breakdancer, Breakseq, CNVnator, Lumpy, Manta, and Delly (Deletion Only)"
+        run_breakdancer="True"
+        run_breakseq="True"
+        run_manta="True"
+        run_cnvnator="True"
+        run_lumpy="True"
+        run_delly_deletion="True"
+fi
+
 # Get extension and threads
 extn=${illumina_bam##*.}
 threads="$(nproc)"
@@ -388,7 +400,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Run SURVIVOR
     echo "Running SURVIVOR"
-    survivor merge survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
+    survivor merge survivor_inputs 1000 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
     cat survivor.output.vcf | vcf-sort > survivor_sorted.vcf

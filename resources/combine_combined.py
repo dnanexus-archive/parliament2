@@ -22,7 +22,7 @@ def main():
         else:
             headers.append(line.strip())
             
-    deletion_quality_mappings = { "lt300": {}, "300to1000": {}, "1kbplus": {}, "all": {}}
+    quality_mappings = { "lt300": {}, "300to1000": {}, "1kbplus": {}, "all": {}, "ins": {} }
 
     for line in open(sys.argv[4]):
         size_split = line.split("_")
@@ -31,18 +31,20 @@ def main():
         caller_technologies = entry_split[0].split("&")
         caller_technologies.sort()
         if int(entry_split[1]) == 0: 
-            deletion_quality_mappings[size_class][",".join(caller_technologies)] = "1"
+            quality_mappings[size_class][",".join(caller_technologies)] = 0
         else:
-            deletion_quality_mappings[size_class]["-".join(caller_technologies)] = int(entry_split[1])
+            quality_mappings[size_class]["-".join(caller_technologies)] = int(entry_split[1])
 
     for line in open(sys.argv[1], 'r'):
         if line.startswith("##"):
             if "FORMAT" in line and not written_additional_header:
-                print "##INFO=<ID=CALLERS,Number=.,Type=String,Description=\"Callers that support an ALT call at this position\">"
-                print line
+                print "##INFO=<ID=SUPP,Number=.,Type=String,Description=\"Number of callers that support an ALT call. This count is based on the presence of a call, whether it could be confirmed by SVTyper. Due to differences in the breakpoints, this number may differ from the sum of all callers in the CALLERS field\">"
+                print "##INFO=<ID=CALLERS,Number=.,Type=String,Description=\"Callers that support an ALT call at this position. To be included, the caller must have been confirmed by separate genotyping with SVTyper\">"
+                print "##FILTER=<ID=LowQual,Description=\"Variant calls with this profile of supporting calls typically have a low overall precision\">"
+                sys.stdout.write(line)
                 written_additional_header = True
             else:
-                print line
+                sys.stdout.write(line)
         elif line[0] == "#" and line[1] != "#":
             tab_split = line.strip().split("\t")
             print "\t".join(tab_split[:9]) + "\t%s" % sample
@@ -64,6 +66,7 @@ def main():
             ref = 0
             if "chr" not in tab_split[0]:
                 tab_split[0] = "chr" + tab_split[0]
+            # print tab_split
             for i in range(len(tab_split[9:])):
                 if "0/1" in tab_split[9+i] or "1/1" in tab_split[9+i] or "./1" in tab_split[9+i]:
                     if "0/1" in tab_split[9+i] or "./1" in tab_split[9+i]:
@@ -103,12 +106,16 @@ def main():
                         size_range = "1kbplus"
                 except:
                     size_range = "all"
+            if "SVTYPE=INS" in line:
+                size_range="ins"
 
 
-                callers = support.lstrip(",").split(",")
-                callers.sort()
-                if deletion_quality_mappings[size_range].get(",".join(callers)) != None:
-                    tab_split[5] = str(deletion_quality_mappings[size_range].get(",".join(callers)))
+            callers = support.lstrip(",").split(",")
+            callers.sort()
+            if quality_mappings[size_range].get(",".join(callers)) != None:
+                if int(quality_mappings[size_range]) <= 3:
+                    tab_split[6] = "LowQual"
+                tab_split[5] = str(quality_mappings[size_range].get(",".join(callers)))
                     
             print "\t".join(tab_split[:10])
         
