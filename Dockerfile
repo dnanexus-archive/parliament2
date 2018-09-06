@@ -55,6 +55,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     libxft-dev \
     libxpm-dev \
     libxslt1-dev \
+    openjdk-8-jdk \
     python-pip \
     sqlite3 \
     wget \

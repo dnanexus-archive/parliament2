@@ -1,37 +1,24 @@
 illumina_bam=$1
 illumina_bai=$2
-ref_fasta=$3
-prefix=$4
-filter_short_contigs=$5
-run_breakdancer=$6
-run_breakseq=$7
-run_manta=$8
-run_cnvnator=$9
-run_lumpy=${10}
-run_delly_deletion=${11}
-run_delly_insertion=${12}
-run_delly_inversion=${13}
-run_delly_duplication=${14}
-run_genotype_candidates=${15}
-run_atlas=${16}
-run_stats=${17}
-run_svviz=${18}
-svviz_only_validated_candidates=${19}
-dnanexus=${20}
-
-# Files to include:
-# - GATK jar file
-# - CreateSequence Dictionary jar file
-# - Regions BED file
-# - Target BED file
-# - Covmask file
-# - MAF sites file
-# - DBSNP file
-# - DBSNP TBI
-# - Known indels file
-# - Known indels TBI
-# - Mills indels
-# - Mills TBI
+gatk_jar=$3
+ref_fasta=$4
+prefix=$5
+filter_short_contigs=$6
+run_breakdancer=$7
+run_breakseq=$8
+run_manta=$9
+run_cnvnator=${10}
+run_lumpy=${11}
+run_delly_deletion=${12}
+run_delly_insertion=${13}
+run_delly_inversion=${14}
+run_delly_duplication=${15}
+run_genotype_candidates=${16}
+run_atlas=${17}
+run_stats=${18}
+run_svviz=${19}
+svviz_only_validated_candidates=${20}
+dnanexus=${21}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
@@ -55,8 +42,7 @@ if [[ "$run_breakdancer" == "False" ]] && [[ "$run_breakseq" == "False" ]] && [[
     run_delly_deletion="True"
 fi
 
-# update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-# java -jar GenomeAnalysisTK.jar -version || (update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && java -jar GenomeAnalysisTK.jar -version)
+java -jar "${gatk_jar}" -version
 
 samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
@@ -105,7 +91,6 @@ samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > con
 
 mkdir -p /home/dnanexus/out/log_files/
 
-# This is new
 # Frontloading xAtlas
 if [[ "$run_stats" == "True" ]]; then
     verifyBamID --vcf maf.0.vcf --bam input.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &

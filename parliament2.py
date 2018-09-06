@@ -9,6 +9,7 @@ def parse_arguments():
     args = argparse.ArgumentParser(description='Parliament2')
     args.add_argument('--bam', required=True, help="The name of the Illumina BAM file for which to call structural variants containing mapped reads.")
     args.add_argument('--bai', required=False, help="(Optional) The name of the corresponding index for the Illumina BAM file.")
+    args.add_argument('--gatk_jar', required=True, help="GATK3 jar file to use for IndelRealigner.")
     args.add_argument('-r', '--ref_genome', required=True, help="The name of the reference file that matches the reference used to map the Illumina inputs.")
     args.add_argument('--prefix', required=False, help="(Optional) If provided, all output files will start with this. If absent, the base of the BAM file name will be used.")
     args.add_argument('--filter_short_contigs', action="store_true", help="If selected, SV calls will not be generated on contigs shorter than 1 MB.")
@@ -39,12 +40,12 @@ def gunzip_input(input_file):
         return input_file
 
 
-def run_parliament(bam, bai, ref_genome, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, atlas, stats, svviz, svviz_only_validated_candidates):
+def run_parliament(bam, bai, gatk_jar, ref_genome, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, atlas, stats, svviz, svviz_only_validated_candidates):
 
     if bai is not None:    
-        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
+        subprocess.check_call(['bash', 'parliament2.sh', bam, bai, gatk_jar, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
     else:
-        subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
+        subprocess.check_call(['bash', 'parliament2.sh', bam, "None", gatk_jar, ref_genome, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
 
 
 def main():
@@ -63,7 +64,7 @@ def main():
 
     ref_genome_name = gunzip_input(args.ref_genome)
 
-    run_parliament(args.bam, args.bai, ref_genome_name, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.atlas, args.stats, args.svviz, args.svviz_only_validated_candidates)
+    run_parliament(args.bam, args.bai, args.gatk_jar, ref_genome_name, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.atlas, args.stats, args.svviz, args.svviz_only_validated_candidates)
 
 
 if __name__ == '__main__':

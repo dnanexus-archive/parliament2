@@ -26,6 +26,14 @@
       "optional": true
     },
     {
+      "name": "gatk_jar",
+      "label": "GATK Jar File",
+      "help": "The jar file for GATK3 to use for IndelRealigner.",
+      "class": "file",
+      "patterns": ["*.jar"],
+      "optional": false
+    },
+    {
       "name": "ref_fasta",
       "label": "Reference genome in FASTA format",
       "help": "The reference file that matches the reference used to map the Illumina inputs.",

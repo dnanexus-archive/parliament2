@@ -37,6 +37,13 @@ def main(**job_inputs):
         dxpy.download_dxfile(input_bai, bai_name)
 
         docker_call.extend(['--bai', bai_name])
+
+    if 'gatk_jar' in job_inputs:
+        gatk_jar = dxpy.open_dxfile(job_inputs['gatk_jar'])
+        gatk_name = "/home/dnanexus/in/{0}".format(gatk_jar.name)
+        dxpy.download_dxfile(gatk_jar, gatk_name)
+
+        docker_call.extend(['--gatk_jar', gatk_name])
         
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
