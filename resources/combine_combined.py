@@ -113,7 +113,7 @@ def main():
             callers = support.lstrip(",").split(",")
             callers.sort()
             if quality_mappings[size_range].get(",".join(callers)) != None:
-                if int(quality_mappings[size_range]) <= 3:
+                if int(quality_mappings[size_range].get(",".join(callers))) <= 3:
                     tab_split[6] = "LowQual"
                 tab_split[5] = str(quality_mappings[size_range].get(",".join(callers)))
                     
