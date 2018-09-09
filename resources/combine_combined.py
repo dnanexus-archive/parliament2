@@ -52,13 +52,13 @@ def main():
             tab_split = line.strip().split("\t")
 
             position = int(tab_split[1])
-            end = tab_split[7].replace("CIEND","XXXXX").split("END=")[-1].split(";")[0].split("\t")[0]
-            end_position = int(end)
-            if end_position < position:
-                new_end = str(position)
-                new_start = end
-                tab_split[1] = new_start
-                tab_split[7].replace("END=%s" % end, "END=%s" % new_end)
+            # end = tab_split[7].replace("CIEND","XXXXX").split("END=")[-1].split(";")[0].split("\t")[0]
+            # end_position = int(end)
+            # if end_position < position:
+            #     new_end = str(position)
+            #     new_start = end
+            #     tab_split[1] = new_start
+            #     tab_split[7].replace("END=%s" % end, "END=%s" % new_end)
 
             support = ""
             het = 0
