@@ -109,14 +109,12 @@ def main():
             if "SVTYPE=INS" in line:
                 size_range="ins"
 
-
             callers = support.lstrip(",").split(",")
             callers.sort()
             if quality_mappings[size_range].get(",".join(callers)) != None:
                 if int(quality_mappings[size_range].get(",".join(callers))) <= 3:
                     tab_split[6] = "LowQual"
                 tab_split[5] = str(quality_mappings[size_range].get(",".join(callers)))
-                    
             print "\t".join(tab_split[:10])
         
 main()
