@@ -137,7 +137,7 @@
       "label": "Run Delly Inversion?",
       "help": "If selected, the inversion module of the program Delly2 will be one of the SV callers run.",
       "class": "boolean",
-      "default": true
+      "default": false
     },
     {
       "name": "run_delly_duplication",

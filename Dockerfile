@@ -33,6 +33,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     git \
     gzip \
     inkscape \
+    libbz2-dev \
     libc6 \
     libcurl4-openssl-dev \
     libfontconfig \
@@ -75,6 +76,10 @@ RUN conda install -c anaconda networkx -y
 RUN conda install -c bioconda samblaster -y
 RUN conda install gcc_linux-64 -y
 RUN conda install -c bioconda manta
+RUN wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2
+RUN tar -xjvf htslib-1.9.tar.bz2
+WORKDIR htslib-1.9/
+RUN ./configure && make && make install
 
 WORKDIR /
 ADD resources.tar.gz /
