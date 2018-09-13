@@ -98,6 +98,9 @@ def main(**job_inputs):
             atlas_file_uploads.append(dxpy.dxlink(dxpy.upload_local_file(name)))
         output['atlas_output'] = atlas_file_uploads
 
+        output['realigned_bam'] = dxpy.dxlink(dxpy.upload_local_file('/home/dnanexus/out/{0}.realigned.bam'.format(prefix)))
+    
+
     # Uploading samtools flagstat outputs
     if job_inputs['run_stats']:
         stats_file_names = glob.glob('/home/dnanexus/out/stats/*')
