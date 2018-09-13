@@ -1,6 +1,6 @@
 {
-  "name": "parliament2",
-  "title": "Parliament2",
+  "name": "parliament2_ccdg",
+  "title": "Parliament2 (CCDG)",
   "summary": "Uses Lumpy, Manta, Breakseq, Breakdancer, Delly, and CNVnator and validates the SVs through Genotyping and Visualization",
   "tags": [
     "Structural Variation",
@@ -294,21 +294,6 @@
       "systemRequirements": {
         "*": {
           "instanceType": "mem1_ssd1_x32"
-        }
-      }
-    },
-    "azure:westus": {
-      "assetDepends": [
-        {
-          "project": "project-FBbQqG895xZxxGFV3281QqqY",
-          "folder": "/",
-          "version": "0.0.1",
-          "name": "parliament2:0.1.8"
-        }
-      ],
-      "systemRequirements": {
-        "*": {
-          "instanceType": "azure:mem2_ssd1_x16"
         }
       }
     }
