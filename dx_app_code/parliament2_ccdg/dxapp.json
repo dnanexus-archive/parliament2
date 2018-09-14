@@ -225,13 +225,6 @@
       "optional": true
     },
     {
-      "name": "realigned_bam",
-      "label": "Indel Realigned BAM",
-      "help": "The BAM file produced by GATK IndelRealigner.",
-      "class": "file",
-      "optional": true
-    },
-    {
       "name": "atlas_output",
       "label": "Atlas Output Files",
       "help": "Output from xAtlas.",
