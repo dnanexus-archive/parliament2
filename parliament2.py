@@ -60,6 +60,7 @@ def main():
     if not args.bam.startswith("/home/dnanexus/in/"):
         args.bam = "/home/dnanexus/in/{0}".format(args.bam)
         args.bai = "/home/dnanexus/in/{0}".format(args.bai)
+        args.gatk_jar = "/home/dnanexus/in/{0}".format(args.gatk_jar)
         args.ref_genome = "/home/dnanexus/in/{0}".format(args.ref_genome)
 
     ref_genome_name = gunzip_input(args.ref_genome)
