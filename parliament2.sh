@@ -99,7 +99,6 @@ if [[ "$run_atlas" == "True" ]]; then
     echo "Running RealignerTargetCreator"
     java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
-    echo "Running IndelRealigner"
     for chr in "${chroms[@]}"; do
         echo "java -Xmx8G -jar ${gatk_jar} -T IndelRealigner -R ref.fa -I input.bam -targetIntervals realign.intervals -L $chr -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz -o indel_realigned.$chr.bam" >> indel_realigner_calls.txt
     done
@@ -111,12 +110,16 @@ if [[ "$run_atlas" == "True" ]]; then
         echo "/xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr" >> xatlas_calls.txt
     done
 
+    echo "Running xAtlas"
     parallel --verbose -j $threads -a xatlas_calls.txt eval 1> /home/dnanexus/out/log_files/xatlas.stdout.log 2> /home/dnanexus/out/log_files/xatlas.stderr.log
 fi
 
+ls ${prefix}.*_indel.vcf
+ls ${prefix}.*_snp.vcf
+
 rm -rf indel_realigned.*.bam &
-vcf-concat "$(ls ${prefix}.*_indel.vcf)" | vcf-sort -c > "${prefix}"_indel.vcf &
-vcf-concat "$(ls ${prefix}.*_snp.vcf)" | vcf-sort -c > "${prefix}"_snp.vcf &
+# vcf-concat "$(ls ${prefix}.*_indel.vcf)" | vcf-sort -c > "${prefix}"_indel.vcf &
+# vcf-concat "$(ls ${prefix}.*_snp.vcf)" | vcf-sort -c > "${prefix}"_snp.vcf &
 
 
 if [[ "$run_stats" == "True" ]]; then
