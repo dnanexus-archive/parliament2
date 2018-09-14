@@ -89,6 +89,8 @@ samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > con
 
 mkdir -p /home/dnanexus/out/log_files/
 
+chroms=(chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY chrM)
+
 # Frontloading IndelRealigner
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
@@ -98,27 +100,30 @@ if [[ "$run_atlas" == "True" ]]; then
     java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
     echo "Running IndelRealigner"
-    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T IndelRealigner -R ref.fa -I input.bam -targetIntervals realign.intervals -L chr1 -L chr2 -L chr3 -L chr4 -L chr5 -L chr6 -L chr7 -L chr8 -L chr9 -L chr10 -L chr11 -L chr12 -L chr13 -L chr14 -L chr15 -L chr16 -L chr17 -L chr18 -L chr19 -L chr20 -L chr21 -L chr22 -L chrX -L chrY -L chrM -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz -o indel_realigned.bam &
-    indel_realigner_pid=$!
+    for chr in "${chroms[@]}"; do
+        echo "java -Xmx8G -jar ${gatk_jar} -T IndelRealigner -R ref.fa -I input.bam -targetIntervals realign.intervals -L $chr -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz -o indel_realigned.$chr.bam" >> indel_realigner_calls.txt
+    done
+
+    threads=$(nproc)
+    parallel --verbose -j $threads -a indel_realigner_calls.txt eval 1> /home/dnanexus/out/log_files/indel_realigner.stdout.log 2> /home/dnanexus/out/log_files/indel_realigner.stderr.log
+
+    for chr in "${chroms[@]}"; do
+        echo "/xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr" >> xatlas_calls.txt
+    done
+
+    parallel --verbose -j $threads -a xatlas_calls.txt eval 1> /home/dnanexus/out/log_files/xatlas.stdout.log 2> /home/dnanexus/out/log_files/xatlas.stderr.log
 fi
 
-cp indel_realigned.bam /home/dnanexus/out/"$prefix".realigned.bam &
+rm -rf indel_realigned.*.bam &
+vcf-concat "$(ls ${prefix}.*_indel.vcf)" | vcf-sort -c > "${prefix}"_indel.vcf &
+vcf-concat "$(ls ${prefix}.*_snp.vcf)" | vcf-sort -c > "${prefix}"_snp.vcf &
+
 
 if [[ "$run_stats" == "True" ]]; then
     verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
     verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out "${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/verify.1.stout.log 2> /home/dnanexus/out/log_files/verify.1.stderr.log &
     verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out "${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/verify.2.stout.log 2> /home/dnanexus/out/log_files/verify.2.stderr.log &
-fi
 
-if [[ "$run_atlas" == "True" ]]; then
-    echo "Running xAtlas"
-    wait $indel_realigner_pid
-    /xatlas --ref ref.fa --in indel_realigned.bam --prefix "${prefix}" -s "${prefix}" --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr &
-    atlas_pid=$!
-fi
-
-# Execute Stats app
-if [[ "$run_stats" == "True" ]]; then
     echo "Running alignstats"
     alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
     alignstats_pid=$!
@@ -615,7 +620,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     fi
 fi
 
-wait $atlas_pid
 wait $alignstats_pid
 wait $flagstat_pid
 
