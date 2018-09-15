@@ -94,10 +94,10 @@ chroms=(chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr
 # Frontloading IndelRealigner
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
-    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict
+    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/picard_dict.stdout.log 2> /home/dnanexus/out/log_files/picard_dict.stderr.log
     
     echo "Running RealignerTargetCreator"
-    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/realigner_target_creator.stderr.log
 
     for chr in "${chroms[@]}"; do
         echo "java -Xmx8G -jar ${gatk_jar} -T IndelRealigner -R ref.fa -I input.bam -targetIntervals realign.intervals -L $chr -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz -o indel_realigned.$chr.bam" >> indel_realigner_calls.txt
