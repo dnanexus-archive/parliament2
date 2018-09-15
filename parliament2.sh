@@ -104,14 +104,17 @@ if [[ "$run_atlas" == "True" ]]; then
     done
 
     threads=$(nproc)
-    parallel --verbose -j $threads -a indel_realigner_calls.txt eval 1> /home/dnanexus/out/log_files/indel_realigner.stdout.log 2> /home/dnanexus/out/log_files/indel_realigner.stderr.log
+    echo "Running IndelRealigner"
+    # parallel --verbose -j $threads -a indel_realigner_calls.txt eval 1> /home/dnanexus/out/log_files/indel_realigner.stdout.log 2> /home/dnanexus/out/log_files/indel_realigner.stderr.log
+    parallel --verbose -j $threads -a indel_realigner_calls.txt eval
 
     for chr in "${chroms[@]}"; do
         echo "/xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr" >> xatlas_calls.txt
     done
 
     echo "Running xAtlas"
-    parallel --verbose -j $threads -a xatlas_calls.txt eval 1> /home/dnanexus/out/log_files/xatlas.stdout.log 2> /home/dnanexus/out/log_files/xatlas.stderr.log
+    # parallel --verbose -j $threads -a xatlas_calls.txt eval 1> /home/dnanexus/out/log_files/xatlas.stdout.log 2> /home/dnanexus/out/log_files/xatlas.stderr.log
+    parallel --verbose -j $threads -a xatlas_calls.txt eval
 fi
 
 ls ${prefix}.*_indel.vcf
