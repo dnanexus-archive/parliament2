@@ -1,37 +1,24 @@
 illumina_bam=$1
 illumina_bai=$2
 ref_fasta=$3
-prefix=$4
-filter_short_contigs=$5
-run_breakdancer=$6
-run_breakseq=$7
-run_manta=$8
-run_cnvnator=$9
-run_lumpy=${10}
-run_delly_deletion=${11}
-run_delly_insertion=${12}
-run_delly_inversion=${13}
-run_delly_duplication=${14}
-run_genotype_candidates=${15}
-run_atlas=${16}
-run_stats=${17}
-run_svviz=${18}
-svviz_only_validated_candidates=${19}
-dnanexus=${20}
-
-# Files to include:
-# - GATK jar file
-# - CreateSequence Dictionary jar file
-# - Regions BED file
-# - Target BED file
-# - Covmask file
-# - MAF sites file
-# - DBSNP file
-# - DBSNP TBI
-# - Known indels file
-# - Known indels TBI
-# - Mills indels
-# - Mills TBI
+ref_index=$4
+prefix=$5
+filter_short_contigs=$6
+run_breakdancer=$7
+run_breakseq=$8
+run_manta=$9
+run_cnvnator=${10}
+run_lumpy=${11}
+run_delly_deletion=${12}
+run_delly_insertion=${13}
+run_delly_inversion=${14}
+run_delly_duplication=${15}
+run_genotype_candidates=${16}
+run_atlas=${17}
+run_stats=${18}
+run_svviz=${19}
+svviz_only_validated_candidates=${20}
+dnanexus=${21}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
@@ -55,10 +42,12 @@ if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "
     run_delly_deletion="True"
 fi
 
-# update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-# java -jar GenomeAnalysisTK.jar -version || (update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && java -jar GenomeAnalysisTK.jar -version)
+if [[ "$ref_index" == "None" ]]; then
+    samtools faidx ref.fa &
+else
+    cp "${ref_index}" ref.fa.fai
+fi
 
-samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
 lumpy_exclude_string=""
 if [[ "$ref_genome" == "b37" ]]; then
@@ -70,18 +59,6 @@ else
 fi
 
 lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
-
-# If no callers have been selected by tag, run the default set and print a message out
-
-if [[ "$run_breakdancer" != "True" && "$run_breakseq" != "True" && "$run_manta" != "True" && "$run_cnvnator" != "True" &&  "$run_delly" != "True" && "$run_delly_deletion" != "True" && "$run_delly_insertion" != "True" && "$run_delly_inversion" != "True" && "$run_delly_duplication" != "True" ]]; then
-        echo "User did not provide list of callers to use. Applying default selection instead (Breakdancer, Breakseq, CNVnator, Lumpy, Manta, and Delly (Deletion Only)"
-        run_breakdancer="True"
-        run_breakseq="True"
-        run_manta="True"
-        run_cnvnator="True"
-        run_lumpy="True"
-        run_delly_deletion="True"
-fi
 
 # Get extension and threads
 extn=${illumina_bam##*.}
@@ -116,38 +93,6 @@ echo "Generate contigs"
 samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > contigs
 
 mkdir -p /home/dnanexus/out/log_files/
-
-# This is new
-# Frontloading xAtlas
-if [[ "$run_atlas" == "True" ]]; then
-    /xatlas -h
-    /xatlas --ref ref.fa --in input.bam --prefix "${prefix}" -s "${prefix}" --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr &
-fi
-
-# This is new
-# if [[ "$run_stats" == "True" ]]; then
-#     python /split_maf.py $maf_name chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 > maf.0.vcf
-#     python /split_maf.py $maf_name chr9 chr10 chr11 chr12 chr13 chr15 chr15 > maf.1.vcf
-#     python /split_maf.py $maf_name chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY > maf.2.vcf
-#     verifyBamID --vcf maf.0.vcf --bam input.bam --out ${prefix}.chr1-8 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
-#     verifyBamID --vcf maf.1.vcf --bam input.bam --out ${prefix}.chr9-15 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.1.stout.log 2> /home/dnanexus/out/log_files/verify.1.stderr.log &
-#     verifyBamID --vcf maf.2.vcf --bam input.bam --out ${prefix}.chr16-Y $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.2.stout.log 2> /home/dnanexus/out/log_files/verify.2.stderr.log &
-#     #verifyBamID --vcf $maf_name --bam input.bam --out ${prefix} $vbid_opt $vbid_user_opts 1>verify.0.stout.log 2>verify.0.stderr.log &
-# fi
-
-# This is new
-as_opt="-r $regions_name -t $target_name -m $cov_name"
-vbid_opt="--ignoreRG"
-as_opt2=""
-
-
-# Execute Stats app
-if [[ "$run_stats" == "True" ]]; then
-    echo "Running alignstats"
-    alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt $as_opt $as_opt2 $as_user_opts 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
-    samtools flagstat input.bam > /home/dnanexus/out/"${prefix}".flagstats &
-fi
-# End new things
 
 if [[ "$run_breakseq" == "True" || "$run_manta" == "True" ]]; then
     echo "Launching jobs that cannot be parallelized by contig"
@@ -282,33 +227,6 @@ fi
 
 wait
 
-# This is new
-mkdir -p /home/dnanexus/out/stats
-if [[ "$run_stats" == "True" ]]; then
-    cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-    cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-    cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
-
-    cp "${prefix}".chr1-8.selfSM /home/dnanexus/out/stats/"${prefix}".chr1-8.selfSM
-    cp "${prefix}".chr1-8.depthSM /home/dnanexus/out/stats/"${prefix}".chr1-8.depthSM
-    cp "${prefix}".chr9-15.selfSM /home/dnanexus/out/stats/"${prefix}".chr9-15.selfSM
-    cp "${prefix}".chr9-15.depthSM /home/dnanexus/out/stats/"${prefix}".chr9-15.depthSM
-    cp "${prefix}".chr16-Y.selfSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.selfSM
-    cp "${prefix}".chr16-Y.depthSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.depthSM
-fi
-
-# This is new
-mkdir -p /home/dnanexus/out/atlas
-if [[ "$run_atlas" == "True" ]]; then
-    bgzip "${prefix}"_indel.vcf
-    tabix "${prefix}"_indel.vcf.gz
-    bgzip "${prefix}"_snp.vcf
-    tabix "${prefix}"_snp.vcf.gz
-
-    cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
-    cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
-fi
-
 # Only install SVTyper if necessary
 if [[ "$run_genotype_candidates" == "True" ]]; then
     pip install git+https://github.com/hall-lab/svtyper.git -q &
@@ -436,7 +354,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
         mkdir /home/dnanexus/svtype_breakdancer
         bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
     fi
 
     # Breakseq
@@ -444,7 +361,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
         mkdir /home/dnanexus/svtype_breakseq
         bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
 
         if [[ -f breakseq.vcf ]]; then
             echo breakseq.vcf >> survivor_inputs
@@ -456,7 +372,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
         mkdir /home/dnanexus/svtype_cnvnator
         cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
         bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
     fi
 
@@ -466,7 +381,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         for item in delly*vcf; do
             mkdir /home/dnanexus/svtype_delly_"$i"
             bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
-            # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
             i=$((i + 1))
         done
 
@@ -482,16 +396,10 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
         mkdir /home/dnanexus/svtype_lumpy
         bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
     fi
 
     # Manta
     if [[ "$run_manta" == "True" ]]; then
-        # echo "Running SVTyper on Manta outputs"
-        # zcat manta/results/variants/candidateSV.vcf.gz | python /add_ciend.py 100 > /home/dnanexus/manta.input.vcf
-        # mkdir /home/dnanexus/svtype_manta
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/manta.input.vcf svtype_manta /home/dnanexus/"${prefix}".manta.svtyped.vcf input.bam
-
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
             echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs

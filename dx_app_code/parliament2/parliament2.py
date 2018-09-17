@@ -37,6 +37,13 @@ def main(**job_inputs):
         dxpy.download_dxfile(input_bai, bai_name)
 
         docker_call.extend(['--bai', bai_name])
+
+    if 'ref_index' in job_inputs:
+        ref_index = dxpy.open_dxfile(job_inputs['ref_index'])
+        fai_name = "/home/dnanexus/in/{0}".format(ref_index.name)
+        dxpy.download_dxfile(ref_index, fai_name)
+
+        docker_call.extend(['--fai', fai_name])
         
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
