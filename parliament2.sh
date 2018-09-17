@@ -2,23 +2,24 @@ illumina_bam=$1
 illumina_bai=$2
 gatk_jar=$3
 ref_fasta=$4
-prefix=$5
-filter_short_contigs=$6
-run_breakdancer=$7
-run_breakseq=$8
-run_manta=$9
-run_cnvnator=${10}
-run_lumpy=${11}
-run_delly_deletion=${12}
-run_delly_insertion=${13}
-run_delly_inversion=${14}
-run_delly_duplication=${15}
-run_genotype_candidates=${16}
-run_atlas=${17}
-run_stats=${18}
-run_svviz=${19}
-svviz_only_validated_candidates=${20}
-dnanexus=${21}
+ref_index=$5
+prefix=$6
+filter_short_contigs=$7
+run_breakdancer=$8
+run_breakseq=$9
+run_manta=${10}
+run_cnvnator=${11}
+run_lumpy=${12}
+run_delly_deletion=${13}
+run_delly_insertion=${14}
+run_delly_inversion=${15}
+run_delly_duplication=${16}
+run_genotype_candidates=${17}
+run_atlas=${18}
+run_stats=${19}
+run_svviz=${20}
+svviz_only_validated_candidates=${21}
+dnanexus=${22}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
@@ -30,6 +31,7 @@ if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
 fi
 
 cp "${ref_fasta}" ref.fa
+cp "${ref_index}" ref.fa.fai
 
 if [[ "$run_breakdancer" == "False" ]] && [[ "$run_breakseq" == "False" ]] && [[ "$run_manta" == "False" ]] && [[ "$run_cnvnator" == "False" ]] && [[ "$run_lumpy" == "False" ]] && [[ "$run_delly_deletion" == "False" ]] && [[ "$run_delly_insertion" == "False" ]] && [[ "$run_delly_inversion" == "False" ]] && [[ "$run_delly_duplication" == "False" ]] && [[ "$run_atlas" == "False" ]]; then
     echo "WARNING: Did not detect any variant calling modules requested by the user through command-line flags."
@@ -42,7 +44,11 @@ if [[ "$run_breakdancer" == "False" ]] && [[ "$run_breakseq" == "False" ]] && [[
     run_delly_deletion="True"
 fi
 
-samtools faidx ref.fa &
+
+if [[ "$ref_index" == "None" ]]; then
+    samtools faidx ref.fa &
+fi
+
 ref_genome=$(python /home/dnanexus/get_reference.py)
 lumpy_exclude_string=""
 if [[ "$ref_genome" == "b37" ]]; then
@@ -109,7 +115,7 @@ if [[ "$run_atlas" == "True" ]]; then
     parallel --verbose -j $threads -a indel_realigner_calls.txt eval
 
     for chr in "${chroms[@]}"; do
-        echo "/xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr" >> xatlas_calls.txt
+        echo "xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr" >> xatlas_calls.txt
     done
 
     echo "Running xAtlas"
@@ -117,8 +123,7 @@ if [[ "$run_atlas" == "True" ]]; then
     parallel --verbose -j $threads -a xatlas_calls.txt eval
 fi
 
-ls ${prefix}.*_indel.vcf
-ls ${prefix}.*_snp.vcf
+ls -sh .
 
 rm -rf indel_realigned.*.bam &
 # vcf-concat "$(ls ${prefix}.*_indel.vcf)" | vcf-sort -c > "${prefix}"_indel.vcf &

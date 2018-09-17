@@ -68,6 +68,42 @@
         }
       ]
     },
+
+    {
+      "name": "ref_index",
+      "label": "Index for reference genome",
+      "help": "The index for the reference file that matches the reference used to map the Illumina inputs.",
+      "class": "file",
+      "patterns": ["*.fai"],
+      "optional": true,
+      "suggestions": [
+        {
+          "name": "DNAnexus Reference Genomes: AWS US-east",
+          "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS: China-north",
+          "project": "project-Bxv84pQ27z999kj0jbQz0FK9",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS Germany",
+          "project": "project-F3zxk7Q4F30Xp8fG69K1Vppj",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: Azure West US",
+          "project": "project-F0yyz6j9Jz8YpxQV8B8Kk7Zy",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS Sydney",
+          "project": "project-F4gXb605fKQyBq5vJBG31KGG",
+          "path": "/"
+        }
+      ]
+    },
     {
       "name": "prefix",
       "label": "Prefix to give output files",

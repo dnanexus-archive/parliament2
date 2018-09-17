@@ -31,6 +31,13 @@ def main(**job_inputs):
     dxpy.download_dxfile(ref_genome, ref_name)
     docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_ccdg', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
+    if 'ref_index' in job_inputs:
+        ref_index = dxpy.open_dxfile(job_inputs['ref_index'])
+        fai_name = "/home/dnanexus/in/{0}".format(ref_index.name)
+        dxpy.download_dxfile(ref_index, fai_name)
+
+        docker_call.extend(['--fai', fai_name])
+
     if 'illumina_bai' in job_inputs:
         input_bai = dxpy.open_dxfile(job_inputs['illumina_bai'])
         bai_name = "/home/dnanexus/in/{0}".format(input_bai.name)
