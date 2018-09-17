@@ -108,6 +108,7 @@ RUN /bin/bash -c "source /etc/profile.d/dnanexus.environment.sh"
 ENV PATH=${PATH}:/home/dnanexus/
 ENV PATH=${PATH}:/opt/conda/bin/
 ENV PATH=${PATH}:/usr/bin/
+ENV PATH=${PATH}:/usr/local/bin/
 ENV PYTHONPATH=${PYTHONPATH}:/opt/conda/bin/
 ENV ROOTSYS=/home/dnanexus/root
 ENV LD_LIBRARY_PATH=/usr/lib/root/lib
