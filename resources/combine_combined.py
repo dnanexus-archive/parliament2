@@ -121,10 +121,14 @@ def main():
             if "SVTYPE=DEL" in line or "SVTYPE=DEL" in line:
                 callers = support.lstrip(",").split(",")
                 callers.sort()
-                if quality_mappings[size_range].get(",".join(callers)) != None:
-                    if int(quality_mappings[size_range].get(",".join(callers))) <= 3:
-                        tab_split[6] = "LowQual"
-                    tab_split[5] = str(quality_mappings[size_range].get(",".join(callers)))
+                while len(callers) > 0:
+                    if quality_mappings[size_range].get(",".join(callers)) != None:
+                        if int(quality_mappings[size_range].get(",".join(callers))) <= 3:
+                            tab_split[6] = "LowQual"
+                        tab_split[5] = str(quality_mappings[size_range].get(",".join(callers)))
+                        break
+                    else:
+                        callers.pop(0)
             if "SVTYPE=DUP" in line and (tab_split[9].split(":")[0] == "0/1" or tab_split[9].split(":")[0] == "1/1"):
                 tab_split[6] = "Unknown"
             
