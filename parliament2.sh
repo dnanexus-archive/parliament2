@@ -111,11 +111,11 @@ if [[ "$run_atlas" == "True" ]]; then
 
     threads=$(nproc)
     echo "Running IndelRealigner"
-    # parallel --verbose -j $threads -a indel_realigner_calls.txt eval 1> /home/dnanexus/out/log_files/indel_realigner.stdout.log 2> /home/dnanexus/out/log_files/indel_realigner.stderr.log
-    parallel --verbose -j $threads -a indel_realigner_calls.txt eval
+    parallel --verbose -j $threads -a indel_realigner_calls.txt eval 1> /home/dnanexus/out/log_files/indel_realigner.stdout.log 2> /home/dnanexus/out/log_files/indel_realigner.stderr.log
+    # parallel --verbose -j $threads -a indel_realigner_calls.txt eval
 
     for chr in "${chroms[@]}"; do
-        echo "xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr" >> xatlas_calls.txt
+        echo "xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf" >> xatlas_calls.txt
     done
 
     echo "Running xAtlas"
