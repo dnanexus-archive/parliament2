@@ -1,37 +1,24 @@
 illumina_bam=$1
 illumina_bai=$2
 ref_fasta=$3
-prefix=$4
-filter_short_contigs=$5
-run_breakdancer=$6
-run_breakseq=$7
-run_manta=$8
-run_cnvnator=$9
-run_lumpy=${10}
-run_delly_deletion=${11}
-run_delly_insertion=${12}
-run_delly_inversion=${13}
-run_delly_duplication=${14}
-run_genotype_candidates=${15}
-run_atlas=${16}
-run_stats=${17}
-run_svviz=${18}
-svviz_only_validated_candidates=${19}
-dnanexus=${20}
-
-# Files to include:
-# - GATK jar file
-# - CreateSequence Dictionary jar file
-# - Regions BED file
-# - Target BED file
-# - Covmask file
-# - MAF sites file
-# - DBSNP file
-# - DBSNP TBI
-# - Known indels file
-# - Known indels TBI
-# - Mills indels
-# - Mills TBI
+ref_index=$4
+prefix=$5
+filter_short_contigs=$6
+run_breakdancer=$7
+run_breakseq=$8
+run_manta=$9
+run_cnvnator=${10}
+run_lumpy=${11}
+run_delly_deletion=${12}
+run_delly_insertion=${13}
+run_delly_inversion=${14}
+run_delly_duplication=${15}
+run_genotype_candidates=${16}
+run_atlas=${17}
+run_stats=${18}
+run_svviz=${19}
+svviz_only_validated_candidates=${20}
+dnanexus=${21}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
@@ -55,10 +42,12 @@ if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "
     run_delly_deletion="True"
 fi
 
-# update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-# java -jar GenomeAnalysisTK.jar -version || (update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && java -jar GenomeAnalysisTK.jar -version)
+if [[ "$ref_index" == "None" ]]; then
+    samtools faidx ref.fa &
+else
+    cp "${ref_index}" ref.fa.fai
+fi
 
-samtools faidx ref.fa &
 ref_genome=$(python /home/dnanexus/get_reference.py)
 lumpy_exclude_string=""
 if [[ "$ref_genome" == "b37" ]]; then
@@ -104,38 +93,6 @@ echo "Generate contigs"
 samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > contigs
 
 mkdir -p /home/dnanexus/out/log_files/
-
-# This is new
-# Frontloading xAtlas
-if [[ "$run_atlas" == "True" ]]; then
-    /xatlas -h
-    /xatlas --ref ref.fa --in input.bam --prefix "${prefix}" -s "${prefix}" --gvcf 1> /home/dnanexus/out/log_files/atlas.stdout 2> /home/dnanexus/out/log_files/atlas.stderr &
-fi
-
-# This is new
-# if [[ "$run_stats" == "True" ]]; then
-#     python /split_maf.py $maf_name chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 > maf.0.vcf
-#     python /split_maf.py $maf_name chr9 chr10 chr11 chr12 chr13 chr15 chr15 > maf.1.vcf
-#     python /split_maf.py $maf_name chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY > maf.2.vcf
-#     verifyBamID --vcf maf.0.vcf --bam input.bam --out ${prefix}.chr1-8 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
-#     verifyBamID --vcf maf.1.vcf --bam input.bam --out ${prefix}.chr9-15 $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.1.stout.log 2> /home/dnanexus/out/log_files/verify.1.stderr.log &
-#     verifyBamID --vcf maf.2.vcf --bam input.bam --out ${prefix}.chr16-Y $vbid_opt $vbid_user_opts 1> /home/dnanexus/out/log_files/verify.2.stout.log 2> /home/dnanexus/out/log_files/verify.2.stderr.log &
-#     #verifyBamID --vcf $maf_name --bam input.bam --out ${prefix} $vbid_opt $vbid_user_opts 1>verify.0.stout.log 2>verify.0.stderr.log &
-# fi
-
-# This is new
-as_opt="-r $regions_name -t $target_name -m $cov_name"
-vbid_opt="--ignoreRG"
-as_opt2=""
-
-
-# Execute Stats app
-if [[ "$run_stats" == "True" ]]; then
-    echo "Running alignstats"
-    alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt $as_opt $as_opt2 $as_user_opts 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
-    samtools flagstat input.bam > /home/dnanexus/out/"${prefix}".flagstats &
-fi
-# End new things
 
 if [[ "$run_breakseq" == "True" || "$run_manta" == "True" ]]; then
     echo "Launching jobs that cannot be parallelized by contig"
@@ -270,33 +227,6 @@ fi
 
 wait
 
-# This is new
-mkdir -p /home/dnanexus/out/stats
-if [[ "$run_stats" == "True" ]]; then
-    cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-    cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-    cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
-
-    cp "${prefix}".chr1-8.selfSM /home/dnanexus/out/stats/"${prefix}".chr1-8.selfSM
-    cp "${prefix}".chr1-8.depthSM /home/dnanexus/out/stats/"${prefix}".chr1-8.depthSM
-    cp "${prefix}".chr9-15.selfSM /home/dnanexus/out/stats/"${prefix}".chr9-15.selfSM
-    cp "${prefix}".chr9-15.depthSM /home/dnanexus/out/stats/"${prefix}".chr9-15.depthSM
-    cp "${prefix}".chr16-Y.selfSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.selfSM
-    cp "${prefix}".chr16-Y.depthSM /home/dnanexus/out/stats/"${prefix}".chr16-Y.depthSM
-fi
-
-# This is new
-mkdir -p /home/dnanexus/out/atlas
-if [[ "$run_atlas" == "True" ]]; then
-    bgzip "${prefix}"_indel.vcf
-    tabix "${prefix}"_indel.vcf.gz
-    bgzip "${prefix}"_snp.vcf
-    tabix "${prefix}"_snp.vcf.gz
-
-    cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
-    cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
-fi
-
 # Only install SVTyper if necessary
 if [[ "$run_genotype_candidates" == "True" ]]; then
     pip install git+https://github.com/hall-lab/svtyper.git -q &
@@ -309,21 +239,28 @@ mkdir -p /home/dnanexus/out/sv_caller_results/
     echo "Convert Lumpy results to VCF format"
     python /convertHeader.py "$prefix" "$lumpy_merge_command" | vcf-sort -c | uniq > lumpy.vcf
 
-    cp lumpy.vcf /home/dnanexus/out/sv_caller_results/"$prefix".lumpy.vcf
+    if [[ -f lumpy.vcf ]]; then
+        cp lumpy.vcf /home/dnanexus/out/sv_caller_results/"$prefix".lumpy.vcf
 
-    python /vcf2bedpe.py -i lumpy.vcf -o lumpy.gff
-    python /Lumpy2merge.py lumpy.gff "$prefix" 1.0
+        python /vcf2bedpe.py -i lumpy.vcf -o lumpy.gff
+        python /Lumpy2merge.py lumpy.gff "$prefix" 1.0
+    else
+        echo "No outputs of Lumpy found. Continuing."
+    fi
 fi) &
 
 (if [[ "$run_manta" == "True" ]]; then
     echo "Convert Manta results to VCF format"
-    cp manta/results/variants/diploidSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.diploidSV.vcf.gz
-    # cp manta/results/variants/candidateSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.candidateSV.vcf.gz
-    cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"$prefix".manta.alignmentStatsSummary.txt
+    if [[ ! -f manta/results/variants/diploidSV.vcf.gz && ! -f manta/results/stats/alignmentStatsSummary.txt ]]; then
+        echo "No outputs of Manta found. Continuing."
+    else  
+        cp manta/results/variants/diploidSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.diploidSV.vcf.gz
+        mv manta/results/variants/diploidSV.vcf.gz .
+        gunzip diploidSV.vcf.gz
+        python /Manta2merge.py 1.0 diploidSV.vcf "$prefix"
+        cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"$prefix".manta.alignmentStatsSummary.txt
+    fi
 
-    mv manta/results/variants/diploidSV.vcf.gz .
-    gunzip diploidSV.vcf.gz
-    python /Manta2merge.py 1.0 diploidSV.vcf "$prefix"
 fi) &
 
 (if [[ "$run_breakdancer" == "True" ]] && [[ -n "$concat_breakdancer_cmd" ]]; then
@@ -331,12 +268,16 @@ fi) &
     # cat contents of each file into output file: lack of quotes intentional
     cat $concat_breakdancer_cmd > breakdancer.output
 
-    cp breakdancer.output /home/dnanexus/out/sv_caller_results/"$prefix".breakdancer.ctx
+    if [[ -f breakdancer.output ]]; then
+        cp breakdancer.output /home/dnanexus/out/sv_caller_results/"$prefix".breakdancer.ctx
 
-    python /BreakDancer2Merge.py 1.0 breakdancer.output "$prefix"
+        python /BreakDancer2Merge.py 1.0 breakdancer.output "$prefix"
 
-    python /convert_breakdancer_vcf.py < breakdancer.output > breakdancer.vcf
-    cp breakdancer.vcf /home/dnanexus/out/sv_caller_results/"$prefix".breakdancer.vcf
+        python /convert_breakdancer_vcf.py < breakdancer.output > breakdancer.vcf
+        cp breakdancer.vcf /home/dnanexus/out/sv_caller_results/"$prefix".breakdancer.vcf
+    else
+        echo "No outputs of Breakdancer found. Continuing."
+    fi
 fi) &
 
 (if [[ "$run_cnvnator" == "True" ]] && [[ -n "$concat_cnvnator_cmd" ]]; then
@@ -344,53 +285,82 @@ fi) &
     # cat contents of each file into output file: lack of quotes intentional
     cat $concat_cnvnator_cmd > cnvnator.output
 
-    perl /usr/utils/cnvnator2VCF.pl cnvnator.output > cnvnator.vcf
+    if [[ -f cnvnator.output ]]; then
+        perl /usr/utils/cnvnator2VCF.pl cnvnator.output > cnvnator.vcf
 
-    cp cnvnator.vcf /home/dnanexus/out/sv_caller_results/"$prefix".cnvnator.vcf
-    cp cnvnator.output /home/dnanexus/out/sv_caller_results/"$prefix".cnvnator.output
+        cp cnvnator.vcf /home/dnanexus/out/sv_caller_results/"$prefix".cnvnator.vcf
+        cp cnvnator.output /home/dnanexus/out/sv_caller_results/"$prefix".cnvnator.output
+    else
+        echo "No outputs of CNVnator found. Continuing."
+    fi
 fi) &
 
 (if [[ "$run_breakseq" == "True" ]]; then
     echo "Convert Breakseq results to VCF format"
-    cd "$work" || return
-    find ./*.log | tar -zcvf log.tar.gz -T -
-    rm -rf ./*.log
-    cd /home/dnanexus || return
+    if [[ -z $(find "$work" -name "*.log") ]]; then
+        echo "No Breakseq log files found."
+    else
+        cd "$work" || return
+        find ./*.log | tar -zcvf log.tar.gz -T -
+        rm -rf ./*.log
+        mv log.tar.gz /home/dnanexus/out/log_files/breakseq.log.tar.gz
+        cd /home/dnanexus || return
+    fi
 
-    mv breakseq2/breakseq.vcf.gz .
-    gunzip breakseq.vcf.gz
+    if [[ ! -f breakseq2/breakseq_genotyped.gff && ! -f breakseq2/breakseq.vcf.gz && ! -f breakseq2/final.bam ]]; then
+        echo "No outputs of Breakseq found. Continuing."
+    else
+        mv breakseq2/breakseq.vcf.gz .
+        gunzip breakseq.vcf.gz
 
-    cp breakseq2/breakseq_genotyped.gff /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.gff
-    cp breakseq.vcf /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.vcf
-    cp breakseq2/final.bam /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.bam
+        cp breakseq2/breakseq_genotyped.gff /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.gff
+        cp breakseq.vcf /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.vcf
+        cp breakseq2/final.bam /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.bam
+    fi
 fi) &
 
 (if [[ "$run_delly_deletion" == "True" ]]; then 
     echo "Convert Delly deletion results to VCF format"
     python /convertHeader.py "$prefix" "$delly_deletion_concat" | vcf-sort -c | uniq > delly.deletion.vcf
 
-    cp delly.deletion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.deletion.vcf
+    if [[ -f delly.deletion.vcf ]]; then
+        cp delly.deletion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.deletion.vcf
+    else
+        echo "No Delly deletion results found. Continuing."
+    fi
 fi) &
 
 (if [[ "$run_delly_inversion" == "True" ]]; then
     echo "Convert Delly inversion results to VCF format"
     python /convertHeader.py "$prefix" "$delly_inversion_concat" | vcf-sort -c | uniq > delly.inversion.vcf
 
-    cp delly.inversion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.inversion.vcf
+    if [[ -f delly.inversion.vcf ]]; then
+        cp delly.inversion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.inversion.vcf
+    else
+        echo "No Delly inversion results found. Continuing."
+    fi
 fi) &
 
 (if [[ "$run_delly_duplication" == "True" ]]; then
     echo "Convert Delly duplication results to VCF format"
     python /convertHeader.py "$prefix" "$delly_duplication_concat" | vcf-sort -c | uniq > delly.duplication.vcf
 
-    cp delly.duplication.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.duplication.vcf
+    if [[ -f delly.duplication.vcf ]]; then
+        cp delly.duplication.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.duplication.vcf
+    else
+        echo "No Delly duplication results found. Continuing."
+    fi
 fi) &
 
 (if [[ "$run_delly_insertion" == "True" ]]; then
     echo "Convert Delly insertion results to VCF format"
     python /convertHeader.py "$prefix" "$delly_insertion_concat" | vcf-sort -c | uniq > delly.insertion.vcf
 
-    cp delly.insertion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.insertion.vcf
+    if [[ -f delly.insertion.vcf ]]; then
+        cp delly.insertion.vcf /home/dnanexus/out/sv_caller_results/"$prefix".delly.insertion.vcf
+    else
+        echo "No Delly insertion results found. Continuing."
+    fi
 fi) &
 
 wait
@@ -423,19 +393,21 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     if [[ "$run_breakdancer" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
         mkdir /home/dnanexus/svtype_breakdancer
-        bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
+        if [[ -f /home/dnanexus/breakdancer.vcf ]]; then
+            bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
+        else
+            "No Breakdancer VCF file found. Continuing."
+        fi
     fi
 
     # Breakseq
     if [[ "$run_breakseq" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
         mkdir /home/dnanexus/svtype_breakseq
-        bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
-
-        if [[ -f breakseq.vcf ]]; then
-            echo breakseq.vcf >> survivor_inputs
+        if [[ -f /home/dnanexus/breakseq.vcf ]]; then
+            bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
+        else
+            echo "No BreakSeq VCF file found. Continuing."
         fi
     fi
 
@@ -443,46 +415,53 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     if [[ "$run_cnvnator" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
         mkdir /home/dnanexus/svtype_cnvnator
-        cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
-        bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
+        if [[ -f /home/dnanexus/cnvnator.vcf ]]; then
+            cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
+            bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
+        else
+            echo "No CNVnator VCF file found. Continuing."
+        fi
     fi
 
     # Delly
     if [[ "$run_delly" == "True" ]]; then
         echo "Running SVTyper on Delly outputs"
-        for item in delly*vcf; do
-            mkdir /home/dnanexus/svtype_delly_"$i"
-            bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
-            # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
-            i=$((i + 1))
-        done
+        if [[ -z $(find . -name "delly*vcf") ]]; then
+            echo "No Delly VCF file found. Continuing."
+        else
+            for item in delly*vcf; do
+                mkdir /home/dnanexus/svtype_delly_"$i"
+                bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
+                i=$((i + 1))
+            done
 
-        grep \# delly.svtyper.0.vcf > "${prefix}".delly.svtyped.vcf
+            grep \# delly.svtyper.0.vcf > "${prefix}".delly.svtyped.vcf
 
-        for item in delly.svtyper*.vcf; do
-            grep -v \# "$item" >> "${prefix}".delly.svtyped.vcf
-        done
+            for item in delly.svtyper*.vcf; do
+                grep -v \# "$item" >> "${prefix}".delly.svtyped.vcf
+            done
+        fi
     fi
 
     # Lumpy
     if [[ "$run_lumpy" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
         mkdir /home/dnanexus/svtype_lumpy
-        bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
+        if [[ -f /home/dnanexus/lumpy.vcf ]]; then
+            bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
+        else
+            echo "No Lumpy VCF file found. Continuing."
+        fi
     fi
 
     # Manta
     if [[ "$run_manta" == "True" ]]; then
-        # echo "Running SVTyper on Manta outputs"
-        # zcat manta/results/variants/candidateSV.vcf.gz | python /add_ciend.py 100 > /home/dnanexus/manta.input.vcf
-        # mkdir /home/dnanexus/svtype_manta
-        # timeout -k 500 60m bash ./parallelize_svtyper.sh /home/dnanexus/manta.input.vcf svtype_manta /home/dnanexus/"${prefix}".manta.svtyped.vcf input.bam
-
+        echo "Running SVTyper on Manta outputs"
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
             echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs
+        else
+            echo "No Manta VCF file found. Continuing."
         fi
     fi
 
@@ -498,16 +477,16 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Prepare SVtyped VCFs for upload
     for item in *svtyped.vcf; do
-        cp "$item" /home/dnanexus/out/svtyped_vcfs/$item
+        cp "${item}" /home/dnanexus/out/svtyped_vcfs/$item
     done
 
     # Run SURVIVOR
     echo "Running SURVIVOR"
-    survivor merge survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
+    survivor merge survivor_inputs 1000 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
     cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "$prefix" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
+    python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
     if [[ "$run_svviz" == "True" ]]; then
