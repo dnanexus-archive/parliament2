@@ -29,7 +29,7 @@ def main(**job_inputs):
     ref_genome = dxpy.open_dxfile(job_inputs['ref_fasta'])
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
-    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_ccdg', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
         input_bai = dxpy.open_dxfile(job_inputs['illumina_bai'])
@@ -37,6 +37,13 @@ def main(**job_inputs):
         dxpy.download_dxfile(input_bai, bai_name)
 
         docker_call.extend(['--bai', bai_name])
+
+    if 'ref_index' in job_inputs:
+        ref_index = dxpy.open_dxfile(job_inputs['ref_index'])
+        fai_name = "/home/dnanexus/in/{0}".format(ref_index.name)
+        dxpy.download_dxfile(ref_index, fai_name)
+
+        docker_call.extend(['--fai', fai_name])
         
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
@@ -73,6 +80,7 @@ def main(**job_inputs):
 
     print "Docker image finished"
 
+    # Uploading SV caller outputs
     sv_caller_results_names = glob.glob('/home/dnanexus/out/sv_caller_results/*')
     sv_caller_results_upload = []
     for name in sv_caller_results_names:
@@ -82,22 +90,9 @@ def main(**job_inputs):
         'sv_caller_results' : sv_caller_results_upload
     }
 
-    if job_inputs['run_atlas']:
-        atlas_file_names = glob.glob('/home/dnanexus/out/atlas/*')
-        atlas_file_names = []
-        for name in atlas_file_names:
-            atlas_file_names.append(dxpy.dxlink(dxpy.upload_local_file(name)))
-        output['align_stats_output'] = atlas_file_names
-
-    if job_inputs['run_stats']:
-        stats_file_names = glob.glob('/home/dnanexus/out/stats/*')
-        stats_file_uploads = []
-        for name in stats_file_names:
-            stats_file_uploads.append(dxpy.dxlink(dxpy.upload_local_file(name)))
-        output['align_stats_output'] = stats_file_uploads
-
     subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/svtyped_vcfs/'])
 
+    # Uploading log files
     if job_inputs['output_log_files'] and os.listdir('/home/dnanexus/out/log_files/'):
         log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
         log_file_upload = []
@@ -105,6 +100,7 @@ def main(**job_inputs):
             log_file_upload.append(dxpy.dxlink(dxpy.upload_local_file(name)))
         output['log_files'] = log_file_upload
 
+    # Uploading SVTyper and SURVIVOR outputs
     if job_inputs['run_genotype_candidates']:
         svtyped_vcf_names = glob.glob('/home/dnanexus/out/svtyped_vcfs/*')
         svtyped_vcfs_upload = []
@@ -114,6 +110,7 @@ def main(**job_inputs):
         output['svtyped_vcfs'] = svtyped_vcfs_upload
         output['combined_genotypes'] = dxpy.dxlink(dxpy.upload_local_file('/home/dnanexus/out/{0}.combined.genotyped.vcf'.format(prefix)))
         
+    # Uploading svviz outputs
     if job_inputs['run_svviz'] and os.path.isfile('/home/dnanexus/out/{0}.svviz_outputs.tar.gz'.format(prefix)):
         output['svviz_outputs'] = dxpy.dxlink(dxpy.upload_local_file('/home/dnanexus/out/{0}.svviz_outputs.tar.gz'.format(prefix)))
 
