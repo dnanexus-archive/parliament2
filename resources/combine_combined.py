@@ -53,7 +53,6 @@ def main():
             print "\t".join(tab_split[:9]) + "\t%s" % sample
         else:
             tab_split = line.strip().split("\t")
-
             position = int(tab_split[1])
             end = tab_split[7].replace("CIEND","XXXXX").split("END=")[-1].split(";")[0].split("\t")[0]
             end_position = int(end)
@@ -102,7 +101,6 @@ def main():
             
             tab_split[9] += support.lstrip(",")
 
-
             if "SVTYPE=DEL" in line:
                 #try:
                 size = end_position - position
@@ -132,7 +130,6 @@ def main():
             if "SVTYPE=DUP" in line and (tab_split[9].split(":")[0] == "0/1" or tab_split[9].split(":")[0] == "1/1"):
                 tab_split[6] = "Unknown"
             
-
             print "\t".join(tab_split[:10])
         
 main()

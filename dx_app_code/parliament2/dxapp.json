@@ -150,7 +150,7 @@
       "label": "Run Delly Deletion?",
       "help": "If selected, the deletion module of the program Delly2 will be one of the SV callers run.",
       "class": "boolean",
-      "default": false
+      "default": true
     },
     {
       "name": "run_delly_insertion",
@@ -164,7 +164,7 @@
       "label": "Run Delly Inversion?",
       "help": "If selected, the inversion module of the program Delly2 will be one of the SV callers run.",
       "class": "boolean",
-      "default": true
+      "default": false
     },
     {
       "name": "run_delly_duplication",
