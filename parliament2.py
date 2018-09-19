@@ -23,8 +23,6 @@ def parse_arguments():
     args.add_argument('--delly_inversion', action="store_true", help="If selected, the inversion module of the program Delly2 will be one of the SV callers run.")
     args.add_argument('--delly_duplication', action="store_true", help="If selected, the duplication module of the program Delly2 will be one of the SV callers run.")
     args.add_argument('--genotype', action="store_true", help="If selected, candidate events determined from the individual callers will be genotyped and merged to create a consensus output.")
-    args.add_argument('--atlas', action="store_true", help="If selected, xAtlas will be run as a SNP and Indel caller.")
-    args.add_argument('--stats', action="store_true", help="If selected, samtools flagstat will be run to gather statistics on the input BAM file.")
     args.add_argument('--svviz', action="store_true", help="If selected, visualizations of genotyped SV events will be produced with SVVIZ, one screenshot of support per event. For this option to take effect, Genotype must be selected.")
     args.add_argument('--svviz_only_validated_candidates', action="store_true", help="Run SVVIZ only on validated candidates? For this option to be relevant, SVVIZ must be selected. NOT selecting this will make the SVVIZ component run longer.")
     args.add_argument('--dnanexus', action="store_true", help=argparse.SUPPRESS)

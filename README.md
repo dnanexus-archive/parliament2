@@ -162,7 +162,7 @@ For additional information, please see the following papers:
 ## Help
 
 ```
-usage: parliament2.py [-h] --bam BAM [--bai BAI] -r REF_GENOME
+usage: parliament2.py [-h] --bam BAM [--bai BAI] -r REF_GENOME [--fai FAI]
                       [--prefix PREFIX] [--filter_short_contigs]
                       [--breakdancer] [--breakseq] [--manta] [--cnvnator]
                       [--lumpy] [--delly_deletion] [--delly_insertion]
@@ -180,6 +180,8 @@ optional arguments:
   -r REF_GENOME, --ref_genome REF_GENOME
                         The name of the reference file that matches the
                         reference used to map the Illumina inputs.
+  --fai FAI             (Optional) The name of the corresponding index for the
+                        reference genome file.
   --prefix PREFIX       (Optional) If provided, all output files will start
                         with this. If absent, the base of the BAM file name
                         will be used.
@@ -208,12 +210,12 @@ optional arguments:
                         individual callers will be genotyped and merged to
                         create a consensus output.
   --svviz               If selected, visualizations of genotyped SV events
-                        will be produced with svviz, one screenshot of support
+                        will be produced with SVVIZ, one screenshot of support
                         per event. For this option to take effect, Genotype
                         must be selected.
   --svviz_only_validated_candidates
-                        Run svviz only on validated candidates? For this
-                        option to be relevant, svviz must be selected. NOT
-                        selecting this will make the svviz component run
+                        Run SVVIZ only on validated candidates? For this
+                        option to be relevant, SVVIZ must be selected. NOT
+                        selecting this will make the SVVIZ component run
                         longer.
 ```
