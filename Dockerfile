@@ -63,10 +63,10 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     zlib1g-dev
 RUN apt-get update
 
-RUN conda config --add channels r
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
-RUN conda install -c faircloth-lab samtools
+RUN conda config --add channels anaconda
+RUN conda install -c bioconda samtools
 RUN conda install -c bioconda sambamba -y
 RUN conda install -c bioconda bcftools -y
 RUN conda install -c bcbio bx-python -y
@@ -80,7 +80,7 @@ ADD resources.tar.gz /
 RUN cp -a /resources/* /
 RUN rm -rf /resources/
 
-RUN conda install -y numpy
+RUN conda install -c anaconda -y numpy
 RUN pip install --upgrade pip 
 RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz
 RUN pip install pycparser
