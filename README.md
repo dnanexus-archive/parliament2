@@ -1,8 +1,8 @@
 # Parliament2
 
-This app is used to identify structural variants in a given sample relative to a reference genome. These structural variants cover large deletion events that are called as Deletions of a region, Insertions of a sequence into a region, Duplications of a region, Inversions of a region, or Translocations between two regions in the genome.
+Parliament2 identifies structural variants in a given sample relative to a reference genome. These structural variants cover large deletion events that are called as Deletions of a region, Insertions of a sequence into a region, Duplications of a region, Inversions of a region, or Translocations between two regions in the genome.
 
-Parliament2 runs a combination of tools to generate structural variant calls on whole-genome sequencing data. This tool can run the following callers: Breakdancer, Breakseq2, CNVnator, Delly2, Manta, and Lumpy. Because of synergies in how the programs use computational resources, these are all run in parallel. This tool will produce the outputs of each of the tools for subsequent investigation.
+Parliament2 runs a combination of tools to generate structural variant calls on whole-genome sequencing data. It can run the following callers: Breakdancer, Breakseq2, CNVnator, Delly2, Manta, and Lumpy. Because of synergies in how the programs use computational resources, these are all run in parallel. Parliament2 will produce the outputs of each of the tools for subsequent investigation.
 
 If the option to genotype candidates is selected, this tool will run SVTyper to genotype the events and will merge these tools with the program SURVIVOR. SV events that receive genotype calls have significantly higher specificity.
 
@@ -22,7 +22,7 @@ You can verify the successful installation using the command `docker images`, wh
 
 #### Building from source
 
-If you wish to built Parliament2 from source, you can find the most up-to-date production version of Parliament2 on our [release page](https://github.com/dnanexus/parliament2/releases) or pull from this repository (warning: this version may be unstable). You will have to run `tar -czvf resources.tar.gz resources/` in the directory containing the Parliament2 files in order to build the Docker image.
+If you wish to build Parliament2 from source, you can find the most up-to-date production version of Parliament2 on our [release page](https://github.com/dnanexus/parliament2/releases) or pull from this repository (warning: this version may be unstable). You will have to run `tar -czvf resources.tar.gz resources/` in the directory containing the Parliament2 files in order to build the Docker image.
 
 Then, once you have made your desired modifications (if applicable), you can run `docker build . -t parliament2` from within the `parliament2` directory created by GitHub. There should now be a Docker image named `parliament2` on your computer.
 
