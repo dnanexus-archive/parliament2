@@ -307,13 +307,13 @@
         {
           "project": "project-FBbG4280Qg43bZJ1Jyyk8F8v",
           "folder": "/",
-          "name": "parliament2",
+          "name": "parliament2:0.1.8",
           "version": "0.0.1"
         }
       ],
       "systemRequirements": {
         "*": {
-          "instanceType": "mem1_ssd1_x32"
+          "instanceType": "mem1_ssd1_x16"
         }
       }
     },
