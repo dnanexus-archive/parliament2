@@ -22,9 +22,11 @@ You can verify the successful installation using the command `docker images`, wh
 
 #### Building from source
 
-You can find the most up-to-date version of Parliament2 on our [release page](https://github.com/dnanexus/parliament2/releases). You will have to run `tar -czvf resources.tar.gz resources/` in the directory containing the Parliament2 files in order to build the Docker image.
+If you wish to built Parliament2 from source, you can find the most up-to-date production version of Parliament2 on our [release page](https://github.com/dnanexus/parliament2/releases) or pull from this repository (warning: this version may be unstable). You will have to run `tar -czvf resources.tar.gz resources/` in the directory containing the Parliament2 files in order to build the Docker image.
 
-Then, run `docker build . -t parliament2` from within the `parliament2` directory created by GitHub. There should now be a Docker image named `parliament2` on your computer.
+Then, once you have made your desired modifications (if applicable), you can run `docker build . -t parliament2` from within the `parliament2` directory created by GitHub. There should now be a Docker image named `parliament2` on your computer.
+
+Again, you can verify the successful installation using the command `docker images`, which will list every Docker image stored locally on your machine, or by running `docker run parliament2 -h`, which will print the help string (printed in full at the bottom of this README).
 
 ## Running
 
