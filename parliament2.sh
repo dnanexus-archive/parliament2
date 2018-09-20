@@ -95,8 +95,6 @@ samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > con
 
 mkdir -p /home/dnanexus/out/log_files/
 
-chroms=(chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY chrM)
-
 # Frontloading IndelRealigner
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
@@ -104,31 +102,7 @@ if [[ "$run_atlas" == "True" ]]; then
     
     echo "Running RealignerTargetCreator"
     java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/realigner_target_creator.stderr.log
-
-    for chr in "${chroms[@]}"; do
-        echo "java -Xmx8G -jar ${gatk_jar} -T IndelRealigner -R ref.fa -I input.bam -targetIntervals realign.intervals -L $chr -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz -o indel_realigned.$chr.bam" >> indel_realigner_calls.txt
-    done
-
-    threads=$(nproc)
-    echo "Running IndelRealigner"
-    parallel --verbose -j $threads -a indel_realigner_calls.txt eval 1> /home/dnanexus/out/log_files/indel_realigner.stdout.log 2> /home/dnanexus/out/log_files/indel_realigner.stderr.log
-    # parallel --verbose -j $threads -a indel_realigner_calls.txt eval
-
-    for chr in "${chroms[@]}"; do
-        echo "xatlas --ref ref.fa --in indel_realigned.$chr.bam --prefix ${prefix}.$chr -s ${prefix}.$chr --gvcf" >> xatlas_calls.txt
-    done
-
-    echo "Running xAtlas"
-    # parallel --verbose -j $threads -a xatlas_calls.txt eval 1> /home/dnanexus/out/log_files/xatlas.stdout.log 2> /home/dnanexus/out/log_files/xatlas.stderr.log
-    parallel --verbose -j $threads -a xatlas_calls.txt eval
 fi
-
-ls -sh .
-
-rm -rf indel_realigned.*.bam &
-# vcf-concat "$(ls ${prefix}.*_indel.vcf)" | vcf-sort -c > "${prefix}"_indel.vcf &
-# vcf-concat "$(ls ${prefix}.*_snp.vcf)" | vcf-sort -c > "${prefix}"_snp.vcf &
-
 
 if [[ "$run_stats" == "True" ]]; then
     verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
@@ -137,9 +111,7 @@ if [[ "$run_stats" == "True" ]]; then
 
     echo "Running alignstats"
     alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
-    alignstats_pid=$!
     samtools flagstat input.bam > "${prefix}".flagstats &
-    flagstat_pid=$!
 fi
 
 if [[ "$run_breakseq" == "True" || "$run_manta" == "True" ]]; then
@@ -158,14 +130,12 @@ if [[ "$run_breakseq" == "True" ]]; then
         --bplib_gff "$bplib" \
         --nthreads "$(nproc)" --bplib_gff "$bplib" \
         --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq.stdout.log 2> /home/dnanexus/out/log_files/breakseq.stderr.log &
-        breakseq_pid=$!
 fi
 
 # MANTA
 if [[ "$run_manta" == "True" ]]; then
     echo "Manta"
     timeout 6h runManta 1> /home/dnanexus/out/log_files/manta.stdout.log 2> /home/dnanexus/out/log_files/manta.stderr.log &
-    manta_pid=$!
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -206,55 +176,52 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
             count=$((count + 1))
             if [[ "$run_breakdancer" == "True" ]]; then
                 echo "Running Breakdancer for contig $contig"
-                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "$contig" > breakdancer-"$count".ctx &
-                breakdancer_pids[${i}]=$!
+                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"$count".ctx &
                 concat_breakdancer_cmd="$concat_breakdancer_cmd breakdancer-$count.ctx"
             fi
 
             if [[ "$run_cnvnator" == "True" ]]; then
                 echo "Running CNVnator for contig $contig"
                 runCNVnator "$contig" "$count" &
-                cnvnator_pids[${i}]=$!
                 concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-$count"
             fi
 
+            if [[ "$run_atlas" == "True" ]]; then
+                ./run_realign_atlas.sh input.bam ref.fa "${gatk_jar}" "${prefix}" "${contig}" &
+            fi
+
             echo "Running sambamba view"
-            timeout 2h sambamba view -h -f bam -t $(nproc) input.bam $contig > chr.$count.bam
+            timeout 2h sambamba view -h -f bam -t $(nproc) input.bam "${contig}" > chr.$count.bam
             echo "Running sambamba index"
             sambamba index -t $(nproc) chr.$count.bam 
 
             if [[ "$run_delly_deletion" == "True" ]]; then  
                 echo "Running Delly (deletions) for contig $contig"
                 timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam & 
-                delly_deletion_pids[${i}]=$!
                 delly_deletion_concat="$delly_deletion_concat $count.delly.deletion.vcf"
             fi
 
             if [[ "$run_delly_inversion" == "True" ]]; then 
                 echo "Running Delly (inversions) for contig $contig"
                 timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam &
-                delly_inversion_pids[${i}]=$!
                 delly_inversion_concat="$delly_inversion_concat $count.delly.inversion.vcf"
             fi
 
             if [[ "$run_delly_duplication" == "True" ]]; then 
                 echo "Running Delly (duplications) for contig $contig"
                 timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam &
-                delly_duplication_pids[${i}]=$!
                 delly_duplication_concat="$delly_duplication_concat $count.delly.duplication.vcf"
             fi
 
             if [[ "$run_delly_insertion" == "True" ]]; then 
                 echo "Running Delly (insertions) for contig $contig"
                 timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam &
-                delly_insertion_pids[${i}]=$!
                 delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
             fi
             
             if [[ "$run_lumpy" == "True" ]]; then
                 echo "Running Lumpy for contig $contig"
                 timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
-                lumpy_pids[${i}]=$!
                 lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
             fi
 
@@ -289,31 +256,6 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
     done < contigs
 fi
 
-for pid in ${breakdancer_pids[*]}; do
-    wait $pid
-done
-for pid in ${cnvnator_pids[*]}; do
-    wait $pid
-done
-for pid in ${delly_deletion_pids[*]}; do
-    wait $pid
-done
-for pid in ${delly_inversion_pids[*]}; do
-    wait $pid
-done
-for pid in ${delly_duplication_pids[*]}; do
-    wait $pid
-done
-for pid in ${delly_insertion_pids[*]}; do
-    wait $pid
-done
-for pid in ${lumpy_pids[*]}; do
-    wait $pid
-done
-
-wait $breakseq_pid
-wait $manta_pid
-
 # Only install SVTyper if necessary
 if [[ "$run_genotype_candidates" == "True" ]]; then
     pip install git+https://github.com/hall-lab/svtyper.git -q &
@@ -335,7 +277,6 @@ mkdir -p /home/dnanexus/out/sv_caller_results/
         echo "No outputs of Lumpy found. Continuing."
     fi
 fi) &
-lumpy_vcf_pid=$!
 
 (if [[ "$run_manta" == "True" ]]; then
     echo "Convert Manta results to VCF format"
@@ -350,7 +291,6 @@ lumpy_vcf_pid=$!
     fi
 
 fi) &
-manta_vcf_pid=$!
 
 (if [[ "$run_breakdancer" == "True" ]] && [[ -n "$concat_breakdancer_cmd" ]]; then
     echo "Convert Breakdancer results to VCF format"
@@ -368,7 +308,6 @@ manta_vcf_pid=$!
         echo "No outputs of Breakdancer found. Continuing."
     fi
 fi) &
-breakdancer_vcf_pid=$!
 
 (if [[ "$run_cnvnator" == "True" ]] && [[ -n "$concat_cnvnator_cmd" ]]; then
     echo "Convert CNVnator results to VCF format"
@@ -384,7 +323,6 @@ breakdancer_vcf_pid=$!
         echo "No outputs of CNVnator found. Continuing."
     fi
 fi) &
-cnvnator_vcf_pid=$!
 
 (if [[ "$run_breakseq" == "True" ]]; then
     echo "Convert Breakseq results to VCF format"
@@ -409,7 +347,6 @@ cnvnator_vcf_pid=$!
         cp breakseq2/final.bam /home/dnanexus/out/sv_caller_results/"$prefix".breakseq.bam
     fi
 fi) &
-breakseq_vcf_pid=$!
 
 (if [[ "$run_delly_deletion" == "True" ]]; then 
     echo "Convert Delly deletion results to VCF format"
@@ -421,7 +358,6 @@ breakseq_vcf_pid=$!
         echo "No Delly deletion results found. Continuing."
     fi
 fi) &
-delly_deletion_vcf_pid=$!
 
 (if [[ "$run_delly_inversion" == "True" ]]; then
     echo "Convert Delly inversion results to VCF format"
@@ -433,7 +369,6 @@ delly_deletion_vcf_pid=$!
         echo "No Delly inversion results found. Continuing."
     fi
 fi) &
-delly_inversion_vcf_pid=$!
 
 (if [[ "$run_delly_duplication" == "True" ]]; then
     echo "Convert Delly duplication results to VCF format"
@@ -445,7 +380,6 @@ delly_inversion_vcf_pid=$!
         echo "No Delly duplication results found. Continuing."
     fi
 fi) &
-delly_duplication_vcf_pid=$!
 
 (if [[ "$run_delly_insertion" == "True" ]]; then
     echo "Convert Delly insertion results to VCF format"
@@ -457,17 +391,6 @@ delly_duplication_vcf_pid=$!
         echo "No Delly insertion results found. Continuing."
     fi
 fi) &
-delly_insertion_vcf_pid=$!
-
-wait $breakdancer_vcf_pid
-wait $breakseq_vcf_pid
-wait $cnvnator_vcf_pid
-wait $delly_deletion_vcf_pid
-wait $delly_duplication_vcf_pid
-wait $delly_insertion_vcf_pid
-wait $delly_inversion_vcf_pid
-wait $lumpy_vcf_pid
-wait $manta_vcf_pid
 
 set -e
 # Verify that there are VCF files available
@@ -630,9 +553,6 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
         fi
     fi
 fi
-
-wait $alignstats_pid
-wait $flagstat_pid
 
 mkdir -p /home/dnanexus/out/stats
 if [[ "$run_stats" == "True" ]]; then
