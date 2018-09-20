@@ -7,7 +7,7 @@
     "WGS"
   ],
   "dxapi": "1.0.0",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "inputSpec": [
     {
       "name": "illumina_bam",
