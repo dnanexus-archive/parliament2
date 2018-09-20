@@ -38,18 +38,18 @@ def gunzip_input(input_file):
         return input_file
 
 
-def run_parliament(bam, bai, ref_genome, fai, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, atlas, stats, svviz, svviz_only_validated_candidates):
+def run_parliament(bam, bai, ref_genome, fai, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates):
 
     if bai is not None:
         if fai is not None:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, fai, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
+            subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, fai, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
         else:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, "None", prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
+            subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, "None", prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
     else:
         if fai is not None:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, fai, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
+            subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, fai, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
         else:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, "None", prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(atlas), str(stats), str(svviz), str(svviz_only_validated_candidates)])
+            subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, "None", prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates)])
 
 
 def main():
@@ -69,7 +69,7 @@ def main():
 
     ref_genome_name = gunzip_input(args.ref_genome)
 
-    run_parliament(args.bam, args.bai, ref_genome_name, args.fai, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.atlas, args.stats, args.svviz, args.svviz_only_validated_candidates)
+    run_parliament(args.bam, args.bai, ref_genome_name, args.fai, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.svviz, args.svviz_only_validated_candidates)
 
 
 if __name__ == '__main__':
