@@ -145,7 +145,7 @@ To modify Parliament2 and run it on DNAnexus, please see the developer README in
 * Manta: [v1.4.0](https://anaconda.org/bioconda/manta)
 
 #### Other tools
-* SVTyper: [v0.6.1](https://github.com/hall-lab/svtyper/commit/19aa65fa22800692ddde50cacfee00bbd6394099)
+* SVTyper: [v0.7.0](https://github.com/hall-lab/svtyper/commit/5fc30763fd3025793ee712a563de800c010f6bea)
 * svviz: [v1.5.2](https://github.com/svviz/svviz/commit/84acefa13bf0d4ad6e7e0f1d058aed6f16681142)
 * SURVIVOR: [v1.0.3](https://github.com/fritzsedlazeck/SURVIVOR/commit/7c7731d71fa1cba017f470895fb3ef55f2812067)
 
