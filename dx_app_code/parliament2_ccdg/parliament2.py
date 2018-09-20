@@ -81,6 +81,10 @@ def main(**job_inputs):
         docker_call.append('--delly_duplication')
     if job_inputs['run_genotype_candidates']:
         docker_call.append('--genotype')
+    if job_inputs['run_atlas']:
+        docker_call.append('--atlas')
+    if job_inputs['run_stats']:
+        docker_call.append('--stats')
     if job_inputs['run_svviz']:
         docker_call.append('--svviz')
     if job_inputs['svviz_only_validated_candidates']:
