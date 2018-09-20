@@ -4,16 +4,13 @@ for line in sys.stdin:
     if line.startswith('#'):
         sys.stdout.write(line)
         continue
-    elif line.strip() == "None":
-        sys.stdout.write('\n')
-        continue
     else:
         tab_split = line.strip().split("\t")
         if len(tab_split) == 1:
             continue
         else:
             position = int(tab_split[1])
-            end = int(line.split("END=")[-1].split(";")[0].split("\t")[0].split(",")[0])
+            end = int(line.replace("CIEND","XXXXX").split("END=")[-1].split(";")[0].split("\t")[0].split(",")[0])
             chr2 = line.split("CHR2=")[-1].split(";")[0].split("\t")[0]
             chr1 = line.split("\t")[0].split("chr")[-1]
             

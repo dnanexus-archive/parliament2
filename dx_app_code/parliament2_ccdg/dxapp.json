@@ -105,6 +105,41 @@
       ]
     },
     {
+      "name": "ref_index",
+      "label": "Index for reference genome",
+      "help": "The index for the reference file that matches the reference used to map the Illumina inputs.",
+      "class": "file",
+      "patterns": ["*.fai"],
+      "optional": true,
+      "suggestions": [
+        {
+          "name": "DNAnexus Reference Genomes: AWS US-east",
+          "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS: China-north",
+          "project": "project-Bxv84pQ27z999kj0jbQz0FK9",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS Germany",
+          "project": "project-F3zxk7Q4F30Xp8fG69K1Vppj",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: Azure West US",
+          "project": "project-F0yyz6j9Jz8YpxQV8B8Kk7Zy",
+          "path": "/"
+        },
+        {
+          "name": "DNAnexus Reference Genomes: AWS Sydney",
+          "project": "project-F4gXb605fKQyBq5vJBG31KGG",
+          "path": "/"
+        }
+      ]
+    },
+    {
       "name": "prefix",
       "label": "Prefix to give output files",
       "help": "(Optional) If provided, all output files will start with this. If absent, the base of the BAM file name will be used.",
@@ -159,7 +194,7 @@
       "label": "Run Delly Deletion?",
       "help": "If selected, the deletion module of the program Delly2 will be one of the SV callers run.",
       "class": "boolean",
-      "default": false
+      "default": true
     },
     {
       "name": "run_delly_insertion",
@@ -322,7 +357,7 @@
       ],
       "systemRequirements": {
         "*": {
-          "instanceType": "mem1_ssd1_x32"
+          "instanceType": "mem1_ssd1_x16"
         }
       }
     }

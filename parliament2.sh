@@ -31,7 +31,6 @@ if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
 fi
 
 cp "${ref_fasta}" ref.fa
-cp "${ref_index}" ref.fa.fai
 
 if [[ "$run_breakdancer" == "False" ]] && [[ "$run_breakseq" == "False" ]] && [[ "$run_manta" == "False" ]] && [[ "$run_cnvnator" == "False" ]] && [[ "$run_lumpy" == "False" ]] && [[ "$run_delly_deletion" == "False" ]] && [[ "$run_delly_insertion" == "False" ]] && [[ "$run_delly_inversion" == "False" ]] && [[ "$run_delly_duplication" == "False" ]] && [[ "$run_atlas" == "False" ]]; then
     echo "WARNING: Did not detect any variant calling modules requested by the user through command-line flags."
@@ -44,9 +43,10 @@ if [[ "$run_breakdancer" == "False" ]] && [[ "$run_breakseq" == "False" ]] && [[
     run_delly_deletion="True"
 fi
 
-
 if [[ "$ref_index" == "None" ]]; then
     samtools faidx ref.fa &
+else
+    cp "${ref_index}" ref.fa.fai
 fi
 
 ref_genome=$(python /home/dnanexus/get_reference.py)
@@ -167,7 +167,7 @@ if [[ "$run_delly_deletion" == "True" ]] || [[ "$run_delly_insertion" == "True" 
    run_delly="True"
 fi
 
-i=0
+count=0
 # Process management for launching jobs
 if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
@@ -251,10 +251,11 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
                 sleep 60
             done
         fi
-
-        ((i++))
+        ((count++))
     done < contigs
 fi
+
+wait
 
 # Only install SVTyper if necessary
 if [[ "$run_genotype_candidates" == "True" ]]; then
@@ -509,11 +510,11 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
     # Run SURVIVOR
     echo "Running SURVIVOR"
-    survivor merge survivor_inputs 200 1 1 0 0 10 survivor.output.vcf
+    survivor merge survivor_inputs 1000 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
     cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "$prefix" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"$prefix".combined.genotyped.vcf
+    python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
     if [[ "$run_svviz" == "True" ]]; then

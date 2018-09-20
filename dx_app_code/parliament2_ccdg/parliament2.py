@@ -51,6 +51,13 @@ def main(**job_inputs):
         dxpy.download_dxfile(gatk_jar, gatk_name)
 
         docker_call.extend(['--gatk_jar', gatk_name])
+
+    if 'ref_index' in job_inputs:
+        ref_index = dxpy.open_dxfile(job_inputs['ref_index'])
+        fai_name = "/home/dnanexus/in/{0}".format(ref_index.name)
+        dxpy.download_dxfile(ref_index, fai_name)
+
+        docker_call.extend(['--fai', fai_name])
         
     if job_inputs['filter_short_contigs']:
         docker_call.append('--filter_short_contigs')
@@ -74,10 +81,6 @@ def main(**job_inputs):
         docker_call.append('--delly_duplication')
     if job_inputs['run_genotype_candidates']:
         docker_call.append('--genotype')
-    if job_inputs['run_atlas']:
-        docker_call.append('--atlas')
-    if job_inputs['run_stats']:
-        docker_call.append('--stats')
     if job_inputs['run_svviz']:
         docker_call.append('--svviz')
     if job_inputs['svviz_only_validated_candidates']:
@@ -103,8 +106,7 @@ def main(**job_inputs):
         atlas_file_uploads = []
         for name in atlas_file_names:
             atlas_file_uploads.append(dxpy.dxlink(dxpy.upload_local_file(name)))
-        output['atlas_output'] = atlas_file_uploads
-    
+        output['atlas_output'] = atlas_file_uploads    
 
     # Uploading samtools flagstat outputs
     if job_inputs['run_stats']:
@@ -122,7 +124,7 @@ def main(**job_inputs):
             log_file_upload.append(dxpy.dxlink(dxpy.upload_local_file(name)))
         output['log_files'] = log_file_upload
 
-    # Uploading SVTyper outputs
+    # Uploading SVTyper and SURVIVOR outputs
     if job_inputs['run_genotype_candidates']:
         svtyped_vcf_names = glob.glob('/home/dnanexus/out/svtyped_vcfs/*')
         svtyped_vcfs_upload = []
