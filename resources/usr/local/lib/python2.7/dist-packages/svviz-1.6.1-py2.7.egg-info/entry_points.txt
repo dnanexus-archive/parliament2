@@ -1,3 +1,0 @@
-[console_scripts]
-svviz = svviz.app:main
-

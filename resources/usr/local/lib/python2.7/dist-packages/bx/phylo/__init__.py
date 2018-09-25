@@ -1,3 +1,0 @@
-"""
-Phylogenetic file format support.
-"""

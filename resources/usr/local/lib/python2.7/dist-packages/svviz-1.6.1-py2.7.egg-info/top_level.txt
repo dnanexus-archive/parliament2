@@ -1,3 +1,0 @@
-ssw
-ssw/libssw
-svviz

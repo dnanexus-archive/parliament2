@@ -5,7 +5,7 @@ FROM ubuntu:14.04
 MAINTAINER Samantha Zarate
 
 # System packages 
-RUN apt-get update && apt-get install -y curl wget
+RUN apt-get update && apt-get install -y curl wget software-properties-common -y
 
 # Install miniconda to /miniconda
 RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
@@ -18,6 +18,8 @@ RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu tru
 RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/all/' >> /etc/apt/sources.list.d/dnanexus.list"
 RUN wget https://wiki.dnanexus.com/images/files/ubuntu-signing-key.gpg
 RUN apt-key add ubuntu-signing-key.gpg
+
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test 
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     autoconf \
@@ -74,12 +76,9 @@ RUN conda install -c bioconda bcftools -y
 RUN conda install -c bcbio bx-python -y
 RUN conda install -c anaconda networkx -y
 RUN conda install -c bioconda samblaster -y
+RUN conda install libgcc -y
 RUN conda install gcc_linux-64 -y
 RUN conda install -c bioconda manta
-RUN wget https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2
-RUN tar -xjvf htslib-1.9.tar.bz2
-WORKDIR htslib-1.9/
-RUN ./configure && make && make install
 
 WORKDIR /
 ADD resources.tar.gz /
@@ -112,6 +111,7 @@ ENV PATH=${PATH}:/usr/local/bin/
 ENV PYTHONPATH=${PYTHONPATH}:/opt/conda/bin/
 ENV ROOTSYS=/home/dnanexus/root
 ENV LD_LIBRARY_PATH=/usr/lib/root/lib
+ENV LD_LIBRARY_PATH=/usr/local/lib64/:${LD_LIBRARY_PATH}
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
 ENV DYLD_LIBRARY_PATH=/usr/lib/root/lib
 ENV HTSLIB_LIBRARY_DIR=/usr/local/lib

@@ -98,19 +98,19 @@ mkdir -p /home/dnanexus/out/log_files/
 # Frontloading IndelRealigner
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
-    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/picard_dict.stdout.log 2> /home/dnanexus/out/log_files/picard_dict.stderr.log
+    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/$prefix.picard_dict.stdout.log 2> /home/dnanexus/out/log_files/$prefix.picard_dict.stderr.log
     
     echo "Running RealignerTargetCreator"
-    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/realigner_target_creator.stderr.log
+    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stderr.log
 fi
 
 if [[ "$run_stats" == "True" ]]; then
-    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/verify.0.stout.log 2> /home/dnanexus/out/log_files/verify.0.stderr.log &
-    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out "${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/verify.1.stout.log 2> /home/dnanexus/out/log_files/verify.1.stderr.log &
-    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out "${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/verify.2.stout.log 2> /home/dnanexus/out/log_files/verify.2.stderr.log &
+    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/$prefix.verify.0.stderr.log &
+    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out "${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/$prefix.verify.1.stderr.log &
+    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out "${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/$prefix.verify.2.stderr.log &
 
     echo "Running alignstats"
-    alignstats -v -p -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats.stderr.log &
+    alignstats -v -p -F 2048 -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/$prefix.alignstats.stdout.log 2> /home/dnanexus/out/log_files/$prefix.alignstats.stderr.log &
     samtools flagstat input.bam > "${prefix}".flagstats &
 fi
 
@@ -129,13 +129,13 @@ if [[ "$run_breakseq" == "True" ]]; then
         --bwa /usr/local/bin/bwa --samtools /usr/local/bin/samtools \
         --bplib_gff "$bplib" \
         --nthreads "$(nproc)" --bplib_gff "$bplib" \
-        --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq.stdout.log 2> /home/dnanexus/out/log_files/breakseq.stderr.log &
+        --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq.stdout.log 2> /home/dnanexus/out/log_files/$prefix.breakseq.stderr.log &
 fi
 
 # MANTA
 if [[ "$run_manta" == "True" ]]; then
     echo "Manta"
-    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta.stdout.log 2> /home/dnanexus/out/log_files/manta.stderr.log &
+    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta.stdout.log 2> /home/dnanexus/out/log_files/$prefix.manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -392,6 +392,10 @@ fi) &
         echo "No Delly insertion results found. Continuing."
     fi
 fi) &
+
+wait
+
+ls -sh
 
 set -e
 # Verify that there are VCF files available

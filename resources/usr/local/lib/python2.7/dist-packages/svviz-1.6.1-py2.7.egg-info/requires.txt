@@ -1,6 +1,0 @@
-requests
-numpy
-pyfaidx
-pysam >= 0.10
-flask
-six
