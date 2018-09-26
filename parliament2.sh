@@ -169,7 +169,7 @@ fi
 
 count=0
 # Process management for launching jobs
-if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]]; then
+if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]] || [[ "$run_atlas" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
     while read contig; do
         if [[ $(samtools view input.bam "$contig" | head -n 20 | wc -l) -ge 10 ]]; then
@@ -187,6 +187,7 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
             fi
 
             if [[ "$run_atlas" == "True" ]]; then
+                echo "Running GATK IndelRealigner and xAtlas for contig $contig"
                 ./run_realign_atlas.sh input.bam ref.fa "${gatk_jar}" "${prefix}" "${contig}" &
             fi
 
