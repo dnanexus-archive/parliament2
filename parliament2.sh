@@ -19,6 +19,7 @@ run_stats=${18}
 run_svviz=${19}
 svviz_only_validated_candidates=${20}
 dnanexus=${21}
+user_defined_threads=${22}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
@@ -63,6 +64,11 @@ lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
 # Get extension and threads
 extn=${illumina_bam##*.}
 threads="$(nproc)"
+if [ ! -z ${user_defined_threads} ]
+then
+    threads="${user_defined_threads}"
+fi
+
 threads=$((threads - 3))
 
 echo "Set up and index BAM/CRAM"
