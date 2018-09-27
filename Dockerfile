@@ -114,4 +114,3 @@ WORKDIR /home/dnanexus
 RUN ["chmod", "+x", "parliament2.py"]
 RUN ["chmod", "+x", "parliament2.sh"]
 
-ENTRYPOINT ["python","/home/dnanexus/parliament2.py"]
