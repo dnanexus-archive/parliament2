@@ -188,13 +188,15 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
 
             if [[ "$run_atlas" == "True" ]]; then
                 echo "Running GATK IndelRealigner and xAtlas for contig $contig"
-                ./run_realign_atlas.sh input.bam ref.fa "${gatk_jar}" "${prefix}" "${contig}" &
+                bash ./run_realign_atlas.sh input.bam ref.fa "${gatk_jar}" "${prefix}" "${contig}" &
             fi
 
-            echo "Running sambamba view"
-            timeout 2h sambamba view -h -f bam -t $(nproc) input.bam "${contig}" > chr.$count.bam
-            echo "Running sambamba index"
-            sambamba index -t $(nproc) chr.$count.bam 
+            if [[ "$run_delly" == "True" ]] || [[ "$run_lumpy" == "True" ]]; then
+                echo "Running sambamba view"
+                timeout 2h sambamba view -h -f bam -t $(nproc) input.bam "${contig}" > chr.$count.bam
+                echo "Running sambamba index"
+                sambamba index -t $(nproc) chr.$count.bam
+            fi
 
             if [[ "$run_delly_deletion" == "True" ]]; then  
                 echo "Running Delly (deletions) for contig $contig"
