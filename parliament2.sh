@@ -172,6 +172,7 @@ count=0
 if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]] || [[ "$run_atlas" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
     while read contig; do
+        echo "Running on contig $contig"
         if [[ $(samtools view input.bam "$contig" | head -n 20 | wc -l) -ge 10 ]]; then
             count=$((count + 1))
             if [[ "$run_breakdancer" == "True" ]]; then
