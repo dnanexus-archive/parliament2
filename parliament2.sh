@@ -575,11 +575,12 @@ fi
 
 mkdir -p /home/dnanexus/out/atlas
 if [[ "$run_atlas" == "True" ]]; then
-    if [[ ! -f "${prefix}"_indel.vcf && ! -f "${prefix}"_snp.vcf ]]; then
+
+    if [[ ! -f *_indel.vcf && ! -f *_snp.vcf ]]; then
         echo "No outputs of xAtlas found. Continuing."
     else
-        bgzip "${prefix}"_indel.vcf && tabix "${prefix}"_indel.vcf.gz
-        bgzip "${prefix}"_snp.vcf && tabix "${prefix}"_snp.vcf.gz
+        vcf-concat *_snp.vcf | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
+        vcf-concat *_indel.vcf | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
 
         cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
         cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi

@@ -87,7 +87,7 @@ RUN rm -rf /resources/
 
 RUN conda install -c anaconda -y numpy
 RUN pip install --upgrade pip 
-RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz
+RUN pip install pysam
 RUN pip install pycparser
 RUN pip install asn1crypto
 RUN pip install idna
