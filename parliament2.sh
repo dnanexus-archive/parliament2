@@ -266,6 +266,35 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     pip install git+https://github.com/hall-lab/svtyper.git -q &
 fi
 
+# Uploading stats and xAtlas outputs
+(if [[ "$run_stats" == "True" ]]; then
+    echo "Uploading stats outputs"
+    if [[ ! -f "${prefix}".AlignStatsReport.txt && ! -f "${prefix}"*SM && ! -f "${prefix}".flagstats ]]; then
+        echo "No outputs of alignstats found. Continuing."
+    else
+        mkdir -p /home/dnanexus/out/stats
+        cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
+        cp "${prefix}"*SM /home/dnanexus/out/stats/
+        cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
+    fi
+fi) &
+
+(if [[ "$run_atlas" == "True" ]]; then
+    echo "Uploading xAtlas outputs"
+    if [[ ! -f *_indel.vcf && ! -f *_snp.vcf ]]; then
+        echo "No outputs of xAtlas found. Continuing."
+    else
+        mkdir -p /home/dnanexus/out/atlas
+        cat *_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
+        cat *_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
+
+        cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
+        cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
+        cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
+        cp "${prefix}"_indel.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz.tbi
+    fi
+fi) &
+
 echo "Converting results to VCF format"
 mkdir -p /home/dnanexus/out/sv_caller_results/
 
@@ -398,6 +427,11 @@ fi) &
 fi) &
 
 wait
+
+ls -sh
+
+rm *_indel.vcf
+rm *_snp.vcf
 
 ls -sh
 
@@ -560,32 +594,5 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
             
             tar -czf /home/dnanexus/out/"$prefix".svviz_outputs.tar.gz svviz_outputs/
         fi
-    fi
-fi
-
-mkdir -p /home/dnanexus/out/stats
-if [[ "$run_stats" == "True" ]]; then
-    if [[ ! -f "${prefix}".AlignStatsReport.txt && ! -f "${prefix}"*SM && ! -f "${prefix}".flagstats ]]; then
-        echo "No outputs of alignstats found. Continuing."
-    else
-        cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-        cp "${prefix}"*SM /home/dnanexus/out/stats/
-        cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
-    fi
-fi
-
-mkdir -p /home/dnanexus/out/atlas
-if [[ "$run_atlas" == "True" ]]; then
-
-    if [[ ! -f *_indel.vcf && ! -f *_snp.vcf ]]; then
-        echo "No outputs of xAtlas found. Continuing."
-    else
-        vcf-concat *_snp.vcf | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
-        vcf-concat *_indel.vcf | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
-
-        cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
-        cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
-        cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
-        cp "${prefix}"_indel.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz.tbi
     fi
 fi
