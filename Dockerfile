@@ -70,17 +70,16 @@ RUN apt-get update
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
 RUN conda config --add channels anaconda
-RUN conda install -c bioconda \
-    samtools \
-    sambamba -y \
-    bcftools -y \
-    samblaster -y \
-    manta \
-    pysam
+RUN conda install -c bioconda samtools
+RUN conda install -c bioconda sambamba -y
+RUN conda install -c bioconda bcftools -y
 RUN conda install -c bcbio bx-python -y
 RUN conda install -c anaconda networkx -y
+RUN conda install -c bioconda samblaster -y
 RUN conda install libgcc -y
 RUN conda install gcc_linux-64 -y
+RUN conda install -c bioconda manta
+RUN conda install -c bioconda pysam
 
 WORKDIR /
 ADD resources.tar.gz /

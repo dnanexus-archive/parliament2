@@ -21,6 +21,37 @@ run_svviz=${20}
 svviz_only_validated_candidates=${21}
 dnanexus=${22}
 
+check_threads(){
+    breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
+    cnvnator_processes=$(top -n 1 -b -d 10 | grep -c cnvnator)
+    sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
+    manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
+    breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
+    delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
+    lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
+    atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
+    indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
+    active_threads=$(python /getThreads.py "$breakdancer_processes" "$cnvnator_processes" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes" "$atlas_processes" "$indel_realigner_processes")
+
+    echo "Checking threads $active_threads"
+
+    while [[ $active_threads -ge $(nproc) ]]; do
+        echo "Waiting for 60 seconds $active_threads"
+        sleep 60
+        breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
+        cnvnator_processes=$(top -n 1 -b -d 10 | grep -c cnvnator)
+        sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
+        manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
+        breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
+        delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
+        lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
+        atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
+        indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
+        active_threads=$(python /getThreads.py "$breakdancer_processes" "$cnvnator_processes" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes" "$atlas_processes" "$indel_realigner_processes")
+        echo "Checking threads $active_threads"
+    done
+}
+
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
         dx-jobutil-report-error "ERROR: An invalid (nonexistent) input file has been specified."
@@ -101,7 +132,7 @@ if [[ "$run_atlas" == "True" ]]; then
     java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/$prefix.picard_dict.stdout.log 2> /home/dnanexus/out/log_files/$prefix.picard_dict.stderr.log
     
     echo "Running RealignerTargetCreator"
-    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.dbsnp138.vcf.gz -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stderr.log
+    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stderr.log
 fi
 
 if [[ "$run_stats" == "True" ]]; then
@@ -229,31 +260,7 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
                 lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
             fi
 
-            breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
-            cnvnator_processes=$(top -n 1 -b -d 10 | grep -c cnvnator)
-            sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
-            manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
-            breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
-            delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
-            lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
-            atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
-            indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
-            active_threads=$(python /getThreads.py "$breakdancer_processes" "$cnvnator_processes" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes" "$atlas_processes" "$indel_realigner_processes")
-            
-            while [[ $active_threads -ge $(nproc) ]]; do
-                echo "Waiting for 60 seconds"
-                breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
-                cnvnator_processes=$(top -n 1 -b -d 10 | grep -c cnvnator)
-                sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
-                manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
-                breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
-                delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
-                lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
-                atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
-                indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
-                active_threads=$(python /getThreads.py "$breakdancer_processes" "$cnvnator_processes" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes" "$atlas_processes" "$indel_realigner_processes")
-                sleep 60
-            done
+            check_threads
         fi
         ((count++))
     done < contigs
