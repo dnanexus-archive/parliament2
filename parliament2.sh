@@ -33,10 +33,8 @@ check_threads(){
     indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
     active_threads=$(python /getThreads.py "$breakdancer_processes" "$cnvnator_processes" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes" "$atlas_processes" "$indel_realigner_processes")
 
-    echo "Checking threads $active_threads"
-
     while [[ $active_threads -ge $(nproc) ]]; do
-        echo "Waiting for 60 seconds $active_threads"
+        echo "Waiting for 60 seconds"
         sleep 60
         breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
         cnvnator_processes=$(top -n 1 -b -d 10 | grep -c cnvnator)
@@ -48,7 +46,7 @@ check_threads(){
         atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
         indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
         active_threads=$(python /getThreads.py "$breakdancer_processes" "$cnvnator_processes" "$sambamba_processes" "$manta_processes" "$breakseq_processes" "$delly_processes" "$lumpy_processes" "$atlas_processes" "$indel_realigner_processes")
-        echo "Checking threads $active_threads"
+        echo "Checking threads"
     done
 }
 
@@ -129,16 +127,24 @@ mkdir -p /home/dnanexus/out/log_files/
 # Frontloading IndelRealigner
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
-    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/$prefix.picard_dict.stdout.log 2> /home/dnanexus/out/log_files/$prefix.picard_dict.stderr.log
+    mkdir -p /home/dnanexus/out/log_files/create_seq_dict/
+    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/create_seq_dict/$prefix.picard_dict.stdout.log 2> /home/dnanexus/out/log_files/create_seq_dict/$prefix.picard_dict.stderr.log
+
+    mkdir -p /home/dnanexus/out/log_files/realigner_target_creator/
+    mkdir -p /home/dnanexus/out/log_files/indel_realigner/
+    mkdir -p /home/dnanexus/out/log_files/xatlas/
+
 fi
 
 if [[ "$run_stats" == "True" ]]; then
-    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/$prefix.verify.0.stderr.log &
-    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out "${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/$prefix.verify.1.stderr.log &
-    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out "${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/$prefix.verify.2.stderr.log &
+    mkdir -p /home/dnanexus/out/log_files/verify_bam_id/
+    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.0.stderr.log &
+    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out "${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.1.stderr.log &
+    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out "${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.2.stderr.log &
 
     echo "Running alignstats"
-    alignstats -v -p -F 2048 -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/$prefix.alignstats.stdout.log 2> /home/dnanexus/out/log_files/$prefix.alignstats.stderr.log &
+    mkdir -p /home/dnanexus/out/log_files/alignstats/
+    alignstats -v -p -F 2048 -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/alignstats/$prefix.alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats/$prefix.alignstats.stderr.log &
     samtools flagstat input.bam > "${prefix}".flagstats &
 fi
 
@@ -163,7 +169,8 @@ fi
 # MANTA
 if [[ "$run_manta" == "True" ]]; then
     echo "Manta"
-    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta.stdout.log 2> /home/dnanexus/out/log_files/$prefix.manta.stderr.log &
+    mkdir -p /home/dnanexus/out/log_files/manta/
+    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta/$prefix.manta.stdout.log 2> /home/dnanexus/out/log_files/manta/$prefix.manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
