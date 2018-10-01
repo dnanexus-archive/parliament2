@@ -292,9 +292,7 @@ fi) &
 
 (if [[ "$run_atlas" == "True" ]]; then
     echo "Uploading xAtlas outputs"
-    if [[ ! -f *_indel.vcf && ! -f *_snp.vcf ]]; then
-        echo "No outputs of xAtlas found. Continuing."
-    else
+    if [[ ls *_indel.vcf 1> /dev/null 2>&1 ]] && [[ ls *_snp.vcf 1> /dev/null 2>&1 ]]; then
         mkdir -p /home/dnanexus/out/atlas
         cat *_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
         cat *_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
@@ -303,6 +301,8 @@ fi) &
         cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
         cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
         cp "${prefix}"_indel.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz.tbi
+    else
+        echo "No outputs of xAtlas found. Continuing."
     fi
 fi) &
 
