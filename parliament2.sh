@@ -130,9 +130,6 @@ mkdir -p /home/dnanexus/out/log_files/
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
     java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/$prefix.picard_dict.stdout.log 2> /home/dnanexus/out/log_files/$prefix.picard_dict.stderr.log
-    
-    echo "Running RealignerTargetCreator"
-    java -Xmx8G -jar "${gatk_jar}" -nt $(nproc) -T RealignerTargetCreator -R ref.fa -I input.bam -o realign.intervals -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stdout.log 2> /home/dnanexus/out/log_files/$prefix.realigner_target_creator.stderr.log
 fi
 
 if [[ "$run_stats" == "True" ]]; then
