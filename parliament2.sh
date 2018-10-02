@@ -137,10 +137,12 @@ if [[ "$run_atlas" == "True" ]]; then
 fi
 
 if [[ "$run_stats" == "True" ]]; then
+    mkdir -p /home/dnanexus/out/stats
     mkdir -p /home/dnanexus/out/log_files/verify_bam_id/
-    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out "${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.0.stderr.log &
-    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out "${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.1.stderr.log &
-    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out "${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.2.stderr.log &
+
+    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.0.stderr.log &
+    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.1.stderr.log &
+    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.2.stderr.log &
 
     echo "Running alignstats"
     mkdir -p /home/dnanexus/out/log_files/alignstats/
@@ -280,12 +282,10 @@ fi
 # Uploading stats and xAtlas outputs
 (if [[ "$run_stats" == "True" ]]; then
     echo "Uploading stats outputs"
-    if [[ ! -f "${prefix}".AlignStatsReport.txt && ! -f "${prefix}"*SM && ! -f "${prefix}".flagstats ]]; then
+    if [[ ! -f "${prefix}".AlignStatsReport.txt && ! -f "${prefix}".flagstats ]]; then
         echo "No outputs of alignstats found. Continuing."
     else
-        mkdir -p /home/dnanexus/out/stats
-        cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
-        cp "${prefix}"*SM /home/dnanexus/out/stats/
+        cp "${prefix}".AlignStatsReport.txt /home/dnanexus/stats/"${prefix}".AlignStatsReport.txt
         cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
     fi
 fi) &
@@ -306,7 +306,7 @@ fi) &
             break
         fi
     done
-    
+
     if [[ "$indel_file_exists" ]] && [[ "$snp_file_exists" ]]; then
         mkdir -p /home/dnanexus/out/atlas
         cat *_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
