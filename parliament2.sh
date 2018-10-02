@@ -120,7 +120,7 @@ wait
 
 echo "Generate contigs"
 
-samtools view -H input.bam | python /getContigs.py "$filter_short_contigs" > contigs
+samtools view -H input.bam | python /getContigs.py "${filter_short_contigs}" > contigs
 
 mkdir -p /home/dnanexus/out/log_files/
 
@@ -128,25 +128,24 @@ mkdir -p /home/dnanexus/out/log_files/
 if [[ "$run_atlas" == "True" ]]; then
     echo "Creating fasta dict file"
     mkdir -p /home/dnanexus/out/log_files/create_seq_dict/
-    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/create_seq_dict/$prefix.picard_dict.stdout.log 2> /home/dnanexus/out/log_files/create_seq_dict/$prefix.picard_dict.stderr.log
+    java -jar CreateSequenceDictionary.jar REFERENCE=ref.fa OUTPUT=ref.dict 1> /home/dnanexus/out/log_files/create_seq_dict/"${prefix}".picard_dict.stdout.log 2> /home/dnanexus/out/log_files/create_seq_dict/"${prefix}".picard_dict.stderr.log
 
     mkdir -p /home/dnanexus/out/log_files/realigner_target_creator/
     mkdir -p /home/dnanexus/out/log_files/indel_realigner/
     mkdir -p /home/dnanexus/out/log_files/xatlas/
-
 fi
 
 if [[ "$run_stats" == "True" ]]; then
     mkdir -p /home/dnanexus/out/stats
     mkdir -p /home/dnanexus/out/log_files/verify_bam_id/
 
-    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.0.stderr.log &
-    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.1.stderr.log &
-    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/$prefix.verify.2.stderr.log &
+    verifyBamID --vcf maf.0.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.0.stderr.log &
+    verifyBamID --vcf maf.1.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.1.stderr.log &
+    verifyBamID --vcf maf.2.vcf --bam indel_realigned.bam --out /home/dnanexus/stats/"${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.2.stderr.log &
 
     echo "Running alignstats"
     mkdir -p /home/dnanexus/out/log_files/alignstats/
-    alignstats -v -p -F 2048 -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/alignstats/$prefix.alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats/$prefix.alignstats.stderr.log &
+    alignstats -v -p -F 2048 -i input.bam -o "${prefix}".AlignStatsReport.txt -r GRCh38_full_analysis_set_plus_decoy_hla.bed -t HG38_lom_vcrome2.1_with_PKv2.bed -m GRCh38_1000Genomes_N_regions.bed 1> /home/dnanexus/out/log_files/alignstats/"${prefix}".alignstats.stdout.log 2> /home/dnanexus/out/log_files/alignstats/"${prefix}".alignstats.stderr.log &
     samtools flagstat input.bam > "${prefix}".flagstats &
 fi
 
@@ -157,6 +156,7 @@ fi
 # JOBS THAT CANNOT BE PARALLELIZED BY CONTIG
 # BREAKSEQ2
 if [[ "$run_breakseq" == "True" ]]; then
+    mkdir -p /home/dnanexus/out/log_files/breakseq/
     echo "BreakSeq"
     bplib="/breakseq2_bplib_20150129/breakseq2_bplib_20150129.gff"
     work="breakseq2"
@@ -165,14 +165,14 @@ if [[ "$run_breakseq" == "True" ]]; then
         --bwa /usr/local/bin/bwa --samtools /usr/local/bin/samtools \
         --bplib_gff "$bplib" \
         --nthreads "$(nproc)" --bplib_gff "$bplib" \
-        --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq.stdout.log 2> /home/dnanexus/out/log_files/$prefix.breakseq.stderr.log &
+        --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq/"${prefix}".breakseq.stdout.log 2> /home/dnanexus/out/log_files/breakseq/"${prefix}".breakseq.stderr.log &
 fi
 
 # MANTA
 if [[ "$run_manta" == "True" ]]; then
     echo "Manta"
     mkdir -p /home/dnanexus/out/log_files/manta/
-    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta/$prefix.manta.stdout.log 2> /home/dnanexus/out/log_files/manta/$prefix.manta.stderr.log &
+    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta/"${prefix}".manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -292,22 +292,9 @@ fi) &
 
 (if [[ "$run_atlas" == "True" ]]; then
     echo "Uploading xAtlas outputs"
-    indel_file_exists=false
-    for item in *_indel.vcf; do
-        if [[ -f $file ]]; then
-            indel_file_exists=true
-            break
-        fi
-    done
-    snp_file_exists=false
-    for item in *_snp.vcf; do
-        if [[ -f $file ]]; then
-            snp_file_exists=true
-            break
-        fi
-    done
-
-    if [[ "$indel_file_exists" ]] && [[ "$snp_file_exists" ]]; then
+    if [[ -z $(find . -name "*_indel.vcf") ]] && [[ -z $(find . -name "*_snp.vcf") ]] ; then
+        echo "No outputs of xAtlas found. Continuing."
+    else
         mkdir -p /home/dnanexus/out/atlas
         cat *_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
         cat *_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
@@ -316,8 +303,6 @@ fi) &
         cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
         cp "${prefix}"_indel.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz
         cp "${prefix}"_indel.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.indel.vcf.gz.tbi
-    else
-        echo "No outputs of xAtlas found. Continuing."
     fi
 fi) &
 
@@ -457,21 +442,22 @@ wait
 rm *_indel.vcf
 rm *_snp.vcf
 
-set -e
-# Verify that there are VCF files available
-if [[ -z $(find . -name "*.vcf") ]]; then
-    if [[ "$dnanexus" == "True" ]]; then
-        dx-jobutil-report-error "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
-    else
-        echo "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
-        exit 1
-    fi
-fi
-set +e
-
 # Run SVtyper and SVviz
 if [[ "$run_genotype_candidates" == "True" ]]; then
     echo "Running SVTyper"
+
+    set -e
+    # Verify that there are VCF files available
+    if [[ -z $(find . -name "*.vcf") ]]; then
+        if [[ "$dnanexus" == "True" ]]; then
+            dx-jobutil-report-error "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+        else
+            echo "ERROR: SVTyper requested, but candidate VCF files required to genotype. No VCF files found."
+            exit 1
+        fi
+    fi
+    set +e
+
     # SVviz and BreakSeq have mutually exclusive versions of pysam required, so
     # SVviz is only installed later and if necessary
     if [[ "$run_svviz" == "True" ]]; then
@@ -484,7 +470,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Breakdancer
     if [[ "$run_breakdancer" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
-        mkdir /home/dnanexus/svtype_breakdancer
+        mkdir -p /home/dnanexus/svtype_breakdancer
         if [[ -f /home/dnanexus/breakdancer.vcf ]]; then
             bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
         else
@@ -495,7 +481,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Breakseq
     if [[ "$run_breakseq" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
-        mkdir /home/dnanexus/svtype_breakseq
+        mkdir -p /home/dnanexus/svtype_breakseq
         if [[ -f /home/dnanexus/breakseq.vcf ]]; then
             bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
         else
@@ -506,7 +492,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # CNVnator
     if [[ "$run_cnvnator" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
-        mkdir /home/dnanexus/svtype_cnvnator
+        mkdir -p /home/dnanexus/svtype_cnvnator
         if [[ -f /home/dnanexus/cnvnator.vcf ]]; then
             cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
             bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
@@ -522,7 +508,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
             echo "No Delly VCF file found. Continuing."
         else
             for item in delly*vcf; do
-                mkdir /home/dnanexus/svtype_delly_"$i"
+                mkdir -p /home/dnanexus/svtype_delly_"$i"
                 bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"$i" /home/dnanexus/delly.svtyper."$i".vcf input.bam
                 i=$((i + 1))
             done
@@ -538,7 +524,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Lumpy
     if [[ "$run_lumpy" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
-        mkdir /home/dnanexus/svtype_lumpy
+        mkdir -p /home/dnanexus/svtype_lumpy
         if [[ -f /home/dnanexus/lumpy.vcf ]]; then
             bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
         else
@@ -583,7 +569,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Run svviz
     if [[ "$run_svviz" == "True" ]]; then
         echo "Running svviz"
-        mkdir svviz_outputs
+        mkdir -p /home/dnanexus/svviz_outputs/
 
         grep \# survivor_sorted.vcf > header.txt
 
@@ -605,7 +591,7 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
             count=0
 
             for item in small_vcf*; do
-                cat header.txt $item > survivor_split.${count}.vcf
+                cat header.txt $item > survivor_split."${count}".vcf
                 echo "timeout -k 100 5m svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.$count.vcf --export svviz_outputs 1>svviz.$count.stdout 2>svviz.$count.stderr" >> commands.txt
                 ((count++))
             done
