@@ -454,12 +454,8 @@ fi) &
 
 wait
 
-ls -sh
-
 rm *_indel.vcf
 rm *_snp.vcf
-
-ls -sh
 
 set -e
 # Verify that there are VCF files available
