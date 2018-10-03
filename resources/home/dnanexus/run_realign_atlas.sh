@@ -1,5 +1,3 @@
-set -x
-
 input_bam=$1
 ref_genome=$2
 gatk_jar=$3
