@@ -3,23 +3,24 @@ illumina_bai=$2
 gatk_jar=$3
 ref_fasta=$4
 ref_index=$5
-prefix=$6
-filter_short_contigs=$7
-run_breakdancer=$8
-run_breakseq=$9
-run_manta=${10}
-run_cnvnator=${11}
-run_lumpy=${12}
-run_delly_deletion=${13}
-run_delly_insertion=${14}
-run_delly_inversion=${15}
-run_delly_duplication=${16}
-run_genotype_candidates=${17}
-run_atlas=${18}
-run_stats=${19}
-run_svviz=${20}
-svviz_only_validated_candidates=${21}
-dnanexus=${22}
+ref_dict=$6
+prefix=$7
+filter_short_contigs=$8
+run_breakdancer=$9
+run_breakseq=${10}
+run_manta=${11}
+run_cnvnator=${12}
+run_lumpy=${13}
+run_delly_deletion=${14}
+run_delly_insertion=${15}
+run_delly_inversion=${16}
+run_delly_duplication=${17}
+run_genotype_candidates=${18}
+run_atlas=${19}
+run_stats=${20}
+run_svviz=${21}
+svviz_only_validated_candidates=${22}
+dnanexus=${23}
 
 check_threads(){
     breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
@@ -98,33 +99,35 @@ threads=$((threads - 3))
 echo "Set up and index BAM/CRAM"
 
 # Check if BAM file has already been processed -- if so, continue
-if [[ -f "/home/dnanexus/in/done.txt" ]]; then
-    continue
-# Allow for CRAM files
-elif [[ "${extn}" == "cram" ]] || [[ "${extn}" == "CRAM" ]]; then
-    echo "CRAM file input"
-    mkfifo tmp_input.bam
-    samtools view "${illumina_bam}" -bh -@ "$threads" -T ref.fa -o - | tee tmp_input.bam > input.bam & 
-    samtools index tmp_input.bam
-    wait
-    cp tmp_input.bam.bai input.bam.bai
-    rm tmp_input.bam
-
-    cp input.bam /home/dnanexus/in/input.bam
-    cp input.bam.bai /home/dnanexus/in/input.bam.bai
-    touch /home/dnanexus/in/done.txt
-elif [[ "${illumina_bai}" == "None" ]]; then
-    echo "BAM file input, no index exists"
-    cp "${illumina_bam}" input.bam
-    samtools index input.bam
-
-    cp input.bam.bai /home/dnanexus/in/input.bam.bai
-    touch /home/dnanexus/in/done.txt
+if [[ -f "done.txt" && -f "input.bam" ]]; then
+    echo "BAM file and index both exist in the mounted volume; continuing"
 else
-    echo "BAM file input, index exists"
-    cp "${illumina_bam}" input.bam
-    cp "${illumina_bai}" input.bam.bai
-    touch /home/dnanexus/in/done.txt
+    # Allow for CRAM files
+    if [[ "${extn}" == "cram" ]] || [[ "${extn}" == "CRAM" ]]; then
+        echo "CRAM file input"
+        mkfifo tmp_input.bam
+        samtools view "${illumina_bam}" -bh -@ "$threads" -T ref.fa -o - | tee tmp_input.bam > input.bam & 
+        samtools index tmp_input.bam
+        wait
+        cp tmp_input.bam.bai input.bam.bai
+        rm tmp_input.bam
+
+        cp input.bam /home/dnanexus/in/input.bam
+        cp input.bam.bai /home/dnanexus/in/input.bam.bai
+        touch /home/dnanexus/in/done.txt
+    elif [[ "${illumina_bai}" == "None" ]]; then
+        echo "BAM file input, no index exists"
+        cp "${illumina_bam}" input.bam
+        samtools index input.bam
+
+        cp input.bam.bai /home/dnanexus/in/input.bam.bai
+        touch /home/dnanexus/in/done.txt
+    else
+        echo "BAM file input, index exists"
+        cp "${illumina_bam}" input.bam
+        cp "${illumina_bai}" input.bam.bai
+        touch /home/dnanexus/in/done.txt
+    fi
 fi
 
 wait
@@ -284,6 +287,8 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 fi
 
 wait
+
+echo "All structural variant callers done running"
 
 # Only install SVTyper if necessary
 if [[ "${run_genotype_candidates}" == "True" ]]; then
