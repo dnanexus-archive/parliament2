@@ -99,8 +99,10 @@ threads=$((threads - 3))
 echo "Set up and index BAM/CRAM"
 
 # Check if BAM file has already been processed -- if so, continue
-if [[ -f "done.txt" && -f "input.bam" ]]; then
+if [[ -f "/home/dnanexus/in/done.txt" ]]; then
     echo "BAM file and index both exist in the mounted volume; continuing"
+    cp /home/dnanexus/in/input.bam input.bam
+    cp /home/dnanexus/in/input.bam.bai input.bam.bai
 else
     # Allow for CRAM files
     if [[ "${extn}" == "cram" ]] || [[ "${extn}" == "CRAM" ]]; then
@@ -222,6 +224,14 @@ count=0
 # Process management for launching jobs
 if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${run_breakdancer}" == "True" ]] || [[ "${run_lumpy}" == "True" ]] || [[ "${run_atlas}" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
+    mkdir -p /home/dnanexus/out/log_files/breakdancer/
+    mkdir -p /home/dnanexus/out/log_files/cnvnator/
+    mkdir -p /home/dnanexus/out/log_files/delly_deletion/
+    mkdir -p /home/dnanexus/out/log_files/delly_duplication/
+    mkdir -p /home/dnanexus/out/log_files/delly_insertion/
+    mkdir -p /home/dnanexus/out/log_files/delly_inversion/
+    mkdir -p /home/dnanexus/out/log_files/lumpy/
+
     while read contig; do
         echo "Running on contig ${contig}"
         if [[ $(samtools view input.bam "${contig}" | head -n 20 | wc -l) -ge 10 ]]; then
