@@ -219,14 +219,6 @@
       "class": "boolean",
       "default": true,
       "group": "Genotyping and Visualization"
-    },
-    {
-      "name": "output_log_files",
-      "label": "Output Log Files",
-      "help": "If BreakSeq, Manta, or SVTyper with Breakdancer, Delly, Lumpy, or Manta have been chosen to run, this will upload the resultant log files to the project.",
-      "class": "boolean",
-      "default": true,
-      "group": "Advanced"
     }
   ],
   "outputSpec": [
