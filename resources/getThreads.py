@@ -11,8 +11,10 @@ delly_processes = int(sys.argv[6])
 lumpy_processes = int(sys.argv[7])
 atlas_processes = int(sys.argv[8])
 realign_processes = int(sys.argv[9])
+verify_processes = int(sys.argv[10])
+alignstats_processes = int(sys.argv[11])
 
-total_threads = breakdancer_threads + cnvnator_threads + int( (0.25 * float(sambamba_threads) ) ) + (8 * manta_processes) + (0 * breakseq_processes) + delly_processes + lumpy_processes + atlas_processes + realign_processes
+total_threads = breakdancer_threads + cnvnator_threads + int( (0.25 * float(sambamba_threads) ) ) + (8 * manta_processes) + (0 * breakseq_processes) + delly_processes + lumpy_processes + atlas_processes + realign_processes + verify_processes + alignstats_processes
 
 if total_threads < 1:
     print 1

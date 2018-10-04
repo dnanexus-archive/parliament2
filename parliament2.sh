@@ -32,7 +32,9 @@ check_threads(){
     lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
     atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
     indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
-    active_threads=$(python /getThreads.py "${breakdancer_processes}" "${cnvnator_processes}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}" "${atlas_processes}" "${indel_realigner_processes}")
+    verify_processes=$(top -n 1 -b -d 10 | grep -c verifyBamID)
+    alignstats_processes=$(top -n 1 -b -d 10 | grep -c alignstats)
+    active_threads=$(python /getThreads.py "${breakdancer_processes}" "${cnvnator_processes}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}" "${atlas_processes}" "${indel_realigner_processes}" "${verify_processes}" "${alignstats_processes}")
 
     while [[ $active_threads -ge $(nproc) ]]; do
         echo "Waiting for 60 seconds"
@@ -46,7 +48,9 @@ check_threads(){
         lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
         atlas_processes=$(top -n 1 -b -d 10 | grep -c atlas)
         indel_realigner_processes=$(top -n 1 -b -d 10 | grep -c java)
-        active_threads=$(python /getThreads.py "${breakdancer_processes}" "${cnvnator_processes}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}" "${atlas_processes}" "${indel_realigner_processes}")
+        verify_processes=$(top -n 1 -b -d 10 | grep -c verifyBamID)
+        alignstats_processes=$(top -n 1 -b -d 10 | grep -c alignstats)
+        active_threads=$(python /getThreads.py "${breakdancer_processes}" "${cnvnator_processes}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}" "${atlas_processes}" "${indel_realigner_processes}" "${verify_processes}" "${alignstats_processes}")
         echo "Checking threads"
     done
 }
@@ -155,9 +159,10 @@ if [[ "${run_stats}" == "True" ]]; then
     mkdir -p /home/dnanexus/out/stats
     mkdir -p /home/dnanexus/out/log_files/verify_bam_id/
 
-    verifyBamID --vcf maf.0.vcf --bam input.bam --out /home/dnanexus/stats/"${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.0.stderr.log &
-    verifyBamID --vcf maf.1.vcf --bam input.bam --out /home/dnanexus/stats/"${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.1.stderr.log &
-    verifyBamID --vcf maf.2.vcf --bam input.bam --out /home/dnanexus/stats/"${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/$prefix.verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.2.stderr.log &
+    echo "Running verifyBamID"
+    verifyBamID --vcf maf.0.vcf --bam input.bam --out /home/dnanexus/out/stats/"${prefix}".chr1-8 --ignoreRG 1> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.0.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.0.stderr.log &
+    verifyBamID --vcf maf.1.vcf --bam input.bam --out /home/dnanexus/out/stats/"${prefix}".chr9-15 --ignoreRG 1> /home/dnanexus/out/log_files/verify_bam_id/"$prefix".verify.1.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.1.stderr.log &
+    verifyBamID --vcf maf.2.vcf --bam input.bam --out /home/dnanexus/out/stats/"${prefix}".chr16-Y --ignoreRG 1> /home/dnanexus/out/log_files/verify_bam_id/"$prefix".verify.2.stout.log 2> /home/dnanexus/out/log_files/verify_bam_id/"${prefix}".verify.2.stderr.log &
 
     echo "Running alignstats"
     mkdir -p /home/dnanexus/out/log_files/alignstats/
@@ -173,7 +178,7 @@ fi
 # BREAKSEQ2
 if [[ "${run_breakseq}" == "True" ]]; then
     mkdir -p /home/dnanexus/out/log_files/breakseq/
-    echo "BreakSeq"
+    echo "Running BreakSeq"
     bplib="/breakseq2_bplib_20150129/breakseq2_bplib_20150129.gff"
     work="breakseq2"
     timeout 6h ./breakseq2-2.2/scripts/run_breakseq2.py --reference ref.fa \
@@ -186,7 +191,7 @@ fi
 
 # MANTA
 if [[ "${run_manta}" == "True" ]]; then
-    echo "Manta"
+    echo "Running Manta"
     mkdir -p /home/dnanexus/out/log_files/manta/
     timeout 6h runManta 1> /home/dnanexus/out/log_files/manta/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta/"${prefix}".manta.stderr.log &
 fi
