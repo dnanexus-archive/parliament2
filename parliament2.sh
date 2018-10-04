@@ -315,7 +315,7 @@ fi
     if [[ ! -f "${prefix}".AlignStatsReport.txt && ! -f "${prefix}".flagstats ]]; then
         echo "No outputs of alignstats found. Continuing."
     else
-        cp "${prefix}".AlignStatsReport.txt /home/dnanexus/stats/"${prefix}".AlignStatsReport.txt
+        cp "${prefix}".AlignStatsReport.txt /home/dnanexus/out/stats/"${prefix}".AlignStatsReport.txt
         cp "${prefix}".flagstats /home/dnanexus/out/stats/"${prefix}".flagstats
     fi
 fi) &
@@ -469,8 +469,13 @@ fi) &
 
 wait
 
-rm *_indel.vcf
-rm *_snp.vcf
+if [[ "${run_atlas}" == "True" ]]; then
+    rm *_indel.vcf
+    rm *_snp.vcf
+fi
+
+find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czvf {}.tar.gz {} --remove-files
+find /home/dnanexus/out/log_files/ -type d -empty -delete
 
 # Run SVtyper and SVviz
 if [[ "${run_genotype_candidates}" == "True" ]]; then
@@ -640,5 +645,3 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     fi
 fi
 
-find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czvf {}.tar.gz {} --remove-files
-find /home/dnanexus/out/log_files/ -type d -empty -delete
