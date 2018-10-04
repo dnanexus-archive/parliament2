@@ -636,4 +636,5 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     fi
 fi
 
-find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czvf {}.tar.gz {} --remove-files \;
+find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czvf {}.tar.gz {} --remove-files
+find /home/dnanexus/out/log_files/ -type d -empty -delete
