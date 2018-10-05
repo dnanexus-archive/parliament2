@@ -37,7 +37,6 @@ check_threads(){
     active_threads=$(python /getThreads.py "${breakdancer_processes}" "${cnvnator_processes}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}" "${atlas_processes}" "${indel_realigner_processes}" "${verify_processes}" "${alignstats_processes}")
 
     while [[ $active_threads -ge $(nproc) ]]; do
-        echo "Waiting for 60 seconds"
         sleep 60
         breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
         cnvnator_processes=$(top -n 1 -b -d 10 | grep -c cnvnator)
@@ -244,13 +243,13 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
             if [[ "${run_breakdancer}" == "True" ]]; then
                 echo "Running Breakdancer for contig ${contig}"
                 timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx 1> /home/dnanexus/out/log_files/breakdancer/"${prefix}".breakdancer."${contig}"stdout.log 2> /home/dnanexus/out/log_files/breakdancer/"${prefix}".breakdancer."${contig}".stderr.log &
-                concat_breakdancer_cmd="$concat_breakdancer_cmd breakdancer-${count}.ctx"
+                concat_breakdancer_cmd="${concat_breakdancer_cmd} breakdancer-${count}.ctx"
             fi
 
             if [[ "${run_cnvnator}" == "True" ]]; then
                 echo "Running CNVnator for contig ${contig}"
                 runCNVnator "${contig}" "${count}" 1> /home/dnanexus/out/log_files/cnvnator/"${prefix}".cnvnator."${contig}"stdout.log 2> /home/dnanexus/out/log_files/cnvnator/"${prefix}".cnvnator."${contig}".stderr.log &
-                concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-${count}"
+                concat_cnvnator_cmd="${concat_cnvnator_cmd} output.cnvnator_calls-${count}"
             fi
 
             if [[ "${run_atlas}" == "True" ]]; then
@@ -296,7 +295,6 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
             check_threads
         fi
-        ((count++))
     done < contigs
 fi
 
