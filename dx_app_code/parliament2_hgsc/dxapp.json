@@ -1,6 +1,6 @@
 {
-  "name": "parliament2_ccdg",
-  "title": "Parliament2 (CCDG)",
+  "name": "parliament2_hgsc",
+  "title": "Parliament2 (HGSC)",
   "summary": "Uses Lumpy, Manta, Breakseq, Breakdancer, Delly, and CNVnator and validates the SVs through Genotyping and Visualization",
   "tags": [
     "Structural Variation",
@@ -308,7 +308,7 @@
         {
           "project": "project-FBbG4280Qg43bZJ1Jyyk8F8v",
           "folder": "/",
-          "name": "parliament2_ccdg",
+          "name": "parliament2_hgsc",
           "version": "0.0.1"
         }
       ],
