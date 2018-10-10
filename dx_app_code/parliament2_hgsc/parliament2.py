@@ -29,7 +29,7 @@ def main(**job_inputs):
     ref_genome = dxpy.open_dxfile(job_inputs['ref_fasta'])
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
-    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_ccdg', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_hgsc', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
     # docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2_ccdg', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix), '1> /home/dnanexus/out/log_files/{0}.docker.stdout.log'.format(prefix), '2> /home/dnanexus/out/log_files/{0}.docker.stderr.log'.format(prefix)]
 
     if 'ref_index' in job_inputs:
@@ -122,7 +122,7 @@ def main(**job_inputs):
         output['align_stats_output'] = stats_file_uploads
 
     # Uploading log files generated
-    if job_inputs['output_log_files'] and os.listdir('/home/dnanexus/out/log_files/'):
+    if os.listdir('/home/dnanexus/out/log_files/'):
         log_file_names = glob.glob('/home/dnanexus/out/log_files/*')
         log_file_upload = []
         for name in log_file_names:
