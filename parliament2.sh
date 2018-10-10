@@ -242,7 +242,7 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
             count=$((count + 1))
             if [[ "${run_breakdancer}" == "True" ]]; then
                 echo "Running Breakdancer for contig ${contig}"
-                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx 1> /home/dnanexus/out/log_files/breakdancer/"${prefix}".breakdancer."${contig}"stdout.log 2> /home/dnanexus/out/log_files/breakdancer/"${prefix}".breakdancer."${contig}".stderr.log &
+                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx &
                 concat_breakdancer_cmd="${concat_breakdancer_cmd} breakdancer-${count}.ctx"
             fi
 
