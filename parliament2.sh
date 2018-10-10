@@ -161,7 +161,7 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
 
             if [[ "$run_cnvnator" == "True" ]]; then
                 echo "Running CNVnator for contig $contig"
-                runCNVnator "$contig" "$count" &
+                runCNVnator "$contig" "$count" 1> /home/dnanexus/out/log_files/cnvnator/cnvnator.stdout.log 2> /home/dnanexus/out/log_files/cnvnator/cnvnator.stderr.log &
                 concat_cnvnator_cmd="$concat_cnvnator_cmd output.cnvnator_calls-$count"
             fi
 
@@ -172,31 +172,31 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
 
             if [[ "$run_delly_deletion" == "True" ]]; then  
                 echo "Running Delly (deletions) for contig $contig"
-                timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam & 
+                timeout 6h delly -t DEL -o $count.delly.deletion.vcf -g ref.fa chr.$count.bam 1> /home/dnanexus/out/log_files/delly_deletion/delly_deletion.stdout.log 2> /home/dnanexus/out/log_files/delly_deletion/delly_deletion.stderr.log & 
                 delly_deletion_concat="$delly_deletion_concat $count.delly.deletion.vcf"
             fi
 
             if [[ "$run_delly_inversion" == "True" ]]; then 
                 echo "Running Delly (inversions) for contig $contig"
-                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam &
+                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr.$count.bam 1> /home/dnanexus/out/log_files/delly_inversion/delly_inversion.stdout.log 2> /home/dnanexus/out/log_files/delly_inversion/delly_inversion.stderr.log & 
                 delly_inversion_concat="$delly_inversion_concat $count.delly.inversion.vcf"
             fi
 
             if [[ "$run_delly_duplication" == "True" ]]; then 
                 echo "Running Delly (duplications) for contig $contig"
-                timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam &
+                timeout 6h delly -t DUP -o $count.delly.duplication.vcf -g ref.fa chr.$count.bam 1> /home/dnanexus/out/log_files/delly_duplication/delly_duplication.stdout.log 2> /home/dnanexus/out/log_files/delly_duplication/delly_duplication.stderr.log & 
                 delly_duplication_concat="$delly_duplication_concat $count.delly.duplication.vcf"
             fi
 
             if [[ "$run_delly_insertion" == "True" ]]; then 
                 echo "Running Delly (insertions) for contig $contig"
-                timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam &
+                timeout 6h delly -t INS -o $count.delly.insertion.vcf -g ref.fa chr.$count.bam 1> /home/dnanexus/out/log_files/delly_insertion/delly_insertion.stdout.log 2> /home/dnanexus/out/log_files/delly_insertion/delly_insertion.stderr.log & 
                 delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
             fi
             
             if [[ "$run_lumpy" == "True" ]]; then
                 echo "Running Lumpy for contig $contig"
-                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
+                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k 1> /home/dnanexus/out/log_files/lumpy/lumpy.stdout.log 2> /home/dnanexus/out/log_files/lumpy/lumpy.stderr.log & 
                 lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
             fi
 
