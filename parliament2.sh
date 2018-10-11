@@ -109,13 +109,13 @@ if [[ "$run_breakseq" == "True" ]]; then
         --bwa /usr/local/bin/bwa --samtools /usr/local/bin/samtools \
         --bplib_gff "$bplib" \
         --nthreads "$(nproc)" --bplib_gff "$bplib" \
-        --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq.stdout.log 2> /home/dnanexus/out/log_files/breakseq.stderr.log &
+        --sample "$prefix" 1> /home/dnanexus/out/log_files/breakseq/breakseq.stdout.log 2> /home/dnanexus/out/log_files/breakseq/breakseq.stderr.log &
 fi
 
 # MANTA
 if [[ "$run_manta" == "True" ]]; then
     echo "Manta"
-    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta.stdout.log 2> /home/dnanexus/out/log_files/manta.stderr.log &
+    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta/manta.stdout.log 2> /home/dnanexus/out/log_files/manta/manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -150,6 +150,14 @@ fi
 # Process management for launching jobs
 if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_breakdancer" == "True" ]] || [[ "$run_lumpy" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
+    mkdir -p /home/dnanexus/out/log_files/breakdancer/
+    mkdir -p /home/dnanexus/out/log_files/cnvnator/
+    mkdir -p /home/dnanexus/out/log_files/delly_deletion/
+    mkdir -p /home/dnanexus/out/log_files/delly_duplication/
+    mkdir -p /home/dnanexus/out/log_files/delly_insertion/
+    mkdir -p /home/dnanexus/out/log_files/delly_inversion/
+    mkdir -p /home/dnanexus/out/log_files/lumpy/
+
     while read contig; do
         if [[ $(samtools view input.bam "$contig" | head -n 20 | wc -l) -ge 10 ]]; then
             count=$((count + 1))
@@ -303,7 +311,7 @@ fi) &
         cd "$work" || return
         find ./*.log | tar -zcvf log.tar.gz -T -
         rm -rf ./*.log
-        mv log.tar.gz /home/dnanexus/out/log_files/breakseq.log.tar.gz
+        mv log.tar.gz /home/dnanexus/out/log_files/breakseq/breakseq.log.tar.gz
         cd /home/dnanexus || return
     fi
 
@@ -491,7 +499,8 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
     # Run svviz
     if [[ "$run_svviz" == "True" ]]; then
         echo "Running svviz"
-        mkdir svviz_outputs
+        mkdir -p /home/dnanexus/log_files/svviz/
+        mkdir /home/dnanexus/svviz_outputs
 
         grep \# survivor_sorted.vcf > header.txt
 
@@ -516,15 +525,19 @@ if [[ "$run_genotype_candidates" == "True" ]]; then
 
             for item in small_vcf*; do
                 cat header.txt $item > survivor_split.${count}.vcf
-                echo "timeout -k 100 5m svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.$count.vcf --export svviz_outputs 1>svviz.$count.stdout 2>svviz.$count.stderr" >> commands.txt
+                echo "svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.${count}.vcf --export svviz_outputs 1>/home/dnanexus/out/log_files/svviz/svviz.${count}.stdout 2>/home/dnanexus/out/log_files/svviz/svviz.$count.stderr" >> commands.txt
                 ((count++))
             done
             
             threads="$(nproc)"
             threads=$((threads / 2))
-            parallel --verbose -j $threads -a commands.txt eval 2> /dev/null
+            parallel --memfree 5G --retries 2 --verbose -a commands.txt eval 2> /dev/null
             
             tar -czf /home/dnanexus/out/"$prefix".svviz_outputs.tar.gz svviz_outputs/
         fi
     fi
 fi
+
+
+find /home/dnanexus/out/log_files/ -type d -empty -delete
+find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czvf {}.tar.gz {} --remove-files \;
