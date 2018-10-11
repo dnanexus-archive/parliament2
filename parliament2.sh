@@ -139,7 +139,7 @@ wait
 
 echo "Generate contigs"
 
-samtools view -H input.bam | python /getContigs.py "${filter_short_contigs}" > contigs
+samtools view -H input.bam | python /getContigs.py "${filter_short_contigs}" > contigs.txt
 
 mkdir -p /home/dnanexus/out/log_files/
 
@@ -237,12 +237,13 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
     mkdir -p /home/dnanexus/out/log_files/lumpy/
 
     while read contig; do
-        echo "Running on contig ${contig}"
+        echo "Checking contig ${contig}"
         if [[ $(samtools view input.bam "${contig}" | head -n 20 | wc -l) -ge 10 ]]; then
+            echo "Running on contig ${contig}"
             count=$((count + 1))
             if [[ "${run_breakdancer}" == "True" ]]; then
                 echo "Running Breakdancer for contig ${contig}"
-                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx &
+                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" 1> breakdancer-"${count}".ctx 2> /home/dnanexus/out/log_files/breakdancer/"${prefix}".breakdancer."${contig}".stderr.log &
                 concat_breakdancer_cmd="${concat_breakdancer_cmd} breakdancer-${count}.ctx"
             fi
 
@@ -295,11 +296,12 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
             check_threads
         fi
-    done < contigs
+    done < contigs.txt
 fi
 
 wait
 
+mv contigs.txt /home/dnanexus/out/"${prefix}".contigs.txt
 echo "All structural variant callers done running"
 
 # Only install SVTyper if necessary
