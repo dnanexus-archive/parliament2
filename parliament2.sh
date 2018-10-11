@@ -54,6 +54,8 @@ check_threads(){
     done
 }
 
+echo "Running Parliament2 at time $(date)"
+
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "$dnanexus" == "True" ]]; then
         dx-jobutil-report-error "ERROR: An invalid (nonexistent) input file has been specified."
@@ -645,3 +647,4 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     fi
 fi
 
+echo "Finishing Parliament2 at time $(date)"
