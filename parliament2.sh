@@ -1,26 +1,27 @@
+#!/usr/bin/env bash
+
 illumina_bam=$1
 illumina_bai=$2
 gatk_jar=$3
 ref_fasta=$4
 ref_index=$5
-ref_dict=$6
-prefix=$7
-filter_short_contigs=$8
-run_breakdancer=$9
-run_breakseq=${10}
-run_manta=${11}
-run_cnvnator=${12}
-run_lumpy=${13}
-run_delly_deletion=${14}
-run_delly_insertion=${15}
-run_delly_inversion=${16}
-run_delly_duplication=${17}
-run_genotype_candidates=${18}
-run_atlas=${19}
-run_stats=${20}
-run_svviz=${21}
-svviz_only_validated_candidates=${22}
-dnanexus=${23}
+prefix=$6
+filter_short_contigs=$7
+run_breakdancer=$8
+run_breakseq=$9
+run_manta=${10}
+run_cnvnator=${11}
+run_lumpy=${12}
+run_delly_deletion=${13}
+run_delly_insertion=${14}
+run_delly_inversion=${15}
+run_delly_duplication=${16}
+run_genotype_candidates=${17}
+run_atlas=${18}
+run_stats=${19}
+run_svviz=${20}
+svviz_only_validated_candidates=${21}
+dnanexus=${22}
 
 check_threads(){
     breakdancer_processes=$(top -n 1 -b -d 10 | grep -c breakdancer)
@@ -94,7 +95,7 @@ else
     lumpy_exclude_string="-x hg38.bed"
 fi
 
-lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
+export lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
 
 # Get extension and threads
 extn=${illumina_bam##*.}
@@ -212,16 +213,6 @@ delly_duplication_concat=""
 delly_insertion_concat=""
 lumpy_merge_command=""
 
-if [[ $(nproc) -eq 36 ]]; then
-    thread_limit=48
-elif [[ $(nproc) -eq 32 ]]; then
-    thread_limit=44
-elif [[ $(nproc) -eq 16 ]]; then
-    thread_limit=22
-else
-    thread_limit=$(nproc)
-fi
-
 if [[ "${run_delly_deletion}" == "True" ]] || [[ "${run_delly_insertion}" == "True" ]] || [[ "${run_delly_inversion}" == "True" ]] || [[ "${run_delly_duplication}" == "True" ]]; then
    run_delly="True"
 fi
@@ -238,7 +229,7 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
     mkdir -p /home/dnanexus/out/log_files/delly_inversion/
     mkdir -p /home/dnanexus/out/log_files/lumpy/
 
-    while read contig; do
+    while read -r contig; do
         echo "Checking contig ${contig}"
         if [[ $(samtools view input.bam "${contig}" | head -n 20 | wc -l) -ge 10 ]]; then
             echo "Running on contig ${contig}"
@@ -328,8 +319,8 @@ fi) &
         echo "No outputs of xAtlas found. Continuing."
     else
         mkdir -p /home/dnanexus/out/atlas
-        cat *_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
-        cat *_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
+        cat ./*_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
+        cat ./*_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
 
         cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
         cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
@@ -372,7 +363,7 @@ fi) &
 (if [[ "${run_breakdancer}" == "True" ]] && [[ -n "${concat_breakdancer_cmd}" ]]; then
     echo "Convert Breakdancer results to VCF format"
     # cat contents of each file into output file: lack of quotes intentional
-    cat $concat_breakdancer_cmd > breakdancer.output
+    cat ${concat_breakdancer_cmd} > breakdancer.output
 
     if [[ -f breakdancer.output ]]; then
         cp breakdancer.output /home/dnanexus/out/sv_caller_results/"${prefix}".breakdancer.ctx
@@ -389,7 +380,7 @@ fi) &
 (if [[ "${run_cnvnator}" == "True" ]] && [[ -n "${concat_cnvnator_cmd}" ]]; then
     echo "Convert CNVnator results to VCF format"
     # cat contents of each file into output file: lack of quotes intentional
-    cat $concat_cnvnator_cmd > cnvnator.output
+    cat ${concat_cnvnator_cmd} > cnvnator.output
 
     if [[ -f cnvnator.output ]]; then
         perl /usr/utils/cnvnator2VCF.pl cnvnator.output > cnvnator.vcf
@@ -472,12 +463,12 @@ fi) &
 wait
 
 if [[ "${run_atlas}" == "True" ]]; then
-    rm *_indel.vcf
-    rm *_snp.vcf
+    rm ./*_indel.vcf
+    rm ./*_snp.vcf
 fi
 
 find /home/dnanexus/out/log_files/ -type d -empty -delete
-find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czvf {}.tar.gz {} --remove-files \;
+find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czf {}.tar.gz {} --remove-files \;
 
 # Run SVtyper and SVviz
 if [[ "${run_genotype_candidates}" == "True" ]]; then
@@ -531,7 +522,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
         mkdir -p /home/dnanexus/svtype_cnvnator
         if [[ -f /home/dnanexus/cnvnator.vcf ]]; then
-            cat cnvnator.vcf | python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf
+            python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf < cnvnator.vcf
             bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
         else
             echo "No CNVnator VCF file found. Continuing."
@@ -592,7 +583,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
     # Prepare SVtyped VCFs for upload
     for item in *svtyped.vcf; do
-        cp "${item}" /home/dnanexus/out/svtyped_vcfs/$item
+        cp "${item}" /home/dnanexus/out/svtyped_vcfs/"${item}"
     done
 
     # Run SURVIVOR
@@ -600,7 +591,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     survivor merge survivor_inputs 1000 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
-    cat survivor.output.vcf | vcf-sort -c > survivor_sorted.vcf
+    vcf-sort -c > survivor_sorted.vcf < survivor.output.vcf
     python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
@@ -625,15 +616,15 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
             echo "No entries in the VCF to visualize. Not running svviz."
         else
             threads=$(nproc)
-            threads=$(expr $threads \* 4)
+            threads=$(( threads \* 4 ))
             if [[ "${vcf_entries}" -ge "${threads}" ]]; then
-                lines=$(expr $vcf_entries / $threads)
+                lines=$(("${vcf_entries}" / "${threads}"))
                 split -d -a 5 -l "${lines}" vcf_entries.vcf small_vcf.
             fi
             count=0
 
             for item in small_vcf*; do
-                cat header.txt $item > survivor_split."${count}".vcf
+                cat header.txt "${item}" > survivor_split."${count}".vcf
                 echo "svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.${count}.vcf --export svviz_outputs 1>/home/dnanexus/out/log_files/svviz/svviz.${count}.stdout 2>/home/dnanexus/out/log_files/svviz/svviz.$count.stderr" >> commands.txt
                 ((count++))
             done

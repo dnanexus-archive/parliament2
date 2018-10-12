@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 input_bam=$1
 ref_genome=$2
 gatk_jar=$3
@@ -50,7 +52,7 @@ sambamba index indel_realigned."${contig}".bam
 check_threads
 
 echo "Running xAtlas for contig $contig"
-xatlas --ref "${ref_genome}" --in indel_realigned."${contig}".bam --prefix "${prefix}.${contig}" -s "${prefix}.${contig}" --gvcf --enable-strand-filter 1> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stdout.log 2> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas.${contig}.stderr.log
+xatlas --ref "${ref_genome}" --in indel_realigned."${contig}".bam --prefix "${prefix}"."${contig}" -s "${prefix}"."${contig}" --gvcf --enable-strand-filter 1> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stdout.log 2> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stderr.log
 
 rm realign."${contig}".intervals
 rm indel_realigned."${contig}".bam
