@@ -38,7 +38,7 @@ check_threads(){
 }
 
 echo "Running RealignerTargetCreator for contig $contig"
-java -Xmx8G -jar "${gatk_jar}" -T RealignerTargetCreator -R ref.fa -I input.bam -o realign."${contig}".intervals -L "${contig}" -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/realigner_target_creator/"${prefix}".realigner_target_creator."${contig}".stdout.log 2> /home/dnanexus/out/log_files/realigner_target_creator/"${prefix}".realigner_target_creator."${contig}".stderr.log
+java -Xmx8G -jar "${gatk_jar}" -T RealignerTargetCreator -R ref.fa -I ${input_bam} -o realign."${contig}".intervals -L "${contig}" -known Homo_sapiens_assembly38.known_indels.vcf.gz -known Mills_and_1000G_gold_standard.indels.hg38.vcf.gz 1> /home/dnanexus/out/log_files/realigner_target_creator/"${prefix}".realigner_target_creator."${contig}".stdout.log 2> /home/dnanexus/out/log_files/realigner_target_creator/"${prefix}".realigner_target_creator."${contig}".stderr.log
 
 check_threads
 
@@ -52,8 +52,12 @@ sambamba index indel_realigned."${contig}".bam
 check_threads
 
 echo "Running xAtlas for contig $contig"
-xatlas --ref "${ref_genome}" --in indel_realigned."${contig}".bam --prefix "${prefix}"."${contig}" -s "${prefix}"."${contig}" --gvcf --enable-strand-filter 1> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stdout.log 2> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stderr.log
 
+egrep "^${contig}\s" GRCh38_full_analysis_set_plus_decoy_hla.bed > "limited.xatlas.realigned.${contig}_only.bed"
+
+xatlas --ref "${ref_genome}" --in indel_realigned."${contig}".bam --capture "limited.xatlas.realigned.${contig}_only.bed" --prefix "${prefix}"."${contig}" -s "${prefix}"."${contig}" --gvcf --enable-strand-filter 1> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stdout.log 2> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stderr.log
+
+rm "limited.xatlas.realigned.${contig}_only.bed"
 rm realign."${contig}".intervals
 rm indel_realigned."${contig}".bam
 rm indel_realigned."${contig}".bam.bai
