@@ -122,13 +122,13 @@ else
         mv input.bam.bai /home/dnanexus/in/input.bam.bai
     elif [[ "${illumina_bai}" == "None" ]]; then
         echo "BAM file input, no index exists"
-        mv "${illumina_bam}" input.bam
+        cp "${illumina_bam}" input.bam
         samtools index input.bam
 
         mv input.bam.bai /home/dnanexus/in/input.bam.bai
     else
         echo "BAM file input, index exists"
-        mv "${illumina_bam}" input.bam
+        cp "${illumina_bam}" input.bam
         mv "${illumina_bai}" input.bam.bai
     fi
 
@@ -136,7 +136,8 @@ else
 fi
 
 rm "${illumina_bam}" && touch "${illumina_bam}"
-ln -s /home/dnanexus/in/input.bam input.bam
+ln -s /home/dnanexus/in/input.bam /home/dnanexus/input.bam
+ln -s /home/dnanexus/in/input.bam.bai /home/dnanexus/input.bam.bai
 
 wait
 
