@@ -107,8 +107,6 @@ echo "Set up and index BAM/CRAM"
 # Check if BAM file has already been processed -- if so, continue
 if [[ -f "/home/dnanexus/in/done.txt" ]]; then
     echo "BAM file and index both exist in the mounted volume; continuing"
-    cp /home/dnanexus/in/input.bam input.bam
-    cp /home/dnanexus/in/input.bam.bai input.bam.bai
 else
     # Allow for CRAM files
     if [[ "${extn}" == "cram" ]] || [[ "${extn}" == "CRAM" ]]; then
@@ -117,26 +115,28 @@ else
         samtools view "${illumina_bam}" -bh -@ "${threads}" -T ref.fa -o - | tee tmp_input.bam > input.bam & 
         samtools index tmp_input.bam
         wait
-        cp tmp_input.bam.bai input.bam.bai
+        mv tmp_input.bam.bai input.bam.bai
         rm tmp_input.bam
 
-        cp input.bam /home/dnanexus/in/input.bam
-        cp input.bam.bai /home/dnanexus/in/input.bam.bai
-        touch /home/dnanexus/in/done.txt
+        mv input.bam /home/dnanexus/in/input.bam
+        mv input.bam.bai /home/dnanexus/in/input.bam.bai
     elif [[ "${illumina_bai}" == "None" ]]; then
         echo "BAM file input, no index exists"
-        cp "${illumina_bam}" input.bam
+        mv "${illumina_bam}" input.bam
         samtools index input.bam
 
-        cp input.bam.bai /home/dnanexus/in/input.bam.bai
-        touch /home/dnanexus/in/done.txt
+        mv input.bam.bai /home/dnanexus/in/input.bam.bai
     else
         echo "BAM file input, index exists"
-        cp "${illumina_bam}" input.bam
-        cp "${illumina_bai}" input.bam.bai
-        touch /home/dnanexus/in/done.txt
+        mv "${illumina_bam}" input.bam
+        mv "${illumina_bai}" input.bam.bai
     fi
+
+    touch /home/dnanexus/in/done.txt
 fi
+
+rm "${illumina_bam}" && touch "${illumina_bam}"
+ln -s /home/dnanexus/in/input.bam input.bam
 
 wait
 
