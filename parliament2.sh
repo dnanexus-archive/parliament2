@@ -150,7 +150,9 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
     while read -r contig; do
         if [[ $(samtools view input.bam "${contig}" | head -n 20 | wc -l) -ge 10 ]]; then
+            echo "Running on contig ${contig}"
             count=$((count + 1))
+            
             if [[ "${run_breakdancer}" == "True" ]]; then
                 echo "Running Breakdancer for contig ${contig}"
                 timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx &
