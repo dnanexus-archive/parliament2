@@ -134,6 +134,19 @@ To modify Parliament2 and run it on DNAnexus, please see the developer README in
 
 ## More Information
 
+### FAQ
+
+#### Samtools error
+
+> The tool runs but I am getting a samtools error:
+```
+samtools view: writing to standard output failed: Broken pipe
+samtools view: error closing standard output: -1
+```
+> What's going on?
+
+This is a known error message caused by splitting the BAM file. It doesn't affect the results in any way.
+
 ### Tool versions
 
 #### Structural variant callers
