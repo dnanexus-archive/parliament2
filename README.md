@@ -18,7 +18,7 @@ You must have [Docker](https://www.docker.com/) installed in order to run Parlia
 
 Parliament2 is meant to be run as a Docker image and is [available on DockerHub](https://hub.docker.com/r/dnanexus/parliament2/). The simplest way to install Parliament2 on your machine is to run the command `docker pull dnanexus/parliament2:<TAG>`, where the `<TAG>` is the version of Parliament2 you wish to use. You can see the full list of Parliament2 versions available on DockerHub at the [Parliament2 DockerHub repository](https://hub.docker.com/r/dnanexus/parliament2/tags/).
 
-You can verify the successful installation using the command `docker images`, which will list every Docker image stored locally on your machine, or by running `docker run parliament2 -h`, which will print the help string (printed in full at the bottom of this README).
+You can verify the successful installation using the command `docker images`, which will list every Docker image stored locally on your machine, or by running `docker run dnanexus/parliament2:<TAG> -h`, which will print the help string (printed in full at the bottom of this README).
 
 #### Building from source
 
