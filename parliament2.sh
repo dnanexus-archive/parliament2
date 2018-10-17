@@ -16,9 +16,9 @@ run_delly_insertion=${13}
 run_delly_inversion=${14}
 run_delly_duplication=${15}
 run_genotype_candidates=${16}
-run_svviz=${19}
-svviz_only_validated_candidates=${20}
-dnanexus=${21}
+run_svviz=${17}
+svviz_only_validated_candidates=${18}
+dnanexus=${19}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "${dnanexus}" == "True" ]]; then
@@ -492,7 +492,6 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
-    echo "${run_svviz}"
     if [[ "${run_svviz}" == "True" ]]; then
         echo "Running svviz"
         mkdir -p /home/dnanexus/log_files/svviz_logs/
