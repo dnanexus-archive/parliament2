@@ -20,8 +20,6 @@ def main(**job_inputs):
     # Running Docker image
     subprocess.check_call(['mkdir', '-p', '/home/dnanexus/in', '/home/dnanexus/out'])
 
-    print "Starting Docker"
-
     input_bam = dxpy.open_dxfile(job_inputs['illumina_bam'])
     bam_name = "/home/dnanexus/in/{0}".format(input_bam.name)
     dxpy.download_dxfile(input_bam, bam_name)
@@ -71,6 +69,8 @@ def main(**job_inputs):
         docker_call.append('--svviz')
     if job_inputs['svviz_only_validated_candidates']:
         docker_call.append('--svviz_only_validated_candidates')
+
+    print "Starting Docker with call {0}".format(docker_call)
 
     subprocess.check_call(docker_call)
 

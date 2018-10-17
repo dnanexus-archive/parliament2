@@ -21,7 +21,7 @@ svviz_only_validated_candidates=${20}
 dnanexus=${21}
 
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
-    if [[ "$dnanexus" == "True" ]]; then
+    if [[ "${dnanexus}" == "True" ]]; then
         dx-jobutil-report-error "ERROR: An invalid (nonexistent) input file has been specified."
     else
         echo "ERROR: An invalid (nonexistent) input file has been specified."
@@ -31,7 +31,7 @@ fi
 
 cp "${ref_fasta}" ref.fa
 
-if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "$run_manta" != "True" ]] && [[ "$run_cnvnator" != "True" ]] && [[ "$run_lumpy" != "True" ]] && [[ "$run_delly_deletion" != "True" ]] && [[ "$run_delly_insertion" != "True" ]] && [[ "$run_delly_inversion" != "True" ]] && [[ "$run_delly_duplication" != "True" ]]; then
+if [[ "${run_breakdancer}" != "True" ]] && [[ "${run_breakseq}" != "True" ]] && [[ "${run_manta}" != "True" ]] && [[ "${run_cnvnator}" != "True" ]] && [[ "${run_lumpy}" != "True" ]] && [[ "${run_delly_deletion}" != "True" ]] && [[ "${run_delly_insertion}" != "True" ]] && [[ "${run_delly_inversion}" != "True" ]] && [[ "${run_delly_duplication}" != "True" ]]; then
     echo "WARNING: Did not detect any SV modules requested by the user through command-line flags."
     echo "Running with default SV modules: Breakdancer, Breakseq, Manta, CNVnator, Lumpy, and Delly Deletion"
     run_breakdancer="True"
@@ -42,7 +42,7 @@ if [[ "$run_breakdancer" != "True" ]] && [[ "$run_breakseq" != "True" ]] && [[ "
     run_delly_deletion="True"
 fi
 
-if [[ "$ref_index" == "None" ]]; then
+if [[ "${ref_index}" == "None" ]]; then
     samtools faidx ref.fa &
 else
     cp "${ref_index}" ref.fa.fai
@@ -102,6 +102,7 @@ fi
 # BREAKSEQ2
 if [[ "${run_breakseq}" == "True" ]]; then
     echo "BreakSeq"
+    mkdir -p /home/dnanexus/out/log_files/breakseq_logs/
     bplib="/breakseq2_bplib_20150129/breakseq2_bplib_20150129.gff"
     work="breakseq2"
     timeout 6h ./breakseq2-2.2/scripts/run_breakseq2.py --reference ref.fa \
@@ -109,13 +110,14 @@ if [[ "${run_breakseq}" == "True" ]]; then
         --bwa /usr/local/bin/bwa --samtools /usr/local/bin/samtools \
         --bplib_gff "${bplib}" \
         --nthreads "$(nproc)" --bplib_gff "${bplib}" \
-        --sample "${prefix}" 1> /home/dnanexus/out/log_files/breakseq/"${prefix}".breakseq.stdout.log 2> /home/dnanexus/out/log_files/"${prefix}".breakseq/breakseq.stderr.log &
+        --sample "${prefix}" 1> /home/dnanexus/out/log_files/breakseq_logs/"${prefix}".breakseq.stdout.log 2> /home/dnanexus/out/log_files/breakseq_logs/"${prefix}".breakseq.stderr.log &
 fi
 
 # MANTA
 if [[ "${run_manta}" == "True" ]]; then
     echo "Manta"
-    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta/"${prefix}".manta.stderr.log &
+    mkdir -p /home/dnanexus/out/log_files/manta_logs/
+    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -140,13 +142,12 @@ fi
 # Process management for launching jobs
 if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${run_breakdancer}" == "True" ]] || [[ "${run_lumpy}" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
-    mkdir -p /home/dnanexus/out/log_files/breakdancer/
-    mkdir -p /home/dnanexus/out/log_files/cnvnator/
-    mkdir -p /home/dnanexus/out/log_files/delly_deletion/
-    mkdir -p /home/dnanexus/out/log_files/delly_duplication/
-    mkdir -p /home/dnanexus/out/log_files/delly_insertion/
-    mkdir -p /home/dnanexus/out/log_files/delly_inversion/
-    mkdir -p /home/dnanexus/out/log_files/lumpy/
+    mkdir -p /home/dnanexus/out/log_files/cnvnator_logs/
+    mkdir -p /home/dnanexus/out/log_files/delly_deletion_logs/
+    mkdir -p /home/dnanexus/out/log_files/delly_duplication_logs/
+    mkdir -p /home/dnanexus/out/log_files/delly_insertion_logs/
+    mkdir -p /home/dnanexus/out/log_files/delly_inversion_logs/
+    mkdir -p /home/dnanexus/out/log_files/lumpy_logs/
 
     while read -r contig; do
         if [[ $(samtools view input.bam "${contig}" | head -n 20 | wc -l) -ge 10 ]]; then
@@ -161,7 +162,7 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
             if [[ "$run_cnvnator" == "True" ]]; then
                 echo "Running CNVnator for contig ${contig}"
-                runCNVnator "${contig}" "${count}" 1> /home/dnanexus/out/log_files/cnvnator/"${prefix}".cnvnator."${contig}".stdout.log 2> /home/dnanexus/out/log_files/cnvnator/"${prefix}".cnvnator."${contig}".stderr.log &
+                runCNVnator "${contig}" "${count}" 1> /home/dnanexus/out/log_files/cnvnator_logs/"${prefix}".cnvnator."${contig}".stdout.log 2> /home/dnanexus/out/log_files/cnvnator_logs/"${prefix}".cnvnator."${contig}".stderr.log &
                 concat_cnvnator_cmd="${concat_cnvnator_cmd} output.cnvnator_calls-${count}"
             fi
 
@@ -174,31 +175,31 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
             if [[ "${run_delly_deletion}" == "True" ]]; then  
                 echo "Running Delly (deletions) for contig $contig"
-                timeout 6h delly -t DEL -o "${count}".delly.deletion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_deletion/"${prefix}".delly_deletion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_deletion/"${prefix}".delly_deletion."${contig}".stderr.log & 
+                timeout 6h delly -t DEL -o "${count}".delly.deletion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_deletion_logs/"${prefix}".delly_deletion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_deletion_logs/"${prefix}".delly_deletion."${contig}".stderr.log & 
                 delly_deletion_concat="${delly_deletion_concat} ${count}.delly.deletion.vcf"
             fi
 
             if [[ "${run_delly_inversion}" == "True" ]]; then 
                 echo "Running Delly (inversions) for contig $contig"
-                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_inversion/"${prefix}".delly_inversion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_inversion/"${prefix}".delly_inversion."${contig}".stderr.log & 
+                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_inversion_logs/"${prefix}".delly_inversion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_inversion_logs/"${prefix}".delly_inversion."${contig}".stderr.log & 
                 delly_inversion_concat="${delly_inversion_concat} ${count}.delly.inversion.vcf"
             fi
 
             if [[ "${run_delly_duplication}" == "True" ]]; then 
                 echo "Running Delly (duplications) for contig ${contig}"
-                timeout 6h delly -t DUP -o "${count}".delly.duplication.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_duplication/"${prefix}".delly_duplication.stdout.log 2> /home/dnanexus/out/log_files/delly_duplication/"${prefix}".delly_duplication.stderr.log & 
+                timeout 6h delly -t DUP -o "${count}".delly.duplication.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_duplication_logs/"${prefix}".delly_duplication.stdout.log 2> /home/dnanexus/out/log_files/delly_duplication_logs/"${prefix}".delly_duplication.stderr.log & 
                 delly_duplication_concat="${delly_duplication_concat} ${count}.delly.duplication.vcf"
             fi
 
             if [[ "${run_delly_insertion}" == "True" ]]; then 
                 echo "Running Delly (insertions) for contig ${contig}"
-                timeout 6h delly -t INS -o "${count}".delly.insertion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_insertion/"${prefix}".delly_insertion."${count}".stdout.log 2> /home/dnanexus/out/log_files/delly_insertion/"${prefix}".delly_insertion."${count}".stderr.log & 
+                timeout 6h delly -t INS -o "${count}".delly.insertion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_insertion_logs/"${prefix}".delly_insertion."${count}".stdout.log 2> /home/dnanexus/out/log_files/delly_insertion_logs/"${prefix}".delly_insertion."${count}".stderr.log & 
                 delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
             fi
             
             if [[ "${run_lumpy}" == "True" ]]; then
                 echo "Running Lumpy for contig ${contig}"
-                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr."${count}".bam -o lumpy."${count}".vcf ${lumpy_exclude_string} -k 1> /home/dnanexus/out/log_files/lumpy/"${prefix}".lumpy."${count}".stdout.log 2> /home/dnanexus/out/log_files/lumpy/"${prefix}".lumpy."${count}".stderr.log & 
+                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr."${count}".bam -o lumpy."${count}".vcf ${lumpy_exclude_string} -k 1> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stdout.log 2> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stderr.log & 
                 lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
             fi
 
@@ -305,7 +306,7 @@ fi) &
         cd "${work}" || return
         find ./*.log | tar -zcvf log.tar.gz -T -
         rm -rf ./*.log
-        mv log.tar.gz /home/dnanexus/out/log_files/breakseq/"$prefix".breakseq.log.tar.gz
+        mv log.tar.gz /home/dnanexus/out/log_files/breakseq_logs/"$prefix".breakseq.log.tar.gz
         cd /home/dnanexus || return
     fi
 
@@ -491,9 +492,10 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
+    echo "${run_svviz}"
     if [[ "${run_svviz}" == "True" ]]; then
         echo "Running svviz"
-        mkdir -p /home/dnanexus/log_files/svviz/
+        mkdir -p /home/dnanexus/log_files/svviz_logs/
         mkdir /home/dnanexus/svviz_outputs
 
         grep \# survivor_sorted.vcf > header.txt
@@ -519,7 +521,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
             for item in small_vcf*; do
                 cat header.txt "${item}" > survivor_split."${count}".vcf
-                echo "svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.${count}.vcf --export svviz_outputs 1>/home/dnanexus/out/log_files/svviz/svviz.${count}.stdout.log 2>/home/dnanexus/out/log_files/svviz/svviz.${count}.stderr.log" >> commands.txt
+                echo "svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.${count}.vcf --export svviz_outputs 1>/home/dnanexus/out/log_files/svviz_logs/svviz.${count}.stdout.log 2>/home/dnanexus/out/log_files_logs/svviz/svviz.${count}.stderr.log" >> commands.txt
                 ((count++))
             done
             
@@ -532,5 +534,4 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     fi
 fi
 
-find /home/dnanexus/out/log_files/ -maxdepth 1 -mindepth 1 -type d -exec tar czf {}.tar.gz {} --remove-files \;
-find /home/dnanexus/out/log_files/ -type d -empty -delete
+cd /home/dnanexus/out/log_files/ && find . -maxdepth 1 -mindepth 1 -type d -exec tar czf {}.tar.gz {} --remove-files \; && find . -type d -empty -delete
