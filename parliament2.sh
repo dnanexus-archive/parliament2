@@ -67,24 +67,40 @@ threads=$((threads - 3))
 
 echo "Set up and index BAM/CRAM"
 
-# # Allow for CRAM files
-if [[ "${extn}" == "cram" ]] || [[ "${extn}" == "CRAM" ]]; then
-    echo "CRAM file input"
-    mkfifo tmp_input.bam
-    samtools view "${illumina_bam}" -bh -@ "${threads}" -T ref.fa -o - | tee tmp_input.bam > input.bam & 
-    samtools index tmp_input.bam
-    wait
-    cp tmp_input.bam.bai input.bam.bai
-    rm tmp_input.bam
-elif [[ "${illumina_bai}" == "None" ]]; then
-    echo "BAM file input, no index exists"
-    cp "${illumina_bam}" input.bam
-    samtools index input.bam
+# Check if BAM file has already been processed -- if so, continue
+if [[ -f "/home/dnanexus/in/done.txt" ]]; then
+    echo "BAM file and index both exist in the mounted volume; continuing"
 else
-    echo "BAM file input, index exists"
-    cp "${illumina_bam}" input.bam
-    cp "${illumina_bai}" input.bam.bai
+    # Allow for CRAM files
+    if [[ "${extn}" == "cram" ]] || [[ "${extn}" == "CRAM" ]]; then
+        echo "CRAM file input"
+        mkfifo tmp_input.bam
+        samtools view "${illumina_bam}" -bh -@ "${threads}" -T ref.fa -o - | tee tmp_input.bam > input.bam & 
+        samtools index tmp_input.bam
+        wait
+        mv tmp_input.bam.bai input.bam.bai
+        rm tmp_input.bam
+
+        mv input.bam /home/dnanexus/in/input.bam
+        mv input.bam.bai /home/dnanexus/in/input.bam.bai
+    elif [[ "${illumina_bai}" == "None" ]]; then
+        echo "BAM file input, no index exists"
+        cp "${illumina_bam}" input.bam
+        samtools index input.bam
+
+        mv input.bam.bai /home/dnanexus/in/input.bam.bai
+    else
+        echo "BAM file input, index exists"
+        cp "${illumina_bam}" input.bam
+        mv "${illumina_bai}" input.bam.bai
+    fi
+
+    touch /home/dnanexus/in/done.txt
 fi
+
+rm "${illumina_bam}" && touch "${illumina_bam}"
+ln -s /home/dnanexus/in/input.bam /home/dnanexus/input.bam
+ln -s /home/dnanexus/in/input.bam.bai /home/dnanexus/input.bam.bai
 
 wait
 
@@ -142,12 +158,14 @@ fi
 # Process management for launching jobs
 if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${run_breakdancer}" == "True" ]] || [[ "${run_lumpy}" == "True" ]]; then
     echo "Launching jobs parallelized by contig"
+    mkdir -p /home/dnanexus/out/log_files/breakdancer_logs/
     mkdir -p /home/dnanexus/out/log_files/cnvnator_logs/
     mkdir -p /home/dnanexus/out/log_files/delly_deletion_logs/
     mkdir -p /home/dnanexus/out/log_files/delly_duplication_logs/
     mkdir -p /home/dnanexus/out/log_files/delly_insertion_logs/
     mkdir -p /home/dnanexus/out/log_files/delly_inversion_logs/
     mkdir -p /home/dnanexus/out/log_files/lumpy_logs/
+    mkdir -p /home/dnanexus/out/log_files/sambamba_logs/
 
     while read -r contig; do
         if [[ $(samtools view input.bam "${contig}" | head -n 20 | wc -l) -ge 10 ]]; then
@@ -156,7 +174,7 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
             
             if [[ "${run_breakdancer}" == "True" ]]; then
                 echo "Running Breakdancer for contig ${contig}"
-                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx &
+                timeout 4h /breakdancer/cpp/breakdancer-max breakdancer.cfg input.bam -o "${contig}" > breakdancer-"${count}".ctx 2> /home/dnanexus/out/log_files/breakdancer_logs/"${prefix}".breakdancer."${contig}".stderr.log &
                 concat_breakdancer_cmd="${concat_breakdancer_cmd} breakdancer-${count}.ctx"
             fi
 
@@ -168,9 +186,9 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
             if [[ "${run_delly}" == "True" ]] || [[ "${run_lumpy}" == "True" ]]; then
                 echo "Running sambamba view"
-                timeout 2h sambamba view -h -f bam -t "$(nproc)" input.bam "${contig}" > chr."${count}".bam
+                timeout 2h sambamba view -h -f bam -t "$(nproc)" input.bam "${contig}" > chr."${count}".bam 2> /home/dnanexus/out/log_files/sambamba_logs/"${prefix}".sambamba."${contig}".stderr.log
                 echo "Running sambamba index"
-                sambamba index -t "$(nproc)" chr."${count}".bam
+                sambamba index -t "$(nproc)" chr."${count}".bam 1> /home/dnanexus/out/log_files/sambamba_logs/"${prefix}".sambamba."${contig}".stdout.log 2> /home/dnanexus/out/log_files/sambamba_logs/"${prefix}".sambamba."${contig}".stderr.log
             fi
 
             if [[ "${run_delly_deletion}" == "True" ]]; then  
@@ -494,7 +512,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     # Run svviz
     if [[ "${run_svviz}" == "True" ]]; then
         echo "Running svviz"
-        mkdir -p /home/dnanexus/log_files/svviz_logs/
+        mkdir -p /home/dnanexus/out/log_files/svviz_logs/
         mkdir /home/dnanexus/svviz_outputs
 
         grep \# survivor_sorted.vcf > header.txt
@@ -520,15 +538,15 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
             for item in small_vcf*; do
                 cat header.txt "${item}" > survivor_split."${count}".vcf
-                echo "svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.${count}.vcf --export svviz_outputs 1>/home/dnanexus/out/log_files/svviz_logs/svviz.${count}.stdout.log 2>/home/dnanexus/out/log_files_logs/svviz/svviz.${count}.stderr.log" >> commands.txt
+                echo "svviz --pair-min-mapq 30 --max-deletion-size 5000 --max-reads 10000 --fast --type batch --summary svviz_summary.tsv -b input.bam ref.fa survivor_split.${count}.vcf --export svviz_outputs" >> commands.txt
                 ((count++))
             done
             
             threads="$(nproc)"
             threads=$((threads / 2))
-            parallel --memfree 5G --retries 2 --verbose -a commands.txt eval 2> /dev/null
+            parallel --memfree 5G --retries 2 --verbose -a commands.txt eval 1>/home/dnanexus/out/log_files/svviz_logs/svviz.stdout.log 2>/home/dnanexus/out/log_files/svviz_logs/svviz.stderr.log
             
-            tar -czf /home/dnanexus/out/"${prefix}".svviz_outputs.tar.gz svviz_outputs/
+            cd /home/dnanexus/svviz_outputs && tar -czf /home/dnanexus/out/"${prefix}".svviz_outputs.tar.gz .
         fi
     fi
 fi
