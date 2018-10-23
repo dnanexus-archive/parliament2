@@ -88,11 +88,12 @@ else
         cp "${illumina_bam}" input.bam
         samtools index input.bam
 
+        mv input.bam /home/dnanexus/in/input.bam
         mv input.bam.bai /home/dnanexus/in/input.bam.bai
     else
         echo "BAM file input, index exists"
-        cp "${illumina_bam}" input.bam
-        mv "${illumina_bai}" input.bam.bai
+        cp "${illumina_bam}" /home/dnanexus/in/input.bam
+        mv "${illumina_bai}" /home/dnanexus/in/input.bam.bai
     fi
 
     touch /home/dnanexus/in/done.txt

@@ -252,7 +252,7 @@
     "interpreter": "python2.7",
     "timeoutPolicy": {
       "main": {
-        "hours": 24
+        "hours": 48
       }
     },
     "distribution": "Ubuntu"
