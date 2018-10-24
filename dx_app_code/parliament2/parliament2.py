@@ -2,6 +2,7 @@
 
 import dxpy
 import subprocess
+import multiprocessing as mp
 import os.path
 import glob
 
@@ -20,6 +21,8 @@ def main(**job_inputs):
     # Running Docker image
     subprocess.check_call(['mkdir', '-p', '/home/dnanexus/in', '/home/dnanexus/out'])
 
+    print "Downloading input files"
+
     input_bam = dxpy.open_dxfile(job_inputs['illumina_bam'])
     bam_name = "/home/dnanexus/in/{0}".format(input_bam.name)
     dxpy.download_dxfile(input_bam, bam_name)
@@ -27,6 +30,7 @@ def main(**job_inputs):
     ref_genome = dxpy.open_dxfile(job_inputs['ref_fasta'])
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome, ref_name)
+
     docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
