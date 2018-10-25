@@ -593,6 +593,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
     # Prepare SURVIVOR outputs for upload
     vcf-sort -c > survivor_sorted.vcf < survivor.output.vcf
+    cp survivor.output.vcf /home/dnanexus/out/"${prefix}".survivor.vcf
     python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
@@ -640,3 +641,5 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 fi
 
 echo "Finishing Parliament2 at time $(date)"
+
+tree /home/dnanexus/out/
