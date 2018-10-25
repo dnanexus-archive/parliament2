@@ -20,6 +20,30 @@ run_svviz=${17}
 svviz_only_validated_candidates=${18}
 dnanexus=${19}
 
+check_threads(){
+    breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
+    cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
+    sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
+    manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
+    breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
+    delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
+    lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
+    active_threads=$(python /getThreads.py "${breakdancer_threads}" "${cnvnator_threads}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}")
+    
+    while [[ $active_threads -ge $(nproc) ]]; do
+        echo "Waiting for 60 seconds"
+        breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
+        cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
+        sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
+        manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
+        breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
+        delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
+        lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
+        active_threads=$(python /getThreads.py "${breakdancer_threads}" "${cnvnator_threads}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}")
+        sleep 60
+    done
+}
+
 if [[ ! -f "${illumina_bam}" ]] || [[ ! -f "${ref_fasta}" ]]; then
     if [[ "${dnanexus}" == "True" ]]; then
         dx-jobutil-report-error "ERROR: An invalid (nonexistent) input file has been specified."
@@ -83,23 +107,28 @@ else
 
         mv input.bam /home/dnanexus/in/input.bam
         mv input.bam.bai /home/dnanexus/in/input.bam.bai
+
+        rm "${illumina_bam}" && touch "${illumina_bam}"
     elif [[ "${illumina_bai}" == "None" ]]; then
         echo "BAM file input, no index exists"
-        cp "${illumina_bam}" input.bam
+        mv "${illumina_bam}" input.bam
         samtools index input.bam
 
         mv input.bam /home/dnanexus/in/input.bam
         mv input.bam.bai /home/dnanexus/in/input.bam.bai
+
+        touch "${illumina_bam}"
     else
         echo "BAM file input, index exists"
-        cp "${illumina_bam}" /home/dnanexus/in/input.bam
+        mv "${illumina_bam}" /home/dnanexus/in/input.bam
         mv "${illumina_bai}" /home/dnanexus/in/input.bam.bai
+
+        touch "${illumina_bam}"
     fi
 
     touch /home/dnanexus/in/done.txt
 fi
 
-rm "${illumina_bam}" && touch "${illumina_bam}"
 ln -s /home/dnanexus/in/input.bam /home/dnanexus/input.bam
 ln -s /home/dnanexus/in/input.bam.bai /home/dnanexus/input.bam.bai
 
@@ -134,7 +163,18 @@ fi
 if [[ "${run_manta}" == "True" ]]; then
     echo "Manta"
     mkdir -p /home/dnanexus/out/log_files/manta_logs/
-    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stderr.log &
+
+    region_string=
+
+    while read line; do
+        region_string="${region_string} --region=${line}"
+    done < contigs
+
+    python /miniconda/bin/configManta.py --referenceFasta ref.fa --normalBam input.bam --runDir manta ${region_string}
+
+    python /home/dnanexus/manta/runWorkflow.py -m local -j 16 
+    # timeout 6h runManta
+    # timeout 6h runManta 1> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -179,70 +219,65 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
                 concat_breakdancer_cmd="${concat_breakdancer_cmd} breakdancer-${count}.ctx"
             fi
 
+            check_threads
+
             if [[ "$run_cnvnator" == "True" ]]; then
                 echo "Running CNVnator for contig ${contig}"
                 runCNVnator "${contig}" "${count}" 1> /home/dnanexus/out/log_files/cnvnator_logs/"${prefix}".cnvnator."${contig}".stdout.log 2> /home/dnanexus/out/log_files/cnvnator_logs/"${prefix}".cnvnator."${contig}".stderr.log &
                 concat_cnvnator_cmd="${concat_cnvnator_cmd} output.cnvnator_calls-${count}"
             fi
 
+            check_threads
+
             if [[ "${run_delly}" == "True" ]] || [[ "${run_lumpy}" == "True" ]]; then
                 echo "Running sambamba view"
                 timeout 2h sambamba view -h -f bam -t "$(nproc)" input.bam "${contig}" > chr."${count}".bam 2> /home/dnanexus/out/log_files/sambamba_logs/"${prefix}".sambamba."${contig}".stderr.log
                 echo "Running sambamba index"
                 sambamba index -t "$(nproc)" chr."${count}".bam 1> /home/dnanexus/out/log_files/sambamba_logs/"${prefix}".sambamba."${contig}".stdout.log 2> /home/dnanexus/out/log_files/sambamba_logs/"${prefix}".sambamba."${contig}".stderr.log
+                
+                check_threads
+
+                if [[ "${run_delly_deletion}" == "True" ]]; then  
+                    echo "Running Delly (deletions) for contig $contig"
+                    timeout 6h delly -t DEL -o "${count}".delly.deletion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_deletion_logs/"${prefix}".delly_deletion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_deletion_logs/"${prefix}".delly_deletion."${contig}".stderr.log & 
+                    delly_deletion_concat="${delly_deletion_concat} ${count}.delly.deletion.vcf"
+                fi
+
+                check_threads
+
+                if [[ "${run_delly_inversion}" == "True" ]]; then 
+                    echo "Running Delly (inversions) for contig $contig"
+                    timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_inversion_logs/"${prefix}".delly_inversion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_inversion_logs/"${prefix}".delly_inversion."${contig}".stderr.log & 
+                    delly_inversion_concat="${delly_inversion_concat} ${count}.delly.inversion.vcf"
+                fi
+
+                check_threads
+
+                if [[ "${run_delly_duplication}" == "True" ]]; then 
+                    echo "Running Delly (duplications) for contig ${contig}"
+                    timeout 6h delly -t DUP -o "${count}".delly.duplication.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_duplication_logs/"${prefix}".delly_duplication.stdout.log 2> /home/dnanexus/out/log_files/delly_duplication_logs/"${prefix}".delly_duplication.stderr.log & 
+                    delly_duplication_concat="${delly_duplication_concat} ${count}.delly.duplication.vcf"
+                fi
+
+                check_threads
+
+                if [[ "${run_delly_insertion}" == "True" ]]; then 
+                    echo "Running Delly (insertions) for contig ${contig}"
+                    timeout 6h delly -t INS -o "${count}".delly.insertion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_insertion_logs/"${prefix}".delly_insertion."${count}".stdout.log 2> /home/dnanexus/out/log_files/delly_insertion_logs/"${prefix}".delly_insertion."${count}".stderr.log & 
+                    delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
+                fi
+                
+                check_threads
+
+                if [[ "${run_lumpy}" == "True" ]]; then
+                    echo "Running Lumpy for contig ${contig}"
+                    timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr."${count}".bam -o lumpy."${count}".vcf ${lumpy_exclude_string} -k 1> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stdout.log 2> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stderr.log & 
+                    lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
+                fi
             fi
 
-            if [[ "${run_delly_deletion}" == "True" ]]; then  
-                echo "Running Delly (deletions) for contig $contig"
-                timeout 6h delly -t DEL -o "${count}".delly.deletion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_deletion_logs/"${prefix}".delly_deletion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_deletion_logs/"${prefix}".delly_deletion."${contig}".stderr.log & 
-                delly_deletion_concat="${delly_deletion_concat} ${count}.delly.deletion.vcf"
-            fi
+            check_threads
 
-            if [[ "${run_delly_inversion}" == "True" ]]; then 
-                echo "Running Delly (inversions) for contig $contig"
-                timeout 6h delly -t INV -o $count.delly.inversion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_inversion_logs/"${prefix}".delly_inversion."${contig}".stdout.log 2> /home/dnanexus/out/log_files/delly_inversion_logs/"${prefix}".delly_inversion."${contig}".stderr.log & 
-                delly_inversion_concat="${delly_inversion_concat} ${count}.delly.inversion.vcf"
-            fi
-
-            if [[ "${run_delly_duplication}" == "True" ]]; then 
-                echo "Running Delly (duplications) for contig ${contig}"
-                timeout 6h delly -t DUP -o "${count}".delly.duplication.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_duplication_logs/"${prefix}".delly_duplication.stdout.log 2> /home/dnanexus/out/log_files/delly_duplication_logs/"${prefix}".delly_duplication.stderr.log & 
-                delly_duplication_concat="${delly_duplication_concat} ${count}.delly.duplication.vcf"
-            fi
-
-            if [[ "${run_delly_insertion}" == "True" ]]; then 
-                echo "Running Delly (insertions) for contig ${contig}"
-                timeout 6h delly -t INS -o "${count}".delly.insertion.vcf -g ref.fa chr."${count}".bam 1> /home/dnanexus/out/log_files/delly_insertion_logs/"${prefix}".delly_insertion."${count}".stdout.log 2> /home/dnanexus/out/log_files/delly_insertion_logs/"${prefix}".delly_insertion."${count}".stderr.log & 
-                delly_insertion_concat="$delly_insertion_concat $count.delly.insertion.vcf"
-            fi
-            
-            if [[ "${run_lumpy}" == "True" ]]; then
-                echo "Running Lumpy for contig ${contig}"
-                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr."${count}".bam -o lumpy."${count}".vcf ${lumpy_exclude_string} -k 1> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stdout.log 2> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stderr.log & 
-                lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
-            fi
-
-            breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
-            cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
-            sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
-            manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
-            breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
-            delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
-            lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
-            active_threads=$(python /getThreads.py "${breakdancer_threads}" "${cnvnator_threads}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}")
-            
-            while [[ $active_threads -ge $(nproc) ]]; do
-                echo "Waiting for 60 seconds"
-                breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
-                cnvnator_threads=$(top -n 1 -b -d 10 | grep -c cnvnator)
-                sambamba_processes=$(top -n 1 -b -d 10 | grep -c sambamba)
-                manta_processes=$(top -n 1 -b -d 10 | grep -c manta)
-                breakseq_processes=$(top -n 1 -b -d 10 | grep -c breakseq)
-                delly_processes=$(top -n 1 -b -d 10 | grep -c delly)
-                lumpy_processes=$(top -n 1 -b -d 10 | grep -c lumpy)
-                active_threads=$(python /getThreads.py "${breakdancer_threads}" "${cnvnator_threads}" "${sambamba_processes}" "${manta_processes}" "${breakseq_processes}" "${delly_processes}" "${lumpy_processes}")
-                sleep 60
-            done
         fi
     done < contigs
 fi
@@ -552,4 +587,4 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     fi
 fi
 
-cd /home/dnanexus/out/log_files/ && find . -maxdepth 1 -mindepth 1 -type d -exec tar czf {}.tar.gz {} --remove-files \; && find . -type d -empty -delete
+cd /home/dnanexus/out/log_files/ && find . -type d -empty -delete && find . -maxdepth 1 -mindepth 1 -type d -exec tar czf {}.tar.gz {} --remove-files \;
