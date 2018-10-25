@@ -170,9 +170,11 @@ if [[ "${run_manta}" == "True" ]]; then
         region_string="${region_string} --region=${line}"
     done < contigs
 
-    python /miniconda/bin/configManta.py --referenceFasta ref.fa --normalBam input.bam --runDir manta ${region_string}
+    echo "${region_string}"
 
-    python /home/dnanexus/manta/runWorkflow.py -m local -j 16 
+    /miniconda/bin/configManta.py --referenceFasta ref.fa --normalBam input.bam --runDir manta "${region_string}"
+
+    /home/dnanexus/manta/runWorkflow.py -m local -j 16 
     # timeout 6h runManta
     # timeout 6h runManta 1> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stderr.log &
 fi
