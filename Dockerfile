@@ -61,15 +61,16 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     openjdk-8-jdk \
     python-pip \
     sqlite3 \
+    tree \
     wget \
     wkhtmltopdf \
     xvfb \
     zlib1g-dev
+RUN apt-get upgrade openssl -y
 RUN apt-get update
 
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
-RUN conda config --add channels defaults
 RUN conda install -c bioconda samtools
 RUN conda install -c bioconda sambamba -y
 RUN conda install -c bioconda bcftools -y
@@ -80,6 +81,8 @@ RUN conda install libgcc -y
 RUN conda install gcc_linux-64 -y
 RUN conda install -c bioconda manta
 RUN conda install -c bioconda pysam
+RUN conda install -c defaults cryptography -y
+RUN conda update -y pyopenssl
 
 WORKDIR /
 ADD resources.tar.gz /
@@ -87,7 +90,6 @@ RUN cp -a /resources/* /
 RUN rm -rf /resources/
 
 RUN conda install -c defaults -y numpy
-RUN pip install --upgrade pip 
 RUN pip install pycparser
 RUN pip install asn1crypto
 RUN pip install idna
