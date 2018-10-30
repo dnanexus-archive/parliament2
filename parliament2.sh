@@ -296,7 +296,8 @@ mkdir -p /home/dnanexus/out/sv_caller_results/
 
 (if [[ "${run_lumpy}" == "True" ]]; then
     echo "Convert Lumpy results to VCF format"
-    python /convertHeader.py "${prefix}" "${lumpy_merge_command}" | vcf-sort -c | uniq > lumpy.vcf
+    ls -sh *.vcf
+    python /convertHeader.py "${prefix}" ${lumpy_merge_command} | vcf-sort -c | uniq > lumpy.vcf
 
     if [[ -f lumpy.vcf ]]; then
         cp lumpy.vcf /home/dnanexus/out/sv_caller_results/"${prefix}".lumpy.vcf
