@@ -321,8 +321,12 @@ fi) &
     else
         mkdir -p /home/dnanexus/out/atlas
 
-        vcf-concat ./*_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
-        vcf-concat ./*_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
+
+        ls *_indel.vcf > indel_vcfs.txt
+        ls *_snp.vcf > snp_vcfs.txt
+
+        vcf-concat -f indel_vcfs.txt | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
+        vcf-concat -f snp_vcfs.txt | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
 
         rm indel_vcfs.txt
         rm snp_vcfs.txt
