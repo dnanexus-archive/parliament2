@@ -55,7 +55,7 @@ echo "Running xAtlas for contig $contig"
 
 egrep "^${contig}\s" GRCh38_full_analysis_set_plus_decoy_hla.bed > "limited.xatlas.realigned.${contig}_only.bed"
 
-xatlas --ref "${ref_genome}" --in indel_realigned."${contig}".bam --capture "limited.xatlas.realigned.${contig}_only.bed" --prefix "${prefix}"."${contig}" -s "${prefix}"."${contig}" --gvcf --enable-strand-filter 1> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stdout.log 2> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stderr.log
+xatlas --ref "${ref_genome}" --in indel_realigned."${contig}".bam --capture "limited.xatlas.realigned.${contig}_only.bed" --prefix "${prefix}"."${contig}" -s "${prefix}" --gvcf --enable-strand-filter 1> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stdout.log 2> /home/dnanexus/out/log_files/xatlas/"${prefix}".xatlas."${contig}".stderr.log
 
 rm "limited.xatlas.realigned.${contig}_only.bed"
 rm realign."${contig}".intervals

@@ -320,8 +320,12 @@ fi) &
         echo "No outputs of xAtlas found. Continuing."
     else
         mkdir -p /home/dnanexus/out/atlas
+
         vcf-concat ./*_indel.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_indel.vcf.gz; tabix "${prefix}"_indel.vcf.gz
         vcf-concat ./*_snp.vcf | vcf-sort -c | uniq | bgzip > "${prefix}"_snp.vcf.gz; tabix "${prefix}"_snp.vcf.gz
+
+        rm indel_vcfs.txt
+        rm snp_vcfs.txt
 
         cp "${prefix}"_snp.vcf.gz /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz
         cp "${prefix}"_snp.vcf.gz.tbi /home/dnanexus/out/atlas/"${prefix}".atlas.snp.vcf.gz.tbi
@@ -566,7 +570,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
         echo "Running SVTyper on Manta outputs"
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
-            echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs
+            echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs.txt
         else
             echo "No Manta VCF file found. Continuing."
         fi
@@ -579,7 +583,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     for item in *svtyped.vcf; do
         python /adjust_svtyper_genotypes.py "${item}" | vcf-sort -c > adjusted.vcf
         mv adjusted.vcf "${item}"
-        echo "${item}" >> survivor_inputs
+        echo "${item}" >> survivor_inputs.txt
     done
 
     # Prepare SVtyped VCFs for upload
@@ -589,12 +593,14 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
     # Run SURVIVOR
     echo "Running SURVIVOR"
-    survivor merge survivor_inputs 1000 1 1 0 0 10 survivor.output.vcf
+    survivor merge survivor_inputs.txt 1000 1 1 0 0 10 survivor.output.vcf
 
     # Prepare SURVIVOR outputs for upload
     vcf-sort -c > survivor_sorted.vcf < survivor.output.vcf
     cp survivor.output.vcf /home/dnanexus/out/"${prefix}".survivor.vcf
-    python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
+    cp survivor_inputs.txt /home/dnanexus/out/"${prefix}".survivor_inputs.txt
+
+    python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs.txt /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
 
     # Run svviz
     if [[ "${run_svviz}" == "True" ]]; then
