@@ -164,19 +164,7 @@ if [[ "${run_manta}" == "True" ]]; then
     echo "Manta"
     mkdir -p /home/dnanexus/out/log_files/manta_logs/
 
-    region_string=
-
-    while read line; do
-        region_string="${region_string} --region=${line}"
-    done < contigs
-
-    echo "${region_string}"
-
-    /miniconda/bin/configManta.py --referenceFasta ref.fa --normalBam input.bam --runDir manta "${region_string}"
-
-    /home/dnanexus/manta/runWorkflow.py -m local -j 16 
-    # timeout 6h runManta
-    # timeout 6h runManta 1> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stderr.log &
+    timeout 6h runManta 1> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stdout.log 2> /home/dnanexus/out/log_files/manta_logs/"${prefix}".manta.stderr.log &
 fi
 
 # PREPARE FOR BREAKDANCER
@@ -455,6 +443,8 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
         mkdir /home/dnanexus/svtype_breakdancer
         if [[ -f /home/dnanexus/breakdancer.vcf ]]; then
             bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
+
+            sed -i 's/SAMPLE/BREAKDANCER/g' /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf
         else
             "No Breakdancer VCF file found. Continuing."
         fi
