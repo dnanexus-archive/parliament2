@@ -444,7 +444,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
         if [[ -f /home/dnanexus/breakdancer.vcf ]]; then
             bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
 
-            sed -i 's/SAMPLE/BREAKDANCER/g' /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf
+            sed -i 's/SAMPLE/breakdancer/g' /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf
         else
             "No Breakdancer VCF file found. Continuing."
         fi
