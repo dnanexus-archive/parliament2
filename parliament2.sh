@@ -364,7 +364,9 @@ fi) &
         mv manta/results/variants/diploidSV.vcf.gz .
         gunzip diploidSV.vcf.gz
         python /Manta2merge.py 1.0 diploidSV.vcf "${prefix}"
+
         cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"${prefix}".manta.alignmentStatsSummary.txt
+        cp manta/results/variants/candidateSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.candidateSV.vcf.gz
     fi
 
 fi) &
