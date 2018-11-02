@@ -7,17 +7,17 @@ def main():
 
     sample = sys.argv[2]
     for line in open(sys.argv[3], 'r'):
-        if "cnvnator" in line.lower():
+        if "cnvnator" in line:
             headers.append("CNVNATOR")
-        elif "breakdancer" in line.lower():
+        elif "breakdancer" in line:
             headers.append("BREAKDANCER")
-        elif "breakseq" in line.lower():
+        elif "breakseq" in line:
             headers.append("BREAKSEQ")
-        elif "manta" in line.lower():
+        elif "manta" in line:
             headers.append("MANTA")
-        elif "lumpy" in line.lower():
+        elif "lumpy" in line:
             headers.append("LUMPY")
-        elif "delly" in line.lower():
+        elif "delly" in line:
             headers.append("DELLY")
         else:
             headers.append(line.strip())

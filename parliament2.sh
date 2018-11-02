@@ -306,7 +306,9 @@ fi) &
         mv manta/results/variants/diploidSV.vcf.gz .
         gunzip diploidSV.vcf.gz
         python /Manta2merge.py 1.0 diploidSV.vcf "${prefix}"
+
         cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"${prefix}".manta.alignmentStatsSummary.txt
+        cp manta/results/variants/candidateSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.candidateSV.vcf.gz
     fi
 
 fi) &
@@ -509,7 +511,6 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
         echo "Running SVTyper on Manta outputs"
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
-            echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs
         else
             echo "No Manta VCF file found. Continuing."
         fi
@@ -522,6 +523,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     for item in *svtyped.vcf; do
         python /adjust_svtyper_genotypes.py "${item}" > adjusted.vcf
         mv adjusted.vcf "${item}"
+        echo "Adding ${item} to SURVIVOR inputs"
         echo "${item}" >> survivor_inputs
     done
 
