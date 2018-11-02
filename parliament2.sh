@@ -574,7 +574,6 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
         echo "Running SVTyper on Manta outputs"
         if [[ -f diploidSV.vcf ]]; then
             mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
-            echo /home/dnanexus/"${prefix}".manta.svtyped.vcf >> survivor_inputs.txt
         else
             echo "No Manta VCF file found. Continuing."
         fi
