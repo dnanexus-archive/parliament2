@@ -77,8 +77,8 @@ def main():
                         hom += 1
                     if "0/0" in tab_split[9+i]:
                         ref += 1
-                    if headers[i] not in support:
-                        support += ",%s" % headers[i]
+                if headers[i] not in support:
+                    support += ",%s" % headers[i]
             if len(support) > 0:
                 tab_split[7] += ";CALLERS=%s" % support.lstrip(",")
             else:
