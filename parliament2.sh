@@ -285,7 +285,7 @@ mkdir -p /home/dnanexus/out/sv_caller_results/
 (if [[ "${run_lumpy}" == "True" ]]; then
     echo "Convert Lumpy results to VCF format"
     ls -sh *.vcf
-    python /convertHeader.py "${prefix}" ${lumpy_merge_command} | vcf-sort -c | uniq > lumpy.vcf
+    python /convertHeader.py "${prefix}" "${lumpy_merge_command}" | vcf-sort -c | uniq > lumpy.vcf
 
     if [[ -f lumpy.vcf ]]; then
         cp lumpy.vcf /home/dnanexus/out/sv_caller_results/"${prefix}".lumpy.vcf
@@ -308,7 +308,6 @@ fi) &
         python /Manta2merge.py 1.0 diploidSV.vcf "${prefix}"
 
         cp manta/results/stats/alignmentStatsSummary.txt /home/dnanexus/out/sv_caller_results/"${prefix}".manta.alignmentStatsSummary.txt
-        cp manta/results/variants/candidateSV.vcf.gz /home/dnanexus/out/sv_caller_results/"$prefix".manta.candidateSV.vcf.gz
     fi
 
 fi) &
