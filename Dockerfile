@@ -65,23 +65,23 @@ RUN apt-get update
 
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
-RUN conda config --add channels anaconda
+RUN conda config --add channels defaults
 RUN conda install -c bioconda samtools
 RUN conda install -c bioconda sambamba -y
 RUN conda install -c bioconda bcftools -y
 RUN conda install -c bcbio bx-python -y
-RUN conda install -c anaconda networkx -y
+RUN conda install -c defaults networkx -y
 RUN conda install -c bioconda samblaster -y
 RUN conda install gcc_linux-64 -y
 RUN conda install -c bioconda manta
+RUN conda update -y pyopenssl
 
 WORKDIR /
 ADD resources.tar.gz /
 RUN cp -a /resources/* /
 RUN rm -rf /resources/
 
-RUN conda install -c anaconda -y numpy
-RUN pip install --upgrade pip 
+RUN conda install -c defaults -y numpy
 RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz
 RUN pip install pycparser
 RUN pip install asn1crypto
