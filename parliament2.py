@@ -3,6 +3,7 @@
 import argparse
 import subprocess
 import gzip
+import os
 
 
 def parse_arguments():
@@ -32,8 +33,11 @@ def parse_arguments():
 
 def gunzip_input(input_file):
     if input_file.endswith('.gz'):
-        subprocess.check_call(['gunzip', input_file])
-        return input_file[:-3]
+        if os.path.isfile(input_file[:-3]):
+            return input_file[:-3]
+        else:
+            subprocess.check_call(['gunzip', input_file])
+            return input_file[:-3]
     else:
         return input_file
 
