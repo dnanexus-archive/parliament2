@@ -147,6 +147,16 @@ samtools view: error closing standard output: -1
 
 This is a known error message caused by splitting the BAM file. It doesn't affect the results in any way.
 
+#### Pysam warning
+
+> The tool runs but I am getting the following warning:
+```
+breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.15.1 which is incompatible
+```
+> What's going on?
+
+This is a known error message caused by how we currently manage the conflicting pysam versions required for BreakSeq and SVTyper. We are currently working on a more stable solution.
+
 ### Tool versions
 
 #### Structural variant callers
