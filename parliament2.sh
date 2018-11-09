@@ -202,7 +202,7 @@ if [[ "$run_cnvnator" == "True" ]] || [[ "$run_delly" == "True" ]] || [[ "$run_b
             
             if [[ "$run_lumpy" == "True" ]]; then
                 echo "Running Lumpy for contig $contig"
-                timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
+                timeout 6h /home/dnanexus/lumpy-sv/bin/lumpyexpress -B chr.$count.bam -o lumpy.$count.vcf $lumpy_exclude_string -k &
                 lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
             fi
 

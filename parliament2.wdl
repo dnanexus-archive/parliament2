@@ -28,6 +28,10 @@ task runParliamentTask{
         memory : "62G"
         cpu : "32"
     }
+
+    output{
+
+    }
 }
 
 workflow ParliamentWF{
