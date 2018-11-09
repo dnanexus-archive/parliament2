@@ -20,8 +20,8 @@ def main(**job_inputs):
     # Running Docker image
     subprocess.check_call(['mkdir', '-p', '/home/dnanexus/in', '/home/dnanexus/out'])
 
-    docker_pull = ['docker', 'pull', 'dnanexus/parliament2:hgsc']
-    subprocess.check_call(docker_pull)
+    docker_load = ['docker', 'load', '-i', '/home/dnanexus/hgsc_parliament2.tar']
+    subprocess.check_call(docker_load)
 
     print "Starting Docker"
 
