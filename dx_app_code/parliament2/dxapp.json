@@ -200,7 +200,7 @@
     {
       "name": "output_log_files",
       "label": "Output Log Files",
-      "help": "This will upload the log files resulting from the SV callers (with the exception of Breakdancer) and SVVIZ to the project.",
+      "help": "This will upload the log files resulting from the tools used to the project.",
       "class": "boolean",
       "default": true,
       "group": "Advanced"
@@ -289,13 +289,58 @@
         }
       }
     },
+    "aws:cn-north-1": {
+      "assetDepends": [
+        {
+          "project": "project-F3vk1f02GyKbj2JF0q1kQfV3",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:ap-southeast-2": {
+      "assetDepends": [
+        {
+          "project": "project-F4gVXbj5qkxXq3v038V7qjxq",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:eu-central-1": {
+      "assetDepends": [
+        {
+          "project": "project-FPXF2x84qJf3P5Fx8qpBZk1y",
+          "folder": "/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
     "azure:westus": {
       "assetDepends": [
         {
-          "project": "project-FBbQqG895xZxxGFV3281QqqY",
-          "folder": "/",
-          "version": "0.0.1",
-          "name": "parliament2:0.1.8"
+          "project": "project-F3vk1q09FX8Jxxp20pq6z8P9",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
         }
       ],
       "systemRequirements": {

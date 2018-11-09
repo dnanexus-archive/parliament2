@@ -539,7 +539,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     vcf-sort -c > survivor_sorted.vcf < survivor.output.vcf
     sed -i 's/SAMPLE/breakdancer/g' survivor_sorted.vcf
     python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
-    mv survivor_sorted.vcf /home/dnanexus/out/"${prefix}".survivor_sorted.vcf
+    cp survivor_sorted.vcf /home/dnanexus/out/"${prefix}".survivor_sorted.vcf
 
     # Run svviz
     if [[ "${run_svviz}" == "True" ]]; then
