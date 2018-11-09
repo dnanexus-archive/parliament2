@@ -30,6 +30,11 @@ task runParliamentTask{
     }
 
     output{
+        File lumpyVCF = "lumpy.vcf"
+        File cnvnatorVCF = "cnvnator.vcf"
+        File lumpyGFF = "lumpy.gff"
+        Array[File] dellyVCFs = glob("*.delly.deletion.vcf")
+        File breakdancerVCF = "breakdancer.vcf"
 
     }
 }
