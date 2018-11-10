@@ -7,7 +7,7 @@
     "WGS"
   ],
   "dxapi": "1.0.0",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "inputSpec": [
     {
       "name": "illumina_bam",
@@ -182,20 +182,6 @@
       "group": "Genotyping and Visualization"
     },
     {
-      "name": "run_atlas",
-      "label": "Run xAtlas?",
-      "help": "If selected, xAtlas will be run as a SNP and Indel caller.",
-      "class": "boolean",
-      "default": true
-    },
-    {
-      "name": "run_stats",
-      "label": "Run Stats??",
-      "help": "If selected, samtools flagstat will be run to gather statistics on the input BAM file.",
-      "class": "boolean",
-      "default": true
-    },
-    {
       "name": "run_svviz",
       "label": "Run svviz?",
       "help": "If selected, visualizations of genotyped SV events will be produced with svviz, one screenshot of support per event. For this option to take effect, Genotype Candidates must be set to True.",
@@ -214,7 +200,7 @@
     {
       "name": "output_log_files",
       "label": "Output Log Files",
-      "help": "If BreakSeq, Manta, or SVTyper with Breakdancer, Delly, Lumpy, or Manta have been chosen to run, this will upload the resultant log files to the project.",
+      "help": "This will upload the log files resulting from the tools used to the project.",
       "class": "boolean",
       "default": true,
       "group": "Advanced"
@@ -252,20 +238,6 @@
       "optional": true
     },
     {
-      "name": "atlas_output",
-      "label": "Atlas Output Files",
-      "help": "Output from xAtlas.",
-      "class": "array:file",
-      "optional": true
-    },
-    {
-      "name": "align_stats_output",
-      "label": "Align stats file",
-      "help": "Output from samtools flagstat.",
-      "class": "array:file",
-      "optional": true
-    },
-    {
       "name": "log_files",
       "label": "Log files",
       "help": "(Optional) Output log files from BreakSeq and Manta.",
@@ -280,7 +252,7 @@
     "interpreter": "python2.7",
     "timeoutPolicy": {
       "main": {
-        "hours": 24
+        "hours": 48
       }
     },
     "distribution": "Ubuntu"
@@ -299,15 +271,60 @@
       "doi:10.1186/s12864-015-1479-3"
     ],
     "upstreamAuthor": "Baylor College of Medicine",
-    "whatsNew": "* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
+    "whatsNew": "* 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
   },
   "regionalOptions": {
     "aws:us-east-1": {
       "assetDepends": [
         {
-          "project": "project-FBbQqQj026K9PF53332ZFBB9",
+          "project": "project-B6JG897KGbkGb6Z7pQ9Q02jG",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:cn-north-1": {
+      "assetDepends": [
+        {
+          "project": "project-F3vk1f02GyKbj2JF0q1kQfV3",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:ap-southeast-2": {
+      "assetDepends": [
+        {
+          "project": "project-F4gVXbj5qkxXq3v038V7qjxq",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:eu-central-1": {
+      "assetDepends": [
+        {
+          "project": "project-FPXF2x84qJf3P5Fx8qpBZk1y",
           "folder": "/",
-          "name": "parliament2:0.1.8",
+          "name": "parliament2:0.1.9",
           "version": "0.0.1"
         }
       ],
@@ -320,10 +337,10 @@
     "azure:westus": {
       "assetDepends": [
         {
-          "project": "project-FBbQqG895xZxxGFV3281QqqY",
-          "folder": "/",
-          "version": "0.0.1",
-          "name": "parliament2:0.1.8"
+          "project": "project-F3vk1q09FX8Jxxp20pq6z8P9",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
         }
       ],
       "systemRequirements": {
