@@ -26,7 +26,6 @@ This app will output a number of files, representing the outputs of each of the 
 - `lumpy.discordant.bam`: representing reads that Lumpy identified as discordant and used as evidence for its calls.
 - `lumpy.splitters.bam`: representing reads that Lumpy identified as split-read mapped and used as evidence for its calls.
 - `manta.diploidSV.vcf`: representing genotyped structural variant calls from Manta in VCF format.
-- `manta.candidateSV.vcf`: representing candidate structural variant calls from Manta in VCF format.
 - `manta.alignmentStats.txt`: representing statistics about the alignment from Manta.
 - `breakdancer.ctx`: representing structural variant calls in Breakdancer's format.
 - `cnvnator.output`: representing structural variant calls in CNVnator's format.
