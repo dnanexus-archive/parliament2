@@ -1,0 +1,9 @@
+{
+  "name": "parliament2_hgsc_asset",
+  "title": "Parliament2 Asset (HGSC)",
+  "description": "Contains the Docker image for HGSC's version of Parliament2",
+  "version": "0.0.1",
+  "distribution": "Ubuntu",
+  "instanceType": "mem2_ssd1_x4",
+  "release": "14.04"
+}
