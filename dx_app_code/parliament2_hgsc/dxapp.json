@@ -304,6 +304,7 @@
   },
   "regionalOptions": {
     "aws:us-east-1": {
+      "assetDepends": [{ "id": "record-FPp6bq8013gK9yp33G6P25kG" }],
       "systemRequirements": {
         "*": {
           "instanceType": "mem1_ssd1_x16"
