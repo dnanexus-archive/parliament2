@@ -312,5 +312,6 @@
       }
     }
   },
+  "developers": [ "user-szarate", "user-okrash", "user=wsalerno" ],
   "openSource": true
 }
