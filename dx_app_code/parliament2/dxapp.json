@@ -248,7 +248,7 @@
   ],
   "runSpec": {
     "file": "parliament2.py",
-    "release": "14.04",
+    "release": "16.04",
     "interpreter": "python2.7",
     "timeoutPolicy": {
       "main": {
