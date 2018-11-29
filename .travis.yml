@@ -14,7 +14,8 @@ before_install:
   - docker build -t dnanexus/parliament2:$TAG .
 
 script:
-  echo "hello world"
+  - echo "hello world"
+  - docker run dnanexus/parliament2:$TAG -h
   # Placeholder for running an entire test suite
   # - docker run -v $PWD:/workdir -w /workdir -e DX_API_TOKEN=$DX_API_TOKEN dnanexus/dxda:$TAG download -max_threads=`nproc` test_files/single_file.manifest.json.bz2
   # # If all the tests pass, push the docker image and create a release
