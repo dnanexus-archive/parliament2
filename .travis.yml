@@ -15,7 +15,7 @@ before_install:
   - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
   - tar zxf dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
   - source dx-toolkit/environment
-  - dx login --token $DX_AUTH_TOKEN
+  - dx login --token $DX_AUTH_TOKEN --noprojects
   # Download small input BAM and index
   - dx download file-By3JP400k0B037Jpv1Jq856f -o small_input.bam
   - dx download file-Bzp2vG80X3VQv24XgQx0Qy1J -o small_input.bai
@@ -51,5 +51,4 @@ branches:
 
 language: python
 python: 
-  - "3.4"
   - "2.7"
