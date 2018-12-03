@@ -12,14 +12,37 @@ env:
 before_install:
   - tar -czf resources.tar.gz resources/
   - docker build -t dnanexus/parliament2:$TAG .
+  - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
+  - tar zxf dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
+  - source dx-toolkit/environment
+  # Download small input BAM and index
+  - dx download file-By3JP400k0B037Jpv1Jq856f -o small_input.bam
+  - dx download file-Bzp2vG80X3VQv24XgQx0Qy1J -o small_input.bai
+  # Download reference FASTA and index
+  - dx download file-B6ZY7VG2J35Vfvpkj8y0KZ01 -o ref.fa.gz
+  - dx download file-ByGVY4j04Y0YJ0yJpj0f8qPG -o ref.fa.fai
 
-script:
-  - echo "hello world"
-  - docker run dnanexus/parliament2:$TAG -h
-  # Placeholder for running an entire test suite
+jobs:
+  include:
+    - stage: test docker build
+      script: docker run dnanexus/parliament2:$TAG -h
+    - stage: small test (breakdancer only)
+      script: docker run dnanexus/parliament2:$TAG --bam small_input.bam --ref_genome ref.fa.gz --prefix breakdancer --breakdancer 
+    - stage: dnanexus test (hg002)
+      script: echo "hello"
   # - docker run -v $PWD:/workdir -w /workdir -e DX_API_TOKEN=$DX_API_TOKEN dnanexus/dxda:$TAG download -max_threads=`nproc` test_files/single_file.manifest.json.bz2
   # # If all the tests pass, push the docker image and create a release
   # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+  # deploy dx-toolkit
+# - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
+# - tar zxf dx-toolkit-current-ubuntu-12.04-amd64.tar.gz
+# - source dx-toolkit/environment
+# - dx select project-Bz84jg80pyJ3F9Y0853zBjb9
+# - GIT_REVISION="$(git describe --long --tags --dirty --always)"
+# - folder_name="$(date +/%Y-%m/%d-%H%M%S)_${GIT_REVISION}/"
+# - dx mkdir -p $folder_name
+# - dx run chorus_query -iinput_vcf=project-Bz84jg80pyJ3F9Y0853zBjb9:file-BxVP9p8081jzbGJ3V9z5792k --folder=$folder_name --yes --brief --wait --watch
 
 branches:
   except:
@@ -28,3 +51,8 @@ branches:
 language: python
 python: 
   - "3.4"
+
+
+env:
+  global:
+    secure: "i8DXqn6r9MJZOnBOkCAtDyDQroTSW1/J14sRTDBNWFvbjxGQua4dyjjJkrJbtU3WaQgo2Rl0+9FtHkgp8ja9DbZT8+uCqfQswMQJ7OOcZbvrpLIlM/EFPYCuLTvRT595ILQOrlhy8UVjUGXVAmVVAeEwg8+9mpWuXGme77HlTjdk3/xdaugynM/FK/b5irko1XUAP9gKumBbaT3vwVaKRUzrX35w48F57QbiejADk6JG4cumaq4e2rneMkjkhtq5zvdvu7oOqnnN9O5rBTNhGSCrhEvfDbN8Csv/erIm1eFuXD9tOrYyiSw/I1eNOptnYjDUX+uZVHwm2dwdkBsmL1oqEKP8R8eSIgBTubWwjud0elS8B9ta8UkkZ8+tyTJ1LFlFBBDwa1S9aNbW+sk9Jd1JvdHeg4KtJKdV0IVea0PZEAgvgDvQM7Adj0BeG+3fgEt3cqwlra7VC9JxhT6IjJyi0/BklEhFfMMrxh/XVLBEm/rlPZ+18mioud6xvuiQlNkXeJz2tURIUK6g4NNyoT0NzMcHBCzuEbgImd5Dh334cmf//8mx/OlskV5rMu4CU/DUUvFlsmVC9qaujbfnHcURktPlpGMeI8KbXiCK4lUY+uEe5BmomLKPoegKs2EXWhu7T12rzJSB4LqA/E3KTAf68LqVxE9LMHKQiqaNP4I="
