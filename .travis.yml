@@ -53,3 +53,4 @@ branches:
 language: python
 python: 
   - "3.4"
+  - "2.7"
