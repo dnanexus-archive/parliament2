@@ -8,6 +8,8 @@ env:
   CURRENT_DATE=`date '+%Y%m%d%H%M%S'`
   TAG="${CURRENT_DATE}_${SHORT_COMMIT}"
   PATH=/snap/bin:$PATH
+  global:
+    secure: "i8DXqn6r9MJZOnBOkCAtDyDQroTSW1/J14sRTDBNWFvbjxGQua4dyjjJkrJbtU3WaQgo2Rl0+9FtHkgp8ja9DbZT8+uCqfQswMQJ7OOcZbvrpLIlM/EFPYCuLTvRT595ILQOrlhy8UVjUGXVAmVVAeEwg8+9mpWuXGme77HlTjdk3/xdaugynM/FK/b5irko1XUAP9gKumBbaT3vwVaKRUzrX35w48F57QbiejADk6JG4cumaq4e2rneMkjkhtq5zvdvu7oOqnnN9O5rBTNhGSCrhEvfDbN8Csv/erIm1eFuXD9tOrYyiSw/I1eNOptnYjDUX+uZVHwm2dwdkBsmL1oqEKP8R8eSIgBTubWwjud0elS8B9ta8UkkZ8+tyTJ1LFlFBBDwa1S9aNbW+sk9Jd1JvdHeg4KtJKdV0IVea0PZEAgvgDvQM7Adj0BeG+3fgEt3cqwlra7VC9JxhT6IjJyi0/BklEhFfMMrxh/XVLBEm/rlPZ+18mioud6xvuiQlNkXeJz2tURIUK6g4NNyoT0NzMcHBCzuEbgImd5Dh334cmf//8mx/OlskV5rMu4CU/DUUvFlsmVC9qaujbfnHcURktPlpGMeI8KbXiCK4lUY+uEe5BmomLKPoegKs2EXWhu7T12rzJSB4LqA/E3KTAf68LqVxE9LMHKQiqaNP4I="
 
 before_install:
   - tar -czf resources.tar.gz resources/
@@ -27,6 +29,8 @@ jobs:
     - stage: test docker build
       script: docker run dnanexus/parliament2:$TAG -h
     - stage: small test (breakdancer only)
+      script: docker run dnanexus/parliament2:$TAG --bam small_input.bam --ref_genome ref.fa.gz --prefix breakdancer --breakdancer 
+    - stage: dnanexus test (hg002)
       script: echo "hello"
   # - docker run -v $PWD:/workdir -w /workdir -e DX_API_TOKEN=$DX_API_TOKEN dnanexus/dxda:$TAG download -max_threads=`nproc` test_files/single_file.manifest.json.bz2
   # # If all the tests pass, push the docker image and create a release
