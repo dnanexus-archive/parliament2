@@ -18,12 +18,9 @@ before_install:
 
 jobs:
   include:
-    - stage: test docker build
-      script: docker run dnanexus/parliament2:$TAG -h
-    - stage: small tests
-      script: test_scripts/small_test.sh
-    - stage: dnanexus tests (hg002)
-      script: echo "hello"
+    - docker run dnanexus/parliament2:$TAG -h
+    - sudo bash test_scripts/small_test.sh
+    - echo "hello"
 
   # deploy dx-toolkit
 # - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
