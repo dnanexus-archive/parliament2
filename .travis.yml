@@ -8,12 +8,12 @@ env:
   CURRENT_DATE=`date '+%Y%m%d%H%M%S'`
   TAG="${CURRENT_DATE}_${SHORT_COMMIT}"
   PATH=/snap/bin:$PATH
-  tar -czf resources.tar.gz resources/
   wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
   tar zxf dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
   source dx-toolkit/environment
 
 before_install:
+  - tar -czf resources.tar.gz resources/
   - docker build -t dnanexus/parliament2:$TAG .
 
 jobs:
