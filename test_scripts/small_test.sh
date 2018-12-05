@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
+tar zxf dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
+source dx-toolkit/environment
+
 dx login --token $DX_AUTH_TOKEN --noprojects
 # Download small input BAM and index
 dx download file-By3JP400k0B037Jpv1Jq856f -o small_input.bam
