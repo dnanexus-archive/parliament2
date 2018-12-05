@@ -17,7 +17,7 @@ jobs:
   include:
     script:
       - docker run dnanexus/parliament2:$TAG -q -h
-      - bash test_scripts/small_test.sh
+      - sudo bash test_scripts/small_test.sh
       - echo "hello"
 
   # deploy dx-toolkit
