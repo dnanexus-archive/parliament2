@@ -4,8 +4,8 @@ wget -q https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-a
 tar zxf dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
 source dx-toolkit/environment
 
-mkdir -p /home/dnanexus/in
-mkdir -p /home/dnanexus/out
+sudo mkdir -p /home/dnanexus/in
+sudo mkdir -p /home/dnanexus/out
 
 dx login --token $DX_AUTH_TOKEN --noprojects
 # Download small input BAM and index
