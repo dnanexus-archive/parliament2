@@ -11,7 +11,7 @@ env:
 
 before_install:
   - sudo apt-get update && sudo apt-get install --only-upgrade openssl
-  - pip install urllib3[secure]
+  - sudo pip install urllib3[secure]
   - tar -czf resources.tar.gz resources/
   - docker build -t dnanexus/parliament2:$TAG .
 
