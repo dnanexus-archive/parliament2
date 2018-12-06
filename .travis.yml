@@ -17,10 +17,8 @@ before_install:
 
 jobs:
   include:
-    stage: test docker build
-      script:
-        - docker run dnanexus/parliament2:$TAG -q -h
-    stage: test on small BAM
+    - script: docker run dnanexus/parliament2:$TAG -q -h
+    - stage: test on small BAM
       script:
         - sudo bash test_scripts/download_small_files.sh
         - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakdancer --breakdancer
@@ -32,7 +30,7 @@ jobs:
         - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_inversion --delly_inversion
         - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix lumpy --lumpy
         - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix manta --manta
-      stage: test on large BAM
+      - stage: test on large BAM
         script: echo "hello"
 
   # deploy dx-toolkit
