@@ -19,19 +19,9 @@ jobs:
   include:
     - script: docker run dnanexus/parliament2:$TAG -q -h
     - stage: test on small BAM
-      script:
-        - sudo bash test_scripts/download_small_files.sh
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakdancer --breakdancer
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakseq --breakseq
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --prefix cnvnator --cnvnator
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --ref_genome /home/dnanexus/in/ref.fa.gz --prefix delly_deletion --delly_deletion
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_duplication --delly_duplication
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_insertion --delly_insertion
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_inversion --delly_inversion
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix lumpy --lumpy
-        - docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix manta --manta
-      - stage: test on large BAM
-        script: echo "hello"
+      script: sudo bash test_scripts/small_tests.sh
+    - stage: test on large BAM
+      script: echo "hello"
 
   # deploy dx-toolkit
 # - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
