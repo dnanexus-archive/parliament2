@@ -17,17 +17,19 @@ before_install:
 
 jobs:
   include:
-    - script: docker run dnanexus/parliament2:$TAG -q -h
-    - script: sudo bash test_scripts/breakdancer_test.sh
-    - script: sudo bash test_scripts/breakseq_test.sh
-    - script: sudo bash test_scripts/cnvnator_test.sh
-    - script: sudo bash test_scripts/delly_deletion_test.sh
-    - script: sudo bash test_scripts/delly_duplication_test.sh
-    - script: sudo bash test_scripts/delly_insertion_test.sh
-    - script: sudo bash test_scripts/delly_inversion_test.sh
-    - script: sudo bash test_scripts/lumpy_test.sh
-    - script: sudo bash test_scripts/manta_test.sh
-    - script: sudo bash test_scripts/full_small_test.sh
+    - stage: test build
+      script: docker run dnanexus/parliament2:$TAG -q -h
+    - stage: small test
+      script: sudo bash test_scripts/breakdancer_test.sh
+      script: sudo bash test_scripts/breakseq_test.sh
+      script: sudo bash test_scripts/cnvnator_test.sh
+      script: sudo bash test_scripts/delly_deletion_test.sh
+      script: sudo bash test_scripts/delly_duplication_test.sh
+      script: sudo bash test_scripts/delly_insertion_test.sh
+      script: sudo bash test_scripts/delly_inversion_test.sh
+      script: sudo bash test_scripts/lumpy_test.sh
+      script: sudo bash test_scripts/manta_test.sh
+      script: sudo bash test_scripts/full_small_test.sh
     - stage: test on large BAM
       script: echo "hello"
 
