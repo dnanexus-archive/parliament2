@@ -14,24 +14,23 @@ before_install:
   - sudo pip install --user urllib3[secure] --upgrade
   - tar -czf resources.tar.gz resources/
   - docker build -t dnanexus/parliament2:$TAG .
+  - docker tag dnanexus/parliament2:$TAG dnanexus/parliament2
+  - docker save dnanexus/parliament2 -o dx_app_code/parliament2/resources/parliament2_image.tar
 
 jobs:
   include:
-    - stage: test build
-      script: docker run dnanexus/parliament2:$TAG -q -h
-    - stage: small test
-      script: sudo bash test_scripts/breakdancer_test.sh
-      - script: sudo bash test_scripts/breakseq_test.sh
-      - script: sudo bash test_scripts/cnvnator_test.sh
-      - script: sudo bash test_scripts/delly_deletion_test.sh
-      - script: sudo bash test_scripts/delly_duplication_test.sh
-      - script: sudo bash test_scripts/delly_insertion_test.sh
-      - script: sudo bash test_scripts/delly_inversion_test.sh
-      - script: sudo bash test_scripts/lumpy_test.sh
-      - script: sudo bash test_scripts/manta_test.sh
-      - script: sudo bash test_scripts/full_small_test.sh
-    - stage: test on large BAM
-      script: echo "hello"
+    - script: docker run dnanexus/parliament2:$TAG -q -h
+    - script: sudo bash test_scripts/breakdancer_test.sh
+    - script: sudo bash test_scripts/breakseq_test.sh
+    - script: sudo bash test_scripts/cnvnator_test.sh
+    - script: sudo bash test_scripts/delly_deletion_test.sh
+    - script: sudo bash test_scripts/delly_duplication_test.sh
+    - script: sudo bash test_scripts/delly_insertion_test.sh
+    - script: sudo bash test_scripts/delly_inversion_test.sh
+    - script: sudo bash test_scripts/lumpy_test.sh
+    - script: sudo bash test_scripts/manta_test.sh
+    - script: sudo bash test_scripts/full_small_test.sh
+    - script: sudo bash test_scripts/hg002_breakdancer.test.sh
 
   # deploy dx-toolkit
 # - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
