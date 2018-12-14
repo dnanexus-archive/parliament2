@@ -30,7 +30,7 @@ jobs:
     - script: sudo bash test_scripts/lumpy_test.sh
     - script: sudo bash test_scripts/manta_test.sh
     - script: sudo bash test_scripts/full_small_test.sh
-    - script: sudo bash test_scripts/hg002_breakdancer.test.sh
+    - script: sudo bash test_scripts/hg002_test.sh
 
   # deploy dx-toolkit
 # - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
