@@ -23,27 +23,27 @@ def main(**job_inputs):
 
     print "Downloading input files"
 
-    input_bam = dxpy.open_dxfile(job_inputs['illumina_bam'])
+    input_bam = dxpy.DXFile(job_inputs['illumina_bam'])
     bam_name = "/home/dnanexus/in/{0}".format(input_bam.name)
-    dxpy.download_dxfile(input_bam, bam_name)
+    dxpy.download_dxfile(input_bam.id, bam_name)
     
-    ref_genome = dxpy.open_dxfile(job_inputs['ref_fasta'])
+    ref_genome = dxpy.DXFile(job_inputs['ref_fasta'])
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
-    dxpy.download_dxfile(ref_genome, ref_name)
+    dxpy.download_dxfile(ref_genome.id, ref_name)
 
     docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2:0.1.9', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
-        input_bai = dxpy.open_dxfile(job_inputs['illumina_bai'])
+        input_bai = dxpy.DXFile(job_inputs['illumina_bai'])
         bai_name = "/home/dnanexus/in/{0}".format(input_bai.name)
-        dxpy.download_dxfile(input_bai, bai_name)
+        dxpy.download_dxfile(input_bai.id, bai_name)
 
         docker_call.extend(['--bai', bai_name])
 
     if 'ref_index' in job_inputs:
-        ref_index = dxpy.open_dxfile(job_inputs['ref_index'])
+        ref_index = dxpy.DXFile(job_inputs['ref_index'])
         fai_name = "/home/dnanexus/in/{0}".format(ref_index.name)
-        dxpy.download_dxfile(ref_index, fai_name)
+        dxpy.download_dxfile(ref_index.id, fai_name)
 
         docker_call.extend(['--fai', fai_name])
         
