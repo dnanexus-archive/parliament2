@@ -30,17 +30,6 @@ jobs:
     - script: sudo bash test_scripts/lumpy_test.sh
     - script: sudo bash test_scripts/manta_test.sh
     - script: sudo bash test_scripts/full_small_test.sh
-    - script: sudo bash test_scripts/hg002_test.sh
-
-  # deploy dx-toolkit
-# - wget https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
-# - tar zxf dx-toolkit-current-ubuntu-12.04-amd64.tar.gz
-# - source dx-toolkit/environment
-# - dx select project-Bz84jg80pyJ3F9Y0853zBjb9
-# - GIT_REVISION="$(git describe --long --tags --dirty --always)"
-# - folder_name="$(date +/%Y-%m/%d-%H%M%S)_${GIT_REVISION}/"
-# - dx mkdir -p $folder_name
-# - dx run chorus_query -iinput_vcf=project-Bz84jg80pyJ3F9Y0853zBjb9:file-BxVP9p8081jzbGJ3V9z5792k --folder=$folder_name --yes --brief --wait --watch
 
 branches:
   except:
