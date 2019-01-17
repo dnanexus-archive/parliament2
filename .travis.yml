@@ -13,11 +13,12 @@ before_install:
   - tar -czf resources.tar.gz resources/
   - docker build -t dnanexus/parliament2:$TAG .
   - docker tag dnanexus/parliament2:$TAG dnanexus/parliament2
+  - sudo bash test/set_up_tests.sh
 
 jobs:
   include:
     - script: docker run dnanexus/parliament2:$TAG -q -h
-    - script: sudo bash test_scripts/breakdancer_test.sh
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakdancer --breakdancer && ls -sh /home/dnanexus/out
     - script: sudo bash test_scripts/breakseq_test.sh
     - script: sudo bash test_scripts/cnvnator_test.sh
     - script: sudo bash test_scripts/delly_deletion_test.sh
