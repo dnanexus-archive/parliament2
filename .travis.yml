@@ -4,9 +4,7 @@ services:
   - docker
 
 env:
-  SHORT_COMMIT=`echo $TRAVIS_COMMIT | cut -c1-7`
-  CURRENT_DATE=`date '+%Y%m%d%H%M%S'`
-  TAG="${CURRENT_DATE}_${SHORT_COMMIT}"
+  TAG=$(git describe --long --always --tags)
   PATH=/snap/bin:$PATH
 
 before_install:
