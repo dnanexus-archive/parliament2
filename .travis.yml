@@ -19,16 +19,16 @@ jobs:
   include:
     - script: docker run dnanexus/parliament2:$TAG -q -h
     - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakdancer --breakdancer && ls -sh /home/dnanexus/out
-    - script: sudo bash test_scripts/breakseq_test.sh
-    - script: sudo bash test_scripts/cnvnator_test.sh
-    - script: sudo bash test_scripts/delly_deletion_test.sh
-    - script: sudo bash test_scripts/delly_duplication_test.sh
-    - script: sudo bash test_scripts/delly_insertion_test.sh
-    - script: sudo bash test_scripts/delly_inversion_test.sh
-    - script: sudo bash test_scripts/lumpy_test.sh
-    - script: sudo bash test_scripts/manta_test.sh
-    - script: sudo bash test_scripts/svviz_test.sh
-    - script: sudo bash test_scripts/full_small_test.sh
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakseq --breakseq && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --prefix cnvnator --cnvnator && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --ref_genome /home/dnanexus/in/ref.fa.gz --prefix delly_deletion --delly_deletion && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_duplication --delly_duplication && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_insertion --delly_insertion && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_inversion --delly_inversion && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix lumpy --lumpy && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix manta --manta && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix svviz --breakdancer --svviz && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix full --breakdancer --breakseq --cnvnator --delly_deletion --delly_duplication --delly_insertion --delly_inversion --lumpy --manta && ls -sh /home/dnanexus/out
 
 branches:
   except:
