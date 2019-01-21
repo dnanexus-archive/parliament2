@@ -9,7 +9,7 @@ parliament2.py /
 parliament2.sh /
 
 %labels
-MAINTAINER Samantha Zarate
+MAINTAINER Originally written by Samantha Zarate. Minor modifications by Sameer
 
 %post
 # Set the base image to Ubuntu 14.04
