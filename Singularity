@@ -2,15 +2,15 @@ Bootstrap: docker
 From: ubuntu:14.04
 
 %setup
-tar -czvf ${SINGULARITY_ROOTFS}/resources.tar.gz resources/
+tar -czf ${SINGULARITY_ROOTFS}/resources.tar.gz resources/
 
 %files
-resources.tar.gz /
 parliament2.py /
 parliament2.sh /
 
 %labels
 MAINTAINER Samantha Zarate
+
 %post
 # Set the base image to Ubuntu 14.04
 
@@ -89,7 +89,7 @@ conda install -c bioconda manta
 conda update -y pyopenssl
 
 cd /
-tar -zvf resources.tar.gz /
+tar -zxf resources.tar.gz /
 cp -a /resources/* /
 rm -rf /resources/
 
