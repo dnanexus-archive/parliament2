@@ -75,11 +75,11 @@ fi
 ref_genome=$(python /home/dnanexus/get_reference.py)
 lumpy_exclude_string=""
 if [[ "${ref_genome}" == "b37" ]]; then
-    lumpy_exclude_string="-x b37.bed"
+    lumpy_exclude_string="-x /home/dnanexus/b37.bed"
 elif [[ "$ref_genome" == "hg19" ]]; then
-    lumpy_exclude_string="-x hg19.bed"
+    lumpy_exclude_string="-x /home/dnanexus/hg19.bed"
 else
-    lumpy_exclude_string="-x hg38.bed"
+    lumpy_exclude_string="-x /home/dnanexus/hg38.bed"
 fi
 
 export lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
@@ -129,8 +129,8 @@ else
     touch /home/dnanexus/in/done.txt
 fi
 
-ln -s /home/dnanexus/in/input.bam /home/dnanexus/input.bam
-ln -s /home/dnanexus/in/input.bam.bai /home/dnanexus/input.bam.bai
+ln -s /home/dnanexus/in/input.bam
+ln -s /home/dnanexus/in/input.bam.bai
 
 wait
 
@@ -151,7 +151,7 @@ if [[ "${run_breakseq}" == "True" ]]; then
     mkdir -p /home/dnanexus/out/log_files/breakseq_logs/
     bplib="/breakseq2_bplib_20150129/breakseq2_bplib_20150129.gff"
     work="breakseq2"
-    timeout 6h ./breakseq2-2.2/scripts/run_breakseq2.py --reference ref.fa \
+    timeout 6h /home/dnanexus/breakseq2-2.2/scripts/run_breakseq2.py --reference ref.fa \
         --bams input.bam --work "${work}" \
         --bwa /usr/local/bin/bwa --samtools /usr/local/bin/samtools \
         --bplib_gff "${bplib}" \
@@ -261,7 +261,7 @@ if [[ "${run_cnvnator}" == "True" ]] || [[ "${run_delly}" == "True" ]] || [[ "${
 
                 if [[ "${run_lumpy}" == "True" ]]; then
                     echo "Running Lumpy for contig ${contig}"
-                    timeout 6h ./lumpy-sv/bin/lumpyexpress -B chr."${count}".bam -o lumpy."${count}".vcf ${lumpy_exclude_string} -k 1> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stdout.log 2> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stderr.log & 
+                    timeout 6h /home/dnanexus/lumpy-sv/bin/lumpyexpress -B chr."${count}".bam -o lumpy."${count}".vcf ${lumpy_exclude_string} -k 1> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stdout.log 2> /home/dnanexus/out/log_files/lumpy_logs/"${prefix}".lumpy."${count}".stderr.log & 
                     lumpy_merge_command="$lumpy_merge_command lumpy.$count.vcf"
                 fi
             fi
@@ -346,16 +346,6 @@ fi) &
 
 (if [[ "${run_breakseq}" == "True" ]]; then
     echo "Convert Breakseq results to VCF format"
-    if [[ -z $(find "${work}" -name "*.log") ]]; then
-        echo "No Breakseq log files found."
-    else
-        cd "${work}" || return
-        find ./*.log | tar -zcvf log.tar.gz -T -
-        rm -rf ./*.log
-        mv log.tar.gz /home/dnanexus/out/log_files/breakseq_logs/"$prefix".breakseq.log.tar.gz
-        cd /home/dnanexus || return
-    fi
-
     if [[ ! -f breakseq2/breakseq_genotyped.gff && ! -f breakseq2/breakseq.vcf.gz && ! -f breakseq2/final.bam ]]; then
         echo "No outputs of Breakseq found. Continuing."
     else
@@ -366,6 +356,20 @@ fi) &
         cp breakseq.vcf /home/dnanexus/out/sv_caller_results/"${prefix}".breakseq.vcf
         cp breakseq2/final.bam /home/dnanexus/out/sv_caller_results/"${prefix}".breakseq.bam
     fi
+
+    # Do the log files after we copy the output so that the 
+    # cd /home/dnanexus command doesn't spoil singularity
+    if [[ -z $(find "${work}" -name "*.log") ]]; then
+        echo "No Breakseq log files found."
+    else
+        cd "${work}" || return
+        find ./*.log | tar -zcvf log.tar.gz -T -
+        rm -rf ./*.log
+        mv log.tar.gz /home/dnanexus/out/log_files/breakseq_logs/"$prefix".breakseq.log.tar.gz
+        cd /home/dnanexus || return
+    fi
+
+
 fi) &
 
 (if [[ "${run_delly_deletion}" == "True" ]]; then 
