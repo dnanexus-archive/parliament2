@@ -123,8 +123,10 @@ HTSLIB_INCLUDE_DIR=/usr/local/include
 cd /home/dnanexus
 mv /parliament2.py .
 mv /parliament2.sh .
-["chmod", "+x", "parliament2.py"]
-["chmod", "+x", "parliament2.sh"]
+chmod +x parliament2.py
+chmod +x parliament2.sh
+#["chmod", "+x", "parliament2.py"]
+#["chmod", "+x", "parliament2.sh"]
 
 %environment
 export PATH=/miniconda/bin:${PATH}
