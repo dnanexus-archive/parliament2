@@ -1,9 +1,14 @@
 Bootstrap: docker
 From: ubuntu:14.04
+
+%setup
+tar -czvf ${SINGULARITY_ROOTFS}/resources.tar.gz resources/
+
 %files
 resources.tar.gz /
-parliament2.py /projects/b1049/sameer/parliament2
-parliament2.sh /projects/b1049/sameer/parliament2
+parliament2.py /
+parliament2.sh /
+
 %labels
 MAINTAINER Samantha Zarate
 %post
@@ -116,6 +121,8 @@ HTSLIB_LIBRARY_DIR=/usr/local/lib
 HTSLIB_INCLUDE_DIR=/usr/local/include
 
 cd /home/dnanexus
+mv /parliament2.py .
+mv /parliament2.sh .
 ["chmod", "+x", "parliament2.py"]
 ["chmod", "+x", "parliament2.sh"]
 
@@ -131,5 +138,6 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
 export DYLD_LIBRARY_PATH=/usr/lib/root/lib
 export HTSLIB_LIBRARY_DIR=/usr/local/lib
 export HTSLIB_INCLUDE_DIR=/usr/local/include
+
 %runscript
 exec /bin/bash "$@"
