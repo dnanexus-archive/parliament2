@@ -125,7 +125,6 @@ mv /parliament2.py .
 mv /parliament2.sh .
 chmod +x parliament2.py
 chmod +x parliament2.sh
-ENTRYPOINT ["python","/home/dnanexus/parliament2.py"]
 
 %environment
 export PATH=/miniconda/bin:${PATH}
@@ -139,4 +138,8 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
 export DYLD_LIBRARY_PATH=/usr/lib/root/lib
 export HTSLIB_LIBRARY_DIR=/usr/local/lib
 export HTSLIB_INCLUDE_DIR=/usr/local/include
+
+%runscript
+exec /home/dnanexus/parliament2.py "$@"
+
 
