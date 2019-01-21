@@ -89,7 +89,7 @@ conda install -c bioconda manta
 conda update -y pyopenssl
 
 cd /
-tar -zxf resources.tar.gz /
+tar -zxf resources.tar.gz 
 cp -a /resources/* /
 rm -rf /resources/
 
