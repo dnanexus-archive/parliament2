@@ -102,7 +102,13 @@ pip install ipaddress
 
 pip install dxpy
 
+# create separate conda environments for svviz and svtyper
 conda create -y --name svviz_env svviz
+
+conda create -y --name svtyper_env
+source activate svtyper_env
+pip install git+https://github.com/hall-lab/svtyper.git -q
+source deactivate
     
 cd /root
 mkdir -p /home/dnanexus/in /home/dnanexus/out

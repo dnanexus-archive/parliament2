@@ -274,11 +274,6 @@ fi
 
 wait
 
-# Only install SVTyper if necessary
-if [[ "${run_genotype_candidates}" == "True" ]]; then
-    pip install git+https://github.com/hall-lab/svtyper.git -q &
-fi
-
 echo "Converting results to VCF format"
 mkdir -p /home/dnanexus/out/sv_caller_results/
 
@@ -432,6 +427,13 @@ set +e
 
 # Run SVtyper and SVviz
 if [[ "${run_genotype_candidates}" == "True" ]]; then
+
+    # Only install SVTyper if necessary
+    #pip install git+https://github.com/hall-lab/svtyper.git -q &
+    source /miniconda/etc/profile.d/conda.sh
+    conda activate svtyper_env
+
+
     echo "Running SVTyper"
     mkdir -p /home/dnanexus/out/svtyped_vcfs/
 
@@ -515,6 +517,8 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
     wait
 
+    source deactivate
+
     # Prepare inputs for SURVIVOR
     echo "Preparing inputs for SURVIVOR"
     for item in *svtyped.vcf; do
@@ -544,11 +548,9 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
         # SVviz and BreakSeq have mutually exclusive versions of pysam required, so
         # SVviz is only installed later and if necessary
-        if [[ "${run_svviz}" == "True" ]]; then
-            source /miniconda/etc/profile.d/conda.sh
-            conda activate svviz_env
-            #pip install svviz -q &
-        fi
+        source /miniconda/etc/profile.d/conda.sh
+        conda activate svviz_env
+        #pip install svviz -q &
 
 
         echo "Running svviz"
