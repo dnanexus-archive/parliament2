@@ -102,7 +102,7 @@ pip install ipaddress
 
 pip install dxpy
 
-conda create -y --name svviz_env sv
+conda create -y --name svviz_env svviz
     
 cd /root
 mkdir -p /home/dnanexus/in /home/dnanexus/out
