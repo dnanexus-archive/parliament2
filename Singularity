@@ -101,6 +101,8 @@ pip install idna
 pip install ipaddress
 
 pip install dxpy
+
+conda create -y --name svviz_env sv
     
 cd /root
 mkdir -p /home/dnanexus/in /home/dnanexus/out
