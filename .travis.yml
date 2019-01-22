@@ -13,8 +13,14 @@ before_install:
   - tar -czf resources.tar.gz resources/
   - docker build -t dnanexus/parliament2:$TAG .
   - docker tag dnanexus/parliament2:$TAG dnanexus/parliament2:latest
-  - docker push dnanexus/parliament2:latest
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push dnanexus/parliament2:latest
   - sudo bash test/set_up_tests.sh
+
+deploy:
+  provider: script
+  script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push dnanexus/parliament2:$TAG
+  on:
+    branch: master
 
 jobs:
   include:
