@@ -584,7 +584,9 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
             
             threads="$(nproc)"
             threads=$((threads / 2))
-            parallel --memfree 5G --retries 2 --verbose -a commands.txt eval 1>/home/dnanexus/out/log_files/svviz_logs/svviz.stdout.log 2>/home/dnanexus/out/log_files/svviz_logs/svviz.stderr.log
+            # removing the memfree option as it doesn't seem to exist in Ubuntu 14.04
+            #parallel --memfree 5G --retries 2 --verbose -a commands.txt eval 1>/home/dnanexus/out/log_files/svviz_logs/svviz.stdout.log 2>/home/dnanexus/out/log_files/svviz_logs/svviz.stderr.log
+            parallel --retries 2 --verbose -a commands.txt eval 1>/home/dnanexus/out/log_files/svviz_logs/svviz.stdout.log 2>/home/dnanexus/out/log_files/svviz_logs/svviz.stderr.log
             
             cd svviz_outputs && tar -czf /home/dnanexus/out/"${prefix}".svviz_outputs.tar.gz .
         fi
