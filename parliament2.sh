@@ -433,23 +433,17 @@ set +e
 # Run SVtyper and SVviz
 if [[ "${run_genotype_candidates}" == "True" ]]; then
     echo "Running SVTyper"
-    # SVviz and BreakSeq have mutually exclusive versions of pysam required, so
-    # SVviz is only installed later and if necessary
-    if [[ "${run_svviz}" == "True" ]]; then
-        pip install svviz -q &
-    fi
-
     mkdir -p /home/dnanexus/out/svtyped_vcfs/
 
     i=0
     # Breakdancer
     if [[ "${run_breakdancer}" == "True" ]]; then
         echo "Running SVTyper on Breakdancer outputs"
-        mkdir /home/dnanexus/svtype_breakdancer
-        if [[ -f /home/dnanexus/breakdancer.vcf ]]; then
-            bash ./parallelize_svtyper.sh /home/dnanexus/breakdancer.vcf svtype_breakdancer /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf input.bam
+        mkdir svtype_breakdancer
+        if [[ -f breakdancer.vcf ]]; then
+            bash /home/dnanexus/parallelize_svtyper.sh breakdancer.vcf svtype_breakdancer "${prefix}".breakdancer.svtyped.vcf input.bam
 
-            sed -i 's/SAMPLE/breakdancer/g' /home/dnanexus/"${prefix}".breakdancer.svtyped.vcf
+            sed -i 's/SAMPLE/breakdancer/g' "${prefix}".breakdancer.svtyped.vcf
         else
             "No Breakdancer VCF file found. Continuing."
         fi
@@ -458,9 +452,9 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     # Breakseq
     if [[ "${run_breakseq}" == "True" ]]; then
         echo "Running SVTyper on BreakSeq outputs"
-        mkdir /home/dnanexus/svtype_breakseq
-        if [[ -f /home/dnanexus/breakseq.vcf ]]; then
-            bash ./parallelize_svtyper.sh /home/dnanexus/breakseq.vcf svtype_breakseq /home/dnanexus/"${prefix}".breakseq.svtyped.vcf input.bam
+        mkdir svtype_breakseq
+        if [[ -f breakseq.vcf ]]; then
+            bash /home/dnanexus/parallelize_svtyper.sh breakseq.vcf svtype_breakseq "${prefix}".breakseq.svtyped.vcf input.bam
         else
             echo "No BreakSeq VCF file found. Continuing."
         fi
@@ -469,10 +463,10 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     # CNVnator
     if [[ "${run_cnvnator}" == "True" ]]; then
         echo "Running SVTyper on CNVnator outputs"
-        mkdir /home/dnanexus/svtype_cnvnator
-        if [[ -f /home/dnanexus/cnvnator.vcf ]]; then
-            python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > /home/dnanexus/cnvnator.ci.vcf < cnvnator.vcf
-            bash ./parallelize_svtyper.sh /home/dnanexus/cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
+        mkdir svtype_cnvnator
+        if [[ -f cnvnator.vcf ]]; then
+            python /get_uncalled_cnvnator.py | python /add_ciend.py 1000 > cnvnator.ci.vcf < cnvnator.vcf
+            bash /home/dnanexus/parallelize_svtyper.sh cnvnator.vcf svtype_cnvnator "${prefix}".cnvnator.svtyped.vcf input.bam
         else
             echo "No CNVnator VCF file found. Continuing."
         fi
@@ -485,8 +479,8 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
             echo "No Delly VCF file found. Continuing."
         else
             for item in delly*vcf; do
-                mkdir /home/dnanexus/svtype_delly_"${i}"
-                bash ./parallelize_svtyper.sh /home/dnanexus/"${item}" svtype_delly_"${i}" /home/dnanexus/delly.svtyper."${i}".vcf input.bam
+                mkdir svtype_delly_"${i}"
+                bash /home/dnanexus/parallelize_svtyper.sh "${item}" svtype_delly_"${i}" delly.svtyper."${i}".vcf input.bam
                 i=$((i + 1))
             done
 
@@ -501,9 +495,9 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     # Lumpy
     if [[ "${run_lumpy}" == "True" ]]; then
         echo "Running SVTyper on Lumpy outputs"
-        mkdir /home/dnanexus/svtype_lumpy
-        if [[ -f /home/dnanexus/lumpy.vcf ]]; then
-            bash ./parallelize_svtyper.sh /home/dnanexus/lumpy.vcf svtype_lumpy /home/dnanexus/"${prefix}".lumpy.svtyped.vcf input.bam
+        mkdir svtype_lumpy
+        if [[ -f lumpy.vcf ]]; then
+            bash /home/dnanexus/parallelize_svtyper.sh lumpy.vcf svtype_lumpy "${prefix}".lumpy.svtyped.vcf input.bam
         else
             echo "No Lumpy VCF file found. Continuing."
         fi
@@ -513,7 +507,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     if [[ "${run_manta}" == "True" ]]; then
         echo "Running SVTyper on Manta outputs"
         if [[ -f diploidSV.vcf ]]; then
-            mv diploidSV.vcf /home/dnanexus/"${prefix}".manta.svtyped.vcf
+            mv diploidSV.vcf "${prefix}".manta.svtyped.vcf
         else
             echo "No Manta VCF file found. Continuing."
         fi
@@ -547,9 +541,17 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
     # Run svviz
     if [[ "${run_svviz}" == "True" ]]; then
+
+        # SVviz and BreakSeq have mutually exclusive versions of pysam required, so
+        # SVviz is only installed later and if necessary
+        if [[ "${run_svviz}" == "True" ]]; then
+            pip install svviz -q &
+        fi
+
+
         echo "Running svviz"
         mkdir -p /home/dnanexus/out/log_files/svviz_logs/
-        mkdir /home/dnanexus/svviz_outputs
+        mkdir svviz_outputs
 
         grep \# survivor_sorted.vcf > header.txt
 
@@ -582,7 +584,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
             threads=$((threads / 2))
             parallel --memfree 5G --retries 2 --verbose -a commands.txt eval 1>/home/dnanexus/out/log_files/svviz_logs/svviz.stdout.log 2>/home/dnanexus/out/log_files/svviz_logs/svviz.stderr.log
             
-            cd /home/dnanexus/svviz_outputs && tar -czf /home/dnanexus/out/"${prefix}".svviz_outputs.tar.gz .
+            cd svviz_outputs && tar -czf /home/dnanexus/out/"${prefix}".svviz_outputs.tar.gz .
         fi
     fi
 fi
