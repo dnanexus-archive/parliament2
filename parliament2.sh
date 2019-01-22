@@ -548,7 +548,6 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
         # SVviz and BreakSeq have mutually exclusive versions of pysam required, so
         # SVviz is only installed later and if necessary
-        source /miniconda/etc/profile.d/conda.sh
         conda activate svviz_env
         #pip install svviz -q &
 
