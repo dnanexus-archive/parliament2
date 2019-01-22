@@ -144,3 +144,4 @@ export HTSLIB_INCLUDE_DIR=/usr/local/include
 %runscript
 exec /home/dnanexus/parliament2.py "$@"
 
+
