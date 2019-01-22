@@ -1,0 +1,5 @@
+name: svtyper_env
+channels:
+dependencies:
+   - pip:
+     - "--editable=git+https://github.com/hall-lab/svtyper.git#egg=svtyper_git"

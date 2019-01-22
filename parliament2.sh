@@ -517,6 +517,7 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
 
     wait
 
+    # deactivate svtyper
     source deactivate
 
     # Prepare inputs for SURVIVOR

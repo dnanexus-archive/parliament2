@@ -7,6 +7,7 @@ tar -czf ${SINGULARITY_ROOTFS}/resources.tar.gz resources/
 %files
 parliament2.py /
 parliament2.sh /
+svtyper_env.yml /
 
 %labels
 MAINTAINER Originally written by Samantha Zarate. Minor modifications by Sameer
@@ -105,11 +106,11 @@ pip install dxpy
 # create separate conda environments for svviz and svtyper
 conda create -y --name svviz_env svviz
 
-conda create -y --name svtyper_env
-source activate svtyper_env
-pip install git+https://github.com/hall-lab/svtyper.git -q
-source deactivate
-    
+# We have to use a slightly different method for 
+# svtyper as it installs software directly from git 
+conda env create --name svtyper_env --file /svtyper_env.yml
+#rm /svtyper_env.yml
+
 cd /root
 mkdir -p /home/dnanexus/in /home/dnanexus/out
 
