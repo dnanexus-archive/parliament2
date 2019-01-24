@@ -1,0 +1,49 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  TAG=$(git describe --long --always --tags)
+  PATH=/snap/bin:$PATH
+
+before_install:
+  - sudo apt-get update && sudo apt-get install --only-upgrade openssl
+  - sudo pip install --user urllib3[secure] --upgrade
+  - tar -czf resources.tar.gz resources/
+  - docker build -t dnanexus/parliament2:$TAG .
+  - sudo bash test/set_up_tests.sh
+
+jobs:
+  include:
+    - stage: push docker image
+      script:
+        - docker tag dnanexus/parliament2:$TAG dnanexus/parliament2:latest
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push dnanexus/parliament2:latest
+    - stage: testing
+      script: docker run dnanexus/parliament2:$TAG -q -h
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakdancer --breakdancer && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix breakseq --breakseq && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --prefix cnvnator --cnvnator && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --ref_genome /home/dnanexus/in/ref.fa.gz --prefix delly_deletion --delly_deletion && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_duplication --delly_duplication && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_insertion --delly_insertion && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix delly_inversion --delly_inversion && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix lumpy --lumpy && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix manta --manta && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix svviz --breakdancer --svviz && ls -sh /home/dnanexus/out
+    - script: docker run -v /home/dnanexus/in:/home/dnanexus/in -v /home/dnanexus/out:/home/dnanexus/out dnanexus/parliament2:$TAG --bam /home/dnanexus/in/small_input.bam --bai /home/dnanexus/in/small_input.bai --ref_genome /home/dnanexus/in/ref.fa.gz --fai /home/dnanexus/in/ref.fa.fai --prefix full --breakdancer --breakseq --cnvnator --delly_deletion --delly_duplication --delly_insertion --delly_inversion --lumpy --manta && ls -sh /home/dnanexus/out
+
+deploy:
+  provider: script
+  script: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push dnanexus/parliament2:$TAG
+  on:
+    branch: master
+
+branches:
+  except:
+  - hgsc
+
+language: python
+python: 
+  - "2.7.13"
