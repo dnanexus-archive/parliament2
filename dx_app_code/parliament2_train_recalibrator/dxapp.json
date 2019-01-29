@@ -1,0 +1,171 @@
+{
+  "name": "parliament2_train_recalibrator",
+  "title": "Parliament2 Recalibrator Training",
+  "summary": "Train the Parliament2 Quality Score recalibrator using a truth set.",
+  "tags": [
+    "Structural Variation",
+    "WGS",
+    "Machine Learning"
+  ],
+  "dxapi": "1.0.0",
+  "version": "0.1.0",
+  "inputSpec": [
+    {
+      "name": "sv_caller_results",
+      "label": "SV Caller Results",
+      "help": "Raw output files from the individual SV callers.",
+      "class": "array:file",
+      "optional": false
+    },
+    {
+      "name": "svtyped_vcfs",
+      "label": "Genotyped SV VCFs",
+      "help": "(Optional) A set of genotyped variant calls. The genotyping method is orthogonal to the original caller, serving as bioinformatic cross-validation. Only produced if Genotype Candidates is set to True.",
+      "class": "array:file",
+      "optional": true
+    },
+    {
+      "name": "combined_genotypes",
+      "label": "Combined Genotypes",
+      "help": "(Optional) A file of merged, genotyped, validated SV calls. Only generated if Genotype Candidates is set to True.",
+      "class": "file",
+      "patterns": ["*.vcf"],
+      "optional": true
+    },
+    {
+      "name": "vcf_truth_set",
+      "label": "VCF Truth Set",
+      "help": "Truth set in VCF format",
+      "class": "array:file",
+      "optional": false
+    }
+      ]
+  "outputSpec": [
+    {
+      "name": "contained_model",
+      "label": "Contained Model Weights",
+      "help": "Model weights to use for Parliament2 Quality Scoring",
+      "class": "file",
+      "optional": false
+    },
+    {
+      "name": "model_evaluation",
+      "label": "Model Evaluation Logs",
+      "help": "(Optional) Model statistics from evaluation and cross validation steps.",
+      "class": "array:file",
+      "optional": true
+    },
+    {
+      "name": "model_visualization",
+      "label": "Model Visualization",
+      "help": "(Optional) Visualization of model architecture.",
+      "class": "array:file",
+      "optional": true
+    }
+  ],
+  "runSpec": {
+    "file": "parliament2.py",
+    "release": "16.04",
+    "interpreter": "python2.7",
+    "timeoutPolicy": {
+      "main": {
+        "hours": 48
+      }
+    },
+    "distribution": "Ubuntu"
+  },
+  "access": {
+    "network": [
+      "*"
+    ]
+  },
+  "details": {
+    "upstreamUrl": "https://www.dnanexus.com/papers/Parliament_Info_Sheet.pdf",
+    "contactOrgs": [
+      "org-dnanexus"
+    ],
+    "citations": [
+      "doi:10.1186/s12864-015-1479-3"
+    ],
+    "upstreamAuthor": "Baylor College of Medicine",
+    "whatsNew": "* 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "assetDepends": [
+        {
+          "project": "project-B6JG897KGbkGb6Z7pQ9Q02jG",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:cn-north-1": {
+      "assetDepends": [
+        {
+          "project": "project-F3vk1f02GyKbj2JF0q1kQfV3",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:ap-southeast-2": {
+      "assetDepends": [
+        {
+          "project": "project-F4gVXbj5qkxXq3v038V7qjxq",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "aws:eu-central-1": {
+      "assetDepends": [
+        {
+          "project": "project-FPXF2x84qJf3P5Fx8qpBZk1y",
+          "folder": "/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x16"
+        }
+      }
+    },
+    "azure:westus": {
+      "assetDepends": [
+        {
+          "project": "project-F3vk1q09FX8Jxxp20pq6z8P9",
+          "folder": "/parliament2/",
+          "name": "parliament2:0.1.9",
+          "version": "0.0.1"
+        }
+      ],
+      "systemRequirements": {
+        "*": {
+          "instanceType": "azure:mem2_ssd1_x16"
+        }
+      }
+    }
+  },
+  "openSource": true
+}
