@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
-wget -q https://wiki.dnanexus.com/images/files/dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
-tar zxf dx-toolkit-current-ubuntu-14.04-amd64.tar.gz
-source dx-toolkit/environment
-
 mkdir -p /home/dnanexus/in
 mkdir -p /home/dnanexus/out
 
-dx login --token $DX_AUTH_TOKEN --noprojects
 # Download small input BAM and index
-dx download file-By3JP400k0B037Jpv1Jq856f -o /home/dnanexus/in/small_input.bam
-dx download file-Bzp2vG80X3VQv24XgQx0Qy1J -o /home/dnanexus/in/small_input.bai
+wget https://dl.dnanex.us/F/D/6FX1Jz6bp92b9KFv574Fg306kjkGFK1ybKpG35yp/SRR504516_small.bam -o /home/dnanexus/in/small_input.bam
+wget https://dl.dnanex.us/F/D/K695ZppQz1v8Pq6yJKKf0426VYyjkk8g32vgv3kZ/SRR504516_small.bam.bai -o /home/dnanexus/in/small_input.bai
 # Download reference FASTA and index
-dx download file-B6ZY7VG2J35Vfvpkj8y0KZ01 -o /home/dnanexus/in/ref.fa.gz
-dx download file-ByGVY4j04Y0YJ0yJpj0f8qPG -o /home/dnanexus/in/ref.fa.fai
+wget https://dl.dnanex.us/F/D/bb37ZbXqjFjZY6Fv0G4GzPGjx5QkYJB8XV6kB5K8/hs37d5.fa.gz -o /home/dnanexus/in/ref.fa.gz
+wget https://dl.dnanex.us/F/D/p2qJ1z7gb1ZfFJX3XgPP37325kYKVk06zZp1JPbY/hs37d5.fa.fai -o /home/dnanexus/in/ref.fa.fai
