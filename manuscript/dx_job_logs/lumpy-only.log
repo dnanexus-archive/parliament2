@@ -1,0 +1,667 @@
+* 16C-D2-Lumpy_Only (parliament2:main) (done) job-FJ6YGZQ04KF6bz4X65k4FB71
+  acarroll 2018-07-16 17:20:34 (runtime 2:08:23)
+2018-07-16 17:22:16 16C-D2-Lumpy_Only INFO Logging initialized (priority)
+2018-07-16 17:22:16 16C-D2-Lumpy_Only INFO Logging initialized (bulk)
+2018-07-16 17:22:17 16C-D2-Lumpy_Only INFO CPU: 19% (16 cores) * Memory: 1622/30142MB * Storage: 304GB free * Net: 0↓/0↑MBps
+2018-07-16 17:22:17 16C-D2-Lumpy_Only STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:22:18 16C-D2-Lumpy_Only INFO Downloading bundled file parliament2.tar.gz
+2018-07-16 17:22:28 16C-D2-Lumpy_Only STDOUT >>> Unpacking parliament2.tar.gz to /
+2018-07-16 17:22:28 16C-D2-Lumpy_Only STDERR tar: Removing leading `/' from member names
+2018-07-16 17:23:14 16C-D2-Lumpy_Only INFO Setting SSH public key
+2018-07-16 17:23:15 16C-D2-Lumpy_Only STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:23:15 16C-D2-Lumpy_Only STDOUT /usr/sbin/sshd already running.
+2018-07-16 17:23:16 16C-D2-Lumpy_Only STDOUT Invoking main with {u'run_svviz': False, u'run_lumpy': True, u'filter_short_contigs': True, u'ref_fasta': {u'$dnanexus_link': u'file-B6ZY7VG2J35Vfvpkj8y0KZ01'}, u'run_delly_insertion': False, u'output_log_files': True, u'run_cnvnator': False, u'run_breakdancer': False, u'run_delly_inversion': False, u'illumina_bam': {u'$dnanexus_link': u'file-F4JFyx00Fq4YZkB80P7fZ4Fv'}, u'run_delly_deletion': False, u'run_breakseq': False, u'run_delly_duplication': False, u'run_manta': False, u'svviz_only_validated_candidates': True, u'run_genotype_candidates': True}
+2018-07-16 17:23:16 16C-D2-Lumpy_Only STDOUT Starting Docker
+2018-07-16 17:32:17 16C-D2-Lumpy_Only INFO CPU: 4% (16 cores) * Memory: 5615/30142MB * Storage: 243GB free * Net: 112↓/1↑MBps
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Image Repo	parliament2
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Image Tag	latest
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Image Size	2.6G
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Image ID	f2aac38467f28517596e673c5531cc57444b72f64e7f5d1c261c456cdbb4c2f2
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Parent ID	5460a7e6d166a3a0c2bd8efd9b8b733765ed976d53e5da1cbcef68b98fb6655c
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Last Updated	2018-07-16T21:52:58Z (0d 2h ago)
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR ENTRYPOINT	["python","/home/dnanexus/parliament2.py"]
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR Working Dir	/home/dnanexus
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR 
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR 
+2018-07-16 17:36:33 16C-D2-Lumpy_Only STDERR proot warning: can't sanitize binding "/var/run/dbus/system_bus_socket": No such file or directory
+2018-07-16 17:37:46 16C-D2-Lumpy_Only STDOUT Classify FASTA
+2018-07-16 17:37:46 16C-D2-Lumpy_Only STDOUT HG002-NA24385-50x.70_percent.markdup.realigned
+2018-07-16 17:37:46 16C-D2-Lumpy_Only STDOUT Set up and index BAM/CRAM
+2018-07-16 17:37:46 16C-D2-Lumpy_Only STDOUT BAM file input, no index exists
+2018-07-16 17:42:17 16C-D2-Lumpy_Only INFO CPU: 1% (16 cores) * Memory: 4061/30142MB * Storage: 206GB free * Net: 18↓/0↑MBps
+2018-07-16 17:52:17 16C-D2-Lumpy_Only INFO CPU: 0% (16 cores) * Memory: 2057/30142MB * Storage: 164GB free * Net: 0↓/0↑MBps
+2018-07-16 18:02:17 16C-D2-Lumpy_Only INFO CPU: 4% (16 cores) * Memory: 2096/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:09:01 16C-D2-Lumpy_Only STDOUT Generate contigs
+2018-07-16 18:09:01 16C-D2-Lumpy_Only STDOUT Launching jobs parallelized by contig
+2018-07-16 18:09:01 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:09:01 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:09:01 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:12:17 16C-D2-Lumpy_Only INFO CPU: 28% (16 cores) * Memory: 1996/30142MB * Storage: 140GB free * Net: 0↓/0↑MBps
+2018-07-16 18:12:38 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 1
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.1.vcf.r4C9BkMczKKy/disc_pipe for write.
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.1.vcf.r4C9BkMczKKy/spl_pipe for write.
+2018-07-16 18:12:55 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:12:56 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:12:56 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:12:56 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:16:59 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:17:19 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 2
+2018-07-16 18:17:19 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:17:19 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:17:19 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:17:19 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:17:19 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:17:20 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:17:20 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:17:20 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:17:20 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.2.vcf.9X4V5qN00hIX/disc_pipe for write.
+2018-07-16 18:17:20 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.2.vcf.9X4V5qN00hIX/spl_pipe for write.
+2018-07-16 18:17:20 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:17:21 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:17:21 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:17:21 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:20:55 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 3
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.3.vcf.NtpPUZSG3AMi/disc_pipe for write.
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.3.vcf.NtpPUZSG3AMi/spl_pipe for write.
+2018-07-16 18:21:14 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:21:15 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:21:15 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:21:15 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:22:17 16C-D2-Lumpy_Only INFO CPU: 80% (16 cores) * Memory: 2956/30142MB * Storage: 127GB free * Net: 0↓/0↑MBps
+2018-07-16 18:24:51 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 4
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.4.vcf.CDHDjSI5mutl/disc_pipe for write.
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.4.vcf.CDHDjSI5mutl/spl_pipe for write.
+2018-07-16 18:25:12 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:25:13 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:25:13 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:25:13 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:28:48 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:29:10 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 5
+2018-07-16 18:29:10 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:29:10 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:29:10 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:29:10 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:29:10 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:29:11 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:29:11 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:29:11 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:29:11 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.5.vcf.5OkjqcKi8XNH/disc_pipe for write.
+2018-07-16 18:29:11 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.5.vcf.5OkjqcKi8XNH/spl_pipe for write.
+2018-07-16 18:29:11 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:29:12 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:29:12 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:29:12 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:32:17 16C-D2-Lumpy_Only INFO CPU: 83% (16 cores) * Memory: 4294/30142MB * Storage: 116GB free * Net: 0↓/0↑MBps
+2018-07-16 18:32:46 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:33:09 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 6
+2018-07-16 18:33:09 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:33:09 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:33:09 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.6.vcf.loPaewHMsDll/disc_pipe for write.
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.6.vcf.loPaewHMsDll/spl_pipe for write.
+2018-07-16 18:33:10 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:33:11 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:33:11 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:33:11 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:36:37 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:36:59 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 7
+2018-07-16 18:36:59 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:36:59 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:36:59 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.7.vcf.IaY6tiOq3H3J/disc_pipe for write.
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.7.vcf.IaY6tiOq3H3J/spl_pipe for write.
+2018-07-16 18:37:00 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:37:01 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:37:01 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:37:01 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:40:30 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 8
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.8.vcf.TuUvBuAEPmNR/disc_pipe for write.
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.8.vcf.TuUvBuAEPmNR/spl_pipe for write.
+2018-07-16 18:40:53 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:40:55 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:40:55 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:40:55 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:41:05 16C-D2-Lumpy_Only STDERR Warning: 535435 unmatched name groups
+2018-07-16 18:41:05 16C-D2-Lumpy_Only STDERR samblaster: Output 39407 discordant read pairs to lumpy.1.vcf.r4C9BkMczKKy/disc_pipe
+2018-07-16 18:41:05 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.1.vcf.r4C9BkMczKKy/spl_pipe
+2018-07-16 18:41:05 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 28005675 (0.00%) read ids as duplicates using 4064k memory in 1M48S(107.700S) CPU seconds and 28M10S(1690S) wall time.
+2018-07-16 18:41:06 16C-D2-Lumpy_Only STDERR Removed 197 outliers with isize >= 1523
+2018-07-16 18:41:09 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:41:09 16C-D2-Lumpy_Only STDERR 1	1000000
+2018-07-16 18:41:15 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:42:17 16C-D2-Lumpy_Only INFO CPU: 88% (16 cores) * Memory: 5124/30142MB * Storage: 107GB free * Net: 0↓/0↑MBps
+2018-07-16 18:43:44 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:44:01 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 9
+2018-07-16 18:44:01 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:44:01 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:44:01 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.9.vcf.XyfChARb7Idb/disc_pipe for write.
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.9.vcf.XyfChARb7Idb/spl_pipe for write.
+2018-07-16 18:44:02 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:44:03 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:44:03 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:44:03 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:47:23 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:47:44 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 10
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.10.vcf.OgMUbY44JtqZ/disc_pipe for write.
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.10.vcf.OgMUbY44JtqZ/spl_pipe for write.
+2018-07-16 18:47:45 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:47:46 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:47:46 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:47:46 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:48:00 16C-D2-Lumpy_Only STDERR Warning: 396627 unmatched name groups
+2018-07-16 18:48:00 16C-D2-Lumpy_Only STDERR samblaster: Output 28418 discordant read pairs to lumpy.3.vcf.NtpPUZSG3AMi/disc_pipe
+2018-07-16 18:48:00 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.3.vcf.NtpPUZSG3AMi/spl_pipe
+2018-07-16 18:48:00 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 24440071 (0.00%) read ids as duplicates using 2028k memory in 1M36S(95.860S) CPU seconds and 26M46S(1606S) wall time.
+2018-07-16 18:48:01 16C-D2-Lumpy_Only STDERR Removed 37 outliers with isize >= 1499
+2018-07-16 18:48:03 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:48:04 16C-D2-Lumpy_Only STDERR 3	1000000
+2018-07-16 18:48:07 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:48:55 16C-D2-Lumpy_Only STDERR Warning: 703536 unmatched name groups
+2018-07-16 18:48:55 16C-D2-Lumpy_Only STDERR samblaster: Output 41027 discordant read pairs to lumpy.2.vcf.9X4V5qN00hIX/disc_pipe
+2018-07-16 18:48:55 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.2.vcf.9X4V5qN00hIX/spl_pipe
+2018-07-16 18:48:55 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 29871686 (0.00%) read ids as duplicates using 2044k memory in 1M55S(114.648S) CPU seconds and 31M35S(1895S) wall time.
+2018-07-16 18:48:55 16C-D2-Lumpy_Only STDERR Removed 50 outliers with isize >= 1509
+2018-07-16 18:49:01 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:49:01 16C-D2-Lumpy_Only STDERR 2	1000000
+2018-07-16 18:49:05 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:50:54 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 11
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:51:14 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.11.vcf.gSNcq0rYXRTG/disc_pipe for write.
+2018-07-16 18:51:15 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.11.vcf.gSNcq0rYXRTG/spl_pipe for write.
+2018-07-16 18:51:15 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:51:16 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:51:16 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:51:16 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:51:54 16C-D2-Lumpy_Only STDERR Warning: 430691 unmatched name groups
+2018-07-16 18:51:54 16C-D2-Lumpy_Only STDERR samblaster: Output 31928 discordant read pairs to lumpy.4.vcf.CDHDjSI5mutl/disc_pipe
+2018-07-16 18:51:54 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.4.vcf.CDHDjSI5mutl/spl_pipe
+2018-07-16 18:51:54 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 24019470 (0.00%) read ids as duplicates using 2028k memory in 1M34S(93.864S) CPU seconds and 26M42S(1602S) wall time.
+2018-07-16 18:51:55 16C-D2-Lumpy_Only STDERR Removed 62 outliers with isize >= 1520
+2018-07-16 18:51:57 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:51:57 16C-D2-Lumpy_Only STDERR 4	1000000
+2018-07-16 18:52:01 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:52:17 16C-D2-Lumpy_Only INFO CPU: 89% (16 cores) * Memory: 4446/30142MB * Storage: 98GB free * Net: 0↓/0↑MBps
+2018-07-16 18:54:23 16C-D2-Lumpy_Only STDERR Warning: 365376 unmatched name groups
+2018-07-16 18:54:23 16C-D2-Lumpy_Only STDERR samblaster: Output 26719 discordant read pairs to lumpy.5.vcf.5OkjqcKi8XNH/disc_pipe
+2018-07-16 18:54:23 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.5.vcf.5OkjqcKi8XNH/spl_pipe
+2018-07-16 18:54:23 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 22471458 (0.00%) read ids as duplicates using 2124k memory in 1M27S(86.512S) CPU seconds and 25M12S(1512S) wall time.
+2018-07-16 18:54:23 16C-D2-Lumpy_Only STDERR Removed 69 outliers with isize >= 1509
+2018-07-16 18:54:26 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:54:26 16C-D2-Lumpy_Only STDERR 5	1000000
+2018-07-16 18:54:28 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:54:29 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 12
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.12.vcf.nCKCoV8UEqif/disc_pipe for write.
+2018-07-16 18:54:47 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.12.vcf.nCKCoV8UEqif/spl_pipe for write.
+2018-07-16 18:54:48 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:54:49 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:54:49 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:54:49 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:57:04 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:57:19 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 13
+2018-07-16 18:57:19 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:57:19 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:57:19 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.13.vcf.Iyd72r5Qa9RZ/disc_pipe for write.
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.13.vcf.Iyd72r5Qa9RZ/spl_pipe for write.
+2018-07-16 18:57:20 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:57:21 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:57:21 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:57:21 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 18:57:50 16C-D2-Lumpy_Only STDERR Warning: 377812 unmatched name groups
+2018-07-16 18:57:50 16C-D2-Lumpy_Only STDERR samblaster: Output 30614 discordant read pairs to lumpy.6.vcf.loPaewHMsDll/disc_pipe
+2018-07-16 18:57:50 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.6.vcf.loPaewHMsDll/spl_pipe
+2018-07-16 18:57:50 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 21446750 (0.00%) read ids as duplicates using 2176k memory in 1M20S(80.432S) CPU seconds and 24M40S(1480S) wall time.
+2018-07-16 18:57:50 16C-D2-Lumpy_Only STDERR Removed 35 outliers with isize >= 1498
+2018-07-16 18:57:52 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:57:52 16C-D2-Lumpy_Only STDERR 6	1000000
+2018-07-16 18:57:56 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:59:22 16C-D2-Lumpy_Only STDERR Warning: 383899 unmatched name groups
+2018-07-16 18:59:22 16C-D2-Lumpy_Only STDERR samblaster: Output 24213 discordant read pairs to lumpy.7.vcf.IaY6tiOq3H3J/disc_pipe
+2018-07-16 18:59:22 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.7.vcf.IaY6tiOq3H3J/spl_pipe
+2018-07-16 18:59:22 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 19197526 (0.00%) read ids as duplicates using 2028k memory in 1M13S(72.912S) CPU seconds and 22M22S(1342S) wall time.
+2018-07-16 18:59:23 16C-D2-Lumpy_Only STDERR Removed 58 outliers with isize >= 1509
+2018-07-16 18:59:24 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 18:59:24 16C-D2-Lumpy_Only STDERR 7	1000000
+2018-07-16 18:59:28 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 18:59:30 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 14
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.14.vcf.pAn0GMWpEwnX/disc_pipe for write.
+2018-07-16 18:59:43 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.14.vcf.pAn0GMWpEwnX/spl_pipe for write.
+2018-07-16 18:59:44 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 18:59:45 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:59:45 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 18:59:45 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:01:05 16C-D2-Lumpy_Only STDERR Warning: 270291 unmatched name groups
+2018-07-16 19:01:05 16C-D2-Lumpy_Only STDERR samblaster: Output 16270 discordant read pairs to lumpy.9.vcf.XyfChARb7Idb/disc_pipe
+2018-07-16 19:01:05 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.9.vcf.XyfChARb7Idb/spl_pipe
+2018-07-16 19:01:05 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 14418291 (0.00%) read ids as duplicates using 2036k memory in 54.048S CPU seconds and 17M3S(1023S) wall time.
+2018-07-16 19:01:06 16C-D2-Lumpy_Only STDERR Removed 11 outliers with isize >= 1508
+2018-07-16 19:01:07 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:01:07 16C-D2-Lumpy_Only STDERR 9	1000000
+2018-07-16 19:01:08 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:01:38 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:01:50 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 15
+2018-07-16 19:01:50 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:01:50 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:01:50 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:01:50 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:01:50 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:01:51 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:01:51 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:01:51 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:01:51 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.15.vcf.ZLmhwopew6WF/disc_pipe for write.
+2018-07-16 19:01:51 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.15.vcf.ZLmhwopew6WF/spl_pipe for write.
+2018-07-16 19:01:51 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR Warning: 311092 unmatched name groups
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR samblaster: Output 56683 discordant read pairs to lumpy.8.vcf.TuUvBuAEPmNR/disc_pipe
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.8.vcf.TuUvBuAEPmNR/spl_pipe
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 18211522 (0.00%) read ids as duplicates using 2180k memory in 1M9S(68.992S) CPU seconds and 20M59S(1259S) wall time.
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR Removed 65 outliers with isize >= 1509
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:01:52 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:01:54 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:01:54 16C-D2-Lumpy_Only STDERR 8	1000000
+2018-07-16 19:01:59 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:02:17 16C-D2-Lumpy_Only INFO CPU: 89% (16 cores) * Memory: 3401/30142MB * Storage: 89GB free * Net: 0↓/0↑MBps
+2018-07-16 19:03:49 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 16
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.16.vcf.tMNwcXo6kTXJ/disc_pipe for write.
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.16.vcf.tMNwcXo6kTXJ/spl_pipe for write.
+2018-07-16 19:04:02 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:04:03 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:04:03 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:04:03 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:05:51 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:05:51 16C-D2-Lumpy_Only STDERR Warning: 330659 unmatched name groups
+2018-07-16 19:05:51 16C-D2-Lumpy_Only STDERR samblaster: Output 18349 discordant read pairs to lumpy.10.vcf.OgMUbY44JtqZ/disc_pipe
+2018-07-16 19:05:51 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.10.vcf.OgMUbY44JtqZ/spl_pipe
+2018-07-16 19:05:51 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 15908215 (0.00%) read ids as duplicates using 4188k memory in 1M0S(60.324S) CPU seconds and 18M6S(1086S) wall time.
+2018-07-16 19:05:51 16C-D2-Lumpy_Only STDERR Removed 51 outliers with isize >= 1498
+2018-07-16 19:05:52 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:05:52 16C-D2-Lumpy_Only STDERR 10	1000000
+2018-07-16 19:05:54 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 17
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.17.vcf.sGWJSzHAM6Cc/disc_pipe for write.
+2018-07-16 19:06:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.17.vcf.sGWJSzHAM6Cc/spl_pipe for write.
+2018-07-16 19:06:03 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:06:04 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:06:04 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:06:04 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:07:51 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 18
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.18.vcf.aWXfpiddjDgA/disc_pipe for write.
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.18.vcf.aWXfpiddjDgA/spl_pipe for write.
+2018-07-16 19:08:02 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:08:03 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:08:03 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:08:03 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:09:20 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:09:24 16C-D2-Lumpy_Only STDERR Warning: 286860 unmatched name groups
+2018-07-16 19:09:24 16C-D2-Lumpy_Only STDERR samblaster: Output 18224 discordant read pairs to lumpy.11.vcf.gSNcq0rYXRTG/disc_pipe
+2018-07-16 19:09:24 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.11.vcf.gSNcq0rYXRTG/spl_pipe
+2018-07-16 19:09:24 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 16018726 (0.00%) read ids as duplicates using 2184k memory in 1M0S(60.136S) CPU seconds and 18M10S(1090S) wall time.
+2018-07-16 19:09:24 16C-D2-Lumpy_Only STDERR Removed 45 outliers with isize >= 1509
+2018-07-16 19:09:25 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:09:25 16C-D2-Lumpy_Only STDERR 11	1000000
+2018-07-16 19:09:27 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:09:28 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 19
+2018-07-16 19:09:28 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:09:28 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:09:28 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.19.vcf.e1JMtDOW4YZN/disc_pipe for write.
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.19.vcf.e1JMtDOW4YZN/spl_pipe for write.
+2018-07-16 19:09:29 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:09:30 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:09:30 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:09:30 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:10:38 16C-D2-Lumpy_Only STDERR Warning: 191519 unmatched name groups
+2018-07-16 19:10:38 16C-D2-Lumpy_Only STDERR samblaster: Output 12429 discordant read pairs to lumpy.13.vcf.Iyd72r5Qa9RZ/disc_pipe
+2018-07-16 19:10:38 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.13.vcf.Iyd72r5Qa9RZ/spl_pipe
+2018-07-16 19:10:38 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 12058389 (0.00%) read ids as duplicates using 2180k memory in 46.744S CPU seconds and 13M18S(798S) wall time.
+2018-07-16 19:10:38 16C-D2-Lumpy_Only STDERR Removed 10 outliers with isize >= 1508
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDERR 13	1000000
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDERR 13	2000000
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDERR 13	4000000
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDERR 13	8000000
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDERR 13	16000000
+2018-07-16 19:10:42 16C-D2-Lumpy_Only STDERR 13	32000000
+2018-07-16 19:10:43 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:10:53 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:11:01 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 20
+2018-07-16 19:11:01 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:11:01 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:11:01 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.20.vcf.inh2dIRbE2cM/disc_pipe for write.
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.20.vcf.inh2dIRbE2cM/spl_pipe for write.
+2018-07-16 19:11:02 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:11:03 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:11:03 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:11:03 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:11:57 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 21
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.21.vcf.nESXG8gC8tZ2/disc_pipe for write.
+2018-07-16 19:12:03 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.21.vcf.nESXG8gC8tZ2/spl_pipe for write.
+2018-07-16 19:12:04 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:12:05 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:12:05 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:12:05 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:12:10 16C-D2-Lumpy_Only STDERR Warning: 209820 unmatched name groups
+2018-07-16 19:12:10 16C-D2-Lumpy_Only STDERR samblaster: Output 11953 discordant read pairs to lumpy.14.vcf.pAn0GMWpEwnX/disc_pipe
+2018-07-16 19:12:10 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.14.vcf.pAn0GMWpEwnX/spl_pipe
+2018-07-16 19:12:10 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 11122056 (0.00%) read ids as duplicates using 2124k memory in 43.032S CPU seconds and 12M27S(747S) wall time.
+2018-07-16 19:12:11 16C-D2-Lumpy_Only STDERR Removed 80 outliers with isize >= 1511
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDERR 14	1000000
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDERR 14	2000000
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDERR 14	4000000
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDERR 14	8000000
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDERR 14	16000000
+2018-07-16 19:12:12 16C-D2-Lumpy_Only STDERR 14	32000000
+2018-07-16 19:12:14 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:12:17 16C-D2-Lumpy_Only INFO CPU: 89% (16 cores) * Memory: 4306/30142MB * Storage: 80GB free * Net: 0↓/0↑MBps
+2018-07-16 19:12:55 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig 22
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:13:00 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.22.vcf.sIkMJW7vbqxX/disc_pipe for write.
+2018-07-16 19:13:01 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.22.vcf.sIkMJW7vbqxX/spl_pipe for write.
+2018-07-16 19:13:01 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:13:02 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:13:02 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:13:02 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:13:06 16C-D2-Lumpy_Only STDERR Warning: 202502 unmatched name groups
+2018-07-16 19:13:06 16C-D2-Lumpy_Only STDERR samblaster: Output 10545 discordant read pairs to lumpy.15.vcf.ZLmhwopew6WF/disc_pipe
+2018-07-16 19:13:06 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.15.vcf.ZLmhwopew6WF/spl_pipe
+2018-07-16 19:13:06 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 9947291 (0.00%) read ids as duplicates using 2128k memory in 37.468S CPU seconds and 11M15S(675S) wall time.
+2018-07-16 19:13:06 16C-D2-Lumpy_Only STDERR Removed 177 outliers with isize >= 1519
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDERR 15	1000000
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDERR 15	2000000
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDERR 15	4000000
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDERR 15	8000000
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDERR 15	16000000
+2018-07-16 19:13:07 16C-D2-Lumpy_Only STDERR 15	32000000
+2018-07-16 19:13:09 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:13:28 16C-D2-Lumpy_Only STDERR Warning: 327298 unmatched name groups
+2018-07-16 19:13:28 16C-D2-Lumpy_Only STDERR samblaster: Output 19453 discordant read pairs to lumpy.12.vcf.nCKCoV8UEqif/disc_pipe
+2018-07-16 19:13:28 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.12.vcf.nCKCoV8UEqif/spl_pipe
+2018-07-16 19:13:28 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 16190800 (0.00%) read ids as duplicates using 2272k memory in 1M1S(60.596S) CPU seconds and 18M41S(1121S) wall time.
+2018-07-16 19:13:28 16C-D2-Lumpy_Only STDERR Removed 37 outliers with isize >= 1507
+2018-07-16 19:13:29 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:13:29 16C-D2-Lumpy_Only STDERR 12	1000000
+2018-07-16 19:13:32 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:14:58 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig X
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.23.vcf.h3rQIsr61ebl/disc_pipe for write.
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.23.vcf.h3rQIsr61ebl/spl_pipe for write.
+2018-07-16 19:15:10 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:15:11 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:15:11 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:15:11 16C-D2-Lumpy_Only STDOUT Running sambamba view
+2018-07-16 19:15:48 16C-D2-Lumpy_Only STDOUT Running sambamba index
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDOUT Running Lumpy for contig Y
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDOUT Sourcing executables from ./lumpy-sv/bin/lumpyexpress.config ...
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDOUT 
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDOUT Checking for required python modules (/usr/bin/python)...
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samtools view: error closing standard output: -1
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samblaster: Version 0.1.24
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samblaster: Inputting from stdin
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samblaster: Outputting to stdout
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.24.vcf.7XENemp95HMA/disc_pipe for write.
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samblaster: Opening lumpy.24.vcf.7XENemp95HMA/spl_pipe for write.
+2018-07-16 19:15:52 16C-D2-Lumpy_Only STDERR samblaster: Loaded 86 header sequence entries.
+2018-07-16 19:16:26 16C-D2-Lumpy_Only STDERR Warning: 315815 unmatched name groups
+2018-07-16 19:16:26 16C-D2-Lumpy_Only STDERR samblaster: Output 59959 discordant read pairs to lumpy.16.vcf.tMNwcXo6kTXJ/disc_pipe
+2018-07-16 19:16:26 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.16.vcf.tMNwcXo6kTXJ/spl_pipe
+2018-07-16 19:16:26 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 10568584 (0.00%) read ids as duplicates using 2036k memory in 40.712S CPU seconds and 12M24S(744S) wall time.
+2018-07-16 19:16:26 16C-D2-Lumpy_Only STDERR Removed 34 outliers with isize >= 1509
+2018-07-16 19:16:28 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:16:28 16C-D2-Lumpy_Only STDERR 16	1000000
+2018-07-16 19:16:31 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:16:32 16C-D2-Lumpy_Only STDERR Warning: 276899 unmatched name groups
+2018-07-16 19:16:32 16C-D2-Lumpy_Only STDERR samblaster: Output 12513 discordant read pairs to lumpy.17.vcf.sGWJSzHAM6Cc/disc_pipe
+2018-07-16 19:16:32 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.17.vcf.sGWJSzHAM6Cc/spl_pipe
+2018-07-16 19:16:32 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 9183780 (0.00%) read ids as duplicates using 2124k memory in 34.880S CPU seconds and 10M30S(630S) wall time.
+2018-07-16 19:16:32 16C-D2-Lumpy_Only STDERR Removed 106 outliers with isize >= 1518
+2018-07-16 19:16:33 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:16:33 16C-D2-Lumpy_Only STDERR 17	1000000
+2018-07-16 19:16:34 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:16:34 16C-D2-Lumpy_Only STDERR Warning: 210986 unmatched name groups
+2018-07-16 19:16:34 16C-D2-Lumpy_Only STDERR samblaster: Output 9566 discordant read pairs to lumpy.19.vcf.e1JMtDOW4YZN/disc_pipe
+2018-07-16 19:16:34 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.19.vcf.e1JMtDOW4YZN/spl_pipe
+2018-07-16 19:16:34 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 6198795 (0.00%) read ids as duplicates using 2128k memory in 23.880S CPU seconds and 7M5S(425S) wall time.
+2018-07-16 19:16:35 16C-D2-Lumpy_Only STDERR Removed 85 outliers with isize >= 1521
+2018-07-16 19:16:35 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:16:35 16C-D2-Lumpy_Only STDERR 19	1000000
+2018-07-16 19:16:36 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR Warning: 117987 unmatched name groups
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR samblaster: Output 5181 discordant read pairs to lumpy.21.vcf.nESXG8gC8tZ2/disc_pipe
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.21.vcf.nESXG8gC8tZ2/spl_pipe
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 4644974 (0.00%) read ids as duplicates using 3936k memory in 19.316S CPU seconds and 4M55S(295S) wall time.
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR Removed 144 outliers with isize >= 1543
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR 21	1000000
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR 21	2000000
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR 21	4000000
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR 21	8000000
+2018-07-16 19:16:58 16C-D2-Lumpy_Only STDERR 21	16000000
+2018-07-16 19:16:59 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR Warning: 105811 unmatched name groups
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR samblaster: Output 4535 discordant read pairs to lumpy.22.vcf.sIkMJW7vbqxX/disc_pipe
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.22.vcf.sIkMJW7vbqxX/spl_pipe
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 3949576 (0.00%) read ids as duplicates using 2124k memory in 17.012S CPU seconds and 4M0S(240S) wall time.
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR Removed 38 outliers with isize >= 1520
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR 22	1000000
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR 22	2000000
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR 22	4000000
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR 22	8000000
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR 22	16000000
+2018-07-16 19:17:00 16C-D2-Lumpy_Only STDERR 22	32000000
+2018-07-16 19:17:01 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:17:34 16C-D2-Lumpy_Only STDERR Warning: 163774 unmatched name groups
+2018-07-16 19:17:34 16C-D2-Lumpy_Only STDERR samblaster: Output 9001 discordant read pairs to lumpy.18.vcf.aWXfpiddjDgA/disc_pipe
+2018-07-16 19:17:34 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.18.vcf.aWXfpiddjDgA/spl_pipe
+2018-07-16 19:17:34 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 9261364 (0.00%) read ids as duplicates using 2272k memory in 38.868S CPU seconds and 9M32S(572S) wall time.
+2018-07-16 19:17:34 16C-D2-Lumpy_Only STDERR Removed 7 outliers with isize >= 1518
+2018-07-16 19:17:35 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:17:35 16C-D2-Lumpy_Only STDERR 18	1000000
+2018-07-16 19:17:35 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDERR Warning: 147752 unmatched name groups
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDERR samblaster: Output 6592 discordant read pairs to lumpy.20.vcf.inh2dIRbE2cM/disc_pipe
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.20.vcf.inh2dIRbE2cM/spl_pipe
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 6907084 (0.00%) read ids as duplicates using 4160k memory in 29.268S CPU seconds and 6M44S(404S) wall time.
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDERR Removed 43 outliers with isize >= 1497
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDERR 20	1000000
+2018-07-16 19:17:46 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR Warning: 159502 unmatched name groups
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR samblaster: Output 16902 discordant read pairs to lumpy.24.vcf.7XENemp95HMA/disc_pipe
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.24.vcf.7XENemp95HMA/spl_pipe
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 2853442 (0.00%) read ids as duplicates using 2108k memory in 14.548S CPU seconds and 2M0S(120S) wall time.
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR Removed 23 outliers with isize >= 1510
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR Y	1000000
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR Y	2000000
+2018-07-16 19:17:52 16C-D2-Lumpy_Only STDERR Y	4000000
+2018-07-16 19:17:53 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDERR Warning: 232957 unmatched name groups
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDERR samblaster: Output 12422 discordant read pairs to lumpy.23.vcf.h3rQIsr61ebl/disc_pipe
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDERR samblaster: Output 0 split reads to lumpy.23.vcf.h3rQIsr61ebl/spl_pipe
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDERR samblaster: Marked 0 of 9747120 (0.00%) read ids as duplicates using 2176k memory in 40.000S CPU seconds and 5M40S(340S) wall time.
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDERR Removed 144 outliers with isize >= 1527
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDOUT Running LUMPY... 
+2018-07-16 19:20:50 16C-D2-Lumpy_Only STDERR X	1000000
+2018-07-16 19:20:51 16C-D2-Lumpy_Only STDOUT LUMPY Express done
+2018-07-16 19:20:51 16C-D2-Lumpy_Only STDOUT Converting results to VCF format
+2018-07-16 19:20:51 16C-D2-Lumpy_Only STDOUT Convert Lumpy results to VCF format
+2018-07-16 19:21:18 16C-D2-Lumpy_Only STDERR breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.14.1 which is incompatible.
+2018-07-16 19:21:22 16C-D2-Lumpy_Only STDOUT 1
+2018-07-16 19:21:22 16C-D2-Lumpy_Only STDOUT 2
+2018-07-16 19:21:22 16C-D2-Lumpy_Only STDOUT 3
+2018-07-16 19:21:22 16C-D2-Lumpy_Only STDOUT Running SVTyper
+2018-07-16 19:21:22 16C-D2-Lumpy_Only STDOUT Running SVTyper on Lumpy outputs
+2018-07-16 19:21:23 16C-D2-Lumpy_Only STDERR grep: svtype_lumpy: Is a directory
+2018-07-16 19:22:17 16C-D2-Lumpy_Only INFO CPU: 52% (16 cores) * Memory: 3112/30142MB * Storage: 77GB free * Net: 0↓/0↑MBps
+2018-07-16 19:30:16 16C-D2-Lumpy_Only STDOUT Preparing inputs for SURVIVOR
+2018-07-16 19:30:16 16C-D2-Lumpy_Only STDOUT Running SURVIVOR
+2018-07-16 19:30:16 16C-D2-Lumpy_Only STDOUT merging entries: 5286
+2018-07-16 19:30:16 16C-D2-Lumpy_Only STDOUT Histogram over the # of callers overlapping per SVs: 
+2018-07-16 19:30:16 16C-D2-Lumpy_Only STDOUT 1 2685
+2018-07-16 19:30:29 16C-D2-Lumpy_Only STDOUT Docker image finished
+2018-07-16 19:30:30 16C-D2-Lumpy_Only STDOUT total 1.2M
+2018-07-16 19:30:30 16C-D2-Lumpy_Only STDOUT 1.2M HG002-NA24385-50x.70_percent.markdup.realigned.lumpy.svtyped.vcf
+* 16C-D2-Lumpy_Only (parliament2:main) (done) job-FJ6YGZQ04KF6bz4X65k4FB71
+  acarroll 2018-07-16 17:20:34 (runtime 2:08:23)
+  Output: svtyped_vcfs = [ file-FJ6b9VQ0GfpyXx4434vB2b4k ]
+          sv_caller_results = [ file-FJ6b9VQ0Gfpp5qFV2y3b6gq2 ]
+          combined_genotypes = file-FJ6b9Vj0GfpgjgBJ391KgBxf
