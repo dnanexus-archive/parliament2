@@ -1,0 +1,151 @@
+* 16C-D2-Breakseq_Only (parliament2:main) (done) job-FJ6Y9J804KF1y5J1589k9g85
+  acarroll 2018-07-16 17:13:41 (runtime 1:03:09)
+2018-07-16 17:19:13 16C-D2-Breakseq_Only INFO Logging initialized (priority)
+2018-07-16 17:19:14 16C-D2-Breakseq_Only INFO Logging initialized (bulk)
+2018-07-16 17:19:15 16C-D2-Breakseq_Only INFO CPU: 3% (16 cores) * Memory: 1480/30142MB * Storage: 304GB free * Net: 0↓/0↑MBps
+2018-07-16 17:19:15 16C-D2-Breakseq_Only STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:19:16 16C-D2-Breakseq_Only INFO Downloading bundled file parliament2.tar.gz
+2018-07-16 17:19:30 16C-D2-Breakseq_Only STDOUT >>> Unpacking parliament2.tar.gz to /
+2018-07-16 17:19:30 16C-D2-Breakseq_Only STDERR tar: Removing leading `/' from member names
+2018-07-16 17:20:17 16C-D2-Breakseq_Only INFO Setting SSH public key
+2018-07-16 17:20:19 16C-D2-Breakseq_Only STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:20:19 16C-D2-Breakseq_Only STDOUT /usr/sbin/sshd already running.
+2018-07-16 17:20:20 16C-D2-Breakseq_Only STDOUT Invoking main with {u'run_svviz': False, u'run_lumpy': False, u'filter_short_contigs': True, u'ref_fasta': {u'$dnanexus_link': u'file-B6ZY7VG2J35Vfvpkj8y0KZ01'}, u'run_delly_insertion': False, u'output_log_files': True, u'run_cnvnator': False, u'run_breakdancer': False, u'run_delly_inversion': False, u'illumina_bam': {u'$dnanexus_link': u'file-F4JFyx00Fq4YZkB80P7fZ4Fv'}, u'run_delly_deletion': False, u'run_breakseq': True, u'run_delly_duplication': False, u'run_manta': False, u'svviz_only_validated_candidates': True, u'run_genotype_candidates': True}
+2018-07-16 17:20:20 16C-D2-Breakseq_Only STDOUT Starting Docker
+2018-07-16 17:29:15 16C-D2-Breakseq_Only INFO CPU: 4% (16 cores) * Memory: 6191/30142MB * Storage: 235GB free * Net: 125↓/1↑MBps
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Image Repo	parliament2
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Image Tag	latest
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Image Size	4.7G
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Image ID	f2aac38467f28517596e673c5531cc57444b72f64e7f5d1c261c456cdbb4c2f2
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Parent ID	5460a7e6d166a3a0c2bd8efd9b8b733765ed976d53e5da1cbcef68b98fb6655c
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Last Updated	2018-07-16T21:52:58Z (0d 2h ago)
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR ENTRYPOINT	["python","/home/dnanexus/parliament2.py"]
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR Working Dir	/home/dnanexus
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR 
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR 
+2018-07-16 17:31:48 16C-D2-Breakseq_Only STDERR proot warning: can't sanitize binding "/var/run/dbus/system_bus_socket": No such file or directory
+2018-07-16 17:32:38 16C-D2-Breakseq_Only STDOUT Classify FASTA
+2018-07-16 17:32:38 16C-D2-Breakseq_Only STDOUT HG002-NA24385-50x.70_percent.markdup.realigned
+2018-07-16 17:32:38 16C-D2-Breakseq_Only STDOUT Set up and index BAM/CRAM
+2018-07-16 17:32:38 16C-D2-Breakseq_Only STDOUT BAM file input, no index exists
+2018-07-16 17:39:15 16C-D2-Breakseq_Only INFO CPU: 1% (16 cores) * Memory: 3628/30142MB * Storage: 187GB free * Net: 5↓/0↑MBps
+2018-07-16 17:49:15 16C-D2-Breakseq_Only INFO CPU: 1% (16 cores) * Memory: 2118/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 17:59:15 16C-D2-Breakseq_Only INFO CPU: 6% (16 cores) * Memory: 2138/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:01:01 16C-D2-Breakseq_Only STDOUT Generate contigs
+2018-07-16 18:01:01 16C-D2-Breakseq_Only STDOUT Launching jobs that cannot be parallelized by contig
+2018-07-16 18:01:01 16C-D2-Breakseq_Only STDOUT BreakSeq
+2018-07-16 18:09:15 16C-D2-Breakseq_Only INFO CPU: 75% (16 cores) * Memory: 2535/30142MB * Storage: 140GB free * Net: 0↓/0↑MBps
+2018-07-16 18:19:15 16C-D2-Breakseq_Only INFO CPU: 39% (16 cores) * Memory: 2929/30142MB * Storage: 143GB free * Net: 0↓/0↑MBps
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT Converting results to VCF format
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT Convert Breakseq results to VCF format
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./0.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./1.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./10.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./11.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./12.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./13.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./14.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./15.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./16.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./17.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./18.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./19.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./2.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./20.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./21.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./22.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./23.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./24.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./25.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./26.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./27.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./28.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./29.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./3.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./30.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./31.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./32.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./33.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./34.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./35.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./36.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./37.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./38.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./39.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./4.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./40.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./41.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./42.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./43.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./44.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./45.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./46.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./47.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./48.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./49.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./5.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./50.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./51.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./52.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./53.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./54.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./55.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./56.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./57.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./58.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./59.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./6.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./60.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./61.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./62.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./63.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./64.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./65.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./66.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./67.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./68.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./69.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./7.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./70.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./71.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./72.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./73.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./74.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./75.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./76.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./77.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./78.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./79.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./8.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./80.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./81.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./82.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./83.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./84.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./85.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./86.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./9.bwa.log
+2018-07-16 18:20:18 16C-D2-Breakseq_Only STDOUT ./index.log
+2018-07-16 18:20:46 16C-D2-Breakseq_Only STDERR breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.14.1 which is incompatible.
+2018-07-16 18:20:50 16C-D2-Breakseq_Only STDOUT 1
+2018-07-16 18:20:50 16C-D2-Breakseq_Only STDOUT 2
+2018-07-16 18:20:50 16C-D2-Breakseq_Only STDOUT 3
+2018-07-16 18:20:50 16C-D2-Breakseq_Only STDOUT Running SVTyper
+2018-07-16 18:20:50 16C-D2-Breakseq_Only STDOUT Running SVTyper on BreakSeq outputs
+2018-07-16 18:20:50 16C-D2-Breakseq_Only STDERR grep: svtype_breakseq: Is a directory
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT Preparing inputs for SURVIVOR
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT Running SURVIVOR
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT merging entries: 2457
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT merging entries: 2461
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT Histogram over the # of callers overlapping per SVs: 
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT 1 0
+2018-07-16 18:22:01 16C-D2-Breakseq_Only STDOUT 2 2443
+2018-07-16 18:22:11 16C-D2-Breakseq_Only STDOUT Docker image finished
+2018-07-16 18:22:13 16C-D2-Breakseq_Only STDOUT total 252K
+2018-07-16 18:22:13 16C-D2-Breakseq_Only STDOUT 252K HG002-NA24385-50x.70_percent.markdup.realigned.breakseq.svtyped.vcf
+* 16C-D2-Breakseq_Only (parliament2:main) (done) job-FJ6Y9J804KF1y5J1589k9g85
+  acarroll 2018-07-16 17:13:41 (runtime 1:03:09)
+  Output: svtyped_vcfs = [ file-FJ6Z9V80bJbPQy462fy58bK2 ]
+          sv_caller_results = [ file-FJ6Z9V00bJbPx3B82fgV53J0,
+         file-FJ6Z9V00bJb9x25q2fJ1jPZb, file-FJ6Z9V00bJb13VkX2f2X8993 ]
+          combined_genotypes = file-FJ6Z9VQ0bJb1bYFx2f7BB0qj

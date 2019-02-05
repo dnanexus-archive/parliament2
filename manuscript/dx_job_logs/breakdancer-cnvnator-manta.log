@@ -1,0 +1,1529 @@
+* 16C-D2-Breakdancer_Manta_CNVnator (parliament2:main) (done) job-FJ6YK3j04KF1zpq13BFK44J4
+  acarroll 2018-07-16 17:23:43 (runtime 4:19:08)
+2018-07-16 17:26:19 16C-D2-Breakdancer_Manta_CNVnator INFO Logging initialized (priority)
+2018-07-16 17:26:19 16C-D2-Breakdancer_Manta_CNVnator INFO Logging initialized (bulk)
+2018-07-16 17:26:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 5% (16 cores) * Memory: 1618/30142MB * Storage: 304GB free * Net: 0↓/0↑MBps
+2018-07-16 17:26:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:26:21 16C-D2-Breakdancer_Manta_CNVnator INFO Downloading bundled file parliament2.tar.gz
+2018-07-16 17:26:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT >>> Unpacking parliament2.tar.gz to /
+2018-07-16 17:26:36 16C-D2-Breakdancer_Manta_CNVnator STDERR tar: Removing leading `/' from member names
+2018-07-16 17:27:28 16C-D2-Breakdancer_Manta_CNVnator INFO Setting SSH public key
+2018-07-16 17:27:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:27:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT /usr/sbin/sshd already running.
+2018-07-16 17:27:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Invoking main with {u'run_svviz': False, u'run_lumpy': False, u'filter_short_contigs': True, u'ref_fasta': {u'$dnanexus_link': u'file-B6ZY7VG2J35Vfvpkj8y0KZ01'}, u'run_delly_insertion': False, u'output_log_files': True, u'run_cnvnator': True, u'run_breakdancer': True, u'run_delly_inversion': False, u'illumina_bam': {u'$dnanexus_link': u'file-F4JFyx00Fq4YZkB80P7fZ4Fv'}, u'run_delly_deletion': False, u'run_breakseq': False, u'run_delly_duplication': False, u'run_manta': True, u'svviz_only_validated_candidates': True, u'run_genotype_candidates': True}
+2018-07-16 17:27:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Starting Docker
+2018-07-16 17:36:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 6% (16 cores) * Memory: 4377/30142MB * Storage: 224GB free * Net: 130↓/1↑MBps
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Image Repo	parliament2
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Image Tag	latest
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Image Size	4.7G
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Image ID	f2aac38467f28517596e673c5531cc57444b72f64e7f5d1c261c456cdbb4c2f2
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Parent ID	5460a7e6d166a3a0c2bd8efd9b8b733765ed976d53e5da1cbcef68b98fb6655c
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Last Updated	2018-07-16T21:52:58Z (0d 2h ago)
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR ENTRYPOINT	["python","/home/dnanexus/parliament2.py"]
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Working Dir	/home/dnanexus
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR 
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR 
+2018-07-16 17:36:37 16C-D2-Breakdancer_Manta_CNVnator STDERR proot warning: can't sanitize binding "/var/run/dbus/system_bus_socket": No such file or directory
+2018-07-16 17:37:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Classify FASTA
+2018-07-16 17:37:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT HG002-NA24385-50x.70_percent.markdup.realigned
+2018-07-16 17:37:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Set up and index BAM/CRAM
+2018-07-16 17:37:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT BAM file input, no index exists
+2018-07-16 17:46:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 0% (16 cores) * Memory: 3881/30142MB * Storage: 153GB free * Net: 0↓/0↑MBps
+2018-07-16 17:56:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 6% (16 cores) * Memory: 2218/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:01:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Generate contigs
+2018-07-16 18:01:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Launching jobs that cannot be parallelized by contig
+2018-07-16 18:01:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Manta
+2018-07-16 18:01:23 16C-D2-Breakdancer_Manta_CNVnator STDERR Processing bam input.bam
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Read group HG002-NA24385-50x.70_percent_1: ignoring insert sizes above 1523
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT First read: 0	10004
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Launching jobs parallelized by contig
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 1
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 1
+2018-07-16 18:01:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 18:01:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 18:01:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 18:01:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 18:06:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 50% (16 cores) * Memory: 4146/30142MB * Storage: 141GB free * Net: 0↓/0↑MBps
+2018-07-16 18:11:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 18:13:15 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:13:15 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 18:13:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 2
+2018-07-16 18:13:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 2
+2018-07-16 18:13:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 18:13:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 18:13:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 18:13:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 18:15:35 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 18:16:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 96% (16 cores) * Memory: 5287/30142MB * Storage: 137GB free * Net: 0↓/0↑MBps
+2018-07-16 18:24:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 18:26:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 96% (16 cores) * Memory: 6231/30142MB * Storage: 133GB free * Net: 0↓/0↑MBps
+2018-07-16 18:26:40 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:26:40 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 18:26:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 3
+2018-07-16 18:26:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 3
+2018-07-16 18:26:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 18:26:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 18:26:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 18:26:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 18:28:34 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 18:36:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 97% (16 cores) * Memory: 7466/30142MB * Storage: 128GB free * Net: 0↓/0↑MBps
+2018-07-16 18:36:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 18:38:36 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:38:36 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 18:38:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 4
+2018-07-16 18:38:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 4
+2018-07-16 18:38:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 18:38:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 18:38:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 18:38:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 18:39:32 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 18:46:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 96% (16 cores) * Memory: 8607/30142MB * Storage: 125GB free * Net: 0↓/0↑MBps
+2018-07-16 18:48:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 18:50:56 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:50:56 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 18:50:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 5
+2018-07-16 18:50:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 5
+2018-07-16 18:50:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 18:51:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 18:51:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 18:51:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 18:51:34 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 18:56:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 96% (16 cores) * Memory: 9895/30142MB * Storage: 121GB free * Net: 0↓/0↑MBps
+2018-07-16 19:00:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:02:22 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:02:22 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:02:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 6
+2018-07-16 19:02:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 6
+2018-07-16 19:02:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:02:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:02:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:02:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:03:16 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:06:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 96% (16 cores) * Memory: 10965/30142MB * Storage: 117GB free * Net: 0↓/0↑MBps
+2018-07-16 19:11:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:14:00 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:14:01 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:14:01 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:14:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 7
+2018-07-16 19:14:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 7
+2018-07-16 19:14:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:14:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:14:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:14:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:16:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 95% (16 cores) * Memory: 12156/30142MB * Storage: 114GB free * Net: 0↓/0↑MBps
+2018-07-16 19:22:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:23:57 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:24:18 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:24:18 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:24:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 8
+2018-07-16 19:24:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 8
+2018-07-16 19:24:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:24:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:24:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:24:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:26:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 94% (16 cores) * Memory: 11782/30142MB * Storage: 110GB free * Net: 0↓/0↑MBps
+2018-07-16 19:29:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:30:13 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:30:13 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:30:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 9
+2018-07-16 19:30:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 9
+2018-07-16 19:30:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:30:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:30:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:30:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:30:41 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:31:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '1' ...
+2018-07-16 19:32:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 19:32:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 55988493 reads were placed.
+2018-07-16 19:32:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:32:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:32:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '1' ...
+2018-07-16 19:33:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '1' ...
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (249250621) for '1'.
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 19:33:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 1 ...
+2018-07-16 19:33:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.0498 +- 6.85601 (before GC correction)
+2018-07-16 19:33:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 19:33:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '1' ...
+2018-07-16 19:33:15 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '1' found.
+2018-07-16 19:33:15 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 19:33:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 1 after GC correction ...
+2018-07-16 19:33:19 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '1'.
+2018-07-16 19:33:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.0498 +- 6.85601 (after GC correction)
+2018-07-16 19:33:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 19:33:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '1' with bin size of 100 ...
+2018-07-16 19:33:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.0498 +- 6.85601
+2018-07-16 19:33:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 19:33:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 19:33:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 19:33:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 19:33:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 19:33:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 19:33:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 19:33:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 19:34:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 19:34:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 19:34:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 19:34:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 19:34:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:34:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 19:34:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 19:34:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 19:35:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 19:35:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 19:35:31 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:35:32 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:35:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 10
+2018-07-16 19:35:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 10
+2018-07-16 19:35:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:35:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 19:35:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:35:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:35:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:36:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 19:36:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 91% (16 cores) * Memory: 12937/30142MB * Storage: 105GB free * Net: 0↓/0↑MBps
+2018-07-16 19:36:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 19:36:55 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:37:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 19:37:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 19:38:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 19:41:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:41:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '2' ...
+2018-07-16 19:42:11 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:42:11 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:42:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 11
+2018-07-16 19:42:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 11
+2018-07-16 19:42:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:42:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:42:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:42:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:42:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 19:42:46 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:42:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 59844692 reads were placed.
+2018-07-16 19:42:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:42:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:42:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '2' ...
+2018-07-16 19:43:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 19:43:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '2' ...
+2018-07-16 19:43:17 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 19:43:17 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 19:43:17 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (243199373) for '2'.
+2018-07-16 19:43:17 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 19:43:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:43:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 2 ...
+2018-07-16 19:43:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.5183 +- 6.86289 (before GC correction)
+2018-07-16 19:43:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 19:43:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '2' ...
+2018-07-16 19:43:25 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '2' found.
+2018-07-16 19:43:25 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 19:43:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 2 after GC correction ...
+2018-07-16 19:43:29 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '2'.
+2018-07-16 19:43:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.5183 +- 6.86289 (after GC correction)
+2018-07-16 19:43:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 19:43:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '2' with bin size of 100 ...
+2018-07-16 19:43:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.5183 +- 6.86289
+2018-07-16 19:43:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 19:43:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 19:43:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 19:43:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 19:43:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 19:43:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 19:43:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 19:44:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 19:44:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 19:44:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 19:44:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 19:44:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 19:44:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 19:44:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 19:45:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 19:45:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 19:45:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 19:46:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 19:46:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 93% (16 cores) * Memory: 12701/30142MB * Storage: 99GB free * Net: 0↓/0↑MBps
+2018-07-16 19:46:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 19:46:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 19:47:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 19:48:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 19:48:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:48:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 19:49:29 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:49:29 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:49:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 12
+2018-07-16 19:49:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 12
+2018-07-16 19:49:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:49:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:49:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:49:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:50:17 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:54:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '3' ...
+2018-07-16 19:54:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 19:55:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 19:55:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 48760380 reads were placed.
+2018-07-16 19:55:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:55:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:55:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '3' ...
+2018-07-16 19:55:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '3' ...
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (198022430) for '3'.
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:55:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 3 ...
+2018-07-16 19:55:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.6577 +- 6.70638 (before GC correction)
+2018-07-16 19:55:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 19:55:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '3' ...
+2018-07-16 19:55:30 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '3' found.
+2018-07-16 19:55:30 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 19:55:31 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 19:55:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 3 after GC correction ...
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '3'.
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.6577 +- 6.70638 (after GC correction)
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 13
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 13
+2018-07-16 19:55:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 19:55:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '3' with bin size of 100 ...
+2018-07-16 19:55:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.6577 +- 6.70638
+2018-07-16 19:55:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 19:55:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 19:55:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 19:55:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 19:55:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 19:55:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 19:55:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 19:55:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 19:55:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 19:55:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 19:55:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 19:56:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 19:56:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 19:56:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 19:56:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 92% (16 cores) * Memory: 13537/30142MB * Storage: 95GB free * Net: 0↓/0↑MBps
+2018-07-16 19:56:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 19:56:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 19:56:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 19:56:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 19:57:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 19:57:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 19:57:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 19:57:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 19:58:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 19:58:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 19:59:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 19:59:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:00:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:01:28 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:01:28 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:01:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 14
+2018-07-16 20:01:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 14
+2018-07-16 20:01:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:01:37 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:01:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:01:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:01:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:05:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:05:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '4' ...
+2018-07-16 20:05:47 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:05:53 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:05:53 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:05:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 15
+2018-07-16 20:05:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 15
+2018-07-16 20:05:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:06:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:06:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:06:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:06:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:06:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 47956979 reads were placed.
+2018-07-16 20:06:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:06:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 92% (16 cores) * Memory: 14107/30142MB * Storage: 90GB free * Net: 0↓/0↑MBps
+2018-07-16 20:06:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:06:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '4' ...
+2018-07-16 20:06:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:06:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '4' ...
+2018-07-16 20:06:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:06:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:06:42 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:06:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (191154276) for '4'.
+2018-07-16 20:06:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:06:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 4 ...
+2018-07-16 20:06:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 25.0669 +- 6.77562 (before GC correction)
+2018-07-16 20:06:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:06:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '4' ...
+2018-07-16 20:06:51 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '4' found.
+2018-07-16 20:06:51 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:06:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 4 after GC correction ...
+2018-07-16 20:06:53 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '4'.
+2018-07-16 20:06:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 25.0669 +- 6.77562 (after GC correction)
+2018-07-16 20:06:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:06:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '4' with bin size of 100 ...
+2018-07-16 20:06:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 25.0669 +- 6.77562
+2018-07-16 20:06:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:07:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:07:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:07:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:07:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:07:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:07:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:07:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:07:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:07:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:07:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:07:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:07:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:08:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:08:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:08:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:08:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:08:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:09:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:09:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:09:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:10:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 20:10:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 20:11:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:11:09 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:11:09 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:11:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 16
+2018-07-16 20:11:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 16
+2018-07-16 20:11:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:11:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:11:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:11:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:11:26 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:14:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:15:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '5' ...
+2018-07-16 20:15:36 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:15:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:15:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 44822694 reads were placed.
+2018-07-16 20:15:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:16:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:16:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '5' ...
+2018-07-16 20:16:05 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:16:05 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:16:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 17
+2018-07-16 20:16:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 17
+2018-07-16 20:16:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:16:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:16:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:16:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:16:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:16:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '5' ...
+2018-07-16 20:16:16 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:16:16 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:16:16 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (180915260) for '5'.
+2018-07-16 20:16:16 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:16:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:16:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 5 ...
+2018-07-16 20:16:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 91% (16 cores) * Memory: 15023/30142MB * Storage: 86GB free * Net: 0↓/0↑MBps
+2018-07-16 20:16:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.729 +- 6.72937 (before GC correction)
+2018-07-16 20:16:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:16:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '5' ...
+2018-07-16 20:16:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '5' found.
+2018-07-16 20:16:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:16:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 5 after GC correction ...
+2018-07-16 20:16:26 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '5'.
+2018-07-16 20:16:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.729 +- 6.72937 (after GC correction)
+2018-07-16 20:16:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:16:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '5' with bin size of 100 ...
+2018-07-16 20:16:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.729 +- 6.72937
+2018-07-16 20:16:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:16:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:16:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:16:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:16:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:16:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:16:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:16:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:16:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:17:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:17:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:17:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:17:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:17:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:17:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:17:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:18:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:18:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:18:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:19:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:19:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 20:20:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:20:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 20:20:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:21:18 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:21:18 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:21:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 18
+2018-07-16 20:21:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 18
+2018-07-16 20:21:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:21:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:21:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:21:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:21:33 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:24:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:25:12 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:25:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '6' ...
+2018-07-16 20:25:48 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:25:48 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:25:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 19
+2018-07-16 20:25:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 19
+2018-07-16 20:25:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:25:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:25:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:26:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:26:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 92% (16 cores) * Memory: 17074/30142MB * Storage: 83GB free * Net: 0↓/0↑MBps
+2018-07-16 20:26:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:26:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 42733309 reads were placed.
+2018-07-16 20:26:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:26:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:26:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '6' ...
+2018-07-16 20:27:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:27:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '6' ...
+2018-07-16 20:27:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:27:03 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:27:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (171115067) for '6'.
+2018-07-16 20:27:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:27:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:27:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 6 ...
+2018-07-16 20:27:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.852 +- 6.71062 (before GC correction)
+2018-07-16 20:27:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:27:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '6' ...
+2018-07-16 20:27:13 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '6' found.
+2018-07-16 20:27:13 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:27:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 6 after GC correction ...
+2018-07-16 20:27:16 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '6'.
+2018-07-16 20:27:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.852 +- 6.71062 (after GC correction)
+2018-07-16 20:27:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:27:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '6' with bin size of 100 ...
+2018-07-16 20:27:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.852 +- 6.71062
+2018-07-16 20:27:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:27:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:27:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:27:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:27:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:27:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:27:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:27:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:27:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:27:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:27:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:28:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:28:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:28:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:28:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:28:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:28:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:28:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:29:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:29:10 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:29:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:29:19 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:29:19 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:29:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 20
+2018-07-16 20:29:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 20
+2018-07-16 20:29:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:29:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:29:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:29:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:29:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:30:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 20:30:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 20:31:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:32:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:33:13 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:33:36 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:33:36 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:33:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 21
+2018-07-16 20:33:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 21
+2018-07-16 20:33:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:33:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:33:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:33:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:35:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:35:46 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:36:03 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:36:03 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:36:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig 22
+2018-07-16 20:36:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig 22
+2018-07-16 20:36:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:36:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '7' ...
+2018-07-16 20:36:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:36:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:36:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:36:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 92% (16 cores) * Memory: 18460/30142MB * Storage: 79GB free * Net: 0↓/0↑MBps
+2018-07-16 20:37:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:37:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 38394726 reads were placed.
+2018-07-16 20:37:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:37:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:37:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '7' ...
+2018-07-16 20:37:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:37:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '7' ...
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (159138663) for '7'.
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:37:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 7 ...
+2018-07-16 20:37:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.2386 +- 6.87279 (before GC correction)
+2018-07-16 20:37:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:37:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '7' ...
+2018-07-16 20:37:55 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '7' found.
+2018-07-16 20:37:55 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:37:56 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:37:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 7 after GC correction ...
+2018-07-16 20:37:57 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '7'.
+2018-07-16 20:37:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.2386 +- 6.87279 (after GC correction)
+2018-07-16 20:37:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:38:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '7' with bin size of 100 ...
+2018-07-16 20:38:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.2386 +- 6.87279
+2018-07-16 20:38:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:38:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:38:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:38:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:38:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:38:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:38:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:38:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:38:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:38:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:38:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:38:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:38:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:38:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:38:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:38:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:39:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:39:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:39:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:39:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:39:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:40:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 20:40:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:40:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 20:40:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:41:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:42:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:43:11 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:43:11 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:43:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig X
+2018-07-16 20:43:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig X
+2018-07-16 20:43:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:43:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:43:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:43:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:45:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '8' ...
+2018-07-16 20:46:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 91% (16 cores) * Memory: 18507/30142MB * Storage: 76GB free * Net: 0↓/0↑MBps
+2018-07-16 20:46:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:46:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 36311510 reads were placed.
+2018-07-16 20:46:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:46:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:46:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '8' ...
+2018-07-16 20:46:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:46:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '8' ...
+2018-07-16 20:46:56 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:46:56 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:46:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:46:56 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (146364022) for '8'.
+2018-07-16 20:46:56 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:46:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 8 ...
+2018-07-16 20:47:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.3644 +- 6.77848 (before GC correction)
+2018-07-16 20:47:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:47:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '8' ...
+2018-07-16 20:47:05 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '8' found.
+2018-07-16 20:47:05 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:47:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:47:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 8 after GC correction ...
+2018-07-16 20:47:06 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '8'.
+2018-07-16 20:47:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.3644 +- 6.77848 (after GC correction)
+2018-07-16 20:47:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:47:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '8' with bin size of 100 ...
+2018-07-16 20:47:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.3644 +- 6.77848
+2018-07-16 20:47:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:47:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:47:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:47:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:47:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:47:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:47:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:47:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:47:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:47:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:47:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:47:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:47:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:47:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:48:02 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:48:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:48:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:48:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:48:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:48:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:48:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:48:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:49:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 20:49:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 20:49:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:49:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:50:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:51:44 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 20:51:44 16C-D2-Breakdancer_Manta_CNVnator STDERR samtools view: error closing standard output: -1
+2018-07-16 20:51:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running Breakdancer for contig Y
+2018-07-16 20:51:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running CNVnator for contig Y
+2018-07-16 20:51:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba view
+2018-07-16 20:51:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Parsing file input.bam ...
+2018-07-16 20:51:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:51:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:52:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '9' ...
+2018-07-16 20:52:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running sambamba index
+2018-07-16 20:53:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Max Kahan error: 0
+2018-07-16 20:53:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:53:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:53:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 28817083 reads were placed.
+2018-07-16 20:53:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:53:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:53:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '9' ...
+2018-07-16 20:53:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '9' ...
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (141213431) for '9'.
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:53:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 9 ...
+2018-07-16 20:53:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.7799 +- 6.93873 (before GC correction)
+2018-07-16 20:53:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:53:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '9' ...
+2018-07-16 20:53:39 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '9' found.
+2018-07-16 20:53:39 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:53:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 9 after GC correction ...
+2018-07-16 20:53:40 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '9'.
+2018-07-16 20:53:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.7799 +- 6.93873 (after GC correction)
+2018-07-16 20:53:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:53:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '9' with bin size of 100 ...
+2018-07-16 20:53:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 23.7799 +- 6.93873
+2018-07-16 20:53:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:53:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:53:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:53:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:53:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:53:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:53:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:53:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:53:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:54:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:54:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:54:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:54:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:54:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:54:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:54:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:54:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:54:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:54:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:55:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:55:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:55:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:55:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 20:55:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 20:56:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 20:56:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 92% (16 cores) * Memory: 17359/30142MB * Storage: 75GB free * Net: 0↓/0↑MBps
+2018-07-16 20:56:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:57:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '10' ...
+2018-07-16 20:57:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Waiting for 60 seconds
+2018-07-16 20:57:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 20:57:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 31829737 reads were placed.
+2018-07-16 20:57:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 20:57:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:57:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '10' ...
+2018-07-16 20:57:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '10' ...
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (135534747) for '10'.
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 20:57:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 10 ...
+2018-07-16 20:58:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.7679 +- 6.81358 (before GC correction)
+2018-07-16 20:58:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 20:58:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '10' ...
+2018-07-16 20:58:01 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '10' found.
+2018-07-16 20:58:01 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 20:58:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 10 after GC correction ...
+2018-07-16 20:58:02 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '10'.
+2018-07-16 20:58:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.7679 +- 6.81358 (after GC correction)
+2018-07-16 20:58:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 20:58:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '10' with bin size of 100 ...
+2018-07-16 20:58:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 23.7679 +- 6.81358
+2018-07-16 20:58:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 20:58:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 20:58:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 20:58:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 20:58:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 20:58:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 20:58:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 20:58:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 20:58:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 20:58:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 20:58:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 20:58:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 20:58:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 20:58:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 20:58:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 20:58:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 20:59:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 20:59:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 20:59:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 20:59:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 20:59:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:00:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:00:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:02:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '11' ...
+2018-07-16 21:02:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:02:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 31994489 reads were placed.
+2018-07-16 21:02:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:02:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:02:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '11' ...
+2018-07-16 21:03:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '11' ...
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (135006516) for '11'.
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:03:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 11 ...
+2018-07-16 21:03:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.8984 +- 6.84497 (before GC correction)
+2018-07-16 21:03:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:03:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '11' ...
+2018-07-16 21:03:07 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '11' found.
+2018-07-16 21:03:07 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:03:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 11 after GC correction ...
+2018-07-16 21:03:08 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '11'.
+2018-07-16 21:03:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.8984 +- 6.84497 (after GC correction)
+2018-07-16 21:03:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:03:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '11' with bin size of 100 ...
+2018-07-16 21:03:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 23.8984 +- 6.84497
+2018-07-16 21:03:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:03:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:03:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:03:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:03:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:03:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:03:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:03:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:03:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:03:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:03:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:03:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:03:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:03:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:03:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:03:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:04:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:04:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:04:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:04:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:04:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:05:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:05:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:06:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 89% (16 cores) * Memory: 14941/30142MB * Storage: 75GB free * Net: 0↓/0↑MBps
+2018-07-16 21:07:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '12' ...
+2018-07-16 21:07:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:07:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 32383278 reads were placed.
+2018-07-16 21:07:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:07:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:07:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '12' ...
+2018-07-16 21:07:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '12' ...
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (133851895) for '12'.
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:07:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 12 ...
+2018-07-16 21:07:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.4164 +- 6.80964 (before GC correction)
+2018-07-16 21:07:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:07:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '12' ...
+2018-07-16 21:07:44 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '12' found.
+2018-07-16 21:07:44 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:07:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 12 after GC correction ...
+2018-07-16 21:07:45 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '12'.
+2018-07-16 21:07:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.4164 +- 6.80964 (after GC correction)
+2018-07-16 21:07:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:07:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '12' with bin size of 100 ...
+2018-07-16 21:07:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.4164 +- 6.80964
+2018-07-16 21:07:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:07:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:07:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:07:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:07:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:07:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:07:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:07:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:08:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:08:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:08:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:08:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:08:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:08:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:08:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:08:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:08:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:08:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:08:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:09:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:09:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:09:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:09:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:11:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '13' ...
+2018-07-16 21:11:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:12:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 24050104 reads were placed.
+2018-07-16 21:12:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:12:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:12:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '13' ...
+2018-07-16 21:12:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '13' ...
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (115169878) for '13'.
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:12:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 13 ...
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.8314 +- 6.71104 (before GC correction)
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '13' ...
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '13' found.
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 13 after GC correction ...
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '13'.
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.8314 +- 6.71104 (after GC correction)
+2018-07-16 21:12:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:12:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '13' with bin size of 100 ...
+2018-07-16 21:12:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.8314 +- 6.71104
+2018-07-16 21:12:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:12:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:12:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:12:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:12:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:12:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:12:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:12:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:12:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:12:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:12:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:12:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:12:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:12:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:12:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:12:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:12:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:13:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:13:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:13:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:13:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:13:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:14:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:15:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '14' ...
+2018-07-16 21:15:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:15:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 22226332 reads were placed.
+2018-07-16 21:15:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:15:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:15:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '14' ...
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '14' ...
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (107349540) for '14'.
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:15:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 14 ...
+2018-07-16 21:15:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.4563 +- 6.82217 (before GC correction)
+2018-07-16 21:15:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:15:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '14' ...
+2018-07-16 21:15:56 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '14' found.
+2018-07-16 21:15:56 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:15:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 14 after GC correction ...
+2018-07-16 21:15:57 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '14'.
+2018-07-16 21:15:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.4563 +- 6.82217 (after GC correction)
+2018-07-16 21:15:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:15:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '14' with bin size of 100 ...
+2018-07-16 21:15:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.4563 +- 6.82217
+2018-07-16 21:15:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:16:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:16:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:16:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:16:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:16:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:16:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:16:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:16:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:16:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:16:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:16:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:16:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:16:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 82% (16 cores) * Memory: 11989/30142MB * Storage: 75GB free * Net: 0↓/0↑MBps
+2018-07-16 21:16:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:16:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:16:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:16:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:16:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:16:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:16:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:17:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:17:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:17:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:18:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '15' ...
+2018-07-16 21:18:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:18:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 19900821 reads were placed.
+2018-07-16 21:18:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:18:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:18:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '15' ...
+2018-07-16 21:18:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '15' ...
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (102531392) for '15'.
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:18:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 15 ...
+2018-07-16 21:19:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.9375 +- 6.89282 (before GC correction)
+2018-07-16 21:19:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:19:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '15' ...
+2018-07-16 21:19:00 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '15' found.
+2018-07-16 21:19:00 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:19:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 15 after GC correction ...
+2018-07-16 21:19:01 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '15'.
+2018-07-16 21:19:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 23.9375 +- 6.89282 (after GC correction)
+2018-07-16 21:19:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:19:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '15' with bin size of 100 ...
+2018-07-16 21:19:02 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 23.9375 +- 6.89282
+2018-07-16 21:19:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:19:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:19:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:19:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:19:06 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:19:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:19:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:19:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:19:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:19:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:19:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:19:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:19:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:19:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:19:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:19:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:19:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:19:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:19:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:19:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:20:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:20:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:20:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:21:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '16' ...
+2018-07-16 21:21:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:21:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 21042975 reads were placed.
+2018-07-16 21:21:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:21:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:21:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '16' ...
+2018-07-16 21:21:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '16' ...
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (90354753) for '16'.
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:21:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 16 ...
+2018-07-16 21:21:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 22.8749 +- 6.52923 (before GC correction)
+2018-07-16 21:21:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '16' ...
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '16' found.
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 16 after GC correction ...
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '16'.
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 22.8749 +- 6.52923 (after GC correction)
+2018-07-16 21:21:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:21:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '16' with bin size of 100 ...
+2018-07-16 21:21:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 22.8749 +- 6.52923
+2018-07-16 21:21:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:21:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:21:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:21:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:21:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:21:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:21:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:21:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:21:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:21:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:21:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:21:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:21:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:21:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:21:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:21:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:22:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:22:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:22:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:22:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:22:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:22:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:22:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:24:03 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '17' ...
+2018-07-16 21:24:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:24:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 18476741 reads were placed.
+2018-07-16 21:24:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:24:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:24:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '17' ...
+2018-07-16 21:24:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '17' ...
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (81195210) for '17'.
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:24:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 17 ...
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 22.8571 +- 6.60371 (before GC correction)
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '17' ...
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '17' found.
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 17 after GC correction ...
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '17'.
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 22.8571 +- 6.60371 (after GC correction)
+2018-07-16 21:24:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:24:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '17' with bin size of 100 ...
+2018-07-16 21:24:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 22.8571 +- 6.60371
+2018-07-16 21:24:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:24:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:24:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:24:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:24:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:24:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:24:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:24:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:24:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:24:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:24:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:24:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:24:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:24:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:24:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:24:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:24:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:24:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:25:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:25:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:25:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:25:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:25:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:25:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '18' ...
+2018-07-16 21:26:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:26:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 18490239 reads were placed.
+2018-07-16 21:26:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:26:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:26:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '18' ...
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '18' ...
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (78077248) for '18'.
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:26:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 18 ...
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.3242 +- 6.70301 (before GC correction)
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '18' ...
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '18' found.
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 18 after GC correction ...
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '18'.
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.3242 +- 6.70301 (after GC correction)
+2018-07-16 21:26:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:26:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '18' with bin size of 100 ...
+2018-07-16 21:26:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.3242 +- 6.70301
+2018-07-16 21:26:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:26:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:26:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:26:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:26:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:26:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 75% (16 cores) * Memory: 7991/30142MB * Storage: 74GB free * Net: 0↓/0↑MBps
+2018-07-16 21:26:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:26:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:26:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:26:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:26:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:26:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:26:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:26:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:26:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:26:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:26:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:26:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:26:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:26:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:26:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:27:00 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:27:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:27:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:28:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '19' ...
+2018-07-16 21:28:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:28:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 12516760 reads were placed.
+2018-07-16 21:28:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:28:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:28:43 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '19' ...
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '19' ...
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (59128983) for '19'.
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:28:45 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 19 ...
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 21.5269 +- 6.39193 (before GC correction)
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '19' ...
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '19' found.
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 19 after GC correction ...
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '19'.
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 21.5269 +- 6.39193 (after GC correction)
+2018-07-16 21:28:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:28:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '19' with bin size of 100 ...
+2018-07-16 21:28:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 21.5269 +- 6.39193
+2018-07-16 21:28:47 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:28:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:28:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:28:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:28:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:28:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:28:50 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:28:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:28:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:28:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:28:53 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:28:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:28:56 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:28:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:28:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:29:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:29:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:29:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:29:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:29:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:29:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:29:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:29:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:29:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '20' ...
+2018-07-16 21:30:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:30:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 13826301 reads were placed.
+2018-07-16 21:30:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:30:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:30:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '20' ...
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '20' ...
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (63025520) for '20'.
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:30:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 20 ...
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 22.6862 +- 6.42737 (before GC correction)
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '20' ...
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '20' found.
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 20 after GC correction ...
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '20'.
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 22.6862 +- 6.42737 (after GC correction)
+2018-07-16 21:30:08 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:30:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '20' with bin size of 100 ...
+2018-07-16 21:30:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 22.6862 +- 6.42737
+2018-07-16 21:30:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:30:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:30:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:30:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:30:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:30:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:30:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:30:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:30:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:30:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:30:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:30:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:30:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:30:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:30:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:30:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:30:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:30:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:30:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:30:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:30:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:30:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:30:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:31:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '21' ...
+2018-07-16 21:31:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:31:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 9312840 reads were placed.
+2018-07-16 21:31:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:31:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:31:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '21' ...
+2018-07-16 21:31:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '21' ...
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (48129895) for '21'.
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:31:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 21 ...
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.245 +- 6.86015 (before GC correction)
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '21' ...
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '21' found.
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 21 after GC correction ...
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '21'.
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 24.245 +- 6.86015 (after GC correction)
+2018-07-16 21:31:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:31:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '21' with bin size of 100 ...
+2018-07-16 21:31:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 24.245 +- 6.86015
+2018-07-16 21:31:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:31:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:31:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:31:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:31:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:31:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:31:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:31:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:31:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:31:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:31:37 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:31:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:31:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:31:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:31:41 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:31:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:31:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:31:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:31:48 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:31:51 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:31:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:31:57 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:32:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:32:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for '22' ...
+2018-07-16 21:32:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:32:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 7935183 reads were placed.
+2018-07-16 21:32:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:32:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:32:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for '22' ...
+2018-07-16 21:32:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for '22' ...
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (51304566) for '22'.
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:32:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 22 ...
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 21.7075 +- 6.47789 (before GC correction)
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for '22' ...
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for '22' found.
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for 22 after GC correction ...
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for '22'.
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 21.7075 +- 6.47789 (after GC correction)
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for '22' with bin size of 100 ...
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 21.7075 +- 6.47789
+2018-07-16 21:32:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:32:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:32:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:32:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:32:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:32:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:32:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:32:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:32:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:32:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:32:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:32:35 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:32:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:32:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:32:39 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:32:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:32:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:32:44 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:32:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:32:49 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:32:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:32:55 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:32:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:34:54 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for 'X' ...
+2018-07-16 21:35:01 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:35:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 19520346 reads were placed.
+2018-07-16 21:35:04 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:35:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:35:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for 'X' ...
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for 'X' ...
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (155270560) for 'X'.
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:35:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for X ...
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 0 +- 0 (before GC correction)
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 12.1333 +- 4.21601 (before GC correction)
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for 'X' ...
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for 'X' found.
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for X after GC correction ...
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 0 +- 0 (after GC correction)
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for 'X'.
+2018-07-16 21:35:09 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 12.1333 +- 4.21601 (after GC correction)
+2018-07-16 21:35:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for 'X' with bin size of 100 ...
+2018-07-16 21:35:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 12.1333 +- 4.21601
+2018-07-16 21:35:10 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:35:11 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:35:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:35:12 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:35:13 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:35:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:35:16 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:35:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:35:19 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:35:21 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:35:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:35:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:35:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:35:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:35:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:35:40 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:35:46 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:35:52 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:35:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:36:07 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:36:17 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:36:20 16C-D2-Breakdancer_Manta_CNVnator INFO CPU: 54% (16 cores) * Memory: 3276/30142MB * Storage: 74GB free * Net: 0↓/0↑MBps
+2018-07-16 21:36:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:36:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:38:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT Filling and saving tree for 'Y' ...
+2018-07-16 21:38:20 16C-D2-Breakdancer_Manta_CNVnator STDOUT Writing histograms ... 
+2018-07-16 21:38:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Total of 5677289 reads were placed.
+2018-07-16 21:38:22 16C-D2-Breakdancer_Manta_CNVnator STDOUT Allocating memory ...
+2018-07-16 21:38:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:38:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Calculating histograms with bin size of 100 for 'Y' ...
+2018-07-16 21:38:23 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making directory bin_100 ...
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making GC histogram for 'Y' ...
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Done.
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't open file with chromosome sequence.
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No chromosome/contig information parsed.
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Sequence length (0) is different from expectation (59373566) for 'Y'.
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDERR Doing nothing!
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for Y ...
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 0 +- 0 (before GC correction)
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 11.8867 +- 4.14563 (before GC correction)
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Correcting counts by GC-content for 'Y' ...
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No histogram with GC content for 'Y' found.
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDERR No correction made.
+2018-07-16 21:38:24 16C-D2-Breakdancer_Manta_CNVnator STDOUT Making statistics for Y after GC correction ...
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (1-22) is 0 +- 0 (after GC correction)
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't find GC-content histogram for 'Y'.
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin (X,Y)  is 11.8867 +- 4.14563 (after GC correction)
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Partitioning RD signal for 'Y' with bin size of 100 ...
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Average RD per bin is 11.8867 +- 4.14563
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 2
+2018-07-16 21:38:25 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 3
+2018-07-16 21:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 4
+2018-07-16 21:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 5
+2018-07-16 21:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 6
+2018-07-16 21:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 7
+2018-07-16 21:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 8
+2018-07-16 21:38:26 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 10
+2018-07-16 21:38:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 12
+2018-07-16 21:38:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 14
+2018-07-16 21:38:27 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 16
+2018-07-16 21:38:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 20
+2018-07-16 21:38:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 24
+2018-07-16 21:38:28 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 28
+2018-07-16 21:38:29 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 32
+2018-07-16 21:38:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 40
+2018-07-16 21:38:30 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 48
+2018-07-16 21:38:31 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 56
+2018-07-16 21:38:32 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 64
+2018-07-16 21:38:33 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 80
+2018-07-16 21:38:34 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 96
+2018-07-16 21:38:36 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 112
+2018-07-16 21:38:38 16C-D2-Breakdancer_Manta_CNVnator STDOUT Bin band is 128
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Converting results to VCF format
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Convert Manta results to VCF format
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Convert Breakdancer results to VCF format
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDOUT Convert CNVnator results to VCF format
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Reading calls ...
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 1.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 2.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 3.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 4.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 5.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 6.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 7.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 8.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 9.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 10.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 11.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 12.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 13.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 14.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 15.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 16.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 17.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 18.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 19.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 20.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 21.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome 22.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome X.
+2018-07-16 21:38:42 16C-D2-Breakdancer_Manta_CNVnator STDERR Can't parse sequence for chromosome Y.
+2018-07-16 21:39:10 16C-D2-Breakdancer_Manta_CNVnator STDERR breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.14.1 which is incompatible.
+2018-07-16 21:39:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT 1
+2018-07-16 21:39:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT 2
+2018-07-16 21:39:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT 3
+2018-07-16 21:39:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running SVTyper
+2018-07-16 21:39:15 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running SVTyper on Breakdancer outputs
+2018-07-16 21:39:16 16C-D2-Breakdancer_Manta_CNVnator STDERR grep: svtype_breakdancer: Is a directory
+2018-07-16 21:43:05 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running SVTyper on CNVnator outputs
+2018-07-16 21:43:05 16C-D2-Breakdancer_Manta_CNVnator STDERR grep: svtype_cnvnator: Is a directory
+2018-07-16 21:44:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Preparing inputs for SURVIVOR
+2018-07-16 21:44:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT Running SURVIVOR
+2018-07-16 21:44:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT merging entries: 9897
+2018-07-16 21:44:58 16C-D2-Breakdancer_Manta_CNVnator STDOUT merging entries: 18678
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT merging entries: 6501
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT merging entries: 9897
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT Histogram over the # of callers overlapping per SVs: 
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT 1 14387
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT 2 8661
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT 3 746
+2018-07-16 21:44:59 16C-D2-Breakdancer_Manta_CNVnator STDOUT 4 287
+2018-07-16 21:45:14 16C-D2-Breakdancer_Manta_CNVnator STDOUT Docker image finished
+2018-07-16 21:45:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT total 6.4M
+2018-07-16 21:45:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT 2.1M HG002-NA24385-50x.70_percent.markdup.realigned.breakdancer.svtyped.vcf
+2018-07-16 21:45:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT 1.3M HG002-NA24385-50x.70_percent.markdup.realigned.cnvnator.svtyped.vcf
+2018-07-16 21:45:18 16C-D2-Breakdancer_Manta_CNVnator STDOUT 3.2M HG002-NA24385-50x.70_percent.markdup.realigned.manta.svtyped.vcf
+* 16C-D2-Breakdancer_Manta_CNVnator (parliament2:main) (done) job-FJ6YK3j04KF1zpq13BFK44J4
+  acarroll 2018-07-16 17:23:43 (runtime 4:19:08)
+  Output: svtyped_vcfs = [ file-FJ6g8gQ071vV3VkX2f2XZ8pB, file-FJ6g8gQ071vV3VkX2f2XZ8pG,
+         file-FJ6g8gj071vV5ypz2fVYB6Xk ]
+          sv_caller_results = [ file-FJ6g8fj071vV5ypz2fVYB6V8,
+         file-FJ6g8g0071vV5ypz2fVYB6VG, file-FJ6g8g0071vzx3B82fgVV4kf,
+         file-FJ6g8g8071vV5ypz2fVYB6VQ, file-FJ6g8g8071vkx25q2fJ24ggy,
+         file-FJ6g8gQ071vyb4Ff2bv8g1JG ]
+          combined_genotypes = file-FJ6g8gj071vzx3B82fgVV4kj
