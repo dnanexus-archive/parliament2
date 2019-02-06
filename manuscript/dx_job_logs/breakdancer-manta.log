@@ -1,0 +1,222 @@
+* 16C-D2-Breakdancer_Manta (parliament2:main) (done) job-FJ6YJBQ04KF1zpq13BFK44Gx
+  acarroll 2018-07-16 17:22:02 (runtime 1:57:21)
+2018-07-16 17:25:18 16C-D2-Breakdancer_Manta INFO Logging initialized (priority)
+2018-07-16 17:25:19 16C-D2-Breakdancer_Manta INFO Logging initialized (bulk)
+2018-07-16 17:25:20 16C-D2-Breakdancer_Manta INFO CPU: 19% (16 cores) * Memory: 1639/30142MB * Storage: 304GB free * Net: 0↓/0↑MBps
+2018-07-16 17:25:20 16C-D2-Breakdancer_Manta STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:25:20 16C-D2-Breakdancer_Manta INFO Downloading bundled file parliament2.tar.gz
+2018-07-16 17:25:30 16C-D2-Breakdancer_Manta STDOUT >>> Unpacking parliament2.tar.gz to /
+2018-07-16 17:25:30 16C-D2-Breakdancer_Manta STDERR tar: Removing leading `/' from member names
+2018-07-16 17:26:28 16C-D2-Breakdancer_Manta INFO Setting SSH public key
+2018-07-16 17:26:29 16C-D2-Breakdancer_Manta STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:26:29 16C-D2-Breakdancer_Manta STDOUT /usr/sbin/sshd already running.
+2018-07-16 17:26:30 16C-D2-Breakdancer_Manta STDOUT Invoking main with {u'run_svviz': False, u'run_lumpy': False, u'filter_short_contigs': True, u'ref_fasta': {u'$dnanexus_link': u'file-B6ZY7VG2J35Vfvpkj8y0KZ01'}, u'run_delly_insertion': False, u'output_log_files': True, u'run_cnvnator': False, u'run_breakdancer': True, u'run_delly_inversion': False, u'illumina_bam': {u'$dnanexus_link': u'file-F4JFyx00Fq4YZkB80P7fZ4Fv'}, u'run_delly_deletion': False, u'run_breakseq': False, u'run_delly_duplication': False, u'run_manta': True, u'svviz_only_validated_candidates': True, u'run_genotype_candidates': True}
+2018-07-16 17:26:30 16C-D2-Breakdancer_Manta STDOUT Starting Docker
+2018-07-16 17:35:20 16C-D2-Breakdancer_Manta INFO CPU: 3% (16 cores) * Memory: 5882/30142MB * Storage: 252GB free * Net: 97↓/1↑MBps
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Image Repo	parliament2
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Image Tag	latest
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Image Size	4.7G
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Image ID	f2aac38467f28517596e673c5531cc57444b72f64e7f5d1c261c456cdbb4c2f2
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Parent ID	5460a7e6d166a3a0c2bd8efd9b8b733765ed976d53e5da1cbcef68b98fb6655c
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Last Updated	2018-07-16T21:52:58Z (0d 2h ago)
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR ENTRYPOINT	["python","/home/dnanexus/parliament2.py"]
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR Working Dir	/home/dnanexus
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR 
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR 
+2018-07-16 17:40:47 16C-D2-Breakdancer_Manta STDERR proot warning: can't sanitize binding "/var/run/dbus/system_bus_socket": No such file or directory
+2018-07-16 17:41:40 16C-D2-Breakdancer_Manta STDOUT Classify FASTA
+2018-07-16 17:41:40 16C-D2-Breakdancer_Manta STDOUT HG002-NA24385-50x.70_percent.markdup.realigned
+2018-07-16 17:41:40 16C-D2-Breakdancer_Manta STDOUT Set up and index BAM/CRAM
+2018-07-16 17:41:40 16C-D2-Breakdancer_Manta STDOUT BAM file input, no index exists
+2018-07-16 17:45:20 16C-D2-Breakdancer_Manta INFO CPU: 1% (16 cores) * Memory: 2625/30142MB * Storage: 201GB free * Net: 34↓/0↑MBps
+2018-07-16 17:55:20 16C-D2-Breakdancer_Manta INFO CPU: 0% (16 cores) * Memory: 2753/30142MB * Storage: 155GB free * Net: 0↓/0↑MBps
+2018-07-16 18:05:20 16C-D2-Breakdancer_Manta INFO CPU: 5% (16 cores) * Memory: 2225/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:09:49 16C-D2-Breakdancer_Manta STDOUT Generate contigs
+2018-07-16 18:09:49 16C-D2-Breakdancer_Manta STDOUT Launching jobs that cannot be parallelized by contig
+2018-07-16 18:09:49 16C-D2-Breakdancer_Manta STDOUT Manta
+2018-07-16 18:09:49 16C-D2-Breakdancer_Manta STDERR Processing bam input.bam
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDOUT First read: 0	10004
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDERR Read group HG002-NA24385-50x.70_percent_1: ignoring insert sizes above 1523
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDOUT Launching jobs parallelized by contig
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 1
+2018-07-16 18:09:50 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:15:20 16C-D2-Breakdancer_Manta INFO CPU: 53% (16 cores) * Memory: 2935/30142MB * Storage: 139GB free * Net: 0↓/0↑MBps
+2018-07-16 18:16:37 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:17:34 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:17:34 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:17:34 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 2
+2018-07-16 18:17:34 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:17:34 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:24:14 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:25:20 16C-D2-Breakdancer_Manta INFO CPU: 93% (16 cores) * Memory: 3842/30142MB * Storage: 133GB free * Net: 0↓/0↑MBps
+2018-07-16 18:25:28 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:25:28 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:25:28 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 3
+2018-07-16 18:25:28 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:25:34 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:31:00 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:31:57 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:31:57 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:31:57 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 4
+2018-07-16 18:31:57 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:32:03 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:35:20 16C-D2-Breakdancer_Manta INFO CPU: 94% (16 cores) * Memory: 3870/30142MB * Storage: 125GB free * Net: 0↓/0↑MBps
+2018-07-16 18:37:19 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:38:23 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:38:27 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:38:27 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:38:27 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 5
+2018-07-16 18:38:27 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:43:38 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:44:23 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:45:01 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:45:01 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:45:01 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 6
+2018-07-16 18:45:01 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:45:20 16C-D2-Breakdancer_Manta INFO CPU: 94% (16 cores) * Memory: 3893/30142MB * Storage: 119GB free * Net: 0↓/0↑MBps
+2018-07-16 18:49:56 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:50:50 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:50:50 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:50:50 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:50:50 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 7
+2018-07-16 18:50:50 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:54:19 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:54:34 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:54:34 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:54:34 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 8
+2018-07-16 18:54:34 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:55:02 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:55:20 16C-D2-Breakdancer_Manta INFO CPU: 92% (16 cores) * Memory: 2435/30142MB * Storage: 110GB free * Net: 0↓/0↑MBps
+2018-07-16 18:56:49 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:57:02 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:57:02 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:57:02 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 9
+2018-07-16 18:57:02 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:57:42 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 18:58:56 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 18:59:07 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 18:59:07 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 18:59:07 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 10
+2018-07-16 18:59:07 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 18:59:29 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:01:11 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:01:22 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:01:22 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:01:22 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 11
+2018-07-16 19:01:22 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:01:53 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:03:25 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:03:37 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:03:37 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:03:37 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 12
+2018-07-16 19:03:37 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:04:08 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:05:20 16C-D2-Breakdancer_Manta INFO CPU: 82% (16 cores) * Memory: 2323/30142MB * Storage: 98GB free * Net: 0↓/0↑MBps
+2018-07-16 19:05:45 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:05:57 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:05:57 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:05:57 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 13
+2018-07-16 19:05:57 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:06:25 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:07:23 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:07:32 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:07:32 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:07:32 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 14
+2018-07-16 19:07:32 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:07:59 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:08:54 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:09:03 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:09:03 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:09:03 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 15
+2018-07-16 19:09:03 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:09:26 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:10:14 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:10:23 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:10:23 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:10:23 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 16
+2018-07-16 19:10:23 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:10:47 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:11:48 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:11:56 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:11:56 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:11:56 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 17
+2018-07-16 19:11:56 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:12:13 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:13:04 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:13:12 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:13:12 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:13:12 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 18
+2018-07-16 19:13:12 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:13:35 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:14:18 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:14:25 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:14:25 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:14:25 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 19
+2018-07-16 19:14:25 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:14:51 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:15:11 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:15:17 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:15:17 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:15:17 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 20
+2018-07-16 19:15:17 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:15:20 16C-D2-Breakdancer_Manta INFO CPU: 84% (16 cores) * Memory: 2327/30142MB * Storage: 84GB free * Net: 0↓/0↑MBps
+2018-07-16 19:15:34 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:16:09 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:16:15 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:16:15 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:16:15 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 21
+2018-07-16 19:16:15 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:16:28 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:16:45 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:16:50 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:16:50 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:16:50 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig 22
+2018-07-16 19:16:50 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:17:05 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:17:17 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:17:21 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:17:21 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:17:21 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig X
+2018-07-16 19:17:21 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:17:33 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:18:31 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:18:39 16C-D2-Breakdancer_Manta STDERR samtools view: writing to standard output failed: Broken pipe
+2018-07-16 19:18:39 16C-D2-Breakdancer_Manta STDERR samtools view: error closing standard output: -1
+2018-07-16 19:18:39 16C-D2-Breakdancer_Manta STDOUT Running Breakdancer for contig Y
+2018-07-16 19:18:39 16C-D2-Breakdancer_Manta STDOUT Running sambamba view
+2018-07-16 19:18:59 16C-D2-Breakdancer_Manta STDOUT Running sambamba index
+2018-07-16 19:19:03 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:19:07 16C-D2-Breakdancer_Manta STDERR Max Kahan error: 0
+2018-07-16 19:19:07 16C-D2-Breakdancer_Manta STDOUT Converting results to VCF format
+2018-07-16 19:19:07 16C-D2-Breakdancer_Manta STDOUT Convert Manta results to VCF format
+2018-07-16 19:19:07 16C-D2-Breakdancer_Manta STDOUT Convert Breakdancer results to VCF format
+2018-07-16 19:19:35 16C-D2-Breakdancer_Manta STDERR breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.14.1 which is incompatible.
+2018-07-16 19:19:40 16C-D2-Breakdancer_Manta STDOUT 1
+2018-07-16 19:19:40 16C-D2-Breakdancer_Manta STDOUT 2
+2018-07-16 19:19:40 16C-D2-Breakdancer_Manta STDOUT 3
+2018-07-16 19:19:40 16C-D2-Breakdancer_Manta STDOUT Running SVTyper
+2018-07-16 19:19:40 16C-D2-Breakdancer_Manta STDOUT Running SVTyper on Breakdancer outputs
+2018-07-16 19:19:40 16C-D2-Breakdancer_Manta STDERR grep: svtype_breakdancer: Is a directory
+2018-07-16 19:22:10 16C-D2-Breakdancer_Manta STDOUT Preparing inputs for SURVIVOR
+2018-07-16 19:22:10 16C-D2-Breakdancer_Manta STDOUT Running SURVIVOR
+2018-07-16 19:22:10 16C-D2-Breakdancer_Manta STDOUT merging entries: 9897
+2018-07-16 19:22:10 16C-D2-Breakdancer_Manta STDOUT merging entries: 18678
+2018-07-16 19:22:11 16C-D2-Breakdancer_Manta STDOUT merging entries: 9897
+2018-07-16 19:22:11 16C-D2-Breakdancer_Manta STDOUT Histogram over the # of callers overlapping per SVs: 
+2018-07-16 19:22:11 16C-D2-Breakdancer_Manta STDOUT 1 8377
+2018-07-16 19:22:11 16C-D2-Breakdancer_Manta STDOUT 2 8671
+2018-07-16 19:22:11 16C-D2-Breakdancer_Manta STDOUT 3 961
+2018-07-16 19:22:24 16C-D2-Breakdancer_Manta STDOUT Docker image finished
+2018-07-16 19:22:27 16C-D2-Breakdancer_Manta STDOUT total 5.2M
+2018-07-16 19:22:27 16C-D2-Breakdancer_Manta STDOUT 2.1M HG002-NA24385-50x.70_percent.markdup.realigned.breakdancer.svtyped.vcf
+2018-07-16 19:22:27 16C-D2-Breakdancer_Manta STDOUT 3.2M HG002-NA24385-50x.70_percent.markdup.realigned.manta.svtyped.vcf
+* 16C-D2-Breakdancer_Manta (parliament2:main) (done) job-FJ6YJBQ04KF1zpq13BFK44Gx
+  acarroll 2018-07-16 17:22:02 (runtime 1:57:21)
+  Output: svtyped_vcfs = [ file-FJ6b5jj0p6QyXx4434vB2PXy, file-FJ6b5k00p6QzqqB5GKKbPykJ
+         ]
+          sv_caller_results = [ file-FJ6b5j00p6QqQB3y2yFB4Y48,
+         file-FJ6b5j80p6QzqqB5GKKbPyjz, file-FJ6b5jQ0p6QpQgXJ2xqYzzy6,
+         file-FJ6b5jj0p6QpQgXJ2xqYzzyJ ]
+          combined_genotypes = file-FJ6b5k00p6QYbQF2388K4qB7

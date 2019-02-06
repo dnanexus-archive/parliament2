@@ -1,0 +1,61 @@
+* 16C-D2-Manta_Only (parliament2:main) (done) job-FJ6YJ3Q04KFPxyp821XKjq5F
+  acarroll 2018-07-16 17:21:34 (runtime 1:04:59)
+2018-07-16 17:22:46 16C-D2-Manta_Only INFO Logging initialized (priority)
+2018-07-16 17:22:46 16C-D2-Manta_Only INFO Logging initialized (bulk)
+2018-07-16 17:22:47 16C-D2-Manta_Only INFO CPU: 18% (16 cores) * Memory: 1679/30142MB * Storage: 304GB free * Net: 0↓/0↑MBps
+2018-07-16 17:22:47 16C-D2-Manta_Only STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:22:48 16C-D2-Manta_Only INFO Downloading bundled file parliament2.tar.gz
+2018-07-16 17:23:01 16C-D2-Manta_Only STDOUT >>> Unpacking parliament2.tar.gz to /
+2018-07-16 17:23:01 16C-D2-Manta_Only STDERR tar: Removing leading `/' from member names
+2018-07-16 17:23:40 16C-D2-Manta_Only INFO Setting SSH public key
+2018-07-16 17:23:42 16C-D2-Manta_Only STDOUT dxpy/0.255.0 (Linux-4.4.0-98-generic-x86_64-with-Ubuntu-14.04-trusty)
+2018-07-16 17:23:42 16C-D2-Manta_Only STDOUT /usr/sbin/sshd already running.
+2018-07-16 17:23:42 16C-D2-Manta_Only STDOUT Invoking main with {u'run_svviz': False, u'run_lumpy': False, u'filter_short_contigs': True, u'ref_fasta': {u'$dnanexus_link': u'file-B6ZY7VG2J35Vfvpkj8y0KZ01'}, u'run_delly_insertion': False, u'output_log_files': True, u'run_cnvnator': False, u'run_breakdancer': False, u'run_delly_inversion': False, u'illumina_bam': {u'$dnanexus_link': u'file-F4JFyx00Fq4YZkB80P7fZ4Fv'}, u'run_delly_deletion': False, u'run_breakseq': False, u'run_delly_duplication': False, u'run_manta': True, u'svviz_only_validated_candidates': True, u'run_genotype_candidates': True}
+2018-07-16 17:23:42 16C-D2-Manta_Only STDOUT Starting Docker
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Image Repo	parliament2
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Image Tag	latest
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Image Size	4.7G
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Image ID	f2aac38467f28517596e673c5531cc57444b72f64e7f5d1c261c456cdbb4c2f2
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Parent ID	5460a7e6d166a3a0c2bd8efd9b8b733765ed976d53e5da1cbcef68b98fb6655c
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Last Updated	2018-07-16T21:52:58Z (0d 2h ago)
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR ENTRYPOINT	["python","/home/dnanexus/parliament2.py"]
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR Working Dir	/home/dnanexus
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR 
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR 
+2018-07-16 17:32:16 16C-D2-Manta_Only STDERR proot warning: can't sanitize binding "/var/run/dbus/system_bus_socket": No such file or directory
+2018-07-16 17:32:47 16C-D2-Manta_Only INFO CPU: 5% (16 cores) * Memory: 4013/30142MB * Storage: 222GB free * Net: 131↓/1↑MBps
+2018-07-16 17:33:03 16C-D2-Manta_Only STDOUT Classify FASTA
+2018-07-16 17:33:03 16C-D2-Manta_Only STDOUT HG002-NA24385-50x.70_percent.markdup.realigned
+2018-07-16 17:33:03 16C-D2-Manta_Only STDOUT Set up and index BAM/CRAM
+2018-07-16 17:33:03 16C-D2-Manta_Only STDOUT BAM file input, no index exists
+2018-07-16 17:42:47 16C-D2-Manta_Only INFO CPU: 0% (16 cores) * Memory: 3020/30142MB * Storage: 174GB free * Net: 0↓/0↑MBps
+2018-07-16 17:52:47 16C-D2-Manta_Only INFO CPU: 2% (16 cores) * Memory: 2253/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:01:53 16C-D2-Manta_Only STDOUT Generate contigs
+2018-07-16 18:01:53 16C-D2-Manta_Only STDOUT Launching jobs that cannot be parallelized by contig
+2018-07-16 18:01:53 16C-D2-Manta_Only STDOUT Manta
+2018-07-16 18:02:47 16C-D2-Manta_Only INFO CPU: 13% (16 cores) * Memory: 2815/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:12:47 16C-D2-Manta_Only INFO CPU: 94% (16 cores) * Memory: 3694/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:22:47 16C-D2-Manta_Only INFO CPU: 96% (16 cores) * Memory: 3659/30142MB * Storage: 144GB free * Net: 0↓/0↑MBps
+2018-07-16 18:26:50 16C-D2-Manta_Only STDOUT Converting results to VCF format
+2018-07-16 18:26:50 16C-D2-Manta_Only STDOUT Convert Manta results to VCF format
+2018-07-16 18:27:18 16C-D2-Manta_Only STDERR breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.14.1 which is incompatible.
+2018-07-16 18:27:22 16C-D2-Manta_Only STDOUT 1
+2018-07-16 18:27:22 16C-D2-Manta_Only STDOUT 2
+2018-07-16 18:27:22 16C-D2-Manta_Only STDOUT 3
+2018-07-16 18:27:22 16C-D2-Manta_Only STDOUT Running SVTyper
+2018-07-16 18:27:22 16C-D2-Manta_Only STDOUT Preparing inputs for SURVIVOR
+2018-07-16 18:27:23 16C-D2-Manta_Only STDOUT Running SURVIVOR
+2018-07-16 18:27:23 16C-D2-Manta_Only STDOUT merging entries: 9897
+2018-07-16 18:27:23 16C-D2-Manta_Only STDOUT merging entries: 9897
+2018-07-16 18:27:23 16C-D2-Manta_Only STDOUT Histogram over the # of callers overlapping per SVs: 
+2018-07-16 18:27:23 16C-D2-Manta_Only STDOUT 1 0
+2018-07-16 18:27:23 16C-D2-Manta_Only STDOUT 2 9631
+2018-07-16 18:27:35 16C-D2-Manta_Only STDOUT Docker image finished
+2018-07-16 18:27:36 16C-D2-Manta_Only STDOUT total 3.2M
+2018-07-16 18:27:36 16C-D2-Manta_Only STDOUT 3.2M HG002-NA24385-50x.70_percent.markdup.realigned.manta.svtyped.vcf
+* 16C-D2-Manta_Only (parliament2:main) (done) job-FJ6YJ3Q04KFPxyp821XKjq5F
+  acarroll 2018-07-16 17:21:34 (runtime 1:04:59)
+  Output: svtyped_vcfs = [ file-FJ6ZG200K5VqQB3y2yFB2Y1q ]
+          sv_caller_results = [ file-FJ6ZG1j0K5VqQB3y2yFB2Xyb,
+         file-FJ6ZG200K5VzqqB5GKKbK04f ]
+          combined_genotypes = file-FJ6ZG280K5VgjgBJ391Kb8K8

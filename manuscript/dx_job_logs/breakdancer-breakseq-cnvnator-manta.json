@@ -1,0 +1,223 @@
+{
+    "originalInput": {
+        "run_svviz": false, 
+        "run_lumpy": false, 
+        "filter_short_contigs": true, 
+        "ref_fasta": {
+            "$dnanexus_link": {
+                "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv", 
+                "id": "file-B6ZY7VG2J35Vfvpkj8y0KZ01"
+            }
+        }, 
+        "run_delly_insertion": false, 
+        "output_log_files": true, 
+        "run_cnvnator": true, 
+        "run_breakdancer": true, 
+        "run_delly_inversion": false, 
+        "illumina_bam": {
+            "$dnanexus_link": "file-F4JFyx00Fq4YZkB80P7fZ4Fv"
+        }, 
+        "run_delly_deletion": false, 
+        "run_breakseq": true, 
+        "run_delly_duplication": false, 
+        "run_manta": true, 
+        "svviz_only_validated_candidates": true, 
+        "run_genotype_candidates": true
+    }, 
+    "parentAnalysis": null, 
+    "stoppedRunning": 1531798279597, 
+    "launchedBy": "user-acarroll", 
+    "id": "job-FJ6YKB004KF1z2K99Z3FZKvG", 
+    "originJob": "job-FJ6YKB004KF1z2K99Z3FZKvG", 
+    "stateTransitions": [
+        {
+            "newState": "runnable", 
+            "setAt": 1531787048975
+        }, 
+        {
+            "newState": "running", 
+            "setAt": 1531787230974
+        }, 
+        {
+            "newState": "done", 
+            "setAt": 1531798280102
+        }
+    ], 
+    "executable": "applet-FJ6Y7kQ04KFJZKgV5jKg9749", 
+    "workerReuseDeadlineRunTime": {
+        "waitTime": -1, 
+        "state": "reuse-off", 
+        "at": -1
+    }, 
+    "executableName": "parliament2", 
+    "startedRunning": 1531787230974, 
+    "properties": {}, 
+    "priority": "normal", 
+    "runInput": {
+        "run_lumpy": false, 
+        "ref_fasta": {
+            "$dnanexus_link": {
+                "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv", 
+                "id": "file-B6ZY7VG2J35Vfvpkj8y0KZ01"
+            }
+        }, 
+        "run_delly_insertion": false, 
+        "run_cnvnator": true, 
+        "run_breakdancer": true, 
+        "run_delly_inversion": false, 
+        "illumina_bam": {
+            "$dnanexus_link": "file-F4JFyx00Fq4YZkB80P7fZ4Fv"
+        }, 
+        "run_delly_deletion": false, 
+        "run_breakseq": true, 
+        "run_delly_duplication": false, 
+        "run_manta": true
+    }, 
+    "state": "done", 
+    "sshHostKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGnkbn0pa/pO5stJ1bp3wCauzMZx+CoozVUDoVcvTi8LQ80gX+RL0uYTN//M0zlb3NiySnJfvbW5axycrXYTA+N1grG/8rPgkioNTp6f0OU8OjmIe7R4JZdXU/itrYkOC/g2AVXf8TUU78D3do+3d7pM2wnr6LTIsDNCXjEvP22J+U2GUjmGk8rqUQQqHn9ZuirjytKleO4E+Z1bnPRDidPh2+X431QL+9a28KDIsJ8OYBZDuHGwdisdUtfWuNKmU3vFPlDPGdbbbwfo9YmSNp2JWbvjIKBgnCpBzWiOWAZZRqZRN12qdL3RHh1fb5cITloCA2r39p1wcfWmCxALxP", 
+    "details": {
+        "clonedFrom": {
+            "executable": "app-FGjYFvj0bykP96xyFbQBG90g", 
+            "name": "Breakdancer_Manta_CNVnator_Breakseq", 
+            "project": "project-FGkfGV004KF6P66K6fbX92k0", 
+            "runInput": {
+                "run_lumpy": false, 
+                "ref_fasta": {
+                    "$dnanexus_link": {
+                        "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv", 
+                        "id": "file-B6ZY7VG2J35Vfvpkj8y0KZ01"
+                    }
+                }, 
+                "run_delly_insertion": false, 
+                "run_cnvnator": true, 
+                "run_breakdancer": true, 
+                "run_delly_inversion": false, 
+                "illumina_bam": {
+                    "$dnanexus_link": "file-F4JFyx00Fq4YZkB80P7fZ4Fv"
+                }, 
+                "run_delly_deletion": false, 
+                "run_breakseq": true, 
+                "run_delly_duplication": false, 
+                "run_manta": true
+            }, 
+            "systemRequirements": {
+                "*": {
+                    "instanceType": "mem1_ssd1_x16"
+                }
+            }, 
+            "folder": "/time_test", 
+            "id": "job-FGp9Qq004KFFQ2Xz67pkp3K1"
+        }
+    }, 
+    "failureCounts": {}, 
+    "trueInstanceType": "dx_s_c3.4xlarge", 
+    "folder": "/time_test", 
+    "function": "main", 
+    "timeout": 86400000, 
+    "tags": [], 
+    "dependsOn": [], 
+    "billTo": "user-acarroll", 
+    "debug": {}, 
+    "invoiceMetadata": null, 
+    "input": {
+        "run_svviz": false, 
+        "run_lumpy": false, 
+        "filter_short_contigs": true, 
+        "ref_fasta": {
+            "$dnanexus_link": "file-B6ZY7VG2J35Vfvpkj8y0KZ01"
+        }, 
+        "run_delly_insertion": false, 
+        "output_log_files": true, 
+        "run_cnvnator": true, 
+        "run_breakdancer": true, 
+        "run_delly_inversion": false, 
+        "illumina_bam": {
+            "$dnanexus_link": "file-F4JFyx00Fq4YZkB80P7fZ4Fv"
+        }, 
+        "run_delly_deletion": false, 
+        "run_breakseq": true, 
+        "run_delly_duplication": false, 
+        "run_manta": true, 
+        "svviz_only_validated_candidates": true, 
+        "run_genotype_candidates": true
+    }, 
+    "singleContext": false, 
+    "delayWorkspaceDestruction": false, 
+    "executionPolicy": {
+        "maxSpotTries": 2, 
+        "restartOn": {
+            "JMInternalError": 1, 
+            "UnresponsiveWorker": 2, 
+            "ExecutionError": 1
+        }
+    }, 
+    "networkAccess": [
+        "*"
+    ], 
+    "class": "job", 
+    "stage": null, 
+    "name": "16C-D2-Breakdancer_Manta_CNVnator_Breakseq", 
+    "created": 1531787047907, 
+    "region": "aws:us-east-1", 
+    "modified": 1531798281375, 
+    "analysis": null, 
+    "project": "project-FGkfGV004KF6P66K6fbX92k0", 
+    "applet": "applet-FJ6Y7kQ04KFJZKgV5jKg9749", 
+    "workspace": "container-FJ6YKB005zq9ZQKFJVb1ZqGK", 
+    "rootExecution": "job-FJ6YKB004KF1z2K99Z3FZKvG", 
+    "parentJob": null, 
+    "output": {
+        "svtyped_vcfs": [
+            {
+                "$dnanexus_link": "file-FJ6f60Q05zqPx3B82fgV9Zqj"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60Q05zq13VkX2f2XGfyG"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60Q05zqPx3B82fgV9Zqp"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60j05zq13VkX2f2XGfyf"
+            }
+        ], 
+        "sv_caller_results": [
+            {
+                "$dnanexus_link": "file-FJ6f5zQ05zq15ypz2fVY2x9j"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f5zQ05zq9x25q2fJ1x68y"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f5zj05zqPx3B82fgV9Zq0"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f5zj05zq15ypz2fVY2x9v"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f5zj05zq9x25q2fJ1x691"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60005zq15ypz2fVY2xJ4"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60005zq9x25q2fJ1x697"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60805zq13VkX2f2XGfx8"
+            }, 
+            {
+                "$dnanexus_link": "file-FJ6f60805zqPQy462fy5J95V"
+            }
+        ], 
+        "combined_genotypes": {
+            "$dnanexus_link": "file-FJ6f60j05zq13VkX2f2XGfyj"
+        }
+    }, 
+    "instanceType": "mem1_ssd1_x16", 
+    "systemRequirements": {
+        "*": {
+            "instanceType": "mem1_ssd1_x16"
+        }
+    }
+}
