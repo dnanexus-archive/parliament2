@@ -1,0 +1,18 @@
+group:	/home/dnanexus/input.bam
+fragment length observations:	1099458
+fragment length quantiles:
+0.01	182
+0.05	304
+0.1	374
+0.25	475
+0.5	569
+0.75	663
+0.9	761
+0.95	829
+0.99	984
+Total sampled reads:	2876434
+Total sampled paired reads:	2876434
+Total sampled unpaired reads:	0
+Total sampled paired reads with low MAPQ:	271336
+Total sampled high-confidence read pairs passing all filters:	1100760
+
