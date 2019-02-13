@@ -22,7 +22,8 @@ def main():
                 headers.append("DELLY")
             else:
                 headers.append(line.strip())
-            
+
+    # TODO: Replace this.
     quality_mappings = { "lt300": {}, "300to1000": {}, "1kbplus": {}, "all": {}, "ins": {} }
 
     with open(sys.argv[4]) as all_phred_values:
@@ -104,6 +105,7 @@ def main():
                 
                 tab_split[9] += support.lstrip(",")
 
+                #TODO: Replace this too
                 if "SVTYPE=DEL" in line:
                     #try:
                     size = end_position - position

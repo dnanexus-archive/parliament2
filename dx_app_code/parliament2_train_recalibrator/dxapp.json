@@ -15,6 +15,7 @@
       "label": "SV Caller Results",
       "help": "Raw output files from the individual SV callers.",
       "class": "array:file",
+      "patterns": ["*.vcf.gz", "*.vcf"],
       "optional": false
     },
     {
@@ -39,7 +40,7 @@
       "class": "array:file",
       "optional": false
     }
-      ]
+  ],
   "outputSpec": [
     {
       "name": "contained_model",
@@ -64,7 +65,7 @@
     }
   ],
   "runSpec": {
-    "file": "parliament2.py",
+    "file": "src.py",
     "release": "16.04",
     "interpreter": "python2.7",
     "timeoutPolicy": {
@@ -88,83 +89,16 @@
       "doi:10.1186/s12864-015-1479-3"
     ],
     "upstreamAuthor": "Baylor College of Medicine",
-    "whatsNew": "* 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
+    "whatsNew": ""
   },
   "regionalOptions": {
     "aws:us-east-1": {
-      "assetDepends": [
-        {
-          "project": "project-B6JG897KGbkGb6Z7pQ9Q02jG",
-          "folder": "/parliament2/",
-          "name": "parliament2:0.1.9",
-          "version": "0.0.1"
-        }
-      ],
       "systemRequirements": {
         "*": {
           "instanceType": "mem1_ssd1_x16"
         }
-      }
-    },
-    "aws:cn-north-1": {
-      "assetDepends": [
-        {
-          "project": "project-F3vk1f02GyKbj2JF0q1kQfV3",
-          "folder": "/parliament2/",
-          "name": "parliament2:0.1.9",
-          "version": "0.0.1"
-        }
-      ],
-      "systemRequirements": {
-        "*": {
-          "instanceType": "mem1_ssd1_x16"
-        }
-      }
-    },
-    "aws:ap-southeast-2": {
-      "assetDepends": [
-        {
-          "project": "project-F4gVXbj5qkxXq3v038V7qjxq",
-          "folder": "/parliament2/",
-          "name": "parliament2:0.1.9",
-          "version": "0.0.1"
-        }
-      ],
-      "systemRequirements": {
-        "*": {
-          "instanceType": "mem1_ssd1_x16"
-        }
-      }
-    },
-    "aws:eu-central-1": {
-      "assetDepends": [
-        {
-          "project": "project-FPXF2x84qJf3P5Fx8qpBZk1y",
-          "folder": "/",
-          "name": "parliament2:0.1.9",
-          "version": "0.0.1"
-        }
-      ],
-      "systemRequirements": {
-        "*": {
-          "instanceType": "mem1_ssd1_x16"
-        }
-      }
-    },
-    "azure:westus": {
-      "assetDepends": [
-        {
-          "project": "project-F3vk1q09FX8Jxxp20pq6z8P9",
-          "folder": "/parliament2/",
-          "name": "parliament2:0.1.9",
-          "version": "0.0.1"
-        }
-      ],
-      "systemRequirements": {
-        "*": {
-          "instanceType": "azure:mem2_ssd1_x16"
-        }
-      }
+      },
+      "assetDepends": [{"id":  "record-FVKppQQ0Jf4xkpvv3vkvPBjz"}]
     }
   },
   "openSource": true
