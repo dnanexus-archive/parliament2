@@ -21,7 +21,9 @@ for item in $directory*; do
     echo "svtyper -B $input_bam -i $directory/$i >> $directory/$i" >> $output.cmds
 done
 
-parallel --memfree 5G --retries 2 --verbose -a $output.cmds eval 2> /dev/null
+# We don't have the memfree option is the Ubuntu 14.04 version  of parallel
+#parallel --memfree 5G --retries 2 --verbose -a $output.cmds eval 2> /dev/null
+parallel --retries 2 --verbose -a $output.cmds eval 2> /dev/null
 
 grep \# $input > $output
 for item in $directory/*; do
