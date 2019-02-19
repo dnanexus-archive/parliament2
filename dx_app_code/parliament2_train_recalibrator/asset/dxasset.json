@@ -13,6 +13,10 @@
           {"package_manager": "pip", "name": "scipy"},
           {"package_manager":  "pip", "name":  "pysam"},
           {"name":  "vcftools"},
-          {"name":  "tabix"}
+          {"name":  "tabix"},
+          {"package_manager": "pip", "name": "sklearn"},
+          {"package_manager": "pip", "name": "pydotplus"},
+          {"name": "python-matplotlib"},
+          {"name": "graphviz"}
       ]
 }
