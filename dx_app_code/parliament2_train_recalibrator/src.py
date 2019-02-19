@@ -88,7 +88,8 @@ def main(**job_inputs):
     output = {
         "trainingdata_csv": dxpy.dxlink(dxpy.upload_local_file(output_csv)),
         "contained_model": dxpy.dxlink(dxpy.upload_local_file("model.pkl")),
-        "model_evaluation": [dxpy.dxlink(dxpy.upload_local_file(training_log))],
+        "model_evaluation": [dxpy.dxlink(dxpy.upload_local_file(training_log)),
+                             dxpy.dxlink(dxpy.upload_local_file("ROC.png"))],
         "model_visualization": [dxpy.dxlink(dxpy.upload_local_file(f)) for f in tree_pngs]
               }
     return output

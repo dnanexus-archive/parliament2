@@ -84,6 +84,7 @@
     "execDepends": [
       {"package_manager": "pip", "name": "sklearn"},
       {"package_manager": "pip", "name": "pydotplus"},
+      {"name": "python-matplotlib"},
       {"name": "graphviz"}
     ]
   },

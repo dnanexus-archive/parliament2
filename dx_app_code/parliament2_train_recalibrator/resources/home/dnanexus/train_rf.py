@@ -4,6 +4,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.externals.six import StringIO
 from sklearn.tree import export_graphviz
+from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
+matplotlib.use('Agg')
+
 import pydotplus
 import pickle
 from sklearn.preprocessing import OrdinalEncoder
@@ -24,7 +28,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 rf = RandomForestClassifier(n_estimators=10, random_state=0, max_leaf_nodes=12)
 rf.fit(X_train, y_train)
 y_pred = rf.predict(X_test)
+y_probabilities = rf.predict_proba(X_test)
 
+print(y_probabilities)
 print(confusion_matrix(y_test,y_pred))
 print(classification_report(y_test,y_pred))
 print(accuracy_score(y_test, y_pred))
@@ -35,6 +41,21 @@ with open("model_validation.txt", "w") as f:
     f.write(classification_report(y_test,y_pred))
 
 i = 0
+
+# geneate ROC curve
+fpr, tpr, _ = roc_curve(y_test, y_pred)
+roc_auc = auc(fpr, tpr)
+
+plt.figure(1)
+plt.plot([0, 1], [0, 1], 'k--')
+plt.plot(fpr, tpr, label='ROC curve (area = {0.2f})'.format(roc_auc))
+plt.xlabel('False positive rate')
+plt.ylabel('True positive rate')
+plt.title('ROC curve')
+plt.legend(loc='lower right')
+plt.savefig("ROC.png")
+
+
 for dtree in rf.estimators_:
     dot_data = StringIO()
     export_graphviz(dtree, out_file=dot_data,
