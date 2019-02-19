@@ -13,6 +13,8 @@ def parse_arguments():
     args.add_argument('-r', '--ref_genome', required=True, help="The name of the reference file that matches the reference used to map the Illumina inputs.")
     args.add_argument('--fai', required=False, help="(Optional) The name of the corresponding index for the reference genome file.")
     args.add_argument('--prefix', required=False, help="(Optional) If provided, all output files will start with this. If absent, the base of the BAM file name will be used.")
+    args.add_argument('--scoring_model', required=False,
+                      help="(Optional) The name of the pickle file containing the model for scoring variants.")
     args.add_argument('--filter_short_contigs', action="store_true", help="If selected, SV calls will not be generated on contigs shorter than 1 MB.")
     args.add_argument('--breakdancer', action="store_true", help="If selected, the program Breakdancer will be one of the SV callers run.")
     args.add_argument('--breakseq', action="store_true", help="If selected, the program BreakSeq2 will be one of the SV callers run.")
@@ -42,18 +44,16 @@ def gunzip_input(input_file):
         return input_file
 
 
-def run_parliament(bam, bai, ref_genome, fai, prefix, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates, dnanexus):
+def run_parliament(bam, bai, ref_genome, fai, prefix, scoring_model, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates, dnanexus):
+    bam_str = bai if bai is not None else "None"
+    fai_str = fai if fai is not None else "None"
+    scoring_model_str = scoring_model if scoring_model is not None else "None"
 
-    if bai is not None:
-        if fai is not None:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, fai, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates), str(dnanexus)])
-        else:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, bai, ref_genome, "None", prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates), str(dnanexus)])
-    else:
-        if fai is not None:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, fai, prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates), str(dnanexus)])
-        else:
-            subprocess.check_call(['bash', 'parliament2.sh', bam, "None", ref_genome, "None", prefix, str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator), str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion), str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates), str(dnanexus)])
+    subprocess.check_call(['bash', 'parliament2.sh', bam_str, fai_str, ref_genome, fai, prefix, scoring_model_str,
+                           str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator),
+                           str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion),
+                           str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates),
+                           str(dnanexus)])
 
 
 def main():
@@ -73,7 +73,10 @@ def main():
 
     ref_genome_name = gunzip_input(args.ref_genome)
 
-    run_parliament(args.bam, args.bai, ref_genome_name, args.fai, prefix, args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator, args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication, args.genotype, args.svviz, args.svviz_only_validated_candidates, args.dnanexus)
+    run_parliament(args.bam, args.bai, ref_genome_name, args.fai, prefix, args.scoring_model,
+                   args.filter_short_contigs, args.breakdancer, args.breakseq, args.manta, args.cnvnator,
+                   args.lumpy, args.delly_deletion, args.delly_insertion, args.delly_inversion, args.delly_duplication,
+                   args.genotype, args.svviz, args.svviz_only_validated_candidates, args.dnanexus)
 
 
 if __name__ == '__main__':
