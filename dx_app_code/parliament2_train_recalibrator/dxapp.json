@@ -43,6 +43,13 @@
   ],
   "outputSpec": [
     {
+      "name": "trainingdata_csv",
+      "label": "Processed Training Data",
+      "help": "",
+      "class": "file",
+      "optional": false
+    },
+    {
       "name": "contained_model",
       "label": "Contained Model Weights",
       "help": "Model weights to use for Parliament2 Quality Scoring",
@@ -73,7 +80,12 @@
         "hours": 48
       }
     },
-    "distribution": "Ubuntu"
+    "distribution": "Ubuntu",
+    "execDepends": [
+      {"package_manager": "pip", "name": "sklearn"},
+      {"package_manager": "pip", "name": "pydotplus"},
+      {"name": "graphviz"}
+    ]
   },
   "access": {
     "network": [
@@ -98,7 +110,7 @@
           "instanceType": "mem1_ssd1_x16"
         }
       },
-      "assetDepends": [{"id":  "record-FVKppQQ0Jf4xkpvv3vkvPBjz"}]
+      "assetDepends": [{"id":  "record-FVX9bJ005qGbx9BP215Q7V5f"}]
     }
   },
   "openSource": true
