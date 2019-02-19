@@ -5,20 +5,21 @@ illumina_bai=$2
 ref_fasta=$3
 ref_index=$4
 prefix=$5
-filter_short_contigs=$6
-run_breakdancer=$7
-run_breakseq=$8
-run_manta=$9
-run_cnvnator=${10}
-run_lumpy=${11}
-run_delly_deletion=${12}
-run_delly_insertion=${13}
-run_delly_inversion=${14}
-run_delly_duplication=${15}
-run_genotype_candidates=${16}
-run_svviz=${17}
-svviz_only_validated_candidates=${18}
-dnanexus=${19}
+scoring_model=$6
+filter_short_contigs=$7
+run_breakdancer=$8
+run_breakseq=$9
+run_manta=$10
+run_cnvnator=${11}
+run_lumpy=${12}
+run_delly_deletion=${13}
+run_delly_insertion=${14}
+run_delly_inversion=${15}
+run_delly_duplication=${16}
+run_genotype_candidates=${17}
+run_svviz=${18}
+svviz_only_validated_candidates=${19}
+dnanexus=${20}
 
 check_threads(){
     breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
@@ -538,7 +539,13 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     # Prepare SURVIVOR outputs for upload
     vcf-sort -c > survivor_sorted.vcf < survivor.output.vcf
     sed -i 's/SAMPLE/breakdancer/g' survivor_sorted.vcf
-    python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
+
+    # TODO: combine_combined.py is the script that assigns quality scores
+    if [[ "${scoring_model}" == "None" ]]; then
+        python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
+    else
+        python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs ${scoring_model} | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
+    fi
     cp survivor_sorted.vcf /home/dnanexus/out/"${prefix}".survivor_sorted.vcf
 
     # Run svviz

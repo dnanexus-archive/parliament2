@@ -45,11 +45,11 @@ def gunzip_input(input_file):
 
 
 def run_parliament(bam, bai, ref_genome, fai, prefix, scoring_model, filter_short_contigs, breakdancer, breakseq, manta, cnvnator, lumpy, delly_deletion, delly_insertion, delly_inversion, delly_duplication, genotype, svviz, svviz_only_validated_candidates, dnanexus):
-    bam_str = bai if bai is not None else "None"
+    bai_str = bai if bai is not None else "None"
     fai_str = fai if fai is not None else "None"
     scoring_model_str = scoring_model if scoring_model is not None else "None"
 
-    subprocess.check_call(['bash', 'parliament2.sh', bam_str, fai_str, ref_genome, fai, prefix, scoring_model_str,
+    subprocess.check_call(['bash', 'parliament2.sh', bam, bai_str, ref_genome, fai_str, prefix, scoring_model_str,
                            str(filter_short_contigs), str(breakdancer), str(breakseq), str(manta), str(cnvnator),
                            str(lumpy), str(delly_deletion), str(delly_insertion), str(delly_inversion),
                            str(delly_duplication), str(genotype), str(svviz), str(svviz_only_validated_candidates),
