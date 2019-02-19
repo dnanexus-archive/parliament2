@@ -19,21 +19,6 @@
       "optional": false
     },
     {
-      "name": "svtyped_vcfs",
-      "label": "Genotyped SV VCFs",
-      "help": "(Optional) A set of genotyped variant calls. The genotyping method is orthogonal to the original caller, serving as bioinformatic cross-validation. Only produced if Genotype Candidates is set to True.",
-      "class": "array:file",
-      "optional": true
-    },
-    {
-      "name": "combined_genotypes",
-      "label": "Combined Genotypes",
-      "help": "(Optional) A file of merged, genotyped, validated SV calls. Only generated if Genotype Candidates is set to True.",
-      "class": "file",
-      "patterns": ["*.vcf"],
-      "optional": true
-    },
-    {
       "name": "vcf_truth_set",
       "label": "VCF Truth Set",
       "help": "Truth set in VCF format",
@@ -105,7 +90,7 @@
           "instanceType": "mem1_ssd1_x16"
         }
       },
-      "assetDepends": [{"id":  "record-FVX9bJ005qGbx9BP215Q7V5f"}]
+      "assetDepends": [{"id":  "record-FVf6bg80Xz52zJb8BZFY7BX3"}]
     }
   },
   "openSource": true

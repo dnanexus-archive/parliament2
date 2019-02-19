@@ -540,11 +540,10 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     vcf-sort -c > survivor_sorted.vcf < survivor.output.vcf
     sed -i 's/SAMPLE/breakdancer/g' survivor_sorted.vcf
 
-    # TODO: combine_combined.py is the script that assigns quality scores
-    if [[ "${scoring_model}" == "None" ]]; then
-        python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
-    else
-        python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs ${scoring_model} | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
+    # post processing of SURVIVOR output
+    python /combine_combined.py survivor_sorted.vcf "${prefix}" survivor_inputs /all.phred.txt | python /correct_max_position.py > /home/dnanexus/out/"${prefix}".combined.genotyped.vcf
+    if [[ "${scoring_model}" != "None" ]]; then
+        python /recalibrate_scores.py /home/dnanexus/out/"${prefix}".combined.genotyped.vcf ${scoring_model} > /home/dnanexus/out/"${prefix}".genotyped.scored.vcf
     fi
     cp survivor_sorted.vcf /home/dnanexus/out/"${prefix}".survivor_sorted.vcf
 
