@@ -96,6 +96,12 @@ RUN mkdir -p /home/dnanexus/in /home/dnanexus/out
 WORKDIR /home/dnanexus
 COPY parliament2.py .
 COPY parliament2.sh .
+COPY svtyper_env.yml .
+
+RUN conda create -y --name svviz_env svviz
+# We have to use a slightly different method for 
+# svtyper as it installs software directly from git 
+RUN conda env create --name svtyper_env --file svtyper_env.yml
 
 RUN /bin/bash -c "source /etc/profile.d/dnanexus.environment.sh"
 
