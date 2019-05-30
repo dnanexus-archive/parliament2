@@ -277,10 +277,7 @@
     "aws:us-east-1": {
       "assetDepends": [
         {
-          "project": "project-B6JG897KGbkGb6Z7pQ9Q02jG",
-          "folder": "/parliament2/",
-          "name": "parliament2:0.1.9",
-          "version": "0.0.1"
+          "id": "record-FVVf3Zj0fX4Vb7P260Zyvy6y"
         }
       ],
       "systemRequirements": {

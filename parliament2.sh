@@ -433,7 +433,6 @@ if [[ "${run_genotype_candidates}" == "True" ]]; then
     source /miniconda/etc/profile.d/conda.sh
     conda activate svtyper_env
 
-
     echo "Running SVTyper"
     mkdir -p /home/dnanexus/out/svtyped_vcfs/
 
