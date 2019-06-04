@@ -8,9 +8,7 @@ MAINTAINER Samantha Zarate
 RUN apt-get update && apt-get install -y curl wget
 
 # Install miniconda to /miniconda
-RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
-RUN bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b
-RUN rm Miniconda-latest-Linux-x86_64.sh
+RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh && bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b && rm Miniconda-latest-Linux-x86_64.sh
 ENV PATH=/miniconda/bin:${PATH}
 # RUN conda update -y conda
 
@@ -78,8 +76,6 @@ RUN conda update -y pyopenssl
 
 WORKDIR /
 ADD resources.tar.gz /
-RUN cp -a /resources/* /
-RUN rm -rf /resources/
 
 RUN conda install -c defaults -y numpy
 RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz

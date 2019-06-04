@@ -20,8 +20,8 @@ def main(**job_inputs):
 
     # Running Docker image
     subprocess.check_call(['mkdir', '-p', '/home/dnanexus/in', '/home/dnanexus/out'])
-    docker_load = ['docker', 'load', '-i', '/docker_image/parliament2.tar']
-    subprocess.check_call(docker_load)
+    docker_pull = ['docker', 'pull', 'dnanexus/parliament2:v0.1.9-13-g37d63065']
+    subprocess.check_call(docker_pull)
 
     print "Downloading input files"
 
@@ -33,7 +33,7 @@ def main(**job_inputs):
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome.id, ref_name)
 
-    docker_call = ['docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'dnanexus/parliament2:v0.1.9-13-g37d63065', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
     # docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2:0.1.9', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
@@ -92,8 +92,6 @@ def main(**job_inputs):
     output = {
         'sv_caller_results' : sv_caller_results_upload
     }
-
-    subprocess.check_call(['ls', '-sh', '/home/dnanexus/out/svtyped_vcfs/'])
 
     # Uploading log files
     if job_inputs['output_log_files'] and os.listdir('/home/dnanexus/out/log_files/'):
