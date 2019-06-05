@@ -154,7 +154,7 @@ breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.15.1 which
 ```
 > What's going on?
 
-This is a known error message caused by how we currently manage the conflicting pysam versions required for BreakSeq and SVTyper. We are currently working on a more stable solution.
+This is a known error message caused by how we currently manage the conflicting pysam versions required for BreakSeq and SVTyper. This issue should be resolved in v0.1.10.
 
 ### Tool versions
 
