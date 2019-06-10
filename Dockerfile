@@ -76,6 +76,7 @@ RUN conda update -y pyopenssl
 
 WORKDIR /
 ADD resources.tar.gz /
+RUN cp -a /resources/* / && rm -rf /resources/
 
 RUN conda install -c defaults -y numpy
 RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz

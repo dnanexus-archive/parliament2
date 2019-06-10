@@ -18,9 +18,8 @@ def main(**job_inputs):
     else:
         prefix = job_inputs['prefix']
 
-    # Running Docker image
     subprocess.check_call(['mkdir', '-p', '/home/dnanexus/in', '/home/dnanexus/out'])
-    docker_pull = ['docker', 'pull', 'dnanexus/parliament2:v0.1.9-13-g37d63065']
+    docker_pull = ['docker', 'pull', 'dnanexus/parliament2:0.1.10']
     subprocess.check_call(docker_pull)
 
     print "Downloading input files"
@@ -33,8 +32,7 @@ def main(**job_inputs):
     ref_name = "/home/dnanexus/in/{0}".format(ref_genome.name)
     dxpy.download_dxfile(ref_genome.id, ref_name)
 
-    docker_call = ['docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'dnanexus/parliament2:v0.1.9-13-g37d63065', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
-    # docker_call = ['dx-docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'parliament2:0.1.9', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
+    docker_call = ['docker', 'run', '-v', '/home/dnanexus/in/:/home/dnanexus/in/', '-v', '/home/dnanexus/out/:/home/dnanexus/out/', 'dnanexus/parliament2:0.1.10', '--bam', bam_name, '-r', ref_name, '--prefix', str(prefix)]
 
     if 'illumina_bai' in job_inputs:
         input_bai = dxpy.DXFile(job_inputs['illumina_bai'])
