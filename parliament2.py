@@ -58,18 +58,13 @@ def run_parliament(bam, bai, ref_genome, fai, prefix, filter_short_contigs, brea
 
 def main():
     args = parse_arguments()
-    
+
     prefix = args.prefix
     if prefix is None:
         if args.bam.endswith(".bam"):
             prefix = args.bam[:-4]
         else:
             prefix = args.bam[:-5]
-    if not args.bam.startswith("/home/dnanexus/in/"):
-        args.bam = "/home/dnanexus/in/{0}".format(args.bam)
-        args.bai = "/home/dnanexus/in/{0}".format(args.bai)
-        args.ref_genome = "/home/dnanexus/in/{0}".format(args.ref_genome)
-        args.fai = "/home/dnanexus/in/{0}".format(args.fai)
 
     ref_genome_name = gunzip_input(args.ref_genome)
 

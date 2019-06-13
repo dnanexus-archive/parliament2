@@ -1,0 +1,9 @@
+region_string=
+
+while read line; do
+        region_string="$region_string --region=$line"
+done < contigs
+
+python /miniconda/bin/configManta.py --referenceFasta ref.fa --normalBam input.bam --runDir manta $region_string
+
+python manta/runWorkflow.py -m local -j 16 
