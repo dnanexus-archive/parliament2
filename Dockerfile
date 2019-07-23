@@ -5,7 +5,7 @@ FROM ubuntu:14.04
 MAINTAINER Samantha Zarate
 
 # System packages 
-RUN apt-get update && apt-get install -y curl wget
+RUN apt-get update && apt-get install -y curl wget parallel
 
 # Install miniconda to /miniconda
 RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh && bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b && rm Miniconda-latest-Linux-x86_64.sh
