@@ -4,18 +4,13 @@ FROM ubuntu:14.04
 # File Author / Maintainer
 MAINTAINER Samantha Zarate
 
-# System packages 
+# System packages
 RUN apt-get update && apt-get install -y curl wget parallel
 
 # Install miniconda to /miniconda
 RUN curl -LO http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh && bash Miniconda-latest-Linux-x86_64.sh -p /miniconda -b && rm Miniconda-latest-Linux-x86_64.sh
 ENV PATH=/miniconda/bin:${PATH}
-# RUN conda update -y conda
-
-RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/amd64/' > /etc/apt/sources.list.d/dnanexus.list"
-RUN /bin/bash -c "echo 'deb http://dnanexus-apt-prod.s3.amazonaws.com/ubuntu trusty/all/' >> /etc/apt/sources.list.d/dnanexus.list"
-RUN wget https://wiki.dnanexus.com/images/files/ubuntu-signing-key.gpg
-RUN apt-key add ubuntu-signing-key.gpg
+RUN conda update -y conda
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     autoconf \
@@ -23,7 +18,6 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     bsdtar \
     build-essential \
     cmake \
-    dx-toolkit \
     g++ \
     gcc \
     gettext \
@@ -59,7 +53,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y --force-yes \
     wkhtmltopdf \
     xvfb \
     zlib1g-dev
-RUN apt-get update
+    RUN apt-get update
 
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
@@ -69,8 +63,8 @@ RUN conda install -c bioconda sambamba -y
 RUN conda install -c bioconda bcftools -y
 RUN conda install -c bcbio bx-python -y
 RUN conda install -c defaults networkx -y
-RUN conda install -c bioconda samblaster -y
 RUN conda install gcc_linux-64 -y
+RUN conda install -c bioconda samblaster -y
 RUN conda install -c bioconda manta
 RUN conda update -y pyopenssl
 
@@ -78,7 +72,13 @@ WORKDIR /
 ADD resources.tar.gz /
 RUN cp -a /resources/* / && rm -rf /resources/
 
-RUN conda install -c defaults -y numpy
+ENV LD_LIBRARY_PATH=/usr/lib/root/lib
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/:${LD_LIBRARY_PATH}
+ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
+ENV LD_LIBRARY_PATH=/usr/local/lib64/:${LD_LIBRARY_PATH}
+ENV LD_LIBRARY_PATH=/miniconda/lib:/${LD_LIBRARY_PATH}
+
+RUN conda install -c conda-forge -y numpy
 RUN pip install https://github.com/bioinform/breakseq2/archive/2.2.tar.gz
 RUN pip install pycparser
 RUN pip install asn1crypto
@@ -86,7 +86,7 @@ RUN pip install idna
 RUN pip install ipaddress
 
 RUN pip install dxpy
-    
+
 WORKDIR /root
 RUN mkdir -p /home/dnanexus/in /home/dnanexus/out
 
@@ -96,19 +96,15 @@ COPY parliament2.sh .
 COPY svtyper_env.yml .
 
 RUN conda create -y --name svviz_env svviz
-# We have to use a slightly different method for 
-# svtyper as it installs software directly from git 
+# We have to use a slightly different method for
+# svtyper as it installs software directly from git
 RUN conda env create --name svtyper_env --file svtyper_env.yml
-
-RUN /bin/bash -c "source /etc/profile.d/dnanexus.environment.sh"
 
 ENV PATH=${PATH}:/home/dnanexus/
 ENV PATH=${PATH}:/opt/conda/bin/
 ENV PATH=${PATH}:/usr/bin/
 ENV PYTHONPATH=${PYTHONPATH}:/opt/conda/bin/
 ENV ROOTSYS=/home/dnanexus/root
-ENV LD_LIBRARY_PATH=/usr/lib/root/lib
-ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/dnanexus/root/lib
 ENV DYLD_LIBRARY_PATH=/usr/lib/root/lib
 ENV HTSLIB_LIBRARY_DIR=/usr/local/lib
 ENV HTSLIB_INCLUDE_DIR=/usr/local/include
