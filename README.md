@@ -164,10 +164,7 @@ Out of memory: Kill process XXXX (svviz) score 112 or sacrifice child
 ```
 > What's going on?
 
-The svviz tool can at times consume a large amount of memory, causing the application to be killed.  If you see 
-this message in the log, you should kill the job if it is still running and retry on a machine with more memory
-or without enabling svviz.
-
+The svviz tool can at times consume a large amount of memory, causing the application to be killed. If you see this message in the log, you should kill the job if it is still running and retry on a machine with more memory or without enabling svviz. This issue should be resolved in v0.1.11.
 
 ### Tool versions
 
