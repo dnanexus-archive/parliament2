@@ -50,7 +50,7 @@ Because the field of structural variation is relatively new and complex, we view
 
 Breakseq2 may only be able to work when using the 1000 Genomes reference genome (hs37d5). For other reference genomes, you may not get Breakseq2 results.
 
-The svviz tool can at times consume a large amount of memory, causing the application to be killed.  If you see 
+The svviz tool can at times consume a large amount of memory, causing the application to be killed. If you see 
 a message like:
 ```
 Out of memory: Kill process XXXX (svviz) score 112 or sacrifice child
