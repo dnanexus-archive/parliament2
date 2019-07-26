@@ -7,7 +7,7 @@
     "WGS"
   ],
   "dxapi": "1.0.0",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "inputSpec": [
     {
       "name": "illumina_bam",
@@ -271,7 +271,7 @@
       "doi:10.1186/s12864-015-1479-3"
     ],
     "upstreamAuthor": "Baylor College of Medicine",
-    "whatsNew": "* 0.1.10: Resolved bug breaking SVTyper; added Singularity functionality; modify run on DNAnexus. * 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
+    "whatsNew": "* 0.1.11: Resolved OOM bug breaking svviz.\n* 0.1.10: Resolved bug breaking SVTyper; added Singularity functionality; modify run on DNAnexus.\n* 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
   },
   "regionalOptions": {
     "aws:us-east-1": {

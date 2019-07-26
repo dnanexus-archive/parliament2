@@ -156,6 +156,16 @@ breakseq2 -2.2- has requirement pysam==0.7.7, but you'll have pysam 0.15.1 which
 
 This is a known error message caused by how we currently manage the conflicting pysam versions required for BreakSeq and SVTyper. This issue should be resolved in v0.1.10.
 
+#### Out of memory error
+
+> The tool fails or runs for a long time and I see an error message in the log:
+```
+Out of memory: Kill process XXXX (svviz) score 112 or sacrifice child
+```
+> What's going on?
+
+The svviz tool can at times consume a large amount of memory, causing the application to be killed. If you see this message in the log, you should kill the job if it is still running and retry on a machine with more memory or without enabling svviz. This issue should be resolved in v0.1.11.
+
 ### Tool versions
 
 #### Structural variant callers
