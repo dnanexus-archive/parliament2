@@ -34,7 +34,7 @@ docker build . -t parliament2
 
 There should now be a Docker image named `parliament2` on your computer.
 
-Again, you can verify the successful installation using the command `docker images`, which will list every Docker image stored locally on your machine, or by running `docker run parliament2 -h`, which will print the help string (printed in full at the bottom of this README).
+Again, you can verify the successful installation using the command `docker images`, which will list every Docker image stored locally on your machine, or by running `docker run dnanexus/parliament2 -h`, which will print the help string (printed in full at the bottom of this README).
 
 ## Running
 
