@@ -46,6 +46,8 @@ This app will output a number of files, representing the outputs of each of the 
 
 ## Additional Notes
 
+In order to take advantage of the structural variant tools used in the Parliament2 app, proper read group information is needed in the input mapping (BAM) file. Detailed format specification for Illumina BAM file can be found in <https://support.illumina.com/help/BS_App_ENR_OLH_15050961/Content/Source/Informatics/BAM-Format.htm>.
+
 Because the field of structural variation is relatively new and complex, we viewed placing a dependency on all individual tools completing successfully as a requirement for a successful run to be too strict. In other words, if one of these tools fails while the others succeed, the app will output the results of the tools that completed and will not itself fail.
 
 Breakseq2 may only be able to work when using the 1000 Genomes reference genome (hs37d5). For other reference genomes, you may not get Breakseq2 results.
