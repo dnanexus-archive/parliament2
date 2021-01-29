@@ -1,0 +1,8 @@
+{
+  "ParliamentWF.threads": "4",
+  "ParliamentWF.inputBAM": "HCC1143.bam",
+  "ParliamentWF.inputBAI": "HCC1143.bam.bai",
+  "ParliamentWF.fasta": "Homo_sapiens_assembly19.fasta",
+  "ParliamentWF.fastaFAI": "Homo_sapiens_assembly19.fasta.fai"
+}
+

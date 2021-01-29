@@ -19,6 +19,7 @@ run_genotype_candidates=${16}
 run_svviz=${17}
 svviz_only_validated_candidates=${18}
 dnanexus=${19}
+user_defined_threads=${20}
 
 check_threads(){
     breakdancer_threads=$(top -n 1 -b -d 10 | grep -c breakdancer)
@@ -87,6 +88,11 @@ export lumpy_scripts="/home/dnanexus/lumpy-sv/scripts"
 # Get extension and threads
 extn=${illumina_bam##*.}
 threads="$(nproc)"
+if [ ! -z ${user_defined_threads} ]
+then
+    threads="${user_defined_threads}"
+fi
+
 threads=$((threads - 3))
 
 echo "Set up and index BAM/CRAM"
