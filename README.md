@@ -115,9 +115,9 @@ This app will output a number of files, representing the outputs of each of the 
 
 Parliament2 is available as an app on DNAnexus at https://platform.dnanexus.com/app/parliament2 (note: a DNAnexus account is required to access this link; you can create one at https://platform.dnanexus.com/login). The documentation for the app is included both on the DNAnexus platform and in the `dx_app_code` directory of this repository. A DNAnexus account is required to access the platform.
 
-To run Parliament2 on DNAnexus, your input BAM file must be already on the DNAnexus platform. To run Parliament2 using the graphic interface, simply click the "Run" button from the app page and select your inputs. To run Parliament2 using the command-line interface, run the command `dx run parliament2 -h` and follow the guide generated. For more information on running executables on DNAnexus, see the [guide to running apps and applets](https://wiki.dnanexus.com/Command-Line-Client/Running-Apps-and-Applets).
+To run Parliament2 on DNAnexus, your input BAM file must be already on the DNAnexus platform. To run Parliament2 using the DNAnexus platform web interface, click the "Run" button from the app page and select your inputs. To run Parliament2 using the command-line interface, run the command `dx run parliament2` and follow the guide generated. For more information on running executables on DNAnexus, see the [guide to running apps and applets](https://documentation.dnanexus.com/user/running-apps-and-workflows/running-apps-and-applets).
 
-General information on using DNAnexus can be found in the [official documentation](https://wiki.dnanexus.com/Home).
+General information on using DNAnexus can be found in the [official documentation](https://documentation.dnanexus.com).
 
 ### Building Parliament2 on DNAnexus
 
@@ -129,10 +129,10 @@ To build Parliament2 on your own on DNAnexus, you will have to have built the Do
 
 For more information about using DNAnexus, see the following links:
 
-* [Tutorial for using Docker images on DNAnexus](https://wiki.dnanexus.com/Developer-Tutorials/Using-Docker-Images)
-* [Tutorial for building apps on DNAnexus](https://wiki.dnanexus.com/Developer-Tutorials/Intro-to-Building-Apps) 
+* [Tutorial for using Docker images on DNAnexus](https://documentation.dnanexus.com/developer/apps/dependency-management/using-docker-images)
+* [Tutorial for building apps on DNAnexus](https://documentation.dnanexus.com/developer/apps/intro-to-building-apps)
 
-General information on using DNAnexus can be found in the [official documentation](https://wiki.dnanexus.com/Home).
+General information on using DNAnexus can be found in the [official documentation](https://documentation.dnanexus.com).
 
 #### Modifying Parliament2 on DNAnexus
 
@@ -176,17 +176,17 @@ The svviz tool can at times consume a large amount of memory, causing the applic
 ### Tool versions
 
 #### Structural variant callers
-* Breakdancer: [v1.4.3](https://github.com/genome/breakdancer/releases/tag/v1.4.3)
-* BreakSeq2: [v2.2](http://bioinform.github.io/breakseq2/)
-* CNVnator: [v0.3.3](https://github.com/abyzovlab/CNVnator/commit/de012f2bccfd4e11e84cf685b19fc138115f2d0d)
-* Delly: [v0.7.2](https://github.com/dellytools/delly/releases/tag/v0.7.2)
-* Lumpy: [v0.2.13](https://github.com/arq5x/lumpy-sv/commit/f466f61e02680796192b055e4c084fbb23dcc692)
-* Manta: [v1.4.0](https://anaconda.org/bioconda/manta)
+* Breakdancer: [v1.4.3](https://github.com/genome/breakdancer/tree/v1.4.3)
+* BreakSeq2: [v2.2](https://github.com/bioinform/breakseq2/tree/2.2)
+* CNVnator: [v0.3.3](https://github.com/abyzovlab/CNVnator/tree/v0.3.3)
+* Delly: [v0.7.2](https://github.com/dellytools/delly/tree/v0.7.2)
+* Lumpy: [v0.2.13](https://github.com/arq5x/lumpy-sv/tree/0.2.13)
+* Manta: [v1.4.0](https://github.com/Illumina/manta/tree/v1.4.0)
 
 #### Other tools
-* SVTyper: [v0.7.0](https://github.com/hall-lab/svtyper/commit/5fc30763fd3025793ee712a563de800c010f6bea)
-* svviz: [v1.5.2](https://github.com/svviz/svviz/commit/84acefa13bf0d4ad6e7e0f1d058aed6f16681142)
-* SURVIVOR: [v1.0.3](https://github.com/fritzsedlazeck/SURVIVOR/commit/7c7731d71fa1cba017f470895fb3ef55f2812067)
+* SVTyper: [v0.7.0](https://github.com/hall-lab/svtyper/tree/v0.7.0)
+* svviz: [v1.5.2](https://github.com/svviz/svviz/tree/1.5.2)
+* SURVIVOR: [v1.0.3](https://github.com/fritzsedlazeck/SURVIVOR/tree/1.0.3)
 
 ### Additional notes
 

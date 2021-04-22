@@ -7,7 +7,7 @@
     "WGS"
   ],
   "dxapi": "1.0.0",
-  "version": "0.1.11",
+  "version": "0.1.11a",
   "inputSpec": [
     {
       "name": "illumina_bam",
@@ -263,15 +263,104 @@
     ]
   },
   "details": {
-    "upstreamUrl": "https://www.dnanexus.com/papers/Parliament_Info_Sheet.pdf",
+    "upstreamProjects":[
+      {
+        "name": "parliament2", 
+        "repoUrl": "https://github.com/dnanexus/parliament2", 
+        "version": "0.1.11", 
+        "license": "Apache-2.0", 
+        "licenseUrl": "https://github.com/dnanexus/parliament2/blob/b492db6d740f90593fac061d3301d65fe19dce61/LICENSE",
+        "author": "Samantha Zarate"
+      },
+      {
+        "name": "BreakDancer", 
+        "repoUrl": "https://github.com/genome/breakdancer",
+        "version": "v1.4.3", 
+        "license": "MIT", 
+        "licenseUrl": "https://github.com/genome/breakdancer/blob/master/build-common/LICENSE.txt",
+        "author": "Ken Chen and Xian Fan"
+      },
+      {
+        "name": "BreakSeq2",
+        "repoUrl": "https://github.com/bioinform/breakseq2/tree/master",
+        "version": "v2.2", 
+        "license": "BSD-2-Clause", 
+        "licenseUrl": "https://github.com/bioinform/breakseq2/blob/cea3f8eca9a553ee31a1501081567dd0d594f92e/LICENSE.txt",
+        "author": "Alexej Abyzov"
+      },
+      {
+        "name": "CNVnator",
+        "repoUrl": "https://github.com/abyzovlab/CNVnator",
+        "version": "v0.3.3", 
+        "license": "MIT", 
+        "licenseUrl": "https://github.com/abyzovlab/CNVnator/blob/078684552f61984ff495bc63aa721dd90d0ce32f/license.rtf",
+        "author": "Alexej Abyzov"
+      },
+      {
+        "name": "Delly2",
+        "repoUrl": "https://github.com/dellytools/delly",
+        "version": "v0.7.2", 
+        "license": "GPL-3.0-or-later", 
+        "licenseUrl": "https://github.com/dellytools/delly/blob/08063fd5df5eb1266d6ab31decd9f6ab4861b03d/LICENSE",
+        "author": "Tobias Rausch"
+      },
+      {
+        "name": "LUMPY",
+        "repoUrl": "https://github.com/arq5x/lumpy-sv",
+        "version": "v0.2.13", 
+        "license": "MIT", 
+        "licenseUrl": "https://github.com/arq5x/lumpy-sv/blob/f194e6f7bc6722b0118d80a73cd27462fd6204d6/LICENSE",
+        "author": "Ryan M Layer, Colby Chiang, Aaron R Quinlan, and Ira M Hall"
+      },
+      {
+        "name": "manta",
+        "repoUrl": "https://github.com/Illumina/manta",
+        "version": "v1.4.0", 
+        "license": "GPL-3.0-or-later",
+        "licenseUrl": "https://github.com/Illumina/manta/blob/a7eaafedd8bb67589b8ab3efa65fdc2c1caa7e79/LICENSE.txt",
+        "author": "Xiaoyu Chen"
+      },
+      {
+        "name": "SVTyper",
+        "repoUrl": "https://github.com/hall-lab/svtyper",
+        "version": "v0.7.0",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/hall-lab/svtyper/blob/5a1bb364e2ec7bb1a6ce16a9ca3d8c5d86ba0da7/LICENSE",
+        "author": "Colby Chiang"
+      },
+      {
+        "name": "svviz",
+        "repoUrl": "https://github.com/svviz/svviz",
+        "version": "1.5.2",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/svviz/svviz/blob/53efd73598ce2cba151b5c64487d58647058483a/LICENSE",
+        "author": "Colby Chiang"
+      },
+      {
+        "name": "SURVIVOR",
+        "repoUrl": "https://github.com/svviz/svviz",
+        "version": "v1.0.3",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/fritzsedlazeck/SURVIVOR/blob/542f9a1b61bd0f46f3ca49779e543af67b44cd14/LICENSE",
+        "author": "Daniel C. Jeffares and Fritz J. Sedlazeck"
+      }
+    ],
     "contactOrgs": [
       "org-dnanexus"
     ],
     "citations": [
-      "doi:10.1186/s12864-015-1479-3"
+      "doi:10.1101/424267",
+      "doi:10.1038/nmeth.1363",
+      "doi:10.1038/ncomms8256",
+      "doi:10.1101/gr.114876.110",
+      "doi:10.1093/bioinformatics/bts378",
+      "doi:10.1186/gb-2014-15-6-r84",
+      "doi:10.1093/bioinformatics/btv710",
+      "doi:10.1038/nmeth.3505",
+      "doi:bioinformatics/btv478",
+      "doi:10.1038/ncomms14061"
     ],
-    "upstreamAuthor": "Baylor College of Medicine",
-    "whatsNew": "* 0.1.11: Resolved OOM bug breaking svviz.\n* 0.1.10: Resolved bug breaking SVTyper; added Singularity functionality; modify run on DNAnexus.\n* 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
+    "whatsNew": "* 0.1.11a: Upstream software documentation update.\n* 0.1.11: Resolved OOM bug breaking svviz.\n* 0.1.10: Resolved bug breaking SVTyper; added Singularity functionality; modify run on DNAnexus.\n* 0.1.9: Add more logging functionality; resolved bug breaking SVVIZ; improved documentation; migrate to all regions; more sophisticated BAM storage management; other bug fixes.\n* 0.1.8: Add optional upload of log files; update SURVIVOR; add quality scores; improved error messaging; bug fixes.\n* 0.1.7: Update CNVnator, SVTyper; bug fixes.\n* 0.1.6: Bug fixes.\n* 0.1.5: Dockerized Parliament2.\n* 0.1.0: Adding Parliament2."
   },
   "regionalOptions": {
     "aws:us-east-1": {
